@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚽ Brasileirão 2025 — Dashboard</title>
+    <meta name="description"
+        content="Dashboard interativo com dados reais do Campeonato Brasileiro Série A 2025. Classificação, artilharia e gráficos.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-left">
+                <span class="hero-badge">🏆 Temporada {{ dados.info.temporada }}</span>
+                <h1>Brasileirão<br><span class="gradient-text">Série A</span></h1>
+                <p class="hero-subtitle">Dashboard com dados reais do Campeonato Brasileiro</p>
+            </div>
+            <div class="hero-cards">
+                <div class="hero-stat-card champion">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Campeão</span>
+                        <span class="stat-value">{{ dados.info.campeao }}</span>
+                        <span class="stat-detail">{{ dados.info.campeao_pontos | default(79) }} pontos</span>
+                    </div>
+                </div>
+                <div class="hero-stat-card scorer">
+                    <div class="stat-icon">⚽</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Artilheiro</span>
+                        <span class="stat-value">{{ dados.info.artilheiro }}</span>
+                        <span class="stat-detail">{{ dados.info.artilheiro_gols }} gols</span>
+                    </div>
+                </div>
+                <div class="hero-stat-card info">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Competição</span>
+                        <span class="stat-value">{{ dados.info.times_total }} Times</span>
+                        <span class="stat-detail">{{ dados.info.rodadas_total }} rodadas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <nav class="nav-tabs" id="navbar">
+        <div class="container nav-inner">
+            <div class="nav-pills">
+                <button class="tab-btn active" data-section="classificacao">
+                    <span class="tab-icon">📋</span> Classificação
+                </button>
+                <button class="tab-btn" data-section="artilharia">
+                    <span class="tab-icon">⚽</span> Artilharia
+                </button>
+                <button class="tab-btn" data-section="graficos">
+                    <span class="tab-icon">📊</span> Gráficos
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+
+
+        <section id="classificacao" class="section active">
+            <div class="section-header">
+                <h2>Tabela de Classificação</h2>
+                <span class="section-tag">Resultado Final</span>
+            </div>
+            <div class="table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="col-pos">#</th>
+                            <th class="col-time">Time</th>
+                            <th>P</th>
+                            <th>J</th>
+                            <th>V</th>
+                            <th>E</th>
+                            <th>D</th>
+                            <th>GP</th>
+                            <th>GC</th>
+                            <th>SG</th>
+                            <th>%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for time in dados.classificacao %}
+                        <tr class="table-row
+                            {% if time.posicao <= 6 %}zona-libertadores
+                            {% elif time.posicao <= 8 %}zona-pre-libertadores
+                            {% elif time.posicao <= 14 %}zona-sulamericana
+                            {% elif time.posicao >= 17 %}zona-rebaixamento
+                            {% endif %}
+                        ">
+                            <td class="col-pos">
+                                <span class="pos-badge
+                                    {% if time.posicao <= 6 %}lib
+                                    {% elif time.posicao <= 8 %}prelib
+                                    {% elif time.posicao <= 14 %}sula
+                                    {% elif time.posicao >= 17 %}reb
+                                    {% endif %}
+                                ">{{ time.posicao }}</span>
+                            </td>
+                            <td class="col-time">
+                                <span class="time-cor" style="background: {{ time.cor }}"></span>
+                                <div class="time-info">
+                                    <strong>{{ time.time }}</strong>
+                                    <small>{{ time.estado }}</small>
+                                </div>
+                            </td>
+                            <td class="col-pontos"><strong>{{ time.pontos }}</strong></td>
+                            <td>{{ time.jogos }}</td>
+                            <td class="col-v">{{ time.vitorias }}</td>
+                            <td>{{ time.empates }}</td>
+                            <td class="col-d">{{ time.derrotas }}</td>
+                            <td>{{ time.gols_pro }}</td>
+                            <td>{{ time.gols_contra }}</td>
+                            <td
+                                class="col-saldo {% if time.saldo > 0 %}positivo{% elif time.saldo < 0 %}negativo{% endif %}">
+                                {% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}
+                            </td>
+                            <td>{{ time.aproveitamento }}%</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="legenda">
+                <div class="legenda-item"><span class="dot lib"></span> Libertadores</div>
+                <div class="legenda-item"><span class="dot prelib"></span> Pré-Libertadores</div>
+                <div class="legenda-item"><span class="dot sula"></span> Sul-Americana</div>
+                <div class="legenda-item"><span class="dot reb"></span> Rebaixamento</div>
+            </div>
+        </section>
+
+
+        <section id="artilharia" class="section">
+            <div class="section-header">
+                <h2>Artilharia — Top 20</h2>
+                <span class="section-tag">Goleadores</span>
+            </div>
+            <div class="table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Jogador</th>
+                            <th>Time</th>
+                            <th>Posição</th>
+                            <th>Gols</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for j in dados.artilharia %}
+                        <tr>
+                            <td class="col-pos">
+                                <span class="pos-badge {% if loop.index <= 3 %}top3{% endif %}">{{ loop.index }}</span>
+                            </td>
+                            <td><strong>{{ j.jogador }}</strong></td>
+                            <td>
+                                <span class="scorer-sigla">{{ j.sigla }}</span>
+                                {{ j.time }}
+                            </td>
+                            <td><span class="scorer-position">{{ j.posicao }}</span></td>
+                            <td class="col-gols"><strong>{{ j.gols }}</strong></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <section id="graficos" class="section">
+            <div class="section-header">
+                <h2>Gráficos Interativos</h2>
+                <span class="section-tag">Visualizações</span>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>🏅 Pontuação — Top 10</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="chartPontos"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>⚽ Top 10 Artilheiros</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="chartArtilheiros"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>📈 Aproveitamento — Top 10</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="chartAproveitamento"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>⚔️ Gols Pró vs Contra</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="chartGolsComparativo"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>⚽ <strong>Brasileirão Dashboard 2025</strong> — Feito com Python + Flask</p>
+                <p class="footer-author">por <a href="https://github.com/lucassgsantos" target="_blank">Lucas Santos</a>
+                </p>
+                <p class="footer-note">Dados 100% reais da temporada 2025 do Brasileirão Série A</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const dadosClassificacao = {{ dados.classificacao | tojson }};
+        const dadosArtilharia = {{ dados.artilharia | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>
