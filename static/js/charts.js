@@ -12,16 +12,31 @@ const CORES = {
     bg: '#1a1f35',
 };
 
-Chart.defaults.color = CORES.text;
-Chart.defaults.borderColor = CORES.grid;
-Chart.defaults.font.family = "'Outfit', sans-serif";
-Chart.defaults.font.weight = 500;
+function configurarDefaults() {
+    if (typeof Chart === 'undefined') return false;
+    Chart.defaults.color = CORES.text;
+    Chart.defaults.borderColor = CORES.grid;
+    Chart.defaults.font.family = "'Outfit', sans-serif";
+    Chart.defaults.font.weight = 500;
+    return true;
+}
 
-function criarGraficoPontos() {
-    const top10 = dadosClassificacao.slice(0, 10).reverse();
-    const ctx = document.getElementById('chartPontos').getContext('2d');
+function tooltipBase() {
+    return {
+        backgroundColor: '#1e293b',
+        borderColor: 'rgba(255,255,255,0.1)',
+        borderWidth: 1,
+        padding: 12,
+        cornerRadius: 10,
+    };
+}
 
-    new Chart(ctx, {
+function criarGraficoPontos(dados) {
+    const top10 = dados.slice(0, 10).reverse();
+    const el = document.getElementById('chartPontos');
+    if (!el) return;
+
+    new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
             labels: top10.map(t => t.sigla),
@@ -45,12 +60,8 @@ function criarGraficoPontos() {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: '#1e293b',
-                    borderColor: 'rgba(255,255,255,0.1)',
-                    borderWidth: 1,
+                    ...tooltipBase(),
                     titleFont: { weight: 700 },
-                    padding: 12,
-                    cornerRadius: 10,
                     callbacks: {
                         title: (items) => top10[items[0].dataIndex].time,
                         label: (item) => `${item.raw} pontos`
@@ -65,11 +76,12 @@ function criarGraficoPontos() {
     });
 }
 
-function criarGraficoArtilheiros() {
-    const top10 = dadosArtilharia.slice(0, 10);
-    const ctx = document.getElementById('chartArtilheiros').getContext('2d');
+function criarGraficoArtilheiros(artilharia) {
+    const top10 = artilharia.slice(0, 10);
+    const el = document.getElementById('chartArtilheiros');
+    if (!el) return;
 
-    new Chart(ctx, {
+    new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
             labels: top10.map(j => j.jogador.split(' ')[0]),
@@ -92,11 +104,7 @@ function criarGraficoArtilheiros() {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: '#1e293b',
-                    borderColor: 'rgba(255,255,255,0.1)',
-                    borderWidth: 1,
-                    padding: 12,
-                    cornerRadius: 10,
+                    ...tooltipBase(),
                     callbacks: {
                         title: (items) => {
                             const j = top10[items[0].dataIndex];
@@ -114,14 +122,15 @@ function criarGraficoArtilheiros() {
     });
 }
 
-function criarGraficoAproveitamento() {
-    const dados = [...dadosClassificacao]
+function criarGraficoAproveitamento(classificacao) {
+    const dados = [...classificacao]
         .sort((a, b) => b.aproveitamento - a.aproveitamento)
         .slice(0, 10)
         .reverse();
-    const ctx = document.getElementById('chartAproveitamento').getContext('2d');
+    const el = document.getElementById('chartAproveitamento');
+    if (!el) return;
 
-    new Chart(ctx, {
+    new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
             labels: dados.map(t => t.sigla),
@@ -145,11 +154,7 @@ function criarGraficoAproveitamento() {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: '#1e293b',
-                    borderColor: 'rgba(255,255,255,0.1)',
-                    borderWidth: 1,
-                    padding: 12,
-                    cornerRadius: 10,
+                    ...tooltipBase(),
                     callbacks: {
                         title: (items) => dados[items[0].dataIndex].time,
                         label: (item) => `${item.raw}% de aproveitamento`
@@ -164,18 +169,18 @@ function criarGraficoAproveitamento() {
     });
 }
 
-function criarGraficoGolsComparativo() {
-    const dados = dadosClassificacao;
-    const ctx = document.getElementById('chartGolsComparativo').getContext('2d');
+function criarGraficoGolsComparativo(classificacao) {
+    const el = document.getElementById('chartGolsComparativo');
+    if (!el) return;
 
-    new Chart(ctx, {
+    new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
-            labels: dados.map(t => t.sigla),
+            labels: classificacao.map(t => t.sigla),
             datasets: [
                 {
-                    label: 'Gols Pró',
-                    data: dados.map(t => t.gols_pro),
+                    label: 'Gols Pro',
+                    data: classificacao.map(t => t.gols_pro),
                     backgroundColor: CORES.greenLight,
                     borderRadius: 4,
                     borderSkipped: false,
@@ -183,7 +188,7 @@ function criarGraficoGolsComparativo() {
                 },
                 {
                     label: 'Gols Contra',
-                    data: dados.map(t => t.gols_contra),
+                    data: classificacao.map(t => t.gols_contra),
                     backgroundColor: CORES.redLight,
                     borderRadius: 4,
                     borderSkipped: false,
@@ -205,13 +210,9 @@ function criarGraficoGolsComparativo() {
                     }
                 },
                 tooltip: {
-                    backgroundColor: '#1e293b',
-                    borderColor: 'rgba(255,255,255,0.1)',
-                    borderWidth: 1,
-                    padding: 12,
-                    cornerRadius: 10,
+                    ...tooltipBase(),
                     callbacks: {
-                        title: (items) => dados[items[0].dataIndex].time
+                        title: (items) => classificacao[items[0].dataIndex].time
                     }
                 }
             },
@@ -224,14 +225,18 @@ function criarGraficoGolsComparativo() {
 }
 
 function inicializarGraficos() {
+    if (!configurarDefaults()) return;
     if (typeof dadosClassificacao === 'undefined' || typeof dadosArtilharia === 'undefined') return;
     if (!Array.isArray(dadosClassificacao) || !Array.isArray(dadosArtilharia)) return;
-    if (!document.getElementById('chartPontos')) return;
 
-    criarGraficoPontos();
-    criarGraficoArtilheiros();
-    criarGraficoAproveitamento();
-    criarGraficoGolsComparativo();
+    criarGraficoPontos(dadosClassificacao);
+    criarGraficoArtilheiros(dadosArtilharia);
+    criarGraficoAproveitamento(dadosClassificacao);
+    criarGraficoGolsComparativo(dadosClassificacao);
 }
 
-document.addEventListener('DOMContentLoaded', inicializarGraficos);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inicializarGraficos);
+} else {
+    inicializarGraficos();
+}
