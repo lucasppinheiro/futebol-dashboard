@@ -51,6 +51,7 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
         "sigla",
         "estado",
         "cor",
+        "escudo",
         "jogos",
         "vitorias",
         "empates",
@@ -83,6 +84,10 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
         cor = _validar_str_nao_vazia(time, "cor", contexto)
         if not cor.startswith("#"):
             raise DadosInvalidosError(f"{contexto}: campo 'cor' deve ser hexadecimal")
+
+        escudo = time.get("escudo")
+        if not isinstance(escudo, str):
+            raise DadosInvalidosError(f"{contexto}: campo 'escudo' deve ser string")
 
         jogos = _validar_int_nao_negativo(time, "jogos", contexto)
         vitorias = _validar_int_nao_negativo(time, "vitorias", contexto)

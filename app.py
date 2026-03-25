@@ -1,10 +1,19 @@
 from flask import Flask, render_template, jsonify, request
 from typing import Any
 import json
+import logging
 import os
 import secrets
+import traceback
 
 from dados_schema import validar_dados_dashboard, DadosInvalidosError
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.environ.get("DATA_PATH", os.path.join(BASE_DIR, "data", "brasileirao.json"))
@@ -90,8 +99,25 @@ def api_atualizar():
         atualizar()
         limpar_cache()
         return jsonify({"status": "ok", "mensagem": "Dados atualizados com sucesso"})
-    except Exception:
-        return jsonify({"erro": "Falha ao atualizar dados", "codigo": "ATUALIZACAO_FALHOU"}), 500
+    except (ConnectionError, ValueError, EnvironmentError) as e:
+        logger.error("Falha ao atualizar dados: %s", e)
+        return jsonify({"erro": f"Falha ao atualizar dados: {e}", "codigo": "ATUALIZACAO_FALHOU"}), 500
+    except Exception as e:
+        logger.error("Erro inesperado ao atualizar dados: %s\n%s", e, traceback.format_exc())
+        return jsonify({"erro": "Falha inesperada ao atualizar dados", "codigo": "ATUALIZACAO_FALHOU"}), 500
+
+
+@app.route("/api/health")
+def api_health():
+    """Endpoint de health check."""
+    status = {"status": "ok", "versao": "1.0.0"}
+    try:
+        mtime = os.path.getmtime(DATA_PATH)
+        from datetime import datetime, timezone
+        status["dados_atualizados_em"] = datetime.fromtimestamp(mtime, tz=timezone.utc).isoformat()
+    except OSError:
+        status["dados_atualizados_em"] = None
+    return jsonify(status)
 
 
 @app.errorhandler(FileNotFoundError)
@@ -138,5 +164,5 @@ if __name__ == "__main__":
     host = os.environ.get("FLASK_HOST", "127.0.0.1")
     port = int(os.environ.get("FLASK_PORT", "5000"))
 
-    print(f"Futebol Dashboard rodando em http://{host}:{port}")
+    logger.info("Futebol Dashboard rodando em http://%s:%d", host, port)
     app.run(debug=debug, port=port, host=host, use_reloader=False)

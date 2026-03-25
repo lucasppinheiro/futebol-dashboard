@@ -1,8 +1,11 @@
 import json
+import logging
 import os
 from typing import Any
 
 from dados_schema import validar_dados_dashboard
+
+logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -33,26 +36,26 @@ def montar_info(
 
 def gerar_classificacao() -> list[dict[str, Any]]:
     dados_reais: list[dict[str, Any]] = [
-        {"posicao": 1,  "time": "Corinthians",          "sigla": "COR", "estado": "SP", "cor": "#000000", "jogos": 38, "vitorias": 23, "empates": 10, "derrotas": 5,  "gols_pro": 78, "gols_contra": 27},
-        {"posicao": 2,  "time": "Flamengo",             "sigla": "FLA", "estado": "RJ", "cor": "#E11D1D", "jogos": 38, "vitorias": 23, "empates": 7,  "derrotas": 8,  "gols_pro": 66, "gols_contra": 33},
-        {"posicao": 3,  "time": "Palmeiras",           "sigla": "PAL", "estado": "SP", "cor": "#006437", "jogos": 38, "vitorias": 19, "empates": 13, "derrotas": 6,  "gols_pro": 55, "gols_contra": 31},
-        {"posicao": 4,  "time": "São Paulo",            "sigla": "SAO", "estado": "SP", "cor": "#FF0000", "jogos": 38, "vitorias": 19, "empates": 13, "derrotas": 6,  "gols_pro": 63, "gols_contra": 39},
-        {"posicao": 5,  "time": "Santos",              "sigla": "SAN", "estado": "SP", "cor": "#000000", "jogos": 38, "vitorias": 18, "empates": 13, "derrotas": 7,  "gols_pro": 50, "gols_contra": 39},
-        {"posicao": 6,  "time": "Red Bull Bragantino", "sigla": "RBB", "estado": "SP", "cor": "#E30613", "jogos": 38, "vitorias": 18, "empates": 7,  "derrotas": 13, "gols_pro": 50, "gols_contra": 39},
-        {"posicao": 7,  "time": "Mirassol",           "sigla": "MIR", "estado": "SP", "cor": "#FFD700", "jogos": 38, "vitorias": 17, "empates": 12, "derrotas": 9,  "gols_pro": 58, "gols_contra": 38},
-        {"posicao": 8,  "time": "Fluminense",          "sigla": "FLU", "estado": "RJ", "cor": "#7B0023", "jogos": 38, "vitorias": 17, "empates": 9,  "derrotas": 12, "gols_pro": 50, "gols_contra": 46},
-        {"posicao": 9,  "time": "Vasco da Gama",       "sigla": "VAS", "estado": "RJ", "cor": "#000000", "jogos": 38, "vitorias": 14, "empates": 9,  "derrotas": 15, "gols_pro": 43, "gols_contra": 47},
-        {"posicao": 10, "time": "Botafogo",            "sigla": "BOT", "estado": "RJ", "cor": "#000000", "jogos": 38, "vitorias": 14, "empates": 6,  "derrotas": 18, "gols_pro": 45, "gols_contra": 57},
-        {"posicao": 11, "time": "Cruzeiro",            "sigla": "CRU", "estado": "MG", "cor": "#003DA5", "jogos": 38, "vitorias": 13, "empates": 10, "derrotas": 15, "gols_pro": 47, "gols_contra": 50},
-        {"posicao": 12, "time": "Atlético Mineiro",    "sigla": "CAM", "estado": "MG", "cor": "#000000", "jogos": 38, "vitorias": 12, "empates": 12, "derrotas": 14, "gols_pro": 43, "gols_contra": 44},
-        {"posicao": 13, "time": "Bahia",               "sigla": "BAH", "estado": "BA", "cor": "#004A99", "jogos": 38, "vitorias": 12, "empates": 11, "derrotas": 15, "gols_pro": 45, "gols_contra": 50},
-        {"posicao": 14, "time": "Vitória",             "sigla": "VIT", "estado": "BA", "cor": "#E11D1D", "jogos": 38, "vitorias": 12, "empates": 11, "derrotas": 15, "gols_pro": 42, "gols_contra": 47},
-        {"posicao": 15, "time": "Grêmio",              "sigla": "GRE", "estado": "RS", "cor": "#0080C8", "jogos": 38, "vitorias": 13, "empates": 6,  "derrotas": 19, "gols_pro": 55, "gols_contra": 60},
-        {"posicao": 16, "time": "Internacional",       "sigla": "INT", "estado": "RS", "cor": "#E30613", "jogos": 38, "vitorias": 11, "empates": 12, "derrotas": 15, "gols_pro": 35, "gols_contra": 52},
-        {"posicao": 17, "time": "Coritiba",            "sigla": "CFC", "estado": "PR", "cor": "#006633", "jogos": 38, "vitorias": 11, "empates": 11, "derrotas": 16, "gols_pro": 44, "gols_contra": 57},
-        {"posicao": 18, "time": "Athletico Paranaense","sigla": "CAP", "estado": "PR", "cor": "#E11D1D", "jogos": 38, "vitorias": 11, "empates": 10, "derrotas": 17, "gols_pro": 34, "gols_contra": 40},
-        {"posicao": 19, "time": "Chapecoense",         "sigla": "CHA", "estado": "SC", "cor": "#008000", "jogos": 38, "vitorias": 11, "empates": 10, "derrotas": 17, "gols_pro": 43, "gols_contra": 58},
-        {"posicao": 20, "time": "Clube do Remo",       "sigla": "REM", "estado": "PA", "cor": "#00008B", "jogos": 38, "vitorias": 2,  "empates": 11, "derrotas": 25, "gols_pro": 28, "gols_contra": 75},
+        {"posicao": 1,  "time": "Corinthians",          "sigla": "COR", "estado": "SP", "cor": "#000000", "escudo": "", "jogos": 38, "vitorias": 23, "empates": 10, "derrotas": 5,  "gols_pro": 78, "gols_contra": 27},
+        {"posicao": 2,  "time": "Flamengo",             "sigla": "FLA", "estado": "RJ", "cor": "#E11D1D", "escudo": "", "jogos": 38, "vitorias": 23, "empates": 7,  "derrotas": 8,  "gols_pro": 66, "gols_contra": 33},
+        {"posicao": 3,  "time": "Palmeiras",           "sigla": "PAL", "estado": "SP", "cor": "#006437", "escudo": "", "jogos": 38, "vitorias": 19, "empates": 13, "derrotas": 6,  "gols_pro": 55, "gols_contra": 31},
+        {"posicao": 4,  "time": "São Paulo",            "sigla": "SAO", "estado": "SP", "cor": "#FF0000", "escudo": "", "jogos": 38, "vitorias": 19, "empates": 13, "derrotas": 6,  "gols_pro": 63, "gols_contra": 39},
+        {"posicao": 5,  "time": "Santos",              "sigla": "SAN", "estado": "SP", "cor": "#000000", "escudo": "", "jogos": 38, "vitorias": 18, "empates": 13, "derrotas": 7,  "gols_pro": 50, "gols_contra": 39},
+        {"posicao": 6,  "time": "Red Bull Bragantino", "sigla": "RBB", "estado": "SP", "cor": "#E30613", "escudo": "", "jogos": 38, "vitorias": 18, "empates": 7,  "derrotas": 13, "gols_pro": 50, "gols_contra": 39},
+        {"posicao": 7,  "time": "Mirassol",           "sigla": "MIR", "estado": "SP", "cor": "#FFD700", "escudo": "", "jogos": 38, "vitorias": 17, "empates": 12, "derrotas": 9,  "gols_pro": 58, "gols_contra": 38},
+        {"posicao": 8,  "time": "Fluminense",          "sigla": "FLU", "estado": "RJ", "cor": "#7B0023", "escudo": "", "jogos": 38, "vitorias": 17, "empates": 9,  "derrotas": 12, "gols_pro": 50, "gols_contra": 46},
+        {"posicao": 9,  "time": "Vasco da Gama",       "sigla": "VAS", "estado": "RJ", "cor": "#000000", "escudo": "", "jogos": 38, "vitorias": 14, "empates": 9,  "derrotas": 15, "gols_pro": 43, "gols_contra": 47},
+        {"posicao": 10, "time": "Botafogo",            "sigla": "BOT", "estado": "RJ", "cor": "#000000", "escudo": "", "jogos": 38, "vitorias": 14, "empates": 6,  "derrotas": 18, "gols_pro": 45, "gols_contra": 57},
+        {"posicao": 11, "time": "Cruzeiro",            "sigla": "CRU", "estado": "MG", "cor": "#003DA5", "escudo": "", "jogos": 38, "vitorias": 13, "empates": 10, "derrotas": 15, "gols_pro": 47, "gols_contra": 50},
+        {"posicao": 12, "time": "Atlético Mineiro",    "sigla": "CAM", "estado": "MG", "cor": "#000000", "escudo": "", "jogos": 38, "vitorias": 12, "empates": 12, "derrotas": 14, "gols_pro": 43, "gols_contra": 44},
+        {"posicao": 13, "time": "Bahia",               "sigla": "BAH", "estado": "BA", "cor": "#004A99", "escudo": "", "jogos": 38, "vitorias": 12, "empates": 11, "derrotas": 15, "gols_pro": 45, "gols_contra": 50},
+        {"posicao": 14, "time": "Vitória",             "sigla": "VIT", "estado": "BA", "cor": "#E11D1D", "escudo": "", "jogos": 38, "vitorias": 12, "empates": 11, "derrotas": 15, "gols_pro": 42, "gols_contra": 47},
+        {"posicao": 15, "time": "Grêmio",              "sigla": "GRE", "estado": "RS", "cor": "#0080C8", "escudo": "", "jogos": 38, "vitorias": 13, "empates": 6,  "derrotas": 19, "gols_pro": 55, "gols_contra": 60},
+        {"posicao": 16, "time": "Internacional",       "sigla": "INT", "estado": "RS", "cor": "#E30613", "escudo": "", "jogos": 38, "vitorias": 11, "empates": 12, "derrotas": 15, "gols_pro": 35, "gols_contra": 52},
+        {"posicao": 17, "time": "Coritiba",            "sigla": "CFC", "estado": "PR", "cor": "#006633", "escudo": "", "jogos": 38, "vitorias": 11, "empates": 11, "derrotas": 16, "gols_pro": 44, "gols_contra": 57},
+        {"posicao": 18, "time": "Athletico Paranaense","sigla": "CAP", "estado": "PR", "cor": "#E11D1D", "escudo": "", "jogos": 38, "vitorias": 11, "empates": 10, "derrotas": 17, "gols_pro": 34, "gols_contra": 40},
+        {"posicao": 19, "time": "Chapecoense",         "sigla": "CHA", "estado": "SC", "cor": "#008000", "escudo": "", "jogos": 38, "vitorias": 11, "empates": 10, "derrotas": 17, "gols_pro": 43, "gols_contra": 58},
+        {"posicao": 20, "time": "Clube do Remo",       "sigla": "REM", "estado": "PA", "cor": "#00008B", "escudo": "", "jogos": 38, "vitorias": 2,  "empates": 11, "derrotas": 25, "gols_pro": 28, "gols_contra": 75},
     ]
 
     for time in dados_reais:
@@ -118,11 +121,16 @@ def gerar_dados() -> None:
         json.dump(dados, f, ensure_ascii=False, indent=2)
 
     try:
-        print(f"Dados gerados em: {OUTPUT_FILE}")
-        print(f"{len(dados['classificacao'])} times | {len(dados['artilharia'])} artilheiros")
-    except UnicodeEncodeError:
-        print(f"Dados gerados em: {OUTPUT_FILE}")
+        logger.info("Dados gerados em: %s", OUTPUT_FILE)
+        logger.info("%d times | %d artilheiros", len(dados['classificacao']), len(dados['artilharia']))
+    except Exception:
+        logger.info("Dados gerados com sucesso.")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
     gerar_dados()

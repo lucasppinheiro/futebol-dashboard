@@ -150,6 +150,7 @@ def buscar_classificacao(temporada: str = "2026") -> list[dict[str, Any]]:
             "sigla": sigla,
             "estado": _estado_de(sigla),
             "cor": _cor_padrao(sigla),
+            "escudo": team.get("crest") or "",
             "jogos": jogos,
             "vitorias": vitorias,
             "empates": empates,
