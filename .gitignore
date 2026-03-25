@@ -43,3 +43,7 @@ yarn-error.log*
 .env
 .env.local
 *.local
+
+# Skills / extensions
+superpowers-temp/
+.gemini/
