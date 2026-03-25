@@ -7,36 +7,47 @@ const CORES = {
     red: '#ef4444',
     redLight: '#f87171',
     purple: '#8b5cf6',
-    text: '#94a3b8',
-    grid: 'rgba(255, 255, 255, 0.04)',
-    bg: '#1a1f35',
 };
+
+function getCoresFromTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    return {
+        text: isDark ? '#94a3b8' : '#475569',
+        grid: isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.06)',
+        tooltipBg: isDark ? '#1e293b' : '#ffffff',
+        tooltipBorder: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+    };
+}
 
 function configurarDefaults() {
     if (typeof Chart === 'undefined') return false;
-    Chart.defaults.color = CORES.text;
-    Chart.defaults.borderColor = CORES.grid;
+    const theme = getCoresFromTheme();
+    Chart.defaults.color = theme.text;
+    Chart.defaults.borderColor = theme.grid;
     Chart.defaults.font.family = "'Outfit', sans-serif";
     Chart.defaults.font.weight = 500;
     return true;
 }
 
 function tooltipBase() {
+    const theme = getCoresFromTheme();
     return {
-        backgroundColor: '#1e293b',
-        borderColor: 'rgba(255,255,255,0.1)',
+        backgroundColor: theme.tooltipBg,
+        borderColor: theme.tooltipBorder,
         borderWidth: 1,
         padding: 12,
         cornerRadius: 10,
     };
 }
 
+const _charts = [];
+
 function criarGraficoPontos(dados) {
     const top10 = dados.slice(0, 10).reverse();
     const el = document.getElementById('chartPontos');
     if (!el) return;
 
-    new Chart(el.getContext('2d'), {
+    const chart = new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
             labels: top10.map(t => t.sigla),
@@ -69,9 +80,18 @@ function criarGraficoPontos(dados) {
                 }
             },
             scales: {
-                x: { grid: { color: CORES.grid }, ticks: { stepSize: 10 } },
+                x: { grid: { color: getCoresFromTheme().grid }, ticks: { stepSize: 10 } },
                 y: { grid: { display: false } }
             }
+        }
+    });
+    _charts.push({
+        chart, updateTheme: (theme) => {
+            chart.options.scales.x.grid.color = theme.grid;
+            chart.options.plugins.tooltip = {
+                ...tooltipBase(), titleFont: { weight: 700 },
+                callbacks: { title: (items) => top10[items[0].dataIndex].time, label: (item) => `${item.raw} pontos` }
+            };
         }
     });
 }
@@ -81,7 +101,7 @@ function criarGraficoArtilheiros(artilharia) {
     const el = document.getElementById('chartArtilheiros');
     if (!el) return;
 
-    new Chart(el.getContext('2d'), {
+    const chart = new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
             labels: top10.map(j => j.jogador.split(' ')[0]),
@@ -116,8 +136,17 @@ function criarGraficoArtilheiros(artilharia) {
             },
             scales: {
                 x: { grid: { display: false } },
-                y: { grid: { color: CORES.grid }, beginAtZero: true }
+                y: { grid: { color: getCoresFromTheme().grid }, beginAtZero: true }
             }
+        }
+    });
+    _charts.push({
+        chart, updateTheme: (theme) => {
+            chart.options.scales.y.grid.color = theme.grid;
+            chart.options.plugins.tooltip = {
+                ...tooltipBase(),
+                callbacks: { title: (items) => { const j = top10[items[0].dataIndex]; return `${j.jogador} (${j.sigla})`; }, label: (item) => `${item.raw} gols` }
+            };
         }
     });
 }
@@ -130,7 +159,7 @@ function criarGraficoAproveitamento(classificacao) {
     const el = document.getElementById('chartAproveitamento');
     if (!el) return;
 
-    new Chart(el.getContext('2d'), {
+    const chart = new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
             labels: dados.map(t => t.sigla),
@@ -162,9 +191,18 @@ function criarGraficoAproveitamento(classificacao) {
                 }
             },
             scales: {
-                x: { grid: { color: CORES.grid }, max: 100, ticks: { callback: v => v + '%' } },
+                x: { grid: { color: getCoresFromTheme().grid }, max: 100, ticks: { callback: v => v + '%' } },
                 y: { grid: { display: false } }
             }
+        }
+    });
+    _charts.push({
+        chart, updateTheme: (theme) => {
+            chart.options.scales.x.grid.color = theme.grid;
+            chart.options.plugins.tooltip = {
+                ...tooltipBase(),
+                callbacks: { title: (items) => dados[items[0].dataIndex].time, label: (item) => `${item.raw}% de aproveitamento` }
+            };
         }
     });
 }
@@ -173,7 +211,7 @@ function criarGraficoGolsComparativo(classificacao) {
     const el = document.getElementById('chartGolsComparativo');
     if (!el) return;
 
-    new Chart(el.getContext('2d'), {
+    const chart = new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
             labels: classificacao.map(t => t.sigla),
@@ -218,9 +256,28 @@ function criarGraficoGolsComparativo(classificacao) {
             },
             scales: {
                 x: { grid: { display: false }, ticks: { font: { size: 10 } } },
-                y: { grid: { color: CORES.grid }, beginAtZero: true }
+                y: { grid: { color: getCoresFromTheme().grid }, beginAtZero: true }
             }
         }
+    });
+    _charts.push({
+        chart, updateTheme: (theme) => {
+            chart.options.scales.y.grid.color = theme.grid;
+            chart.options.plugins.tooltip = {
+                ...tooltipBase(),
+                callbacks: { title: (items) => classificacao[items[0].dataIndex].time }
+            };
+        }
+    });
+}
+
+function atualizarTemaGraficos() {
+    const theme = getCoresFromTheme();
+    Chart.defaults.color = theme.text;
+    Chart.defaults.borderColor = theme.grid;
+    _charts.forEach(({ chart, updateTheme }) => {
+        updateTheme(theme);
+        chart.update('none');
     });
 }
 
@@ -233,6 +290,10 @@ function inicializarGraficos() {
     criarGraficoArtilheiros(dadosArtilharia);
     criarGraficoAproveitamento(dadosClassificacao);
     criarGraficoGolsComparativo(dadosClassificacao);
+
+
+    const observer = new MutationObserver(() => atualizarTemaGraficos());
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 }
 
 if (document.readyState === 'loading') {

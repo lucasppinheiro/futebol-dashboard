@@ -26,6 +26,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabelaBody = document.querySelector('#classificacao .data-table tbody');
     let filtroZonaAtivo = 'todas';
 
+
+    const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+
+    function salvarFavoritos() {
+        localStorage.setItem('favoritos', JSON.stringify(favoritos));
+    }
+
+    function isFavorito(sigla) {
+        return favoritos.includes(sigla);
+    }
+
+    function toggleFavorito(sigla) {
+        const idx = favoritos.indexOf(sigla);
+        if (idx >= 0) favoritos.splice(idx, 1);
+        else favoritos.push(sigla);
+        salvarFavoritos();
+    }
+
+
+    if (tabelaBody) {
+        tabelaBody.querySelectorAll('tr').forEach(row => {
+            const sigla = row.dataset.sigla;
+            if (!sigla) return;
+            const tdTime = row.querySelector('.col-time');
+            if (!tdTime) return;
+            const star = document.createElement('button');
+            star.className = 'fav-btn' + (isFavorito(sigla) ? ' active' : '');
+            star.innerHTML = isFavorito(sigla) ? '&#9733;' : '&#9734;';
+            star.setAttribute('aria-label', 'Favoritar ' + (row.dataset.time || sigla));
+            star.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleFavorito(sigla);
+                star.classList.toggle('active');
+                star.innerHTML = isFavorito(sigla) ? '&#9733;' : '&#9734;';
+                row.classList.toggle('favorito', isFavorito(sigla));
+                aplicarFiltros();
+            });
+            tdTime.insertBefore(star, tdTime.firstChild);
+            if (isFavorito(sigla)) row.classList.add('favorito');
+        });
+    }
+
     function aplicarFiltros() {
         if (!tabelaBody) return;
         const termo = (searchInput ? searchInput.value : '').toLowerCase().trim();
@@ -37,9 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const zona = row.dataset.zona || '';
 
             const matchBusca = !termo || nome.includes(termo) || sigla.includes(termo);
-            const matchZona = filtroZonaAtivo === 'todas' || zona === filtroZonaAtivo;
+            const matchZona = filtroZonaAtivo === 'todas' || filtroZonaAtivo === 'favoritos' || zona === filtroZonaAtivo;
+            const matchFav = filtroZonaAtivo !== 'favoritos' || isFavorito((row.dataset.sigla || '').toUpperCase());
 
-            row.style.display = (matchBusca && matchZona) ? '' : 'none';
+            row.style.display = (matchBusca && matchZona && matchFav) ? '' : 'none';
         });
     }
 

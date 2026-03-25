@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ time.time }} — Brasileirão 2026</title>
+    <script>
+        (function () { var s = localStorage.getItem('theme'); if (s) document.documentElement.setAttribute('data-theme', s); else if (window.matchMedia('(prefers-color-scheme:light)').matches) document.documentElement.setAttribute('data-theme', 'light'); })();
+    </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 
@@ -16,8 +20,15 @@
         <div class="container hero-content">
             <div class="hero-left">
                 <a href="/" class="back-link">&larr; Voltar ao dashboard</a>
-                <h1>{{ time.time }}</h1>
-                <p class="hero-subtitle">{{ time.estado }} &middot; {{ time.sigla }}</p>
+                <div class="hero-time-header">
+                    {% if time.escudo %}
+                    <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="hero-escudo">
+                    {% endif %}
+                    <div>
+                        <h1>{{ time.time }}</h1>
+                        <p class="hero-subtitle">{{ time.estado }} &middot; {{ time.sigla }}</p>
+                    </div>
+                </div>
             </div>
             <div class="hero-cards">
                 <div class="hero-stat-card champion">
@@ -52,10 +63,14 @@
             <div class="detail-card">
                 <h3>Desempenho</h3>
                 <div class="detail-stats">
-                    <div class="detail-stat"><span class="detail-num col-v">{{ time.vitorias }}</span><span class="detail-lbl">Vitórias</span></div>
-                    <div class="detail-stat"><span class="detail-num">{{ time.empates }}</span><span class="detail-lbl">Empates</span></div>
-                    <div class="detail-stat"><span class="detail-num col-d">{{ time.derrotas }}</span><span class="detail-lbl">Derrotas</span></div>
-                    <div class="detail-stat"><span class="detail-num">{{ time.jogos }}</span><span class="detail-lbl">Jogos</span></div>
+                    <div class="detail-stat"><span class="detail-num col-v">{{ time.vitorias }}</span><span
+                            class="detail-lbl">Vitórias</span></div>
+                    <div class="detail-stat"><span class="detail-num">{{ time.empates }}</span><span
+                            class="detail-lbl">Empates</span></div>
+                    <div class="detail-stat"><span class="detail-num col-d">{{ time.derrotas }}</span><span
+                            class="detail-lbl">Derrotas</span></div>
+                    <div class="detail-stat"><span class="detail-num">{{ time.jogos }}</span><span
+                            class="detail-lbl">Jogos</span></div>
                 </div>
             </div>
 
@@ -71,7 +86,14 @@
             <div class="table-wrapper">
                 <div class="table-card">
                     <table class="data-table">
-                        <thead><tr><th>#</th><th>Jogador</th><th>Posição</th><th>Gols</th></tr></thead>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Jogador</th>
+                                <th>Posição</th>
+                                <th>Gols</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             {% for j in artilheiros %}
                             <tr>
@@ -100,51 +122,8 @@
     <script>
         const timeData = {{ time | tojson }};
         const todosClassificacao = {{ dados.classificacao | tojson }};
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Theme persistence
-            const saved = localStorage.getItem('theme');
-            if (saved) document.documentElement.setAttribute('data-theme', saved);
-            else if (window.matchMedia('(prefers-color-scheme: light)').matches) document.documentElement.setAttribute('data-theme', 'light');
-
-            if (typeof Chart === 'undefined') return;
-            const el = document.getElementById('chartRadarTime');
-            if (!el) return;
-
-            Chart.defaults.color = '#94a3b8';
-            Chart.defaults.font.family = "'Outfit', sans-serif";
-
-            const maxPts = Math.max(...todosClassificacao.map(t => t.pontos));
-            const maxGP = Math.max(...todosClassificacao.map(t => t.gols_pro));
-            const normalize = (v, max) => Math.round((v / max) * 100);
-
-            new Chart(el.getContext('2d'), {
-                type: 'radar',
-                data: {
-                    labels: ['Pontos', 'Vitórias', 'Gols Pro', 'Aproveit.', 'Saldo+50'],
-                    datasets: [{
-                        label: timeData.time,
-                        data: [
-                            normalize(timeData.pontos, maxPts),
-                            normalize(timeData.vitorias, 38),
-                            normalize(timeData.gols_pro, maxGP),
-                            timeData.aproveitamento,
-                            Math.max(0, timeData.saldo + 50)
-                        ],
-                        borderColor: timeData.cor || '#3b82f6',
-                        backgroundColor: 'rgba(59,130,246,0.15)',
-                        pointRadius: 4,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: { r: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.06)' }, pointLabels: { color: '#94a3b8' }, ticks: { display: false } } },
-                    plugins: { legend: { display: false } }
-                }
-            });
-        });
     </script>
+    <script src="{{ url_for('static', filename='js/time.js') }}"></script>
 </body>
 
 </html>
