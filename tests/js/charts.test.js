@@ -18,14 +18,14 @@ function criarDOM(opcoes = {}) {
     }
 
     const classificacao = [
-        { posicao: 1, time: "Flamengo", sigla: "FLA", pontos: 79, aproveitamento: 69.3, gols_pro: 78, gols_contra: 27 },
-        { posicao: 2, time: "Palmeiras", sigla: "PAL", pontos: 76, aproveitamento: 66.7, gols_pro: 66, gols_contra: 33 },
-        { posicao: 3, time: "Cruzeiro", sigla: "CRU", pontos: 70, aproveitamento: 61.4, gols_pro: 55, gols_contra: 31 },
+        { posicao: 1, time: 'Flamengo', sigla: 'FLA', pontos: 79, aproveitamento: 69.3, gols_pro: 78, gols_contra: 27 },
+        { posicao: 2, time: 'Palmeiras', sigla: 'PAL', pontos: 76, aproveitamento: 66.7, gols_pro: 66, gols_contra: 33 },
+        { posicao: 3, time: 'Cruzeiro', sigla: 'CRU', pontos: 70, aproveitamento: 61.4, gols_pro: 55, gols_contra: 31 },
     ];
 
     const artilharia = [
-        { jogador: "Kaio Jorge", time: "Cruzeiro", sigla: "CRU", gols: 21 },
-        { jogador: "Arrascaeta", time: "Flamengo", sigla: "FLA", gols: 18 },
+        { jogador: 'Kaio Jorge', time: 'Cruzeiro', sigla: 'CRU', gols: 21 },
+        { jogador: 'Arrascaeta', time: 'Flamengo', sigla: 'FLA', gols: 18 },
     ];
 
     const vc = new VirtualConsole();
@@ -38,8 +38,8 @@ function criarDOM(opcoes = {}) {
     });
 
     if (comCanvas) {
-        dom.window.document.querySelectorAll('canvas').forEach(c => {
-            c.getContext = () => ({});
+        dom.window.document.querySelectorAll('canvas').forEach((canvas) => {
+            canvas.getContext = () => ({});
         });
     }
 
@@ -52,27 +52,46 @@ function criarDOM(opcoes = {}) {
         dom.window.eval(`
             var Chart = function(ctx, config) {
                 Chart._instances = Chart._instances || [];
-                Chart._instances.push({ ctx, config });
+                const instance = {
+                    ctx,
+                    config,
+                    data: config.data,
+                    options: config.options,
+                    update: function() {},
+                    destroy: function() {}
+                };
+                Chart._instances.push(instance);
+                return instance;
             };
             Chart.defaults = { color: '', borderColor: '', font: { family: '', weight: 0 } };
         `);
     }
 
     dom.window.eval(chartsJs);
-
-    // charts.js tenta auto-inicializar; como o DOM já completou o load,
-    // o else-branch do readyState chama inicializarGraficos() imediatamente.
-    // Se por timing não rodou, chamamos explicitamente.
-    if (comChart && dom.window.Chart && (!dom.window.Chart._instances || dom.window.Chart._instances.length === 0)) {
-        dom.window.eval('inicializarGraficos()');
-    }
-
     return dom;
 }
 
-describe('Inicializacao de graficos', () => {
-    test('cria 4 graficos quando tudo esta presente', () => {
+describe('Inicializacao de graficos sob demanda', () => {
+    test('nao cria graficos automaticamente ao carregar o script', () => {
         const dom = criarDOM();
+        expect(dom.window.Chart._instances || []).toHaveLength(0);
+        expect(dom.window.dashboardCharts.isInitialized()).toBe(false);
+        dom.window.close();
+    });
+
+    test('cria 4 graficos quando init e chamado', () => {
+        const dom = criarDOM();
+        dom.window.dashboardCharts.init();
+        const instancias = dom.window.Chart._instances || [];
+        expect(instancias).toHaveLength(4);
+        expect(dom.window.dashboardCharts.isInitialized()).toBe(true);
+        dom.window.close();
+    });
+
+    test('nao duplica graficos ao chamar init duas vezes', () => {
+        const dom = criarDOM();
+        dom.window.dashboardCharts.init();
+        dom.window.dashboardCharts.init();
         const instancias = dom.window.Chart._instances || [];
         expect(instancias).toHaveLength(4);
         dom.window.close();
@@ -81,6 +100,7 @@ describe('Inicializacao de graficos', () => {
     test('nao quebra sem Chart definido', () => {
         expect(() => {
             const dom = criarDOM({ comChart: false });
+            dom.window.dashboardCharts.init();
             dom.window.close();
         }).not.toThrow();
     });
@@ -88,6 +108,7 @@ describe('Inicializacao de graficos', () => {
     test('nao quebra sem dados globais', () => {
         expect(() => {
             const dom = criarDOM({ comDados: false });
+            dom.window.dashboardCharts.init();
             dom.window.close();
         }).not.toThrow();
     });
@@ -95,21 +116,14 @@ describe('Inicializacao de graficos', () => {
     test('nao quebra sem canvas no DOM', () => {
         expect(() => {
             const dom = criarDOM({ comCanvas: false });
+            dom.window.dashboardCharts.init();
             dom.window.close();
         }).not.toThrow();
     });
 
-    test('nao quebra com dados vazios', () => {
-        const dom = criarDOM({ comDados: false, comChart: true });
-        dom.window.eval('var dadosClassificacao = []; var dadosArtilharia = [];');
-        expect(() => {
-            dom.window.eval('inicializarGraficos()');
-        }).not.toThrow();
-        dom.window.close();
-    });
-
     test('tipo do grafico de pontos e bar horizontal', () => {
         const dom = criarDOM();
+        dom.window.dashboardCharts.init();
         const instancias = dom.window.Chart._instances;
         const pontosChart = instancias[0];
         expect(pontosChart.config.type).toBe('bar');

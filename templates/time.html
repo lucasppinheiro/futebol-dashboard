@@ -4,100 +4,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ time.time }} — Brasileirão 2026</title>
+    <title>{{ time.time }} | Brasileirão 2026</title>
+    <meta name="description" content="Página de detalhe do {{ time.time }} no Brasileirão 2026.">
     <script>
-        (function () { var s = localStorage.getItem('theme'); if (s) document.documentElement.setAttribute('data-theme', s); else if (window.matchMedia('(prefers-color-scheme:light)').matches) document.documentElement.setAttribute('data-theme', 'light'); })();
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
     </script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <header class="hero hero-mini">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <div class="hero-left">
-                <a href="/" class="back-link">&larr; Voltar ao dashboard</a>
+        <div class="hero-orbit hero-orbit-a" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit-b" aria-hidden="true"></div>
+        <div class="container hero-grid hero-grid-team">
+            <div class="hero-copy">
+                <a href="/" class="back-link">← Voltar ao dashboard</a>
+                <span class="hero-kicker">{{ time.estado }} · {{ time.sigla }}</span>
                 <div class="hero-time-header">
                     {% if time.escudo %}
                     <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="hero-escudo">
                     {% endif %}
                     <div>
                         <h1>{{ time.time }}</h1>
-                        <p class="hero-subtitle">{{ time.estado }} &middot; {{ time.sigla }}</p>
+                        <p class="hero-subtitle">Raio-x do clube na Série A 2026, com foco em campanha, saldo e produção ofensiva.</p>
                     </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="/#classificacao" class="hero-action primary">Voltar à tabela</a>
+                    <a href="#time-radar" class="hero-action secondary">Ver radar</a>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Mudar para modo claro" title="Alternar tema">
+                        <span class="theme-icon-dark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z" />
+                            </svg>
+                        </span>
+                        <span class="theme-icon-light" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                                <path d="m4.93 4.93 1.41 1.41" />
+                                <path d="m17.66 17.66 1.41 1.41" />
+                                <path d="M2 12h2" />
+                                <path d="M20 12h2" />
+                                <path d="m6.34 17.66-1.41 1.41" />
+                                <path d="m19.07 4.93-1.41 1.41" />
+                            </svg>
+                        </span>
+                    </button>
                 </div>
             </div>
-            <div class="hero-cards">
-                <div class="hero-stat-card champion">
-                    <div class="stat-icon" aria-hidden="true">&#127937;</div>
-                    <div class="stat-info">
-                        <span class="stat-label">Posição</span>
-                        <span class="stat-value">{{ time.posicao }}º</span>
+
+            <aside class="hero-panel" aria-label="Resumo do clube">
+                <div class="hero-panel-head">
+                    <span class="panel-label">Resumo do clube</span>
+                    <strong>{{ time.posicao }}º lugar</strong>
+                </div>
+                <p class="hero-panel-copy">
+                    {{ time.time }} soma {{ time.pontos }} pontos, com {{ time.vitorias }} vitórias e
+                    {{ time.aproveitamento }}% de aproveitamento na temporada.
+                </p>
+                <div class="podium-list">
+                    <div class="podium-item">
+                        <span class="podium-rank">P</span>
+                        <div class="podium-team">
+                            <strong>Pontos</strong>
+                            <span>campanha acumulada</span>
+                        </div>
+                        <span class="podium-points" data-count="{{ time.pontos }}">{{ time.pontos }}</span>
+                    </div>
+                    <div class="podium-item">
+                        <span class="podium-rank">SG</span>
+                        <div class="podium-team">
+                            <strong>Saldo</strong>
+                            <span>gols pró vs. contra</span>
+                        </div>
+                        <span class="podium-points">{% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}</span>
+                    </div>
+                    <div class="podium-item">
+                        <span class="podium-rank">%</span>
+                        <div class="podium-team">
+                            <strong>Aproveitamento</strong>
+                            <span>eficiência na tabela</span>
+                        </div>
+                        <span class="podium-points" data-count="{{ time.aproveitamento }}">{{ time.aproveitamento }}%</span>
                     </div>
                 </div>
-                <div class="hero-stat-card scorer">
-                    <div class="stat-icon" aria-hidden="true">&#9917;</div>
-                    <div class="stat-info">
-                        <span class="stat-label">Pontos</span>
-                        <span class="stat-value">{{ time.pontos }}</span>
-                        <span class="stat-detail">{{ time.aproveitamento }}% aprov.</span>
-                    </div>
-                </div>
-                <div class="hero-stat-card info">
-                    <div class="stat-icon" aria-hidden="true">&#128202;</div>
-                    <div class="stat-info">
-                        <span class="stat-label">Saldo</span>
-                        <span class="stat-value">{% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}</span>
-                        <span class="stat-detail">{{ time.gols_pro }} GP / {{ time.gols_contra }} GC</span>
-                    </div>
-                </div>
-            </div>
+            </aside>
         </div>
     </header>
 
-    <main class="container main-content">
-        <div class="detail-grid">
-            <div class="detail-card">
-                <h3>Desempenho</h3>
-                <div class="detail-stats">
-                    <div class="detail-stat"><span class="detail-num col-v">{{ time.vitorias }}</span><span
-                            class="detail-lbl">Vitórias</span></div>
-                    <div class="detail-stat"><span class="detail-num">{{ time.empates }}</span><span
-                            class="detail-lbl">Empates</span></div>
-                    <div class="detail-stat"><span class="detail-num col-d">{{ time.derrotas }}</span><span
-                            class="detail-lbl">Derrotas</span></div>
-                    <div class="detail-stat"><span class="detail-num">{{ time.jogos }}</span><span
-                            class="detail-lbl">Jogos</span></div>
-                </div>
+    <main id="main-content" class="container main-content">
+        <section class="overview-band" aria-label="Panorama do clube">
+            <div class="overview-grid detail-overview">
+                <article class="overview-card">
+                    <span class="overview-eyebrow">Vitórias</span>
+                    <strong class="overview-value" data-count="{{ time.vitorias }}">{{ time.vitorias }}</strong>
+                    <p class="overview-note">Jogos em que o clube converteu domínio em três pontos.</p>
+                </article>
+                <article class="overview-card">
+                    <span class="overview-eyebrow">Empates</span>
+                    <strong class="overview-value" data-count="{{ time.empates }}">{{ time.empates }}</strong>
+                    <p class="overview-note">Partidas equilibradas que ainda mantiveram pontuação.</p>
+                </article>
+                <article class="overview-card">
+                    <span class="overview-eyebrow">Derrotas</span>
+                    <strong class="overview-value" data-count="{{ time.derrotas }}">{{ time.derrotas }}</strong>
+                    <p class="overview-note">Jogos em que a equipe saiu em desvantagem.</p>
+                </article>
+                <article class="overview-card">
+                    <span class="overview-eyebrow">Jogos</span>
+                    <strong class="overview-value" data-count="{{ time.jogos }}">{{ time.jogos }}</strong>
+                    <p class="overview-note">Amostra total usada para medir consistência e rendimento.</p>
+                </article>
             </div>
+        </section>
 
-            <div class="detail-card">
-                <h3>Radar</h3>
-                <canvas id="chartRadarTime" style="max-height:280px"></canvas>
-            </div>
+        <div class="detail-grid" id="time-radar">
+            <article class="detail-card">
+                <div class="section-copy section-copy-compact">
+                    <span class="section-kicker">Campanha</span>
+                    <h2>Desempenho consolidado</h2>
+                    <p>Resumo rápido para leitura esportiva da temporada do clube.</p>
+                </div>
+                <div class="detail-stats">
+                    <div class="detail-stat">
+                        <span class="detail-num">{{ time.posicao }}º</span>
+                        <span class="detail-lbl">Posição</span>
+                    </div>
+                    <div class="detail-stat">
+                        <span class="detail-num">{{ time.pontos }}</span>
+                        <span class="detail-lbl">Pontos</span>
+                    </div>
+                    <div class="detail-stat">
+                        <span class="detail-num">{{ time.gols_pro }}</span>
+                        <span class="detail-lbl">Gols pró</span>
+                    </div>
+                    <div class="detail-stat">
+                        <span class="detail-num">{{ time.gols_contra }}</span>
+                        <span class="detail-lbl">Gols contra</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="detail-card">
+                <div class="section-copy section-copy-compact">
+                    <span class="section-kicker">Perfil</span>
+                    <h2>Radar de desempenho</h2>
+                    <p>Comparação normalizada da campanha do clube dentro da competição.</p>
+                </div>
+                <div class="chart-body chart-body-detail">
+                    <canvas id="chartRadarTime" aria-label="Radar de desempenho do clube"></canvas>
+                </div>
+            </article>
         </div>
 
         {% if artilheiros %}
-        <div class="detail-card" style="margin-top:20px">
-            <h3>Artilheiros do {{ time.time }}</h3>
+        <section class="detail-card detail-table-card" id="artilheiros-time">
+            <div class="section-copy section-copy-compact">
+                <span class="section-kicker">Produção ofensiva</span>
+                <h2>Artilheiros do {{ time.time }}</h2>
+                <p>Os jogadores que mais contribuíram com gols para a campanha do clube.</p>
+            </div>
             <div class="table-wrapper">
                 <div class="table-card">
                     <table class="data-table">
+                        <caption class="visually-hidden">Lista de artilheiros do {{ time.time }} na temporada.</caption>
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Jogador</th>
-                                <th>Posição</th>
-                                <th>Gols</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Jogador</th>
+                                <th scope="col">Posição</th>
+                                <th scope="col">Gols</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for j in artilheiros %}
                             <tr>
-                                <td>{{ loop.index }}</td>
+                                <td class="col-pos">
+                                    <span class="pos-badge {% if loop.index <= 3 %}top3{% endif %}">{{ loop.index }}</span>
+                                </td>
                                 <td><strong>{{ j.jogador }}</strong></td>
                                 <td><span class="scorer-position">{{ j.posicao }}</span></td>
                                 <td class="col-gols"><strong>{{ j.gols }}</strong></td>
@@ -107,15 +207,13 @@
                     </table>
                 </div>
             </div>
-        </div>
+        </section>
         {% endif %}
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p><strong>Brasileirão Dashboard 2026</strong> — <a href="/">Voltar</a></p>
-            </div>
+        <div class="container footer-content">
+            <p><strong>Brasileirão Dashboard 2026</strong> · <a href="/">Voltar ao painel principal</a></p>
         </div>
     </footer>
 
@@ -123,6 +221,7 @@
         const timeData = {{ time | tojson }};
         const todosClassificacao = {{ dados.classificacao | tojson }};
     </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="{{ url_for('static', filename='js/time.js') }}"></script>
 </body>
 

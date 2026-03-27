@@ -4,58 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brasileirão 2026 — Dashboard</title>
+    <title>Brasileirão 2026 | Dashboard Editorial</title>
     <meta name="description"
-        content="Dashboard interativo com dados reais do Campeonato Brasileiro Série A 2026. Classificação, artilharia e gráficos.">
+        content="Dashboard interativo do Campeonato Brasileiro Série A 2026 com classificação, artilharia, comparativos e gráficos temáticos.">
     <script>
-        (function () { var s = localStorage.getItem('theme'); if (s) document.documentElement.setAttribute('data-theme', s); else if (window.matchMedia('(prefers-color-scheme:light)').matches) document.documentElement.setAttribute('data-theme', 'light'); })();
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
     </script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    {% set top4_cut = dados.classificacao[3] if dados.classificacao|length > 3 else none %}
+    {% set risk_cut = dados.classificacao[16] if dados.classificacao|length > 16 else none %}
+    {% set melhor_ataque = (dados.classificacao | sort(attribute='gols_pro', reverse=true) | first) %}
+    {% set melhor_defesa = (dados.classificacao | sort(attribute='gols_contra') | first) %}
 
     <header class="hero">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <div class="hero-left">
-                <span class="hero-badge">Temporada {{ dados.info.temporada }}</span>
-                <h1>Brasileirão<br><span class="gradient-text">Série A</span></h1>
-                <p class="hero-subtitle">Dashboard com dados reais do Campeonato Brasileiro</p>
+        <div class="hero-orbit hero-orbit-a" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit-b" aria-hidden="true"></div>
+        <div class="container hero-grid">
+            <div class="hero-copy">
+                <span class="hero-kicker">Temporada {{ dados.info.temporada }} · leitura rápida da Série A</span>
+                <h1>Radar do <span class="gradient-text">Brasileirão</span></h1>
+                <p class="hero-subtitle">
+                    Um painel mais direto para acompanhar o recorte da temporada: tabela, artilharia, comparativos
+                    e gráficos com leitura visual mais clara.
+                </p>
+                <div class="hero-actions">
+                    <a href="#classificacao" class="hero-action primary">Ver tabela</a>
+                    <a href="#graficos" class="hero-action secondary">Explorar gráficos</a>
+                </div>
+                <div class="hero-meta-grid">
+                    <article class="hero-stat-card">
+                        <div class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 4h8v3a4 4 0 0 1-8 0z" />
+                                <path d="M6 5H4v1a3 3 0 0 0 3 3" />
+                                <path d="M18 5h2v1a3 3 0 0 1-3 3" />
+                                <path d="M12 11v4" />
+                                <path d="M9 21h6" />
+                                <path d="M10 17h4" />
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">{{ 'Campeão' if dados.info.get('campeonato_finalizado') else 'Líder atual' }}</span>
+                            <span class="stat-value">{{ dados.info.lider }}</span>
+                            <span class="stat-detail" data-count="{{ dados.info.lider_pontos }}">{{ dados.info.lider_pontos }} pontos</span>
+                        </div>
+                    </article>
+                    <article class="hero-stat-card">
+                        <div class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="8" />
+                                <path d="m12 7 2.5 1.8-.95 3H9.45L8.5 8.8z" />
+                                <path d="m9.4 15-1.7 2.1" />
+                                <path d="m14.6 15 1.7 2.1" />
+                                <path d="m7.8 9.5-2.2-.7" />
+                                <path d="m18.4 8.8-2.2.7" />
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Artilheiro</span>
+                            <span class="stat-value">{{ dados.info.artilheiro }}</span>
+                            <span class="stat-detail" data-count="{{ dados.info.artilheiro_gols }}">{{ dados.info.artilheiro_gols }} gols</span>
+                        </div>
+                    </article>
+                    <article class="hero-stat-card">
+                        <div class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="4" y="5" width="16" height="15" rx="2" />
+                                <path d="M8 3v4" />
+                                <path d="M16 3v4" />
+                                <path d="M4 10h16" />
+                                <path d="M8 14h3" />
+                                <path d="M13 14h3" />
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Recorte da disputa</span>
+                            <span class="stat-value">{{ dados.info.rodada_atual }}/{{ dados.info.rodadas_total }}</span>
+                            <span class="stat-detail">{{ dados.info.times_total }} clubes no radar</span>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="hero-cards">
-                <div class="hero-stat-card champion">
-                    <div class="stat-icon" aria-hidden="true">&#127942;</div>
-                    <div class="stat-info">
-                        <span class="stat-label">{{ 'Campeão' if dados.info.get('campeonato_finalizado') else 'Líder
-                            Atual' }}</span>
-                        <span class="stat-value">{{ dados.info.lider }}</span>
-                        <span class="stat-detail" data-count="{{ dados.info.lider_pontos }}">{{ dados.info.lider_pontos
-                            }} pontos</span>
-                    </div>
+
+            <aside class="hero-panel" aria-label="Pulso da competição">
+                <div class="hero-panel-head">
+                    <span class="panel-label">Pulso da competição</span>
+                    <strong>{{ 'Temporada encerrada' if dados.info.get('campeonato_finalizado') else 'Disputa em aberto' }}</strong>
                 </div>
-                <div class="hero-stat-card scorer">
-                    <div class="stat-icon" aria-hidden="true">&#9917;</div>
-                    <div class="stat-info">
-                        <span class="stat-label">Artilheiro</span>
-                        <span class="stat-value">{{ dados.info.artilheiro }}</span>
-                        <span class="stat-detail" data-count="{{ dados.info.artilheiro_gols }}">{{
-                            dados.info.artilheiro_gols }} gols</span>
-                    </div>
+                <p class="hero-panel-copy">
+                    {{ dados.info.lider }} dita o ritmo da temporada enquanto a artilharia segue liderada por
+                    {{ dados.info.artilheiro }}. Use os cortes abaixo para navegar mais rápido pelo cenário.
+                </p>
+                <div class="podium-list">
+                    {% for time in dados.classificacao[:3] %}
+                    <a href="/time/{{ time.sigla }}" class="podium-item">
+                        <span class="podium-rank">0{{ loop.index }}</span>
+                        <div class="podium-team">
+                            <strong>{{ time.time }}</strong>
+                            <span>{{ time.sigla }} · {{ time.vitorias }} vitórias</span>
+                        </div>
+                        <span class="podium-points">{{ time.pontos }} pts</span>
+                    </a>
+                    {% endfor %}
                 </div>
-                <div class="hero-stat-card info">
-                    <div class="stat-icon" aria-hidden="true">&#128202;</div>
-                    <div class="stat-info">
-                        <span class="stat-label">Competição</span>
-                        <span class="stat-value" data-count="{{ dados.info.times_total }}">{{ dados.info.times_total }}
-                            Times</span>
-                        <span class="stat-detail">{{ dados.info.rodadas_total }} rodadas</span>
-                    </div>
+                <div class="hero-panel-foot">
+                    <span>{{ dados.info.rodadas_total }} rodadas previstas</span>
+                    <span>{{ dados.info.times_total }} clubes na elite</span>
                 </div>
-            </div>
+            </aside>
         </div>
     </header>
 
@@ -64,64 +137,166 @@
             <div class="nav-pills" role="tablist">
                 <button class="tab-btn active" data-section="classificacao" role="tab" aria-selected="true"
                     aria-controls="classificacao" id="tab-classificacao">
-                    <span class="tab-icon" aria-hidden="true">&#128203;</span> Classificação
+                    <span class="tab-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="4" y="5" width="16" height="14" rx="2" />
+                            <path d="M8 9h8M8 13h8M8 17h5" />
+                        </svg>
+                    </span>
+                    Classificação
                 </button>
                 <button class="tab-btn" data-section="artilharia" role="tab" aria-selected="false"
                     aria-controls="artilharia" id="tab-artilharia">
-                    <span class="tab-icon" aria-hidden="true">&#9917;</span> Artilharia
+                    <span class="tab-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="8" />
+                            <path d="m12 7 2.6 1.9-1 3.1h-3.2l-1-3.1z" />
+                            <path d="m9.4 15-1.7 2.1" />
+                            <path d="m14.6 15 1.7 2.1" />
+                            <path d="m7.8 9.5-2.3-.6" />
+                            <path d="m18.5 8.9-2.3.6" />
+                        </svg>
+                    </span>
+                    Artilharia
                 </button>
                 <button class="tab-btn" data-section="graficos" role="tab" aria-selected="false"
                     aria-controls="graficos" id="tab-graficos">
-                    <span class="tab-icon" aria-hidden="true">&#128202;</span> Gráficos
+                    <span class="tab-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 19V10" />
+                            <path d="M12 19V5" />
+                            <path d="M19 19v-7" />
+                        </svg>
+                    </span>
+                    Gráficos
                 </button>
                 <button class="tab-btn" data-section="comparador" role="tab" aria-selected="false"
                     aria-controls="comparador" id="tab-comparador">
-                    <span class="tab-icon" aria-hidden="true">&#9878;</span> Comparador
+                    <span class="tab-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 7h10" />
+                            <path d="M7 17h10" />
+                            <path d="M9 5L7 7l2 2" />
+                            <path d="M15 15l2 2-2 2" />
+                        </svg>
+                    </span>
+                    Comparador
                 </button>
             </div>
             <button class="theme-toggle" id="theme-toggle" aria-label="Mudar para modo claro" title="Alternar tema">
-                <span class="theme-icon-dark">&#9790;</span>
-                <span class="theme-icon-light">&#9728;</span>
+                <span class="theme-icon-dark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z" />
+                    </svg>
+                </span>
+                <span class="theme-icon-light" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2" />
+                        <path d="M12 20v2" />
+                        <path d="m4.93 4.93 1.41 1.41" />
+                        <path d="m17.66 17.66 1.41 1.41" />
+                        <path d="M2 12h2" />
+                        <path d="M20 12h2" />
+                        <path d="m6.34 17.66-1.41 1.41" />
+                        <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                </span>
             </button>
         </div>
     </nav>
 
-    <main class="container main-content">
+    <main id="main-content" class="container main-content">
+        <section class="overview-band" aria-label="Panorama rápido">
+            <div class="overview-grid">
+                <article class="overview-card">
+                    <span class="overview-eyebrow">Corte G4</span>
+                    {% if top4_cut %}
+                    <strong class="overview-value" data-count="{{ top4_cut.pontos }}">{{ top4_cut.pontos }} pts</strong>
+                    <p class="overview-note">{{ top4_cut.time }} fecha hoje a zona direta de Libertadores.</p>
+                    {% else %}
+                    <strong class="overview-value">-</strong>
+                    <p class="overview-note">Dados insuficientes para determinar o corte.</p>
+                    {% endif %}
+                </article>
+                <article class="overview-card">
+                    <span class="overview-eyebrow">Linha do Z4</span>
+                    {% if risk_cut %}
+                    <strong class="overview-value" data-count="{{ risk_cut.pontos }}">{{ risk_cut.pontos }} pts</strong>
+                    <p class="overview-note">{{ risk_cut.time }} abre hoje a zona de rebaixamento.</p>
+                    {% else %}
+                    <strong class="overview-value">-</strong>
+                    <p class="overview-note">Dados insuficientes para definir a zona de risco.</p>
+                    {% endif %}
+                </article>
+                <article class="overview-card">
+                    <span class="overview-eyebrow">Melhor ataque</span>
+                    <strong class="overview-value" data-count="{{ melhor_ataque.gols_pro }}">{{ melhor_ataque.gols_pro }} gols</strong>
+                    <p class="overview-note">{{ melhor_ataque.time }} é o time com maior produção ofensiva.</p>
+                </article>
+                <article class="overview-card">
+                    <span class="overview-eyebrow">Melhor defesa</span>
+                    <strong class="overview-value" data-count="{{ melhor_defesa.gols_contra }}">{{ melhor_defesa.gols_contra }} sofridos</strong>
+                    <p class="overview-note">{{ melhor_defesa.time }} tem a retaguarda mais sólida até aqui.</p>
+                </article>
+            </div>
+        </section>
 
         <section id="classificacao" class="section active" role="tabpanel" aria-labelledby="tab-classificacao">
             <div class="section-header">
-                <h2>Tabela de Classificação</h2>
-                <span class="section-tag">{{ 'Resultado Final' if dados.info.get('campeonato_finalizado') else 'Rodada '
-                    + (dados.info.rodada_atual | string) + '/' + (dados.info.rodadas_total | string) }}</span>
+                <div class="section-copy">
+                    <span class="section-kicker">Panorama Geral</span>
+                    <h2>Tabela de classificação</h2>
+                    <p>Busque clubes, filtre por faixas da tabela e ordene as colunas para construir sua leitura da rodada.</p>
+                </div>
+                <span class="section-tag">
+                    {{ 'Resultado final' if dados.info.get('campeonato_finalizado') else 'Rodada ' + (dados.info.rodada_atual | string) + '/' + (dados.info.rodadas_total | string) }}
+                </span>
             </div>
 
-            <div class="table-controls">
-                <input type="text" id="search-classificacao" class="search-input" placeholder="Buscar time...">
-                <div class="filter-group">
-                    <button class="filter-btn active" data-zona="todas">Todas</button>
-                    <button class="filter-btn" data-zona="libertadores">Libertadores</button>
-                    <button class="filter-btn" data-zona="pre-libertadores">Pré-Lib</button>
-                    <button class="filter-btn" data-zona="sulamericana">Sula</button>
-                    <button class="filter-btn" data-zona="rebaixamento">Rebaixamento</button>
-                    <button class="filter-btn" data-zona="favoritos">⭐ Favoritos</button>
+            <div class="panel-shell">
+                <div class="table-controls">
+                    <label class="search-wrap" for="search-classificacao">
+                        <span class="search-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="6"></circle>
+                                <path d="m20 20-3.5-3.5"></path>
+                            </svg>
+                        </span>
+                        <input type="search" id="search-classificacao" class="search-input"
+                            placeholder="Buscar time ou sigla..." aria-label="Buscar clube na classificação">
+                    </label>
+                    <div class="table-meta">
+                        <span id="classificacao-count" class="table-count" aria-live="polite">{{ dados.classificacao|length }} clubes exibidos</span>
+                        <span class="table-hint">Clique nos títulos para ordenar</span>
+                    </div>
+                    <div class="filter-group" role="group" aria-label="Filtrar clubes por zona">
+                        <button class="filter-btn active" data-zona="todas">Todas</button>
+                        <button class="filter-btn" data-zona="libertadores">Libertadores</button>
+                        <button class="filter-btn" data-zona="pre-libertadores">Pré-Lib</button>
+                        <button class="filter-btn" data-zona="sulamericana">Sula</button>
+                        <button class="filter-btn" data-zona="rebaixamento">Rebaixamento</button>
+                        <button class="filter-btn" data-zona="favoritos">Favoritos</button>
+                    </div>
                 </div>
 
                 <div class="table-wrapper">
                     <div class="table-card">
                         <table class="data-table" id="tabela-classificacao">
+                            <caption class="visually-hidden">Tabela completa de classificação do Campeonato Brasileiro Série A 2026.</caption>
                             <thead>
                                 <tr>
-                                    <th class="col-pos" data-sort="posicao">#</th>
-                                    <th class="col-time" data-sort="time">Time</th>
-                                    <th data-sort="pontos">P</th>
-                                    <th data-sort="jogos">J</th>
-                                    <th data-sort="vitorias">V</th>
-                                    <th data-sort="empates">E</th>
-                                    <th data-sort="derrotas">D</th>
-                                    <th data-sort="gols_pro">GP</th>
-                                    <th data-sort="gols_contra">GC</th>
-                                    <th data-sort="saldo">SG</th>
-                                    <th data-sort="aproveitamento">%</th>
+                                    <th scope="col" class="col-pos" data-sort="posicao">#</th>
+                                    <th scope="col" class="col-time" data-sort="time">Time</th>
+                                    <th scope="col" data-sort="pontos">P</th>
+                                    <th scope="col" data-sort="jogos">J</th>
+                                    <th scope="col" data-sort="vitorias">V</th>
+                                    <th scope="col" data-sort="empates">E</th>
+                                    <th scope="col" data-sort="derrotas">D</th>
+                                    <th scope="col" data-sort="gols_pro">GP</th>
+                                    <th scope="col" data-sort="gols_contra">GC</th>
+                                    <th scope="col" data-sort="saldo">SG</th>
+                                    <th scope="col" data-sort="aproveitamento">%</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -144,20 +319,16 @@
                                         {% elif time.posicao == 5 %}prelib
                                         {% elif time.posicao >= 6 and time.posicao <= 11 %}sula
                                         {% elif time.posicao >= 17 %}reb
-                                        {% endif %}
-                                    ">{{ time.posicao }}</span>
+                                        {% endif %}">{{ time.posicao }}</span>
                                     </td>
                                     <td class="col-time">
                                         {% if time.escudo %}
-                                        <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="time-escudo"
-                                            loading="lazy">
+                                        <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="time-escudo" loading="lazy">
                                         {% else %}
-                                        <span class="time-cor" style="background: {{ time.cor }}"
-                                            aria-hidden="true"></span>
+                                        <span class="time-cor" style="background: {{ time.cor }}" aria-hidden="true"></span>
                                         {% endif %}
                                         <div class="time-info">
-                                            <a href="/time/{{ time.sigla }}" class="time-link"><strong>{{ time.time
-                                                    }}</strong></a>
+                                            <a href="/time/{{ time.sigla }}" class="time-link"><strong>{{ time.time }}</strong></a>
                                             <small>{{ time.estado }}</small>
                                         </div>
                                     </td>
@@ -168,8 +339,7 @@
                                     <td class="col-d">{{ time.derrotas }}</td>
                                     <td>{{ time.gols_pro }}</td>
                                     <td>{{ time.gols_contra }}</td>
-                                    <td
-                                        class="col-saldo {% if time.saldo > 0 %}positivo{% elif time.saldo < 0 %}negativo{% endif %}">
+                                    <td class="col-saldo {% if time.saldo > 0 %}positivo{% elif time.saldo < 0 %}negativo{% endif %}">
                                         {% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}
                                     </td>
                                     <td>{{ time.aproveitamento }}%</td>
@@ -180,133 +350,186 @@
                     </div>
                 </div>
 
+                <p id="classificacao-empty" class="table-empty" hidden>Nenhum clube corresponde aos filtros atuais.</p>
+            </div>
+
+            <div class="legend-card">
                 <div class="legenda">
-                    <div class="legenda-item"><span class="dot lib"></span> Libertadores (G4)</div>
-                    <div class="legenda-item"><span class="dot prelib"></span> Pré-Libertadores (5º)</div>
-                    <div class="legenda-item"><span class="dot sula"></span> Sul-Americana (6-11)</div>
-                    <div class="legenda-item"><span class="dot reb"></span> Rebaixamento (17-20)</div>
+                    <div class="legenda-item"><span class="dot lib"></span> Libertadores direta (G4)</div>
+                    <div class="legenda-item"><span class="dot prelib"></span> Pré-Libertadores</div>
+                    <div class="legenda-item"><span class="dot sula"></span> Sul-Americana</div>
+                    <div class="legenda-item"><span class="dot reb"></span> Rebaixamento</div>
                 </div>
+            </div>
         </section>
 
         <section id="artilharia" class="section" role="tabpanel" aria-labelledby="tab-artilharia">
             <div class="section-header">
-                <h2>Artilharia — Top 20</h2>
-                <span class="section-tag">Goleadores</span>
+                <div class="section-copy">
+                    <span class="section-kicker">Ataque em foco</span>
+                    <h2>Artilharia da Série A</h2>
+                    <p>O ranking abaixo destaca os jogadores com maior poder de decisão na temporada.</p>
+                </div>
+                <span class="section-tag">Top 20</span>
             </div>
-            <div class="table-wrapper">
-                <div class="table-card">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Jogador</th>
-                                <th>Time</th>
-                                <th>Posição</th>
-                                <th>Gols</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for j in dados.artilharia %}
-                            <tr>
-                                <td class="col-pos">
-                                    <span class="pos-badge {% if loop.index <= 3 %}top3{% endif %}">{{ loop.index
-                                        }}</span>
-                                </td>
-                                <td><strong>{{ j.jogador }}</strong></td>
-                                <td>
-                                    <span class="scorer-sigla">{{ j.sigla }}</span>
-                                    {{ j.time }}
-                                </td>
-                                <td><span class="scorer-position">{{ j.posicao }}</span></td>
-                                <td class="col-gols"><strong>{{ j.gols }}</strong></td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+
+            <div class="rank-grid">
+                {% for j in dados.artilharia[:3] %}
+                <article class="rank-card">
+                    <span class="rank-medal">0{{ loop.index }}</span>
+                    <strong class="rank-player">{{ j.jogador }}</strong>
+                    <span class="rank-team">{{ j.time }} · {{ j.sigla }}</span>
+                    <div class="rank-footer">
+                        <span class="scorer-position">{{ j.posicao }}</span>
+                        <strong class="rank-score" data-count="{{ j.gols }}">{{ j.gols }} gols</strong>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+
+            <div class="panel-shell">
+                <div class="table-wrapper">
+                    <div class="table-card">
+                        <table class="data-table">
+                            <caption class="visually-hidden">Lista dos 20 principais artilheiros do Brasileirão 2026.</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Jogador</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Posição</th>
+                                    <th scope="col">Gols</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for j in dados.artilharia %}
+                                <tr>
+                                    <td class="col-pos">
+                                        <span class="pos-badge {% if loop.index <= 3 %}top3{% endif %}">{{ loop.index }}</span>
+                                    </td>
+                                    <td><strong>{{ j.jogador }}</strong></td>
+                                    <td>
+                                        <span class="scorer-sigla">{{ j.sigla }}</span>
+                                        {{ j.time }}
+                                    </td>
+                                    <td><span class="scorer-position">{{ j.posicao }}</span></td>
+                                    <td class="col-gols"><strong>{{ j.gols }}</strong></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="graficos" class="section" role="tabpanel" aria-labelledby="tab-graficos">
+        <section id="graficos" class="section" role="tabpanel" aria-labelledby="tab-graficos" aria-busy="true">
             <div class="section-header">
-                <h2>Gráficos Interativos</h2>
-                <span class="section-tag">Visualizações</span>
+                <div class="section-copy">
+                    <span class="section-kicker">Visualizações</span>
+                    <h2>Gráficos interativos</h2>
+                    <p>Quatro leituras para enxergar ranking, produção ofensiva e consistência com menos ruído visual.</p>
+                </div>
+                <span class="section-tag">Chart.js</span>
+            </div>
+
+            <div class="section-utility">
+                <p class="section-helper">Os gráficos são carregados quando esta aba é aberta, para reduzir o peso inicial da página.</p>
+                <p id="charts-status" class="visually-hidden" aria-live="polite"></p>
             </div>
 
             <div class="charts-grid">
-                <div class="chart-card">
+                <article class="chart-card">
                     <div class="chart-header">
-                        <h3>Pontuação — Top 10</h3>
+                        <h3>Pontuação do top 10</h3>
+                        <p id="chartPontosSummary">Quem está puxando a corrida pelo topo da tabela.</p>
                     </div>
                     <div class="chart-body">
-                        <canvas id="chartPontos"
-                            aria-label="Gráfico de barras com pontuação dos 10 primeiros times"></canvas>
+                        <canvas id="chartPontos" aria-label="Gráfico de barras com pontuação dos dez primeiros clubes" aria-describedby="chartPontosSummary"></canvas>
                     </div>
-                </div>
-                <div class="chart-card">
+                </article>
+                <article class="chart-card">
                     <div class="chart-header">
-                        <h3>Top 10 Artilheiros</h3>
+                        <h3>Top 10 artilheiros</h3>
+                        <p id="chartArtilheirosSummary">Produção individual de gols entre os destaques do campeonato.</p>
                     </div>
                     <div class="chart-body">
-                        <canvas id="chartArtilheiros"
-                            aria-label="Gráfico de barras com gols dos 10 maiores artilheiros"></canvas>
+                        <canvas id="chartArtilheiros" aria-label="Gráfico de barras com os dez maiores artilheiros" aria-describedby="chartArtilheirosSummary"></canvas>
                     </div>
-                </div>
-                <div class="chart-card">
+                </article>
+                <article class="chart-card">
                     <div class="chart-header">
-                        <h3>Aproveitamento — Top 10</h3>
+                        <h3>Aproveitamento do top 10</h3>
+                        <p id="chartAproveitamentoSummary">Eficiência dos melhores times em percentual de pontos conquistados.</p>
                     </div>
                     <div class="chart-body">
-                        <canvas id="chartAproveitamento"
-                            aria-label="Gráfico de barras com aproveitamento dos 10 primeiros times"></canvas>
+                        <canvas id="chartAproveitamento" aria-label="Gráfico de barras com o aproveitamento dos dez primeiros clubes" aria-describedby="chartAproveitamentoSummary"></canvas>
                     </div>
-                </div>
-                <div class="chart-card">
+                </article>
+                <article class="chart-card">
                     <div class="chart-header">
-                        <h3>Gols Pro vs Contra</h3>
+                        <h3>Gols pró vs. gols contra</h3>
+                        <p id="chartGolsComparativoSummary">Balanço ofensivo e defensivo de todos os clubes da competição.</p>
                     </div>
                     <div class="chart-body">
-                        <canvas id="chartGolsComparativo"
-                            aria-label="Gráfico comparativo de gols pro e contra de todos os times"></canvas>
+                        <canvas id="chartGolsComparativo" aria-label="Gráfico comparativo de gols pró e contra dos clubes" aria-describedby="chartGolsComparativoSummary"></canvas>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
         <section id="comparador" class="section" role="tabpanel" aria-labelledby="tab-comparador">
             <div class="section-header">
-                <h2>Comparador de Times</h2>
-                <span class="section-tag">Frente a frente</span>
+                <div class="section-copy">
+                    <span class="section-kicker">Frente a frente</span>
+                    <h2>Comparador de clubes</h2>
+                    <p>Escolha dois times para ler vantagem por métrica e visualizar o confronto em radar.</p>
+                </div>
+                <span class="section-tag">Matchup</span>
             </div>
-            <div class="cmp-controls">
-                <select id="cmp-time1" class="cmp-select">
-                    <option value="">Selecione o 1º time</option>
-                    {% for time in dados.classificacao %}
-                    <option value="{{ time.sigla }}">{{ time.time }}</option>
-                    {% endfor %}
-                </select>
-                <span class="cmp-vs">vs</span>
-                <select id="cmp-time2" class="cmp-select">
-                    <option value="">Selecione o 2º time</option>
-                    {% for time in dados.classificacao %}
-                    <option value="{{ time.sigla }}">{{ time.time }}</option>
-                    {% endfor %}
-                </select>
-                <button id="cmp-btn" class="cmp-button">Comparar</button>
-            </div>
-            <div id="cmp-result" class="cmp-result"></div>
-        </section>
 
+            <div class="cmp-layout">
+                <article class="cmp-intro-card">
+                    <span class="section-kicker">Como ler</span>
+                    <h3>Compare força, consistência e volume ofensivo.</h3>
+                    <p>O comparador destaca quem leva vantagem em pontos, saldo, eficiência e produção na temporada atual.</p>
+                    <ul class="cmp-feature-list">
+                        <li>Leitura lado a lado das principais métricas.</li>
+                        <li>Radar com perfil de desempenho de cada clube.</li>
+                        <li>Atualização imediata ao trocar os selecionados.</li>
+                    </ul>
+                </article>
+
+                <div class="cmp-panel">
+                    <div class="cmp-controls">
+                        <select id="cmp-time1" class="cmp-select" aria-label="Selecionar primeiro time">
+                            <option value="">Selecione o 1º time</option>
+                            {% for time in dados.classificacao %}
+                            <option value="{{ time.sigla }}">{{ time.time }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="cmp-vs" aria-hidden="true">vs</span>
+                        <select id="cmp-time2" class="cmp-select" aria-label="Selecionar segundo time">
+                            <option value="">Selecione o 2º time</option>
+                            {% for time in dados.classificacao %}
+                            <option value="{{ time.sigla }}">{{ time.time }}</option>
+                            {% endfor %}
+                        </select>
+                        <button id="cmp-btn" class="cmp-button">Comparar</button>
+                    </div>
+                    <div id="cmp-result" class="cmp-result" aria-live="polite">
+                        <p class="cmp-empty">Selecione dois times diferentes para gerar o comparativo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p><strong>Brasileirão Dashboard 2026</strong> — Feito com Python + Flask</p>
-                <p class="footer-author">por <a href="https://github.com/lucassgsantos" target="_blank"
-                        rel="noopener noreferrer">Lucas Santos</a></p>
-                <p class="footer-note">Dados 100% reais da temporada 2026 do Brasileirão Série A</p>
-            </div>
+        <div class="container footer-content">
+            <p><strong>Brasileirão Dashboard 2026</strong> · Python + Flask + Chart.js</p>
+            <p class="footer-author">por <a href="https://github.com/lucassgsantos" target="_blank" rel="noopener noreferrer">Lucas Santos</a></p>
+            <p class="footer-note">Dados reais da temporada 2026 com leitura visual refinada para consulta rápida.</p>
         </div>
     </footer>
 
@@ -316,7 +539,6 @@
     </script>
     <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
 </body>
 
 </html>
