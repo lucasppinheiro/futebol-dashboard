@@ -11,6 +11,8 @@ import urllib.error
 import json
 from typing import Any
 
+from normalizacao import normalizar_posicao_jogador
+
 
 API_BASE = "https://api.football-data.org/v4"
 COMPETITION = "BSA"
@@ -177,12 +179,8 @@ def buscar_artilharia(temporada: str = "2026", limite: int = 20) -> list[dict[st
         team_name_exibir = NOME_DISPLAY.get(team_name, team_name)
         sigla = _sigla_de(team_name) if team_name else "???"
 
-        posicao_map = {
-            "Offence": "Atacante", "Midfield": "Meia",
-            "Defence": "Defensor", "Goalkeeper": "Goleiro",
-        }
         posicao_raw = player.get("section") or player.get("position") or ""
-        posicao = posicao_map.get(posicao_raw, posicao_raw or "Atacante")
+        posicao = normalizar_posicao_jogador(posicao_raw)
 
         gols = item.get("goals") or item.get("numberOfGoals") or 0
 

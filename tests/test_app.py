@@ -85,6 +85,20 @@ class TestAPIArtilharia:
         campos = {"jogador", "time", "sigla", "gols"}
         assert campos.issubset(jogador.keys())
 
+    def test_normaliza_posicoes_em_ingles_ao_carregar_json(self, client, monkeypatch, tmp_path, dados_json_validos):
+        dados_json_validos["artilharia"][0]["posicao"] = "Centre-Forward"
+        dados_json_validos["artilharia"][1]["posicao"] = "Defensive Midfield"
+        arquivo = tmp_path / "dados_mistos.json"
+        arquivo.write_text(json.dumps(dados_json_validos, ensure_ascii=False), encoding="utf-8")
+        monkeypatch.setattr(app_module, "DATA_PATH", str(arquivo))
+
+        resp = client.get("/api/artilharia")
+
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data[0]["posicao"] == "Centroavante"
+        assert data[1]["posicao"] == "Volante"
+
 
 class TestErros:
     def test_arquivo_ausente_api_retorna_json(self, client, monkeypatch, tmp_path):

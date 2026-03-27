@@ -7,6 +7,7 @@ import secrets
 import traceback
 
 from dados_schema import validar_dados_dashboard, DadosInvalidosError
+from normalizacao import normalizar_dados_dashboard
 
 logging.basicConfig(
     level=logging.INFO,
@@ -44,6 +45,7 @@ def carregar_dados() -> dict[str, Any]:
     with open(DATA_PATH, "r", encoding="utf-8") as f:
         data: Any = json.load(f)
 
+    normalizar_dados_dashboard(data)
     validar_dados_dashboard(data)
     _dados_cache = data
     _dados_mtime = mtime
