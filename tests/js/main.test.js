@@ -4,7 +4,7 @@ const path = require('path');
 
 const mainJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/main.js'), 'utf-8');
 
-function criarDOM() {
+function criarDOM(setupWindow) {
     const html = `
     <!DOCTYPE html>
     <html>
@@ -29,7 +29,14 @@ function criarDOM() {
     </body>
     </html>`;
 
-    const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true });
+    const dom = new JSDOM(html, {
+        runScripts: 'dangerously',
+        pretendToBeVisual: true,
+        url: 'http://localhost/'
+    });
+    if (typeof setupWindow === 'function') {
+        setupWindow(dom.window);
+    }
     dom.window.eval(mainJs);
     return dom;
 }
@@ -99,5 +106,16 @@ describe('Navegacao por abas', () => {
         document.querySelector('.nav-pills').appendChild(btn);
 
         expect(() => btn.click()).not.toThrow();
+    });
+
+    test('favoritos invalido no localStorage nao quebra a inicializacao', () => {
+        const domLocal = criarDOM((window) => {
+            window.localStorage.setItem('favoritos', '{invalido');
+        });
+        const documentLocal = domLocal.window.document;
+
+        expect(documentLocal.getElementById('tab-classificacao').classList.contains('active')).toBe(true);
+
+        domLocal.window.close();
     });
 });

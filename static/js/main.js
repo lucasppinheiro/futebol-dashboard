@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const getMediaQueryMatch = (query) => {
+        if (typeof window.matchMedia !== 'function') return false;
+        return window.matchMedia(query).matches;
+    };
+    const prefersReducedMotion = getMediaQueryMatch('(prefers-reduced-motion: reduce)');
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('.section');
     const chartsSection = document.getElementById('graficos');
@@ -115,7 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const emptyState = document.getElementById('classificacao-empty');
     let filtroZonaAtivo = 'todas';
 
-    const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+    function readStoredArray(key) {
+        try {
+            const raw = localStorage.getItem(key);
+            if (!raw) return [];
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+            localStorage.removeItem(key);
+            return [];
+        }
+    }
+
+    const favoritos = readStoredArray('favoritos');
 
     function salvarFavoritos() {
         localStorage.setItem('favoritos', JSON.stringify(favoritos));
@@ -214,7 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sortHeaders.forEach((header) => header.setAttribute('aria-sort', 'none'));
 
     sortHeaders.forEach((th) => {
-        th.addEventListener('click', () => {
+        th.tabIndex = 0;
+
+        function ordenarColuna() {
             const col = th.dataset.sort;
             if (!tabelaBody || !col) return;
 
@@ -248,6 +266,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             rows.forEach((row) => tabelaBody.appendChild(row));
+        }
+
+        th.addEventListener('click', ordenarColuna);
+        th.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            ordenarColuna();
         });
     });
 
@@ -269,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         setTheme(savedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+    } else if (getMediaQueryMatch('(prefers-color-scheme: light)')) {
         setTheme('light');
     } else {
         atualizarCopiaTema(root.getAttribute('data-theme') || 'dark');
@@ -326,6 +351,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const g = (intValue >> 8) & 255;
         const b = intValue & 255;
         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    function normalizarRadar(valor, valores, options = {}) {
+        const { invert = false } = options;
+        const numeros = valores.map((item) => Number(item) || 0);
+        const minimo = Math.min(...numeros);
+        const maximo = Math.max(...numeros);
+        if (maximo === minimo) return 100;
+
+        let proporcao = ((Number(valor) || 0) - minimo) / (maximo - minimo);
+        if (invert) proporcao = 1 - proporcao;
+        return Math.round(Math.max(0, Math.min(1, proporcao)) * 100);
     }
 
     const cmpSelect1 = document.getElementById('cmp-time1');
@@ -447,9 +484,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!radarEl) return;
 
                 const theme = getRadarTheme();
-                const normalize = (val, max) => Math.round((val / max) * 100);
-                const maxPts = Math.max(...dadosClassificacao.map((time) => time.pontos));
-                const maxGP = Math.max(...dadosClassificacao.map((time) => time.gols_pro));
+                const pontosSerie = dadosClassificacao.map((time) => time.pontos);
+                const vitoriasSerie = dadosClassificacao.map((time) => time.vitorias);
+                const golsProSerie = dadosClassificacao.map((time) => time.gols_pro);
+                const aproveitamentoSerie = dadosClassificacao.map((time) => time.aproveitamento);
+                const saldoSerie = dadosClassificacao.map((time) => time.saldo);
 
                 const colorA = t1.cor || theme.brandAlt;
                 const colorB = t2.cor || theme.danger;
@@ -457,16 +496,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 chartComparador = new Chart(radarEl.getContext('2d'), {
                     type: 'radar',
                     data: {
-                        labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo+50'],
+                        labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
                         datasets: [
                             {
                                 label: t1.time,
                                 data: [
-                                    normalize(t1.pontos, maxPts),
-                                    normalize(t1.vitorias, 38),
-                                    normalize(t1.gols_pro, maxGP),
-                                    t1.aproveitamento,
-                                    Math.max(0, t1.saldo + 50)
+                                    normalizarRadar(t1.pontos, pontosSerie),
+                                    normalizarRadar(t1.vitorias, vitoriasSerie),
+                                    normalizarRadar(t1.gols_pro, golsProSerie),
+                                    normalizarRadar(t1.aproveitamento, aproveitamentoSerie),
+                                    normalizarRadar(t1.saldo, saldoSerie)
                                 ],
                                 borderColor: colorA,
                                 backgroundColor: hexToRgba(colorA, 0.16),
@@ -475,11 +514,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             {
                                 label: t2.time,
                                 data: [
-                                    normalize(t2.pontos, maxPts),
-                                    normalize(t2.vitorias, 38),
-                                    normalize(t2.gols_pro, maxGP),
-                                    t2.aproveitamento,
-                                    Math.max(0, t2.saldo + 50)
+                                    normalizarRadar(t2.pontos, pontosSerie),
+                                    normalizarRadar(t2.vitorias, vitoriasSerie),
+                                    normalizarRadar(t2.gols_pro, golsProSerie),
+                                    normalizarRadar(t2.aproveitamento, aproveitamentoSerie),
+                                    normalizarRadar(t2.saldo, saldoSerie)
                                 ],
                                 borderColor: colorB,
                                 backgroundColor: hexToRgba(colorB, 0.16),

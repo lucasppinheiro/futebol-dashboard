@@ -12,7 +12,7 @@
             var savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
                 document.documentElement.setAttribute('data-theme', savedTheme);
-            } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+            } else if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-color-scheme: light)').matches) {
                 document.documentElement.setAttribute('data-theme', 'light');
             }
         })();
@@ -41,8 +41,8 @@
                 <span class="hero-kicker">Temporada {{ dados.info.temporada }} · leitura rápida da Série A</span>
                 <h1>Radar do <span class="gradient-text">Brasileirão</span></h1>
                 <p class="hero-subtitle">
-                    Um painel mais direto para acompanhar o recorte da temporada: tabela, artilharia, comparativos
-                    e gráficos com leitura visual mais clara.
+                    Painel de rodada com tabela, artilharia, comparativos e cortes de disputa em uma leitura mais
+                    tensa, rápida e editorial.
                 </p>
                 <div class="hero-actions">
                     <a href="#classificacao" class="hero-action primary">Ver tabela</a>
@@ -100,6 +100,20 @@
                             <span class="stat-detail">{{ dados.info.times_total }} clubes no radar</span>
                         </div>
                     </article>
+                </div>
+                <div class="hero-ticker" aria-label="Cortes da rodada">
+                    <span class="hero-ticker-item">
+                        <strong>Corte G4</strong>
+                        {% if top4_cut %}{{ top4_cut.pontos }} pts{% else %}-{% endif %}
+                    </span>
+                    <span class="hero-ticker-item">
+                        <strong>Linha Z4</strong>
+                        {% if risk_cut %}{{ risk_cut.pontos }} pts{% else %}-{% endif %}
+                    </span>
+                    <span class="hero-ticker-item">
+                        <strong>Melhor ataque</strong>
+                        {{ melhor_ataque.gols_pro }} gols
+                    </span>
                 </div>
             </div>
 
@@ -244,6 +258,7 @@
 
         <section id="classificacao" class="section active" role="tabpanel" aria-labelledby="tab-classificacao">
             <div class="section-header">
+                <span class="section-index" aria-hidden="true">01</span>
                 <div class="section-copy">
                     <span class="section-kicker">Panorama Geral</span>
                     <h2>Tabela de classificação</h2>
@@ -365,6 +380,7 @@
 
         <section id="artilharia" class="section" role="tabpanel" aria-labelledby="tab-artilharia">
             <div class="section-header">
+                <span class="section-index" aria-hidden="true">02</span>
                 <div class="section-copy">
                     <span class="section-kicker">Ataque em foco</span>
                     <h2>Artilharia da Série A</h2>
@@ -425,10 +441,11 @@
 
         <section id="graficos" class="section" role="tabpanel" aria-labelledby="tab-graficos" aria-busy="true">
             <div class="section-header">
+                <span class="section-index" aria-hidden="true">03</span>
                 <div class="section-copy">
                     <span class="section-kicker">Visualizações</span>
                     <h2>Gráficos interativos</h2>
-                    <p>Quatro leituras para enxergar ranking, produção ofensiva e consistência com menos ruído visual.</p>
+                    <p>Quatro leituras para enxergar corrida pelo topo, decisão individual e balanço competitivo com menos ruído visual.</p>
                 </div>
                 <span class="section-tag">Chart.js</span>
             </div>
@@ -468,11 +485,11 @@
                 </article>
                 <article class="chart-card">
                     <div class="chart-header">
-                        <h3>Gols pró vs. gols contra</h3>
-                        <p id="chartGolsComparativoSummary">Balanço ofensivo e defensivo de todos os clubes da competição.</p>
+                        <h3>Ataque x defesa do top 8</h3>
+                        <p id="chartGolsComparativoSummary">Balanço ofensivo e defensivo dos clubes mais fortes no recorte atual.</p>
                     </div>
                     <div class="chart-body">
-                        <canvas id="chartGolsComparativo" aria-label="Gráfico comparativo de gols pró e contra dos clubes" aria-describedby="chartGolsComparativoSummary"></canvas>
+                        <canvas id="chartGolsComparativo" aria-label="Gráfico comparativo de gols pró e contra dos oito primeiros clubes" aria-describedby="chartGolsComparativoSummary"></canvas>
                     </div>
                 </article>
             </div>
@@ -480,6 +497,7 @@
 
         <section id="comparador" class="section" role="tabpanel" aria-labelledby="tab-comparador">
             <div class="section-header">
+                <span class="section-index" aria-hidden="true">04</span>
                 <div class="section-copy">
                     <span class="section-kicker">Frente a frente</span>
                     <h2>Comparador de clubes</h2>

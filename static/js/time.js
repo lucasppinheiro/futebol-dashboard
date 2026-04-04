@@ -32,9 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    const maxPts = Math.max(...todosClassificacao.map((time) => time.pontos));
-    const maxGP = Math.max(...todosClassificacao.map((time) => time.gols_pro));
-    const normalize = (value, max) => Math.round((value / max) * 100);
+    function normalizarRadar(valor, valores) {
+        const numeros = valores.map((item) => Number(item) || 0);
+        const minimo = Math.min(...numeros);
+        const maximo = Math.max(...numeros);
+        if (maximo === minimo) return 100;
+        const proporcao = ((Number(valor) || 0) - minimo) / (maximo - minimo);
+        return Math.round(Math.max(0, Math.min(1, proporcao)) * 100);
+    }
+
+    const pontosSerie = todosClassificacao.map((time) => time.pontos);
+    const vitoriasSerie = todosClassificacao.map((time) => time.vitorias);
+    const golsProSerie = todosClassificacao.map((time) => time.gols_pro);
+    const aproveitamentoSerie = todosClassificacao.map((time) => time.aproveitamento);
+    const saldoSerie = todosClassificacao.map((time) => time.saldo);
 
     const accent = timeData.cor || getCssVar('--brand-alt', '#52b7ff');
     const theme = getTheme();
@@ -45,15 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const chart = new Chart(el.getContext('2d'), {
         type: 'radar',
         data: {
-            labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo+50'],
+            labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
             datasets: [{
                 label: timeData.time,
                 data: [
-                    normalize(timeData.pontos, maxPts),
-                    normalize(timeData.vitorias, 38),
-                    normalize(timeData.gols_pro, maxGP),
-                    timeData.aproveitamento,
-                    Math.max(0, timeData.saldo + 50)
+                    normalizarRadar(timeData.pontos, pontosSerie),
+                    normalizarRadar(timeData.vitorias, vitoriasSerie),
+                    normalizarRadar(timeData.gols_pro, golsProSerie),
+                    normalizarRadar(timeData.aproveitamento, aproveitamentoSerie),
+                    normalizarRadar(timeData.saldo, saldoSerie)
                 ],
                 borderColor: accent,
                 backgroundColor: hexToRgba(accent, 0.18),

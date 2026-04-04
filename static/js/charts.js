@@ -39,6 +39,16 @@ function tooltipBase() {
     };
 }
 
+function formatarNomeCurto(nome) {
+    const partes = String(nome || '').trim().split(/\s+/).filter(Boolean);
+    if (partes.length <= 1) return partes[0] || '';
+    const ultimo = partes[partes.length - 1];
+    if (partes[0].length + ultimo.length <= 14) {
+        return `${partes[0]} ${ultimo}`;
+    }
+    return `${partes[0]} ${ultimo.charAt(0)}.`;
+}
+
 const chartsRegistry = [];
 let chartsInitialized = false;
 let themeObserver = null;
@@ -121,7 +131,7 @@ function criarGraficoArtilheiros(artilharia) {
     const chart = new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
-            labels: top10.map((jogador) => jogador.jogador.split(' ')[0]),
+            labels: top10.map((jogador) => formatarNomeCurto(jogador.jogador)),
             datasets: [{
                 label: 'Gols',
                 data: top10.map((jogador) => jogador.gols),
@@ -257,6 +267,7 @@ function criarGraficoAproveitamento(classificacao) {
 }
 
 function criarGraficoGolsComparativo(classificacao) {
+    const top8 = classificacao.slice(0, 8);
     const el = document.getElementById('chartGolsComparativo');
     if (!el) return;
 
@@ -264,11 +275,11 @@ function criarGraficoGolsComparativo(classificacao) {
     const chart = new Chart(el.getContext('2d'), {
         type: 'bar',
         data: {
-            labels: classificacao.map((time) => time.sigla),
+            labels: top8.map((time) => time.sigla),
             datasets: [
                 {
                     label: 'Gols pró',
-                    data: classificacao.map((time) => time.gols_pro),
+                    data: top8.map((time) => time.gols_pro),
                     backgroundColor: theme.brand,
                     borderRadius: 6,
                     borderSkipped: false,
@@ -276,7 +287,7 @@ function criarGraficoGolsComparativo(classificacao) {
                 },
                 {
                     label: 'Gols contra',
-                    data: classificacao.map((time) => time.gols_contra),
+                    data: top8.map((time) => time.gols_contra),
                     backgroundColor: theme.danger,
                     borderRadius: 6,
                     borderSkipped: false,
@@ -300,7 +311,7 @@ function criarGraficoGolsComparativo(classificacao) {
                 tooltip: {
                     ...tooltipBase(),
                     callbacks: {
-                        title: (items) => classificacao[items[0].dataIndex].time
+                        title: (items) => top8[items[0].dataIndex].time
                     }
                 }
             },
@@ -326,7 +337,7 @@ function criarGraficoGolsComparativo(classificacao) {
             chart.options.plugins.tooltip = {
                 ...tooltipBase(),
                 callbacks: {
-                    title: (items) => classificacao[items[0].dataIndex].time
+                    title: (items) => top8[items[0].dataIndex].time
                 }
             };
         }
