@@ -1,68 +1,142 @@
-# ⚽ Futebol Dashboard
+# Futebol Dashboard
 
-Um dashboard moderno e com foco em performance para o **Brasileirão Série A**. O projeto consolida estatísticas atualizadas da competição, gráficos interativos, classificação em tempo real e páginas detalhadas para os times da primeira divisão, construído inicialmente para servir de referência pessoal e ferramenta rápida de análise.
+Dashboard editorial do Brasileirao Serie A 2026 com classificacao, artilharia, comparador de clubes, paginas por time e graficos em Chart.js.
 
----
+Demo em producao:
+[https://futebol-dashboard-brasileirao.netlify.app](https://futebol-dashboard-brasileirao.netlify.app)
 
-## 🚀 Funcionalidades Principais
+## O que o projeto entrega
 
-- **Classificação Interativa:** Tabela de pontuação ordenável, busca avançada por nome, filtragem simplificada por zonas (Libertadores, Sul-Americana, Rebaixamento) e animações responsivas.
-- **Ecossistema Personalizado (Favoritos ⭐):** Sistema integrado (via `localStorage`) para favoritar, priorizar na visualização e acessar mais rápido o seu clube.
-- **Páginas Dedicadas (Por Time):** Análise isolada através da rota `/time/<sigla>`, exibindo resumo de aproveitamento esportivo e métricas de desempenho.
-- **Gráficos Dinâmicos e Tematizados:** Desenvolvidos em **Chart.js**. Uma coleção de indicadores visuais: evolução de pontos, aproveitamento percentual, saldo de gols e radar defensivo. Os gráficos reagem imediatamente à alternância entre modo claro e escuro.
-- **Sincronização com API:** Extração periódica, sem excesso de chamadas, consolidando os dados da *football-data.org*, baixando escudos de clubes oficiais e formatando os resultados para JSON.
+- Tabela de classificacao com ordenacao, busca, filtros por zona e favoritos salvos em `localStorage`
+- Painel visual com tema claro/escuro, cards editoriais e layout responsivo
+- Paginas por clube em `/time/<sigla>` com resumo de campanha e radar de desempenho
+- Graficos com carregamento sob demanda para reduzir peso inicial da pagina
+- Normalizacao de dados da API para evitar mistura de idiomas em posicoes e siglas
+- Atualizacao automatica do arquivo local quando a base estiver antiga e houver token configurado
 
-## 🛠️ Tecnologias Envolvidas
+## Stack
 
-- **Backend:** Python 3 (Scripts de Web Scraping/API e Automação), Flask, biblioteca de logging padrão, pytest.
-- **Frontend:** Vanilla JS limpo e componentizado (sem frameworks pesados), CSS3 com suporte nativo a Theming (Dark/Light mode via Custom Properties) e layout responsivo.
-- **Metodologia:** Persistência leve e atômica. O backend responde com os arquivos `.json` diretamente ao in-memory cache do frontend para zero gargalos.
+- Backend local: Python, Flask e scripts de sincronizacao
+- Frontend: HTML, CSS, JavaScript vanilla e Chart.js
+- Testes: `pytest`, `jest` e `jsdom`
+- Deploy: export estatico via `build_static.py` e publicacao no Netlify
 
-## ⚙️ Como Executar Localmente
+## Como os dados funcionam
 
-Você precisará de Python 3.9+ e do Git instalados.
+Durante o desenvolvimento local, o app Flask serve o arquivo `data/brasileirao.json`.
 
-1. Clone e acesse o diretório:
-   ```bash
-   git clone https://github.com/lucassgsantos/futebol-dashboard.git
-   cd futebol-dashboard
-   ```
+Quando `FOOTBALL_DATA_TOKEN` estiver configurado, o projeto pode:
 
-2. Crie e ative um ambiente virtual:
-   ```bash
-   python -m venv venv
-   # No Windows:
-   venv\Scripts\activate
-   # No macOS/Linux:
-   source venv/bin/activate
-   ```
+- atualizar os dados manualmente com `python atualizar_dados.py`
+- tentar refresh automatico quando o arquivo local estiver velho
 
-3. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
-   ```
+Variaveis relacionadas:
 
-4. Variáveis de Ambiente e Token da API:
-   Copie `.env.example` para criar o seu `.env`:
-   ```bash
-   cp .env.example .env
-   ```
-   > **Nota:** Para buscar os dados de times e escudos atualizados, obtenha uma chave gratuita de desenvolvedor no site oficial da [football-data.org](https://www.football-data.org/) e insira em `FOOTBALL_DATA_TOKEN=seu_token_aqui`.
+- `FOOTBALL_DATA_TOKEN`: token da API football-data.org
+- `API_UPDATE_TOKEN`: protege `POST /api/atualizar`
+- `DATA_AUTO_REFRESH_HOURS`: idade maxima do arquivo local antes de tentar refresh automatico
+- `DATA_AUTO_REFRESH_COOLDOWN_MINUTES`: intervalo minimo entre tentativas automaticas
 
-5. Sicronizar Dados e Rodar o Servidor:
-   ```bash
-   python atualizar_dados.py
-   python app.py
-   ```
-   O app ficará ativo localmente na porta 5000: **http://127.0.0.1:5000**.
+## Executando localmente
 
-## 🧪 Testes Unitários
+Requisitos:
 
-Uma suíte foi incluída para garantir a estabilidade do JSON validado e a prevenção de _crashes_ relacionados aos payloads da integração externa. Para executar:
+- Python 3.9+
+- Node.js 18+ ou superior
+
+1. Clone o repositorio:
 
 ```bash
-python -m pytest tests/ -v
+git clone https://github.com/lucassgsantos/futebol-dashboard.git
+cd futebol-dashboard
 ```
 
-## 📝 Licença
-Projeto Open Source (MIT License). Livre para estudos, uso contínuo e derivação.
+2. Crie e ative um ambiente virtual:
+
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+```
+
+3. Instale as dependencias Python:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Instale as dependencias JavaScript:
+
+```bash
+npm install
+```
+
+5. Crie seu arquivo local de ambiente:
+
+```bash
+copy .env.example .env
+```
+
+No macOS/Linux:
+
+```bash
+cp .env.example .env
+```
+
+6. Atualize os dados e rode o servidor:
+
+```bash
+python atualizar_dados.py
+python app.py
+```
+
+App local:
+[http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+## Testes
+
+Python:
+
+```bash
+python -m pytest tests -q
+```
+
+JavaScript:
+
+```bash
+npx jest tests/js --runInBand
+```
+
+## Build estatico para producao
+
+O deploy publicado no Netlify nao roda Flask em runtime. O projeto gera uma versao estatica a partir dos templates e do JSON local atualizado.
+
+Gerar a saida estatica:
+
+```bash
+python build_static.py
+```
+
+Publicar no Netlify:
+
+```bash
+npx netlify deploy --prod
+```
+
+O `netlify.toml` usa:
+
+- comando de build: `python build_static.py`
+- diretorio publicado: `dist`
+
+## Seguranca e higiene do repositorio
+
+- `.env`, `.netlify/` e arquivos locais de anotacao nao vao para o Git
+- tokens nao devem ser commitados; use apenas placeholders em `.env.example`
+- o endpoint `POST /api/atualizar` deve ser exposto apenas com `API_UPDATE_TOKEN`
+- a base de producao no Netlify depende do ultimo export gerado localmente no momento do deploy
+
+## Licenca
+
+MIT

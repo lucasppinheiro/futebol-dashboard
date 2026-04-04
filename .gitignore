@@ -44,3 +44,9 @@ yarn-error.log*
 .env.local
 *.local
 
+# Netlify local state
+.netlify/
+
+# Local notes
+GEMINI.md
+
