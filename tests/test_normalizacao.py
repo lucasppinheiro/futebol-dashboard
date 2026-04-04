@@ -12,17 +12,29 @@ def test_mantem_posicao_ja_em_portugues():
     assert normalizar_posicao_jogador("Atacante") == "Atacante"
 
 
+def test_normaliza_posicoes_adicionais_e_vazias():
+    assert normalizar_posicao_jogador("Attacker") == "Atacante"
+    assert normalizar_posicao_jogador("Midfielder") == "Meia"
+    assert normalizar_posicao_jogador("") == "Nao informado"
+
+
 def test_normaliza_artilharia_dentro_do_dashboard():
     dados = {
-        "classificacao": [],
+        "classificacao": [
+            {"time": "B", "posicao": 2},
+            {"time": "A", "posicao": 1},
+        ],
         "artilharia": [
-            {"jogador": "A", "posicao": "Centre-Forward", "gols": 1},
             {"jogador": "B", "posicao": "Defensive Midfield", "gols": 1},
+            {"jogador": "A", "posicao": "Centre-Forward", "gols": 3},
         ],
         "info": {},
     }
 
     normalizar_dados_dashboard(dados)
 
+    assert dados["classificacao"][0]["time"] == "A"
+    assert dados["classificacao"][1]["time"] == "B"
     assert dados["artilharia"][0]["posicao"] == "Centroavante"
     assert dados["artilharia"][1]["posicao"] == "Volante"
+    assert dados["artilharia"][0]["jogador"] == "A"

@@ -81,6 +81,14 @@ class TestClassificacao:
         with pytest.raises(DadosInvalidosError, match="duplicada"):
             validar_dados_dashboard(dados_validos)
 
+    def test_rejeita_classificacao_fora_de_ordem(self, dados_validos):
+        dados_validos["classificacao"][0], dados_validos["classificacao"][1] = (
+            dados_validos["classificacao"][1],
+            dados_validos["classificacao"][0],
+        )
+        with pytest.raises(DadosInvalidosError, match="ordenada por posicao crescente"):
+            validar_dados_dashboard(dados_validos)
+
     def test_rejeita_lista_vazia(self, dados_validos):
         dados_validos["classificacao"] = []
         with pytest.raises(DadosInvalidosError, match="nao vazia"):
@@ -118,6 +126,14 @@ class TestArtilharia:
         with pytest.raises(DadosInvalidosError, match="texto nao vazio"):
             validar_dados_dashboard(dados_validos)
 
+    def test_rejeita_artilharia_fora_de_ordem(self, dados_validos):
+        dados_validos["artilharia"][0], dados_validos["artilharia"][1] = (
+            dados_validos["artilharia"][1],
+            dados_validos["artilharia"][0],
+        )
+        with pytest.raises(DadosInvalidosError, match="ordenada por gols decrescente"):
+            validar_dados_dashboard(dados_validos)
+
 
 class TestInfo:
     def test_rejeita_campeao_inconsistente(self, dados_validos):
@@ -133,4 +149,15 @@ class TestInfo:
     def test_rejeita_times_total_inconsistente(self, dados_validos):
         dados_validos["info"]["times_total"] = 10
         with pytest.raises(DadosInvalidosError, match="times_total inconsistente"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_rodada_maior_que_total(self, dados_validos):
+        dados_validos["info"]["rodada_atual"] = dados_validos["info"]["rodadas_total"] + 1
+        with pytest.raises(DadosInvalidosError, match="rodada_atual"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_finalizado_com_rodada_incompleta(self, dados_validos):
+        dados_validos["info"]["campeonato_finalizado"] = True
+        dados_validos["info"]["rodada_atual"] = max(1, dados_validos["info"]["rodadas_total"] - 1)
+        with pytest.raises(DadosInvalidosError, match="campeonato_finalizado"):
             validar_dados_dashboard(dados_validos)

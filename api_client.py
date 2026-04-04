@@ -11,7 +11,12 @@ import urllib.error
 import json
 from typing import Any
 
+from env_config import carregar_env_local
 from normalizacao import normalizar_posicao_jogador
+from temporada import temporada_brasileirao_atual
+
+
+carregar_env_local()
 
 
 API_BASE = "https://api.football-data.org/v4"
@@ -95,6 +100,13 @@ SIGLAS_MAPA: dict[str, str] = {
     "Avaí FC": "AVA", "Avai": "AVA",
 }
 
+SIGLAS_OFICIAIS_MAPA: dict[str, str] = {
+    "PAU": "SAO",
+    "FBP": "GRE",
+    "SCI": "INT",
+    "CRE": "REM",
+}
+
 
 def _sigla_de(nome: str) -> str:
     if nome in SIGLAS_MAPA:
@@ -103,6 +115,17 @@ def _sigla_de(nome: str) -> str:
         if chave.lower() in nome.lower() or nome.lower() in chave.lower():
             return sigla
     return nome[:3].upper()
+
+
+def _normalizar_sigla_oficial(sigla: str) -> str:
+    return SIGLAS_OFICIAIS_MAPA.get(sigla.upper(), sigla.upper())
+
+
+def _sigla_do_time(team: dict[str, Any], nome: str) -> str:
+    tla = str(team.get("tla") or "").strip().upper()
+    if 2 <= len(tla) <= 4 and tla.isascii() and tla.isalpha():
+        return _normalizar_sigla_oficial(tla)
+    return _sigla_de(nome)
 
 
 def _estado_de(sigla: str) -> str:
@@ -123,7 +146,8 @@ NOME_DISPLAY: dict[str, str] = {
 }
 
 
-def buscar_classificacao(temporada: str = "2026") -> list[dict[str, Any]]:
+def buscar_classificacao(temporada: str | None = None) -> list[dict[str, Any]]:
+    temporada = temporada or temporada_brasileirao_atual()
     url = f"{API_BASE}/competitions/{COMPETITION}/standings?season={temporada}"
     data = _fetch(url)
 
@@ -137,7 +161,7 @@ def buscar_classificacao(temporada: str = "2026") -> list[dict[str, Any]]:
         team = item["team"]
         nome = team["name"]
         nome_exibir = NOME_DISPLAY.get(nome, nome)
-        sigla = _sigla_de(nome)
+        sigla = _sigla_do_time(team, nome)
         jogos = item["playedGames"]
         vitorias = item["won"]
         empates = item["draw"]
@@ -167,7 +191,8 @@ def buscar_classificacao(temporada: str = "2026") -> list[dict[str, Any]]:
     return resultado
 
 
-def buscar_artilharia(temporada: str = "2026", limite: int = 20) -> list[dict[str, Any]]:
+def buscar_artilharia(temporada: str | None = None, limite: int = 20) -> list[dict[str, Any]]:
+    temporada = temporada or temporada_brasileirao_atual()
     url = f"{API_BASE}/competitions/{COMPETITION}/scorers?season={temporada}&limit={limite}"
     data = _fetch(url)
 
@@ -177,7 +202,7 @@ def buscar_artilharia(temporada: str = "2026", limite: int = 20) -> list[dict[st
         team = item.get("team", {})
         team_name = team.get("name", "")
         team_name_exibir = NOME_DISPLAY.get(team_name, team_name)
-        sigla = _sigla_de(team_name) if team_name else "???"
+        sigla = _sigla_do_time(team, team_name) if team_name else "???"
 
         posicao_raw = player.get("section") or player.get("position") or ""
         posicao = normalizar_posicao_jogador(posicao_raw)

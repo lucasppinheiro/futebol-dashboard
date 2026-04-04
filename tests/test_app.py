@@ -156,6 +156,35 @@ class TestCacheInvalidacao:
         times_v2 = resp2.get_json()
         assert times_v2[0]["time"] == "Alterado FC"
 
+    def test_refresh_automatico_atualiza_arquivo_antigo(self, client, monkeypatch, tmp_path, dados_json_validos):
+        arquivo = tmp_path / "dados.json"
+        arquivo.write_text(json.dumps(dados_json_validos, ensure_ascii=False), encoding="utf-8")
+        monkeypatch.setattr(app_module, "DATA_PATH", str(arquivo))
+        monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "token_teste")
+        monkeypatch.setenv("DATA_AUTO_REFRESH_HOURS", "1")
+        monkeypatch.setenv("DATA_AUTO_REFRESH_COOLDOWN_MINUTES", "0")
+
+        dados_atualizados = json.loads(json.dumps(dados_json_validos))
+        dados_atualizados["classificacao"][0]["time"] = "Atualizado FC"
+        dados_atualizados["info"]["lider"] = "Atualizado FC"
+        os.utime(str(arquivo), (1, 1))
+
+        def fake_atualizar(_temporada=None):
+            arquivo.write_text(json.dumps(dados_atualizados, ensure_ascii=False), encoding="utf-8")
+            os.utime(str(arquivo), None)
+
+        import atualizar_dados as atu
+        monkeypatch.setattr(atu, "atualizar", fake_atualizar)
+
+        app_module.app.config["TESTING"] = False
+        try:
+            resp = client.get("/api/classificacao")
+        finally:
+            app_module.app.config["TESTING"] = True
+
+        assert resp.status_code == 200
+        assert resp.get_json()[0]["time"] == "Atualizado FC"
+
 
 class TestAPIAtualizar:
     def test_sem_token_retorna_501(self, client, monkeypatch):
@@ -178,7 +207,7 @@ class TestAPIAtualizar:
         monkeypatch.setattr(app_module, "DATA_PATH", str(arquivo))
         monkeypatch.setenv("API_UPDATE_TOKEN", "segredo")
 
-        def fake_atualizar():
+        def fake_atualizar(_temporada=None):
             pass
 
         import atualizar_dados as atu
@@ -188,3 +217,16 @@ class TestAPIAtualizar:
         assert resp.status_code == 200
         data = resp.get_json()
         assert data.get("status") == "ok"
+
+
+class TestAPIHealth:
+    def test_health_indica_refresh_automatico(self, client, monkeypatch):
+        monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "token_teste")
+        monkeypatch.setenv("DATA_AUTO_REFRESH_HOURS", "6")
+
+        resp = client.get("/api/health")
+
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data["refresh_automatico"] is True
+        assert "temporada_padrao" in data

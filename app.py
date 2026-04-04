@@ -4,10 +4,16 @@ import json
 import logging
 import os
 import secrets
+import time
 import traceback
 
 from dados_schema import validar_dados_dashboard, DadosInvalidosError
+from env_config import carregar_env_local
 from normalizacao import normalizar_dados_dashboard
+from temporada import temporada_brasileirao_atual
+
+
+carregar_env_local()
 
 logging.basicConfig(
     level=logging.INFO,
@@ -23,6 +29,7 @@ app = Flask(__name__)
 
 _dados_cache: dict | None = None
 _dados_mtime: float = 0.0
+_ultimo_refresh_automatico: float = 0.0
 
 
 def limpar_cache() -> None:
@@ -32,8 +39,79 @@ def limpar_cache() -> None:
     _dados_mtime = 0.0
 
 
+def _ler_numero_env(nome: str, padrao: float) -> float:
+    bruto = (os.environ.get(nome) or "").strip()
+    if not bruto:
+        return padrao
+    try:
+        return float(bruto)
+    except ValueError:
+        logger.warning("Valor invalido em %s=%r. Usando padrao %s.", nome, bruto, padrao)
+        return padrao
+
+
+def _refresh_automatico_horas() -> float:
+    return max(0.0, _ler_numero_env("DATA_AUTO_REFRESH_HOURS", 6.0))
+
+
+def _refresh_automatico_cooldown_segundos() -> float:
+    minutos = max(0.0, _ler_numero_env("DATA_AUTO_REFRESH_COOLDOWN_MINUTES", 15.0))
+    return minutos * 60.0
+
+
+def _token_football_data_disponivel() -> bool:
+    return bool((os.environ.get("FOOTBALL_DATA_TOKEN") or "").strip())
+
+
+def _dados_estao_desatualizados(mtime: float) -> bool:
+    horas = _refresh_automatico_horas()
+    if horas <= 0:
+        return False
+    idade_segundos = max(0.0, time.time() - mtime)
+    return idade_segundos >= horas * 3600.0
+
+
+def _pode_tentar_refresh_automatico() -> bool:
+    global _ultimo_refresh_automatico
+    cooldown = _refresh_automatico_cooldown_segundos()
+    if cooldown <= 0:
+        return True
+    return _ultimo_refresh_automatico == 0.0 or (time.time() - _ultimo_refresh_automatico) >= cooldown
+
+
+def _tentar_refresh_automatico() -> None:
+    global _ultimo_refresh_automatico
+
+    if app.config.get("TESTING"):
+        return
+
+    if not _token_football_data_disponivel() or not _pode_tentar_refresh_automatico():
+        return
+
+    if os.path.exists(DATA_PATH):
+        mtime = os.path.getmtime(DATA_PATH)
+        if not _dados_estao_desatualizados(mtime):
+            return
+        logger.info("Dados locais estao desatualizados. Iniciando refresh automatico.")
+    else:
+        logger.info("Arquivo de dados nao existe. Tentando gerar dados atualizados automaticamente.")
+
+    _ultimo_refresh_automatico = time.time()
+
+    try:
+        from atualizar_dados import atualizar
+
+        atualizar(temporada_brasileirao_atual())
+        limpar_cache()
+        logger.info("Refresh automatico concluido com sucesso.")
+    except Exception as e:
+        logger.warning("Refresh automatico falhou. Mantendo cache local atual: %s", e)
+
+
 def carregar_dados() -> dict[str, Any]:
     global _dados_cache, _dados_mtime
+
+    _tentar_refresh_automatico()
 
     if not os.path.exists(DATA_PATH):
         raise FileNotFoundError(f"Dados nao encontrados em {DATA_PATH}. Execute: python gerar_dados.py")
@@ -98,7 +176,7 @@ def api_atualizar():
 
     try:
         from atualizar_dados import atualizar
-        atualizar()
+        atualizar(temporada_brasileirao_atual())
         limpar_cache()
         return jsonify({"status": "ok", "mensagem": "Dados atualizados com sucesso"})
     except (ConnectionError, ValueError, EnvironmentError) as e:
@@ -117,8 +195,12 @@ def api_health():
         mtime = os.path.getmtime(DATA_PATH)
         from datetime import datetime, timezone
         status["dados_atualizados_em"] = datetime.fromtimestamp(mtime, tz=timezone.utc).isoformat()
+        status["dados_desatualizados"] = _dados_estao_desatualizados(mtime)
     except OSError:
         status["dados_atualizados_em"] = None
+        status["dados_desatualizados"] = True
+    status["refresh_automatico"] = _token_football_data_disponivel() and _refresh_automatico_horas() > 0
+    status["temporada_padrao"] = temporada_brasileirao_atual()
     return jsonify(status)
 
 

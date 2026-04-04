@@ -76,6 +76,8 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
         if posicao in posicoes:
             raise DadosInvalidosError(f"{contexto}: posicao duplicada '{posicao}'")
         posicoes.add(posicao)
+        if posicao != indice:
+            raise DadosInvalidosError(f"{contexto}: lista deve estar ordenada por posicao crescente")
 
         _validar_str_nao_vazia(time, "time", contexto)
         _validar_str_nao_vazia(time, "sigla", contexto)
@@ -132,6 +134,7 @@ def _validar_artilharia(artilharia: Any) -> list[dict[str, Any]]:
         raise DadosInvalidosError("artilharia deve ser uma lista nao vazia")
 
     campos = ("jogador", "time", "sigla", "posicao", "gols")
+    gols_anteriores: int | None = None
     for indice, jogador in enumerate(artilharia, start=1):
         contexto = f"artilharia[{indice}]"
         if not isinstance(jogador, dict):
@@ -142,7 +145,10 @@ def _validar_artilharia(artilharia: Any) -> list[dict[str, Any]]:
         _validar_str_nao_vazia(jogador, "time", contexto)
         _validar_str_nao_vazia(jogador, "sigla", contexto)
         _validar_str_nao_vazia(jogador, "posicao", contexto)
-        _validar_int_nao_negativo(jogador, "gols", contexto)
+        gols = _validar_int_nao_negativo(jogador, "gols", contexto)
+        if gols_anteriores is not None and gols > gols_anteriores:
+            raise DadosInvalidosError(f"{contexto}: lista deve estar ordenada por gols decrescente")
+        gols_anteriores = gols
 
     return artilharia
 
@@ -172,11 +178,17 @@ def _validar_info(info: Any, classificacao: list[dict[str, Any]], artilharia: li
     _validar_int_nao_negativo(info, "rodadas_total", "info")
     _validar_int_nao_negativo(info, "rodada_atual", "info")
     _validar_int_nao_negativo(info, "times_total", "info")
+    rodadas_total = _validar_int_nao_negativo(info, "rodadas_total", "info")
+    rodada_atual = _validar_int_nao_negativo(info, "rodada_atual", "info")
     _validar_int_nao_negativo(info, "lider_pontos", "info")
     _validar_int_nao_negativo(info, "artilheiro_gols", "info")
 
     if not isinstance(info["campeonato_finalizado"], bool):
         raise DadosInvalidosError("info.campeonato_finalizado deve ser booleano")
+    if rodada_atual > rodadas_total:
+        raise DadosInvalidosError("info.rodada_atual nao pode ser maior que info.rodadas_total")
+    if info["campeonato_finalizado"] and rodada_atual != rodadas_total:
+        raise DadosInvalidosError("info.campeonato_finalizado exige rodada_atual igual a rodadas_total")
 
     lider = classificacao[0]
     artilheiro_top = artilharia[0]
