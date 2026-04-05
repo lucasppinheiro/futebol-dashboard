@@ -22,7 +22,6 @@ htmlcov/
 # IDE / Editor
 .idea/
 .vscode/
-.cursor/
 *.swp
 *.swo
 
@@ -46,7 +45,4 @@ yarn-error.log*
 
 # Netlify local state
 .netlify/
-
-# Local notes
-GEMINI.md
 
