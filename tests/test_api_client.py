@@ -3,13 +3,13 @@ from temporada import temporada_brasileirao_atual
 
 
 def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
-    payload = {
+    standings_payload = {
         "standings": [
             {
                 "table": [
                     {
                         "position": 1,
-                        "team": {"name": "Nome Variavel FC", "tla": "PAL", "crest": "https://example.com/pal.png"},
+                        "team": {"id": 1, "name": "Nome Variavel FC", "tla": "PAL", "crest": "https://example.com/pal.png"},
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -22,7 +22,14 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
             }
         ]
     }
-    monkeypatch.setattr(api_client, "_fetch", lambda url: payload)
+    matches_payload = {"matches": []}
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
     classificacao = api_client.buscar_classificacao()
 
@@ -31,13 +38,13 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
 
 
 def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monkeypatch):
-    payload = {
+    standings_payload = {
         "standings": [
             {
                 "table": [
                     {
                         "position": 1,
-                        "team": {"name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
+                        "team": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -50,7 +57,14 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
             }
         ]
     }
-    monkeypatch.setattr(api_client, "_fetch", lambda url: payload)
+    matches_payload = {"matches": []}
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
     classificacao = api_client.buscar_classificacao()
 
@@ -83,32 +97,144 @@ def test_busca_artilharia_normaliza_posicao_e_preserva_nao_informado(monkeypatch
 
 
 def test_busca_classificacao_usa_temporada_atual_por_padrao(monkeypatch):
-    capturado = {}
+    urls = []
 
     def fake_fetch(url):
-        capturado["url"] = url
-        return {
-            "standings": [
-                {
-                    "table": [
-                        {
-                            "position": 1,
-                            "team": {"name": "Nome Variavel FC", "tla": "PAL", "crest": ""},
-                            "playedGames": 1,
-                            "won": 1,
-                            "draw": 0,
-                            "lost": 0,
-                            "goalsFor": 1,
-                            "goalsAgainst": 0,
-                            "points": 3,
-                        }
-                    ]
-                }
-            ]
-        }
+        urls.append(url)
+        if "standings" in url:
+            return {
+                "standings": [
+                    {
+                        "table": [
+                            {
+                                "position": 1,
+                                "team": {"id": 1, "name": "Nome Variavel FC", "tla": "PAL", "crest": ""},
+                                "playedGames": 1,
+                                "won": 1,
+                                "draw": 0,
+                                "lost": 0,
+                                "goalsFor": 1,
+                                "goalsAgainst": 0,
+                                "points": 3,
+                            }
+                        ]
+                    }
+                ]
+            }
+        return {"matches": []}
 
     monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
     api_client.buscar_classificacao()
 
-    assert f"season={temporada_brasileirao_atual()}" in capturado["url"]
+    assert urls
+    assert all(f"season={temporada_brasileirao_atual()}" in url for url in urls)
+
+
+def test_busca_classificacao_recalcula_tabela_com_partidas_finalizadas(monkeypatch):
+    standings_payload = {
+        "standings": [
+            {
+                "table": [
+                    {
+                        "position": 1,
+                        "team": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
+                        "playedGames": 9,
+                        "won": 5,
+                        "draw": 2,
+                        "lost": 2,
+                        "goalsFor": 15,
+                        "goalsAgainst": 9,
+                        "points": 17,
+                    },
+                    {
+                        "position": 2,
+                        "team": {"id": 1771, "name": "Cruzeiro EC", "tla": "CRU", "crest": "https://example.com/cru.png"},
+                        "playedGames": 9,
+                        "won": 5,
+                        "draw": 1,
+                        "lost": 3,
+                        "goalsFor": 11,
+                        "goalsAgainst": 8,
+                        "points": 16,
+                    },
+                ]
+            }
+        ]
+    }
+    matches_payload = {
+        "matches": [
+            {
+                "status": "FINISHED",
+                "matchday": 10,
+                "homeTeam": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
+                "awayTeam": {"id": 1771, "name": "Cruzeiro EC", "tla": "CRU", "crest": "https://example.com/cru.png"},
+                "score": {"fullTime": {"home": 4, "away": 1}},
+            }
+        ]
+    }
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
+
+    classificacao = api_client.buscar_classificacao("2026")
+
+    assert classificacao[0]["sigla"] == "SAO"
+    assert classificacao[0]["jogos"] == 1
+    assert classificacao[0]["pontos"] == 3
+    assert classificacao[0]["gols_pro"] == 4
+    assert classificacao[0]["gols_contra"] == 1
+    assert classificacao[1]["sigla"] == "CRU"
+    assert classificacao[1]["derrotas"] == 1
+
+
+def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monkeypatch):
+    standings_payload = {
+        "standings": [
+            {
+                "table": [
+                    {
+                        "position": 1,
+                        "team": {"id": 4241, "name": "Coritiba FBC", "tla": "COR", "crest": ""},
+                        "playedGames": 9,
+                        "won": 4,
+                        "draw": 2,
+                        "lost": 3,
+                        "goalsFor": 10,
+                        "goalsAgainst": 9,
+                        "points": 14,
+                    },
+                    {
+                        "position": 2,
+                        "team": {"id": 1777, "name": "SC Corinthians Paulista", "tla": "COR", "crest": ""},
+                        "playedGames": 9,
+                        "won": 4,
+                        "draw": 1,
+                        "lost": 4,
+                        "goalsFor": 11,
+                        "goalsAgainst": 11,
+                        "points": 13,
+                    },
+                ]
+            }
+        ]
+    }
+    matches_payload = {"matches": []}
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
+
+    classificacao = api_client.buscar_classificacao("2026")
+
+    assert classificacao[0]["sigla"] == "CFC"
+    assert classificacao[0]["estado"] == "PR"
+    assert classificacao[1]["sigla"] == "COR"
+    assert classificacao[1]["estado"] == "SP"

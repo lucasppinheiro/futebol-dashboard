@@ -20,6 +20,7 @@ Demo em producao:
 - Frontend: HTML, CSS, JavaScript vanilla e Chart.js
 - Testes: `pytest`, `jest` e `jsdom`
 - Deploy: export estatico via `build_static.py` e publicacao no Netlify
+- Automacao: GitHub Actions para refresh horario dos dados e deploy no Netlify
 
 ## Como os dados funcionam
 
@@ -130,12 +131,29 @@ O `netlify.toml` usa:
 - comando de build: `python build_static.py`
 - diretorio publicado: `dist`
 
+## Automacao de atualizacao
+
+O repositorio inclui o workflow `.github/workflows/refresh-data-and-deploy.yml`.
+
+Ele faz:
+
+- atualizacao horaria dos dados via `python atualizar_dados.py`
+- commit do `data/brasileirao.json` quando houver mudanca real
+- rebuild estatico
+- deploy de producao no Netlify
+
+Secrets esperados no GitHub Actions:
+
+- `FOOTBALL_DATA_TOKEN`
+- `NETLIFY_AUTH_TOKEN`
+- `NETLIFY_SITE_ID`
+
 ## Seguranca e higiene do repositorio
 
 - `.env`, `.netlify/` e arquivos locais de anotacao nao vao para o Git
 - tokens nao devem ser commitados; use apenas placeholders em `.env.example`
 - o endpoint `POST /api/atualizar` deve ser exposto apenas com `API_UPDATE_TOKEN`
-- a base de producao no Netlify depende do ultimo export gerado localmente no momento do deploy
+- a automacao de producao depende dos secrets configurados no GitHub Actions e nunca deve usar tokens hardcoded no repositorio
 
 ## Licenca
 
