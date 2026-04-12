@@ -385,6 +385,13 @@
       "gols": 4
     },
     {
+      "jogador": "Breno Lopes",
+      "time": "Coritiba FBC",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 4
+    },
+    {
       "jogador": "Luciano Juba",
       "time": "EC Bahia",
       "sigla": "BAH",
@@ -437,13 +444,6 @@
       "jogador": "Allan",
       "time": "SE Palmeiras",
       "sigla": "PAL",
-      "posicao": "Atacante",
-      "gols": 3
-    },
-    {
-      "jogador": "Breno Lopes",
-      "time": "Coritiba FBC",
-      "sigla": "CFC",
       "posicao": "Atacante",
       "gols": 3
     },
