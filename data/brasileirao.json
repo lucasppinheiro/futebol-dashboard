@@ -109,15 +109,15 @@
       "estado": "PR",
       "cor": "#006633",
       "escudo": "https://crests.football-data.org/4241.png",
-      "jogos": 10,
+      "jogos": 11,
       "vitorias": 4,
-      "empates": 3,
+      "empates": 4,
       "derrotas": 3,
-      "gols_pro": 11,
-      "gols_contra": 10,
+      "gols_pro": 13,
+      "gols_contra": 12,
       "saldo": 1,
-      "pontos": 15,
-      "aproveitamento": 50.0
+      "pontos": 16,
+      "aproveitamento": 48.5
     },
     {
       "posicao": 8,
@@ -172,6 +172,23 @@
     },
     {
       "posicao": 11,
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/1770.png",
+      "jogos": 10,
+      "vitorias": 4,
+      "empates": 1,
+      "derrotas": 5,
+      "gols_pro": 18,
+      "gols_contra": 21,
+      "saldo": -3,
+      "pontos": 13,
+      "aproveitamento": 43.3
+    },
+    {
+      "posicao": 12,
       "time": "Grêmio FBPA",
       "sigla": "GRE",
       "estado": "RS",
@@ -188,7 +205,7 @@
       "aproveitamento": 39.4
     },
     {
-      "posicao": 12,
+      "posicao": 13,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "estado": "RJ",
@@ -205,7 +222,7 @@
       "aproveitamento": 39.4
     },
     {
-      "posicao": 13,
+      "posicao": 14,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -220,23 +237,6 @@
       "saldo": -1,
       "pontos": 13,
       "aproveitamento": 39.4
-    },
-    {
-      "posicao": 14,
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/1770.png",
-      "jogos": 9,
-      "vitorias": 4,
-      "empates": 0,
-      "derrotas": 5,
-      "gols_pro": 16,
-      "gols_contra": 19,
-      "saldo": -3,
-      "pontos": 12,
-      "aproveitamento": 44.4
     },
     {
       "posicao": 15,
@@ -399,6 +399,13 @@
       "gols": 4
     },
     {
+      "jogador": "Pedro",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "posicao": "Atacante",
+      "gols": 4
+    },
+    {
       "jogador": "José Manuel López",
       "time": "SE Palmeiras",
       "sigla": "PAL",
@@ -473,13 +480,6 @@
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Atacante",
-      "gols": 3
-    },
-    {
-      "jogador": "Cauan Lucas",
-      "time": "CR Vasco da Gama",
-      "sigla": "VAS",
-      "posicao": "Meia",
       "gols": 3
     }
   ],
