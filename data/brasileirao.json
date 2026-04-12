@@ -350,6 +350,13 @@
       "gols": 7
     },
     {
+      "jogador": "Danilo dos Santos de Oliveira",
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "posicao": "Volante",
+      "gols": 6
+    },
+    {
       "jogador": "Jonathan Calleri",
       "time": "São Paulo FC",
       "sigla": "SAO",
@@ -362,13 +369,6 @@
       "sigla": "CAP",
       "posicao": "Atacante",
       "gols": 6
-    },
-    {
-      "jogador": "Danilo dos Santos de Oliveira",
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "posicao": "Volante",
-      "gols": 5
     },
     {
       "jogador": "Stiven Mendoza",
@@ -441,9 +441,23 @@
       "gols": 3
     },
     {
+      "jogador": "Arthur Cabral",
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "posicao": "Centroavante",
+      "gols": 3
+    },
+    {
       "jogador": "Allan",
       "time": "SE Palmeiras",
       "sigla": "PAL",
+      "posicao": "Atacante",
+      "gols": 3
+    },
+    {
+      "jogador": "Joaquín Lavega",
+      "time": "Coritiba FBC",
+      "sigla": "CFC",
       "posicao": "Atacante",
       "gols": 3
     },
@@ -466,20 +480,6 @@
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "posicao": "Meia",
-      "gols": 3
-    },
-    {
-      "jogador": "Gabriel Barbosa",
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "posicao": "Atacante",
-      "gols": 3
-    },
-    {
-      "jogador": "Pedro",
-      "time": "CR Flamengo",
-      "sigla": "FLA",
-      "posicao": "Atacante",
       "gols": 3
     }
   ],
