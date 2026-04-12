@@ -126,15 +126,15 @@
       "estado": "MG",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/1766.png",
-      "jogos": 11,
+      "jogos": 10,
       "vitorias": 4,
       "empates": 2,
-      "derrotas": 5,
+      "derrotas": 4,
       "gols_pro": 14,
-      "gols_contra": 13,
-      "saldo": 1,
+      "gols_contra": 12,
+      "saldo": 2,
       "pontos": 14,
-      "aproveitamento": 42.4
+      "aproveitamento": 46.7
     },
     {
       "posicao": 9,
@@ -223,23 +223,6 @@
     },
     {
       "posicao": 14,
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/6685.png",
-      "jogos": 11,
-      "vitorias": 3,
-      "empates": 4,
-      "derrotas": 4,
-      "gols_pro": 14,
-      "gols_contra": 16,
-      "saldo": -2,
-      "pontos": 13,
-      "aproveitamento": 39.4
-    },
-    {
-      "posicao": 15,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -254,6 +237,23 @@
       "saldo": -3,
       "pontos": 12,
       "aproveitamento": 44.4
+    },
+    {
+      "posicao": 15,
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/6685.png",
+      "jogos": 10,
+      "vitorias": 2,
+      "empates": 4,
+      "derrotas": 4,
+      "gols_pro": 13,
+      "gols_contra": 16,
+      "saldo": -3,
+      "pontos": 10,
+      "aproveitamento": 33.3
     },
     {
       "posicao": 16,
