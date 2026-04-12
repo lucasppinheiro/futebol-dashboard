@@ -371,6 +371,13 @@
       "gols": 6
     },
     {
+      "jogador": "Pedro",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "posicao": "Atacante",
+      "gols": 5
+    },
+    {
       "jogador": "Stiven Mendoza",
       "time": "CA Paranaense",
       "sigla": "CAP",
@@ -399,10 +406,10 @@
       "gols": 4
     },
     {
-      "jogador": "Pedro",
-      "time": "CR Flamengo",
-      "sigla": "FLA",
-      "posicao": "Atacante",
+      "jogador": "Christian",
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "posicao": "Meia",
       "gols": 4
     },
     {
@@ -472,13 +479,6 @@
       "jogador": "Julimar",
       "time": "CA Paranaense",
       "sigla": "CAP",
-      "posicao": "Atacante",
-      "gols": 3
-    },
-    {
-      "jogador": "Neymar",
-      "time": "Santos FC",
-      "sigla": "SAN",
       "posicao": "Atacante",
       "gols": 3
     }
