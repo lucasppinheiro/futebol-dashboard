@@ -21,7 +21,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 
@@ -32,7 +32,7 @@
         <div class="hero-orbit hero-orbit-b" aria-hidden="true"></div>
         <div class="container hero-grid hero-grid-team">
             <div class="hero-copy">
-                <a href="/" class="back-link">← Voltar ao dashboard</a>
+                <a href="{{ site_url() }}" class="back-link">&larr; Voltar ao dashboard</a>
                 <span class="hero-kicker">{{ time.estado }} · {{ time.sigla }}</span>
                 <div class="hero-time-header">
                     {% if time.escudo %}
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="hero-actions">
-                    <a href="/#classificacao" class="hero-action primary">Voltar à tabela</a>
+                    <a href="{{ site_url('#classificacao') }}" class="hero-action primary">Voltar à tabela</a>
                     <a href="#time-radar" class="hero-action secondary">Ver radar</a>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Mudar para modo claro" title="Alternar tema">
                         <span class="theme-icon-dark" aria-hidden="true">
@@ -218,7 +218,7 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <p><strong>Brasileirão Dashboard 2026</strong> · <a href="/">Voltar ao painel principal</a></p>
+            <p><strong>Brasileirão Dashboard 2026</strong> · <a href="{{ site_url() }}">Voltar ao painel principal</a></p>
         </div>
     </footer>
 
@@ -226,8 +226,8 @@
         const timeData = {{ time | tojson }};
         const todosClassificacao = {{ dados.classificacao | tojson }};
     </script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/time.js') }}"></script>
+    <script src="{{ site_url('static/js/main.js') }}"></script>
+    <script src="{{ site_url('static/js/time.js') }}"></script>
 </body>
 
 </html>

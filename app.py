@@ -3,6 +3,7 @@ from typing import Any
 import json
 import logging
 import os
+import re
 import secrets
 import time
 import traceback
@@ -24,8 +25,41 @@ logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.environ.get("DATA_PATH", os.path.join(BASE_DIR, "data", "brasileirao.json"))
+_ABSOLUTE_URL_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9+.-]*:")
+
+
+def normalizar_site_base_path(base_path: str | None) -> str:
+    valor = (base_path or "").strip()
+    if not valor or valor == "/":
+        return ""
+    return "/" + valor.strip("/")
 
 app = Flask(__name__)
+app.config["SITE_BASE_PATH"] = normalizar_site_base_path(os.environ.get("SITE_BASE_PATH"))
+
+
+def site_url(path: str = "") -> str:
+    base_path = normalizar_site_base_path(app.config.get("SITE_BASE_PATH"))
+    destino = (path or "").strip()
+
+    if not destino:
+        return f"{base_path}/" if base_path else "/"
+
+    if _ABSOLUTE_URL_RE.match(destino) or destino.startswith("//"):
+        return destino
+
+    if destino.startswith("#"):
+        raiz = f"{base_path}/" if base_path else "/"
+        return f"{raiz}{destino}"
+
+    destino_normalizado = destino.lstrip("/")
+    url = f"{base_path}/{destino_normalizado}" if base_path else f"/{destino_normalizado}"
+    if destino.endswith("/") and not url.endswith("/"):
+        url = f"{url}/"
+    return url
+
+
+app.jinja_env.globals["site_url"] = site_url
 
 _dados_cache: dict | None = None
 _dados_mtime: float = 0.0

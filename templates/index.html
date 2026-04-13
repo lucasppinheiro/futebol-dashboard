@@ -22,7 +22,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 
@@ -128,7 +128,7 @@
                 </p>
                 <div class="podium-list">
                     {% for time in dados.classificacao[:3] %}
-                    <a href="/time/{{ time.sigla }}" class="podium-item">
+                    <a href="{{ site_url('time/' ~ time.sigla ~ '/') }}" class="podium-item">
                         <span class="podium-rank">0{{ loop.index }}</span>
                         <div class="podium-team">
                             <strong>{{ time.time }}</strong>
@@ -343,7 +343,7 @@
                                         <span class="time-cor" style="background: {{ time.cor }}" aria-hidden="true"></span>
                                         {% endif %}
                                         <div class="time-info">
-                                            <a href="/time/{{ time.sigla }}" class="time-link"><strong>{{ time.time }}</strong></a>
+                                            <a href="{{ site_url('time/' ~ time.sigla ~ '/') }}" class="time-link"><strong>{{ time.time }}</strong></a>
                                             <small>{{ time.estado }}</small>
                                         </div>
                                     </td>
@@ -555,8 +555,8 @@
         const dadosClassificacao = {{ dados.classificacao | tojson }};
         const dadosArtilharia = {{ dados.artilharia | tojson }};
     </script>
-    <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ site_url('static/js/charts.js') }}"></script>
+    <script src="{{ site_url('static/js/main.js') }}"></script>
 </body>
 
 </html>
