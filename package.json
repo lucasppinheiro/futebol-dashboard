@@ -1,7 +1,7 @@
 {
   "name": "futebol-dashboard",
   "version": "1.0.0",
-  "description": "Interactive Brasileirao Serie A 2026 dashboard with Flask, live data sync, and Netlify static deployment.",
+  "description": "Interactive Brasileirao Serie A 2026 dashboard with Flask, live data sync, and GitHub Pages static deployment.",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/lucassgsantos/futebol-dashboard/issues"
   },
-  "homepage": "https://futebol-dashboard-brasileirao.netlify.app",
+  "homepage": "https://lucassgsantos.github.io/futebol-dashboard/",
   "devDependencies": {
     "@jest/globals": "^30.2.0",
     "jest": "^30.2.0",

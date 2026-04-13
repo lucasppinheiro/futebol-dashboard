@@ -1,11 +1,11 @@
 # Futebol Dashboard
 
-Projeto pessoal para acompanhar o Brasileirão Série A 2026.
+Projeto pessoal para acompanhar o Brasileirao Serie A 2026.
 
-Montei esse dashboard para reunir classificação, artilharia, páginas por clube, comparador e alguns gráficos em um lugar só. O projeto roda localmente com Flask e também gera uma versão estática para publicar no Netlify.
+O dashboard reune classificacao, artilharia, paginas por clube, comparador e graficos em um unico lugar. O projeto roda localmente com Flask e tambem gera uma versao estatica pronta para publicar no GitHub Pages.
 
 Site:
-[https://futebol-dashboard-brasileirao.netlify.app](https://futebol-dashboard-brasileirao.netlify.app)
+[https://lucassgsantos.github.io/futebol-dashboard/](https://lucassgsantos.github.io/futebol-dashboard/)
 
 ## Stack
 
@@ -14,7 +14,7 @@ Site:
 - Chart.js
 - pytest
 - jest + jsdom
-- Netlify
+- GitHub Pages
 - GitHub Actions
 
 ## Rodando localmente
@@ -58,17 +58,17 @@ Local:
 
 ## Dados
 
-A base do projeto é o arquivo `data/brasileirao.json`.
+A base do projeto e o arquivo `data/brasileirao.json`.
 
-Se `FOOTBALL_DATA_TOKEN` estiver configurada, dá para atualizar os dados com:
+Se `FOOTBALL_DATA_TOKEN` estiver configurada, da para atualizar os dados com:
 
 ```bash
 python atualizar_dados.py
 ```
 
-No deploy, o site é estático. O workflow do repositório atualiza esse JSON, faz o build e publica no Netlify.
+No deploy, o site e estatico. O workflow do repositorio atualiza esse JSON, faz o build e publica no GitHub Pages.
 
-## Variáveis de ambiente
+## Variaveis de ambiente
 
 - `FOOTBALL_DATA_TOKEN`
 - `API_UPDATE_TOKEN`
@@ -77,8 +77,9 @@ No deploy, o site é estático. O workflow do repositório atualiza esse JSON, f
 - `FLASK_DEBUG`
 - `FLASK_HOST`
 - `FLASK_PORT`
+- `SITE_BASE_PATH`
 
-O formato está em `.env.example`.
+O formato esta em `.env.example`.
 
 ## Testes
 
@@ -94,32 +95,49 @@ JavaScript:
 npm test
 ```
 
-## Build estático
+## Build estatico
+
+Build local padrao:
 
 ```bash
 python build_static.py
 ```
 
-Saída em `dist/`.
+Build para GitHub Pages:
 
-## Automação
+Windows PowerShell:
+
+```powershell
+$env:SITE_BASE_PATH = "/futebol-dashboard"
+python build_static.py
+```
+
+macOS/Linux:
+
+```bash
+SITE_BASE_PATH=/futebol-dashboard python build_static.py
+```
+
+Saida em `dist/`.
+
+## Automacao
 
 O workflow `.github/workflows/refresh-data-and-deploy.yml` roda periodicamente para:
 
 - atualizar os dados
-- commitar o JSON quando houver mudança
-- gerar o build estático
-- publicar no Netlify
+- commitar o JSON quando houver mudanca
+- gerar o build estatico com o prefixo do repositorio
+- publicar no GitHub Pages
 
 Secrets esperados no GitHub Actions:
 
 - `FOOTBALL_DATA_TOKEN`
-- `NETLIFY_AUTH_TOKEN`
-- `NETLIFY_SITE_ID`
 
-## Observações
+Tambem deixe o Pages configurado para publicar via GitHub Actions nas configuracoes do repositorio.
 
-- `.env` e `.netlify/` não devem ir para o repositório
-- tokens não devem ser commitados
-- se a API atrasar, o site também atrasa
+## Observacoes
 
+- `.env` nao deve ir para o repositorio
+- tokens nao devem ser commitados
+- se a API atrasar, o site tambem atrasa
+- no GitHub Pages, os arquivos JSON ficam disponiveis em `api/*.json`
