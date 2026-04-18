@@ -36,23 +36,6 @@
     },
     {
       "posicao": 3,
-      "time": "São Paulo FC",
-      "sigla": "SAO",
-      "estado": "SP",
-      "cor": "#FF0000",
-      "escudo": "https://crests.football-data.org/1776.png",
-      "jogos": 11,
-      "vitorias": 6,
-      "empates": 2,
-      "derrotas": 3,
-      "gols_pro": 15,
-      "gols_contra": 9,
-      "saldo": 6,
-      "pontos": 20,
-      "aproveitamento": 60.6
-    },
-    {
-      "posicao": 4,
       "time": "Fluminense FC",
       "sigla": "FLU",
       "estado": "RJ",
@@ -67,6 +50,23 @@
       "saldo": 5,
       "pontos": 20,
       "aproveitamento": 60.6
+    },
+    {
+      "posicao": 4,
+      "time": "São Paulo FC",
+      "sigla": "SAO",
+      "estado": "SP",
+      "cor": "#FF0000",
+      "escudo": "https://crests.football-data.org/1776.png",
+      "jogos": 12,
+      "vitorias": 6,
+      "empates": 2,
+      "derrotas": 4,
+      "gols_pro": 16,
+      "gols_contra": 11,
+      "saldo": 5,
+      "pontos": 20,
+      "aproveitamento": 55.6
     },
     {
       "posicao": 5,
@@ -104,6 +104,23 @@
     },
     {
       "posicao": 7,
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/1770.png",
+      "jogos": 11,
+      "vitorias": 5,
+      "empates": 1,
+      "derrotas": 5,
+      "gols_pro": 22,
+      "gols_contra": 22,
+      "saldo": 0,
+      "pontos": 16,
+      "aproveitamento": 48.5
+    },
+    {
+      "posicao": 8,
       "time": "Coritiba FBC",
       "sigla": "CFC",
       "estado": "PR",
@@ -120,7 +137,24 @@
       "aproveitamento": 48.5
     },
     {
-      "posicao": 8,
+      "posicao": 9,
+      "time": "CR Vasco da Gama",
+      "sigla": "VAS",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/1780.png",
+      "jogos": 12,
+      "vitorias": 4,
+      "empates": 4,
+      "derrotas": 4,
+      "gols_pro": 18,
+      "gols_contra": 18,
+      "saldo": 0,
+      "pontos": 16,
+      "aproveitamento": 44.4
+    },
+    {
+      "posicao": 10,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -137,7 +171,7 @@
       "aproveitamento": 42.4
     },
     {
-      "posicao": 9,
+      "posicao": 11,
       "time": "RB Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -154,7 +188,7 @@
       "aproveitamento": 42.4
     },
     {
-      "posicao": 10,
+      "posicao": 12,
       "time": "EC Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -171,24 +205,7 @@
       "aproveitamento": 46.7
     },
     {
-      "posicao": 11,
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/1770.png",
-      "jogos": 10,
-      "vitorias": 4,
-      "empates": 1,
-      "derrotas": 5,
-      "gols_pro": 18,
-      "gols_contra": 21,
-      "saldo": -3,
-      "pontos": 13,
-      "aproveitamento": 43.3
-    },
-    {
-      "posicao": 12,
+      "posicao": 13,
       "time": "Grêmio FBPA",
       "sigla": "GRE",
       "estado": "RS",
@@ -201,23 +218,6 @@
       "gols_pro": 14,
       "gols_contra": 14,
       "saldo": 0,
-      "pontos": 13,
-      "aproveitamento": 39.4
-    },
-    {
-      "posicao": 13,
-      "time": "CR Vasco da Gama",
-      "sigla": "VAS",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/1780.png",
-      "jogos": 11,
-      "vitorias": 3,
-      "empates": 4,
-      "derrotas": 4,
-      "gols_pro": 16,
-      "gols_contra": 17,
-      "saldo": -1,
       "pontos": 13,
       "aproveitamento": 39.4
     },
@@ -313,15 +313,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "https://crests.football-data.org/1772_large.png",
-      "jogos": 10,
+      "jogos": 11,
       "vitorias": 1,
       "empates": 5,
-      "derrotas": 4,
-      "gols_pro": 10,
-      "gols_contra": 18,
-      "saldo": -8,
+      "derrotas": 5,
+      "gols_pro": 11,
+      "gols_contra": 22,
+      "saldo": -11,
       "pontos": 8,
-      "aproveitamento": 26.7
+      "aproveitamento": 24.2
     },
     {
       "posicao": 20,
@@ -382,6 +382,13 @@
       "time": "CA Paranaense",
       "sigla": "CAP",
       "posicao": "Ponta esquerda",
+      "gols": 4
+    },
+    {
+      "jogador": "Matheus Martins",
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "posicao": "Meia",
       "gols": 4
     },
     {
@@ -462,13 +469,6 @@
       "gols": 3
     },
     {
-      "jogador": "Matheus Martins",
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "posicao": "Meia",
-      "gols": 3
-    },
-    {
       "jogador": "Igor Formiga",
       "time": "Mirassol FC",
       "sigla": "MIR",
@@ -487,7 +487,7 @@
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
-    "rodada_atual": 11,
+    "rodada_atual": 12,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
