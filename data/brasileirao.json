@@ -448,6 +448,20 @@
       "gols": 3
     },
     {
+      "jogador": "Luciano",
+      "time": "São Paulo FC",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 3
+    },
+    {
+      "jogador": "Matheus Martins",
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "posicao": "Meia",
+      "gols": 3
+    },
+    {
       "jogador": "Igor Formiga",
       "time": "Mirassol FC",
       "sigla": "MIR",
@@ -462,24 +476,10 @@
       "gols": 3
     },
     {
-      "jogador": "Allan",
-      "time": "SE Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Atacante",
-      "gols": 3
-    },
-    {
-      "jogador": "Joaquín Lavega",
-      "time": "Coritiba FBC",
-      "sigla": "CFC",
-      "posicao": "Atacante",
-      "gols": 3
-    },
-    {
-      "jogador": "Julimar",
-      "time": "CA Paranaense",
-      "sigla": "CAP",
-      "posicao": "Atacante",
+      "jogador": "Edenilson",
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "posicao": "Meia",
       "gols": 3
     }
   ],
