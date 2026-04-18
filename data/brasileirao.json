@@ -385,6 +385,13 @@
       "gols": 4
     },
     {
+      "jogador": "Edenilson",
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "posicao": "Meia",
+      "gols": 4
+    },
+    {
       "jogador": "John Kennedy",
       "time": "Fluminense FC",
       "sigla": "FLU",
@@ -473,13 +480,6 @@
       "time": "Botafogo FR",
       "sigla": "BOT",
       "posicao": "Centroavante",
-      "gols": 3
-    },
-    {
-      "jogador": "Edenilson",
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "posicao": "Meia",
       "gols": 3
     }
   ],
