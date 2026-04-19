@@ -427,6 +427,13 @@
       "gols": 4
     },
     {
+      "jogador": "Gabriel Barbosa",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Atacante",
+      "gols": 4
+    },
+    {
       "jogador": "José Manuel López",
       "time": "SE Palmeiras",
       "sigla": "PAL",
@@ -473,13 +480,6 @@
       "time": "Mirassol FC",
       "sigla": "MIR",
       "posicao": "Defensor",
-      "gols": 3
-    },
-    {
-      "jogador": "Arthur Cabral",
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "posicao": "Centroavante",
       "gols": 3
     }
   ],
