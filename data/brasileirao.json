@@ -223,23 +223,6 @@
     },
     {
       "posicao": 14,
-      "time": "SC Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "https://crests.football-data.org/6684.png",
-      "jogos": 11,
-      "vitorias": 3,
-      "empates": 4,
-      "derrotas": 4,
-      "gols_pro": 9,
-      "gols_contra": 10,
-      "saldo": -1,
-      "pontos": 13,
-      "aproveitamento": 39.4
-    },
-    {
-      "posicao": 15,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
@@ -254,6 +237,23 @@
       "saldo": -2,
       "pontos": 13,
       "aproveitamento": 39.4
+    },
+    {
+      "posicao": 15,
+      "time": "SC Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "https://crests.football-data.org/6684.png",
+      "jogos": 12,
+      "vitorias": 3,
+      "empates": 4,
+      "derrotas": 5,
+      "gols_pro": 10,
+      "gols_contra": 12,
+      "saldo": -2,
+      "pontos": 13,
+      "aproveitamento": 36.1
     },
     {
       "posicao": 16,
@@ -291,6 +291,23 @@
     },
     {
       "posicao": 18,
+      "time": "Mirassol FC",
+      "sigla": "MIR",
+      "estado": "SP",
+      "cor": "#FFD700",
+      "escudo": "https://crests.football-data.org/4364.png",
+      "jogos": 11,
+      "vitorias": 2,
+      "empates": 3,
+      "derrotas": 6,
+      "gols_pro": 13,
+      "gols_contra": 17,
+      "saldo": -4,
+      "pontos": 9,
+      "aproveitamento": 27.3
+    },
+    {
+      "posicao": 19,
       "time": "Clube do Remo",
       "sigla": "REM",
       "estado": "PA",
@@ -307,7 +324,7 @@
       "aproveitamento": 24.2
     },
     {
-      "posicao": 19,
+      "posicao": 20,
       "time": "Chapecoense AF",
       "sigla": "CHA",
       "estado": "SC",
@@ -322,23 +339,6 @@
       "saldo": -11,
       "pontos": 8,
       "aproveitamento": 24.2
-    },
-    {
-      "posicao": 20,
-      "time": "Mirassol FC",
-      "sigla": "MIR",
-      "estado": "SP",
-      "cor": "#FFD700",
-      "escudo": "https://crests.football-data.org/4364.png",
-      "jogos": 10,
-      "vitorias": 1,
-      "empates": 3,
-      "derrotas": 6,
-      "gols_pro": 11,
-      "gols_contra": 16,
-      "saldo": -5,
-      "pontos": 6,
-      "aproveitamento": 20.0
     }
   ],
   "artilharia": [
