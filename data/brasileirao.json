@@ -371,6 +371,13 @@
       "gols": 6
     },
     {
+      "jogador": "Breno Lopes",
+      "time": "Coritiba FBC",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 5
+    },
+    {
       "jogador": "Pedro",
       "time": "CR Flamengo",
       "sigla": "FLA",
@@ -410,13 +417,6 @@
       "time": "Fluminense FC",
       "sigla": "FLU",
       "posicao": "Centroavante",
-      "gols": 4
-    },
-    {
-      "jogador": "Breno Lopes",
-      "time": "Coritiba FBC",
-      "sigla": "CFC",
-      "posicao": "Atacante",
       "gols": 4
     },
     {
