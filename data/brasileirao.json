@@ -155,6 +155,23 @@
     },
     {
       "posicao": 10,
+      "time": "EC Vitória",
+      "sigla": "VIT",
+      "estado": "BA",
+      "cor": "#E11D1D",
+      "escudo": "https://crests.football-data.org/1782.png",
+      "jogos": 11,
+      "vitorias": 4,
+      "empates": 3,
+      "derrotas": 4,
+      "gols_pro": 11,
+      "gols_contra": 14,
+      "saldo": -3,
+      "pontos": 15,
+      "aproveitamento": 45.5
+    },
+    {
+      "posicao": 11,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -171,7 +188,7 @@
       "aproveitamento": 42.4
     },
     {
-      "posicao": 11,
+      "posicao": 12,
       "time": "RB Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -188,38 +205,21 @@
       "aproveitamento": 42.4
     },
     {
-      "posicao": 12,
-      "time": "EC Vitória",
-      "sigla": "VIT",
-      "estado": "BA",
-      "cor": "#E11D1D",
-      "escudo": "https://crests.football-data.org/1782.png",
-      "jogos": 10,
-      "vitorias": 4,
-      "empates": 2,
-      "derrotas": 4,
-      "gols_pro": 11,
-      "gols_contra": 14,
-      "saldo": -3,
-      "pontos": 14,
-      "aproveitamento": 46.7
-    },
-    {
       "posicao": 13,
       "time": "Grêmio FBPA",
       "sigla": "GRE",
       "estado": "RS",
       "cor": "#0080C8",
       "escudo": "https://crests.football-data.org/1767.png",
-      "jogos": 11,
+      "jogos": 12,
       "vitorias": 3,
       "empates": 4,
-      "derrotas": 4,
+      "derrotas": 5,
       "gols_pro": 14,
-      "gols_contra": 14,
-      "saldo": 0,
+      "gols_contra": 15,
+      "saldo": -1,
       "pontos": 13,
-      "aproveitamento": 39.4
+      "aproveitamento": 36.1
     },
     {
       "posicao": 14,
@@ -257,37 +257,37 @@
     },
     {
       "posicao": 16,
-      "time": "SC Corinthians Paulista",
-      "sigla": "COR",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/1779.png",
-      "jogos": 11,
-      "vitorias": 2,
-      "empates": 5,
-      "derrotas": 4,
-      "gols_pro": 8,
-      "gols_contra": 11,
-      "saldo": -3,
-      "pontos": 11,
-      "aproveitamento": 33.3
-    },
-    {
-      "posicao": 17,
       "time": "Cruzeiro EC",
       "sigla": "CRU",
       "estado": "MG",
       "cor": "#003DA5",
       "escudo": "https://crests.football-data.org/1771.png",
-      "jogos": 11,
-      "vitorias": 2,
+      "jogos": 12,
+      "vitorias": 3,
       "empates": 4,
       "derrotas": 5,
-      "gols_pro": 14,
+      "gols_pro": 15,
       "gols_contra": 21,
-      "saldo": -7,
-      "pontos": 10,
-      "aproveitamento": 30.3
+      "saldo": -6,
+      "pontos": 13,
+      "aproveitamento": 36.1
+    },
+    {
+      "posicao": 17,
+      "time": "SC Corinthians Paulista",
+      "sigla": "COR",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/1779.png",
+      "jogos": 12,
+      "vitorias": 2,
+      "empates": 6,
+      "derrotas": 4,
+      "gols_pro": 8,
+      "gols_contra": 11,
+      "saldo": -3,
+      "pontos": 12,
+      "aproveitamento": 33.3
     },
     {
       "posicao": 18,
@@ -378,6 +378,13 @@
       "gols": 5
     },
     {
+      "jogador": "Christian",
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "posicao": "Meia",
+      "gols": 5
+    },
+    {
       "jogador": "Stiven Mendoza",
       "time": "CA Paranaense",
       "sigla": "CAP",
@@ -417,13 +424,6 @@
       "time": "EC Bahia",
       "sigla": "BAH",
       "posicao": "Defensor",
-      "gols": 4
-    },
-    {
-      "jogador": "Christian",
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "posicao": "Meia",
       "gols": 4
     },
     {
