@@ -399,6 +399,13 @@
       "gols": 5
     },
     {
+      "jogador": "Isidro Pitta",
+      "time": "RB Bragantino",
+      "sigla": "RBB",
+      "posicao": "Meia",
+      "gols": 5
+    },
+    {
       "jogador": "Stiven Mendoza",
       "time": "CA Paranaense",
       "sigla": "CAP",
@@ -473,13 +480,6 @@
       "time": "São Paulo FC",
       "sigla": "SAO",
       "posicao": "Atacante",
-      "gols": 3
-    },
-    {
-      "jogador": "Igor Formiga",
-      "time": "Mirassol FC",
-      "sigla": "MIR",
-      "posicao": "Defensor",
       "gols": 3
     }
   ],
