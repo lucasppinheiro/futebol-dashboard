@@ -155,23 +155,6 @@
     },
     {
       "posicao": 10,
-      "time": "EC Vitória",
-      "sigla": "VIT",
-      "estado": "BA",
-      "cor": "#E11D1D",
-      "escudo": "https://crests.football-data.org/1782.png",
-      "jogos": 11,
-      "vitorias": 4,
-      "empates": 3,
-      "derrotas": 4,
-      "gols_pro": 11,
-      "gols_contra": 14,
-      "saldo": -3,
-      "pontos": 15,
-      "aproveitamento": 45.5
-    },
-    {
-      "posicao": 11,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -188,7 +171,7 @@
       "aproveitamento": 42.4
     },
     {
-      "posicao": 12,
+      "posicao": 11,
       "time": "RB Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -203,6 +186,23 @@
       "saldo": -1,
       "pontos": 14,
       "aproveitamento": 42.4
+    },
+    {
+      "posicao": 12,
+      "time": "EC Vitória",
+      "sigla": "VIT",
+      "estado": "BA",
+      "cor": "#E11D1D",
+      "escudo": "https://crests.football-data.org/1782.png",
+      "jogos": 10,
+      "vitorias": 4,
+      "empates": 2,
+      "derrotas": 4,
+      "gols_pro": 11,
+      "gols_contra": 14,
+      "saldo": -3,
+      "pontos": 14,
+      "aproveitamento": 46.7
     },
     {
       "posicao": 13,
@@ -279,14 +279,14 @@
       "estado": "SP",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/1779.png",
-      "jogos": 12,
+      "jogos": 11,
       "vitorias": 2,
-      "empates": 6,
+      "empates": 5,
       "derrotas": 4,
       "gols_pro": 8,
       "gols_contra": 11,
       "saldo": -3,
-      "pontos": 12,
+      "pontos": 11,
       "aproveitamento": 33.3
     },
     {
