@@ -53,6 +53,23 @@
     },
     {
       "posicao": 4,
+      "time": "EC Bahia",
+      "sigla": "BAH",
+      "estado": "BA",
+      "cor": "#004A99",
+      "escudo": "https://crests.football-data.org/1777.png",
+      "jogos": 12,
+      "vitorias": 6,
+      "empates": 3,
+      "derrotas": 3,
+      "gols_pro": 17,
+      "gols_contra": 14,
+      "saldo": 3,
+      "pontos": 21,
+      "aproveitamento": 58.3
+    },
+    {
+      "posicao": 5,
       "time": "São Paulo FC",
       "sigla": "SAO",
       "estado": "SP",
@@ -67,23 +84,6 @@
       "saldo": 5,
       "pontos": 20,
       "aproveitamento": 55.6
-    },
-    {
-      "posicao": 5,
-      "time": "EC Bahia",
-      "sigla": "BAH",
-      "estado": "BA",
-      "cor": "#004A99",
-      "escudo": "https://crests.football-data.org/1777.png",
-      "jogos": 11,
-      "vitorias": 6,
-      "empates": 2,
-      "derrotas": 3,
-      "gols_pro": 15,
-      "gols_contra": 12,
-      "saldo": 3,
-      "pontos": 20,
-      "aproveitamento": 60.6
     },
     {
       "posicao": 6,
@@ -143,15 +143,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/1770.png",
-      "jogos": 11,
+      "jogos": 12,
       "vitorias": 5,
-      "empates": 1,
+      "empates": 2,
       "derrotas": 5,
-      "gols_pro": 22,
-      "gols_contra": 22,
+      "gols_pro": 24,
+      "gols_contra": 24,
       "saldo": 0,
-      "pontos": 16,
-      "aproveitamento": 48.5
+      "pontos": 17,
+      "aproveitamento": 47.2
     },
     {
       "posicao": 10,
@@ -172,6 +172,23 @@
     },
     {
       "posicao": 11,
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "estado": "MG",
+      "cor": "#003DA5",
+      "escudo": "https://crests.football-data.org/1771.png",
+      "jogos": 13,
+      "vitorias": 4,
+      "empates": 4,
+      "derrotas": 5,
+      "gols_pro": 17,
+      "gols_contra": 21,
+      "saldo": -4,
+      "pontos": 16,
+      "aproveitamento": 41.0
+    },
+    {
+      "posicao": 12,
       "time": "EC Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -188,7 +205,7 @@
       "aproveitamento": 45.5
     },
     {
-      "posicao": 12,
+      "posicao": 13,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -205,7 +222,41 @@
       "aproveitamento": 38.9
     },
     {
-      "posicao": 13,
+      "posicao": 14,
+      "time": "SC Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "https://crests.football-data.org/6684.png",
+      "jogos": 13,
+      "vitorias": 3,
+      "empates": 5,
+      "derrotas": 5,
+      "gols_pro": 12,
+      "gols_contra": 14,
+      "saldo": -2,
+      "pontos": 14,
+      "aproveitamento": 35.9
+    },
+    {
+      "posicao": 15,
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/6685.png",
+      "jogos": 13,
+      "vitorias": 3,
+      "empates": 5,
+      "derrotas": 5,
+      "gols_pro": 18,
+      "gols_contra": 21,
+      "saldo": -3,
+      "pontos": 14,
+      "aproveitamento": 35.9
+    },
+    {
+      "posicao": 16,
       "time": "Grêmio FBPA",
       "sigla": "GRE",
       "estado": "RS",
@@ -218,57 +269,6 @@
       "gols_pro": 14,
       "gols_contra": 16,
       "saldo": -2,
-      "pontos": 13,
-      "aproveitamento": 36.1
-    },
-    {
-      "posicao": 14,
-      "time": "SC Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "https://crests.football-data.org/6684.png",
-      "jogos": 12,
-      "vitorias": 3,
-      "empates": 4,
-      "derrotas": 5,
-      "gols_pro": 10,
-      "gols_contra": 12,
-      "saldo": -2,
-      "pontos": 13,
-      "aproveitamento": 36.1
-    },
-    {
-      "posicao": 15,
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/6685.png",
-      "jogos": 12,
-      "vitorias": 3,
-      "empates": 4,
-      "derrotas": 5,
-      "gols_pro": 16,
-      "gols_contra": 19,
-      "saldo": -3,
-      "pontos": 13,
-      "aproveitamento": 36.1
-    },
-    {
-      "posicao": 16,
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "estado": "MG",
-      "cor": "#003DA5",
-      "escudo": "https://crests.football-data.org/1771.png",
-      "jogos": 12,
-      "vitorias": 3,
-      "empates": 4,
-      "derrotas": 5,
-      "gols_pro": 16,
-      "gols_contra": 21,
-      "saldo": -5,
       "pontos": 13,
       "aproveitamento": 36.1
     },
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "https://crests.football-data.org/4287.png",
-      "jogos": 12,
+      "jogos": 13,
       "vitorias": 1,
       "empates": 5,
-      "derrotas": 6,
+      "derrotas": 7,
       "gols_pro": 13,
-      "gols_contra": 22,
-      "saldo": -9,
+      "gols_contra": 23,
+      "saldo": -10,
       "pontos": 8,
-      "aproveitamento": 22.2
+      "aproveitamento": 20.5
     },
     {
       "posicao": 20,
@@ -385,6 +385,13 @@
       "gols": 5
     },
     {
+      "jogador": "Luciano Juba",
+      "time": "EC Bahia",
+      "sigla": "BAH",
+      "posicao": "Defensor",
+      "gols": 5
+    },
+    {
       "jogador": "Pedro",
       "time": "CR Flamengo",
       "sigla": "FLA",
@@ -424,13 +431,6 @@
       "time": "Botafogo FR",
       "sigla": "BOT",
       "posicao": "Meia",
-      "gols": 4
-    },
-    {
-      "jogador": "Luciano Juba",
-      "time": "EC Bahia",
-      "sigla": "BAH",
-      "posicao": "Defensor",
       "gols": 4
     },
     {
@@ -476,10 +476,10 @@
       "gols": 3
     },
     {
-      "jogador": "Luciano",
-      "time": "São Paulo FC",
-      "sigla": "SAO",
-      "posicao": "Atacante",
+      "jogador": "Willian José",
+      "time": "EC Bahia",
+      "sigla": "BAH",
+      "posicao": "Centroavante",
       "gols": 3
     }
   ],
@@ -487,7 +487,7 @@
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
-    "rodada_atual": 12,
+    "rodada_atual": 13,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
