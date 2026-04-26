@@ -7,15 +7,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "https://crests.football-data.org/1769.png",
-      "jogos": 12,
-      "vitorias": 9,
+      "jogos": 13,
+      "vitorias": 10,
       "empates": 2,
       "derrotas": 1,
-      "gols_pro": 22,
+      "gols_pro": 23,
       "gols_contra": 10,
-      "saldo": 12,
-      "pontos": 29,
-      "aproveitamento": 80.6
+      "saldo": 13,
+      "pontos": 32,
+      "aproveitamento": 82.1
     },
     {
       "posicao": 2,
@@ -70,6 +70,23 @@
     },
     {
       "posicao": 5,
+      "time": "CA Paranaense",
+      "sigla": "CAP",
+      "estado": "PR",
+      "cor": "#E11D1D",
+      "escudo": "https://crests.football-data.org/1768.png",
+      "jogos": 13,
+      "vitorias": 7,
+      "empates": 1,
+      "derrotas": 5,
+      "gols_pro": 20,
+      "gols_contra": 15,
+      "saldo": 5,
+      "pontos": 22,
+      "aproveitamento": 56.4
+    },
+    {
+      "posicao": 6,
       "time": "EC Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -84,23 +101,6 @@
       "saldo": 3,
       "pontos": 21,
       "aproveitamento": 58.3
-    },
-    {
-      "posicao": 6,
-      "time": "CA Paranaense",
-      "sigla": "CAP",
-      "estado": "PR",
-      "cor": "#E11D1D",
-      "escudo": "https://crests.football-data.org/1768.png",
-      "jogos": 12,
-      "vitorias": 6,
-      "empates": 1,
-      "derrotas": 5,
-      "gols_pro": 17,
-      "gols_contra": 14,
-      "saldo": 3,
-      "pontos": 19,
-      "aproveitamento": 52.8
     },
     {
       "posicao": 7,
@@ -121,23 +121,6 @@
     },
     {
       "posicao": 8,
-      "time": "RB Bragantino",
-      "sigla": "RBB",
-      "estado": "SP",
-      "cor": "#E30613",
-      "escudo": "https://crests.football-data.org/4286.png",
-      "jogos": 12,
-      "vitorias": 5,
-      "empates": 2,
-      "derrotas": 5,
-      "gols_pro": 15,
-      "gols_contra": 14,
-      "saldo": 1,
-      "pontos": 17,
-      "aproveitamento": 47.2
-    },
-    {
-      "posicao": 9,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -152,6 +135,23 @@
       "saldo": 0,
       "pontos": 17,
       "aproveitamento": 47.2
+    },
+    {
+      "posicao": 9,
+      "time": "RB Bragantino",
+      "sigla": "RBB",
+      "estado": "SP",
+      "cor": "#E30613",
+      "escudo": "https://crests.football-data.org/4286.png",
+      "jogos": 13,
+      "vitorias": 5,
+      "empates": 2,
+      "derrotas": 6,
+      "gols_pro": 15,
+      "gols_contra": 15,
+      "saldo": 0,
+      "pontos": 17,
+      "aproveitamento": 43.6
     },
     {
       "posicao": 10,
@@ -211,15 +211,15 @@
       "estado": "BA",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1782.png",
-      "jogos": 11,
+      "jogos": 12,
       "vitorias": 4,
       "empates": 3,
-      "derrotas": 4,
-      "gols_pro": 11,
-      "gols_contra": 14,
-      "saldo": -3,
+      "derrotas": 5,
+      "gols_pro": 12,
+      "gols_contra": 17,
+      "saldo": -5,
       "pontos": 15,
-      "aproveitamento": 45.5
+      "aproveitamento": 41.7
     },
     {
       "posicao": 14,
@@ -343,6 +343,13 @@
   ],
   "artilharia": [
     {
+      "jogador": "Kevin Viveros",
+      "time": "CA Paranaense",
+      "sigla": "CAP",
+      "posicao": "Atacante",
+      "gols": 8
+    },
+    {
       "jogador": "Carlos Vinícius",
       "time": "Grêmio FBPA",
       "sigla": "GRE",
@@ -357,16 +364,16 @@
       "gols": 7
     },
     {
-      "jogador": "Kevin Viveros",
-      "time": "CA Paranaense",
-      "sigla": "CAP",
-      "posicao": "Atacante",
-      "gols": 7
-    },
-    {
       "jogador": "Jonathan Calleri",
       "time": "São Paulo FC",
       "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 6
+    },
+    {
+      "jogador": "Pedro",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
       "posicao": "Atacante",
       "gols": 6
     },
@@ -389,13 +396,6 @@
       "time": "EC Bahia",
       "sigla": "BAH",
       "posicao": "Defensor",
-      "gols": 5
-    },
-    {
-      "jogador": "Pedro",
-      "time": "CR Flamengo",
-      "sigla": "FLA",
-      "posicao": "Atacante",
       "gols": 5
     },
     {
@@ -491,8 +491,8 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
-    "lider_pontos": 29,
-    "artilheiro": "Carlos Vinícius",
-    "artilheiro_gols": 7
+    "lider_pontos": 32,
+    "artilheiro": "Kevin Viveros",
+    "artilheiro_gols": 8
   }
 }
