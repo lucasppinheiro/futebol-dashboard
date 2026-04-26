@@ -357,16 +357,16 @@
       "gols": 7
     },
     {
-      "jogador": "Jonathan Calleri",
-      "time": "São Paulo FC",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 6
-    },
-    {
       "jogador": "Kevin Viveros",
       "time": "CA Paranaense",
       "sigla": "CAP",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
+      "jogador": "Jonathan Calleri",
+      "time": "São Paulo FC",
+      "sigla": "SAO",
       "posicao": "Atacante",
       "gols": 6
     },
