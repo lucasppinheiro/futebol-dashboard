@@ -109,15 +109,15 @@
       "estado": "PR",
       "cor": "#006633",
       "escudo": "https://crests.football-data.org/4241.png",
-      "jogos": 12,
+      "jogos": 13,
       "vitorias": 5,
       "empates": 4,
-      "derrotas": 3,
+      "derrotas": 4,
       "gols_pro": 15,
-      "gols_contra": 12,
-      "saldo": 3,
+      "gols_contra": 14,
+      "saldo": 1,
       "pontos": 19,
-      "aproveitamento": 52.8
+      "aproveitamento": 48.7
     },
     {
       "posicao": 8,
@@ -155,23 +155,40 @@
     },
     {
       "posicao": 10,
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "https://crests.football-data.org/1767.png",
+      "jogos": 13,
+      "vitorias": 4,
+      "empates": 4,
+      "derrotas": 5,
+      "gols_pro": 16,
+      "gols_contra": 16,
+      "saldo": 0,
+      "pontos": 16,
+      "aproveitamento": 41.0
+    },
+    {
+      "posicao": 11,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/1780.png",
-      "jogos": 12,
+      "jogos": 13,
       "vitorias": 4,
       "empates": 4,
-      "derrotas": 4,
+      "derrotas": 5,
       "gols_pro": 18,
-      "gols_contra": 18,
-      "saldo": 0,
+      "gols_contra": 19,
+      "saldo": -1,
       "pontos": 16,
-      "aproveitamento": 44.4
+      "aproveitamento": 41.0
     },
     {
-      "posicao": 11,
+      "posicao": 12,
       "time": "Cruzeiro EC",
       "sigla": "CRU",
       "estado": "MG",
@@ -188,7 +205,7 @@
       "aproveitamento": 41.0
     },
     {
-      "posicao": 12,
+      "posicao": 13,
       "time": "EC Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -205,7 +222,24 @@
       "aproveitamento": 45.5
     },
     {
-      "posicao": 13,
+      "posicao": 14,
+      "time": "SC Corinthians Paulista",
+      "sigla": "COR",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/1779.png",
+      "jogos": 13,
+      "vitorias": 3,
+      "empates": 6,
+      "derrotas": 4,
+      "gols_pro": 9,
+      "gols_contra": 11,
+      "saldo": -2,
+      "pontos": 15,
+      "aproveitamento": 38.5
+    },
+    {
+      "posicao": 15,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -222,7 +256,7 @@
       "aproveitamento": 38.9
     },
     {
-      "posicao": 14,
+      "posicao": 16,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -239,7 +273,7 @@
       "aproveitamento": 35.9
     },
     {
-      "posicao": 15,
+      "posicao": 17,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
@@ -254,40 +288,6 @@
       "saldo": -3,
       "pontos": 14,
       "aproveitamento": 35.9
-    },
-    {
-      "posicao": 16,
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "https://crests.football-data.org/1767.png",
-      "jogos": 12,
-      "vitorias": 3,
-      "empates": 4,
-      "derrotas": 5,
-      "gols_pro": 14,
-      "gols_contra": 16,
-      "saldo": -2,
-      "pontos": 13,
-      "aproveitamento": 36.1
-    },
-    {
-      "posicao": 17,
-      "time": "SC Corinthians Paulista",
-      "sigla": "COR",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/1779.png",
-      "jogos": 12,
-      "vitorias": 2,
-      "empates": 6,
-      "derrotas": 4,
-      "gols_pro": 8,
-      "gols_contra": 11,
-      "saldo": -3,
-      "pontos": 12,
-      "aproveitamento": 33.3
     },
     {
       "posicao": 18,
@@ -413,6 +413,13 @@
       "gols": 5
     },
     {
+      "jogador": "José Manuel López",
+      "time": "SE Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Meia",
+      "gols": 4
+    },
+    {
       "jogador": "Stiven Mendoza",
       "time": "CA Paranaense",
       "sigla": "CAP",
@@ -446,13 +453,6 @@
       "sigla": "SAN",
       "posicao": "Atacante",
       "gols": 4
-    },
-    {
-      "jogador": "José Manuel López",
-      "time": "SE Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Meia",
-      "gols": 3
     },
     {
       "jogador": "Victor Hugo Gomes",
