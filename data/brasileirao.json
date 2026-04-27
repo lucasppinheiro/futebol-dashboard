@@ -24,15 +24,15 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1783.png",
-      "jogos": 11,
-      "vitorias": 7,
+      "jogos": 12,
+      "vitorias": 8,
       "empates": 2,
       "derrotas": 2,
-      "gols_pro": 20,
+      "gols_pro": 24,
       "gols_contra": 10,
-      "saldo": 10,
-      "pontos": 23,
-      "aproveitamento": 69.7
+      "saldo": 14,
+      "pontos": 26,
+      "aproveitamento": 72.2
     },
     {
       "posicao": 3,
@@ -41,15 +41,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "https://crests.football-data.org/1765.png",
-      "jogos": 12,
-      "vitorias": 7,
+      "jogos": 13,
+      "vitorias": 8,
       "empates": 2,
       "derrotas": 3,
-      "gols_pro": 21,
-      "gols_contra": 15,
-      "saldo": 6,
-      "pontos": 23,
-      "aproveitamento": 63.9
+      "gols_pro": 23,
+      "gols_contra": 16,
+      "saldo": 7,
+      "pontos": 26,
+      "aproveitamento": 66.7
     },
     {
       "posicao": 4,
@@ -114,8 +114,8 @@
       "empates": 4,
       "derrotas": 4,
       "gols_pro": 15,
-      "gols_contra": 14,
-      "saldo": 1,
+      "gols_contra": 13,
+      "saldo": 2,
       "pontos": 19,
       "aproveitamento": 48.7
     },
@@ -155,23 +155,6 @@
     },
     {
       "posicao": 10,
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "https://crests.football-data.org/1767.png",
-      "jogos": 13,
-      "vitorias": 4,
-      "empates": 4,
-      "derrotas": 5,
-      "gols_pro": 16,
-      "gols_contra": 16,
-      "saldo": 0,
-      "pontos": 16,
-      "aproveitamento": 41.0
-    },
-    {
-      "posicao": 11,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "estado": "RJ",
@@ -183,6 +166,23 @@
       "derrotas": 5,
       "gols_pro": 18,
       "gols_contra": 19,
+      "saldo": -1,
+      "pontos": 16,
+      "aproveitamento": 41.0
+    },
+    {
+      "posicao": 11,
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "https://crests.football-data.org/1767.png",
+      "jogos": 13,
+      "vitorias": 4,
+      "empates": 4,
+      "derrotas": 5,
+      "gols_pro": 15,
+      "gols_contra": 16,
       "saldo": -1,
       "pontos": 16,
       "aproveitamento": 41.0
@@ -245,15 +245,15 @@
       "estado": "MG",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/1766.png",
-      "jogos": 12,
+      "jogos": 13,
       "vitorias": 4,
       "empates": 2,
-      "derrotas": 6,
+      "derrotas": 7,
       "gols_pro": 14,
-      "gols_contra": 15,
-      "saldo": -1,
+      "gols_contra": 19,
+      "saldo": -5,
       "pontos": 14,
-      "aproveitamento": 38.9
+      "aproveitamento": 35.9
     },
     {
       "posicao": 16,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "https://crests.football-data.org/1772_large.png",
-      "jogos": 11,
+      "jogos": 12,
       "vitorias": 1,
       "empates": 5,
-      "derrotas": 5,
-      "gols_pro": 11,
-      "gols_contra": 22,
-      "saldo": -11,
+      "derrotas": 6,
+      "gols_pro": 12,
+      "gols_contra": 24,
+      "saldo": -12,
       "pontos": 8,
-      "aproveitamento": 24.2
+      "aproveitamento": 22.2
     }
   ],
   "artilharia": [
@@ -364,16 +364,16 @@
       "gols": 7
     },
     {
-      "jogador": "Jonathan Calleri",
-      "time": "São Paulo FC",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 6
-    },
-    {
       "jogador": "Pedro",
       "time": "CR Flamengo",
       "sigla": "FLA",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
+      "jogador": "Jonathan Calleri",
+      "time": "São Paulo FC",
+      "sigla": "SAO",
       "posicao": "Atacante",
       "gols": 6
     },
@@ -382,7 +382,7 @@
       "time": "Fluminense FC",
       "sigla": "FLU",
       "posicao": "Centroavante",
-      "gols": 5
+      "gols": 6
     },
     {
       "jogador": "Breno Lopes",
