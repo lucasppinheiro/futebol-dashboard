@@ -114,8 +114,8 @@
       "empates": 4,
       "derrotas": 4,
       "gols_pro": 15,
-      "gols_contra": 13,
-      "saldo": 2,
+      "gols_contra": 14,
+      "saldo": 1,
       "pontos": 19,
       "aproveitamento": 48.7
     },
@@ -155,6 +155,23 @@
     },
     {
       "posicao": 10,
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "https://crests.football-data.org/1767.png",
+      "jogos": 13,
+      "vitorias": 4,
+      "empates": 4,
+      "derrotas": 5,
+      "gols_pro": 16,
+      "gols_contra": 16,
+      "saldo": 0,
+      "pontos": 16,
+      "aproveitamento": 41.0
+    },
+    {
+      "posicao": 11,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "estado": "RJ",
@@ -166,23 +183,6 @@
       "derrotas": 5,
       "gols_pro": 18,
       "gols_contra": 19,
-      "saldo": -1,
-      "pontos": 16,
-      "aproveitamento": 41.0
-    },
-    {
-      "posicao": 11,
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "https://crests.football-data.org/1767.png",
-      "jogos": 13,
-      "vitorias": 4,
-      "empates": 4,
-      "derrotas": 5,
-      "gols_pro": 15,
-      "gols_contra": 16,
       "saldo": -1,
       "pontos": 16,
       "aproveitamento": 41.0
@@ -385,6 +385,13 @@
       "gols": 6
     },
     {
+      "jogador": "José Manuel López",
+      "time": "SE Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Meia",
+      "gols": 5
+    },
+    {
       "jogador": "Breno Lopes",
       "time": "Coritiba FBC",
       "sigla": "CFC",
@@ -411,13 +418,6 @@
       "sigla": "RBB",
       "posicao": "Meia",
       "gols": 5
-    },
-    {
-      "jogador": "José Manuel López",
-      "time": "SE Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Meia",
-      "gols": 4
     },
     {
       "jogador": "Stiven Mendoza",
@@ -448,6 +448,13 @@
       "gols": 4
     },
     {
+      "jogador": "Pedro Rocha",
+      "time": "Coritiba FBC",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 4
+    },
+    {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
@@ -472,13 +479,6 @@
       "jogador": "Luciano Acosta",
       "time": "Fluminense FC",
       "sigla": "FLU",
-      "posicao": "Meia",
-      "gols": 3
-    },
-    {
-      "jogador": "Walter Clar",
-      "time": "Chapecoense AF",
-      "sigla": "CHA",
       "posicao": "Meia",
       "gols": 3
     }
