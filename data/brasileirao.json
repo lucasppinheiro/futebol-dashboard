@@ -350,6 +350,13 @@
       "gols": 8
     },
     {
+      "jogador": "Pedro",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "posicao": "Atacante",
+      "gols": 8
+    },
+    {
       "jogador": "Carlos Vinícius",
       "time": "Grêmio FBPA",
       "sigla": "GRE",
@@ -361,13 +368,6 @@
       "time": "Botafogo FR",
       "sigla": "BOT",
       "posicao": "Volante",
-      "gols": 7
-    },
-    {
-      "jogador": "Pedro",
-      "time": "CR Flamengo",
-      "sigla": "FLA",
-      "posicao": "Atacante",
       "gols": 7
     },
     {
