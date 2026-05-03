@@ -385,6 +385,13 @@
       "gols": 6
     },
     {
+      "jogador": "Luciano Juba",
+      "time": "EC Bahia",
+      "sigla": "BAH",
+      "posicao": "Defensor",
+      "gols": 6
+    },
+    {
       "jogador": "José Manuel López",
       "time": "SE Palmeiras",
       "sigla": "PAL",
@@ -396,13 +403,6 @@
       "time": "Coritiba FBC",
       "sigla": "CFC",
       "posicao": "Atacante",
-      "gols": 5
-    },
-    {
-      "jogador": "Luciano Juba",
-      "time": "EC Bahia",
-      "sigla": "BAH",
-      "posicao": "Defensor",
       "gols": 5
     },
     {
@@ -462,6 +462,13 @@
       "gols": 4
     },
     {
+      "jogador": "Ferreira",
+      "time": "São Paulo FC",
+      "sigla": "SAO",
+      "posicao": "Meia",
+      "gols": 4
+    },
+    {
       "jogador": "Victor Hugo Gomes",
       "time": "Atlético Mineiro",
       "sigla": "CAM",
@@ -473,13 +480,6 @@
       "time": "SE Palmeiras",
       "sigla": "PAL",
       "posicao": "Centroavante",
-      "gols": 3
-    },
-    {
-      "jogador": "Luciano Acosta",
-      "time": "Fluminense FC",
-      "sigla": "FLU",
-      "posicao": "Meia",
       "gols": 3
     }
   ],
