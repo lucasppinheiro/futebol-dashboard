@@ -126,15 +126,15 @@
       "estado": "PR",
       "cor": "#006633",
       "escudo": "https://crests.football-data.org/4241.png",
-      "jogos": 14,
+      "jogos": 15,
       "vitorias": 5,
-      "empates": 4,
+      "empates": 5,
       "derrotas": 5,
-      "gols_pro": 16,
-      "gols_contra": 17,
+      "gols_pro": 18,
+      "gols_contra": 19,
       "saldo": -1,
-      "pontos": 19,
-      "aproveitamento": 45.2
+      "pontos": 20,
+      "aproveitamento": 44.4
     },
     {
       "posicao": 9,
@@ -155,6 +155,23 @@
     },
     {
       "posicao": 10,
+      "time": "SC Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "https://crests.football-data.org/6684.png",
+      "jogos": 15,
+      "vitorias": 4,
+      "empates": 6,
+      "derrotas": 5,
+      "gols_pro": 16,
+      "gols_contra": 16,
+      "saldo": 0,
+      "pontos": 18,
+      "aproveitamento": 40.0
+    },
+    {
+      "posicao": 11,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -171,7 +188,7 @@
       "aproveitamento": 43.6
     },
     {
-      "posicao": 11,
+      "posicao": 12,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -184,23 +201,6 @@
       "gols_pro": 17,
       "gols_contra": 20,
       "saldo": -3,
-      "pontos": 17,
-      "aproveitamento": 40.5
-    },
-    {
-      "posicao": 12,
-      "time": "SC Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "https://crests.football-data.org/6684.png",
-      "jogos": 14,
-      "vitorias": 4,
-      "empates": 5,
-      "derrotas": 5,
-      "gols_pro": 14,
-      "gols_contra": 14,
-      "saldo": 0,
       "pontos": 17,
       "aproveitamento": 40.5
     },
@@ -371,17 +371,17 @@
       "gols": 7
     },
     {
-      "jogador": "Jonathan Calleri",
-      "time": "São Paulo FC",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 6
-    },
-    {
       "jogador": "John Kennedy",
       "time": "Fluminense FC",
       "sigla": "FLU",
       "posicao": "Centroavante",
+      "gols": 7
+    },
+    {
+      "jogador": "Jonathan Calleri",
+      "time": "São Paulo FC",
+      "sigla": "SAO",
+      "posicao": "Atacante",
       "gols": 6
     },
     {
@@ -487,7 +487,7 @@
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
-    "rodada_atual": 14,
+    "rodada_atual": 15,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
