@@ -448,6 +448,13 @@
       "gols": 4
     },
     {
+      "jogador": "Joaquín Lavega",
+      "time": "Coritiba FBC",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 4
+    },
+    {
       "jogador": "Pedro Rocha",
       "time": "Coritiba FBC",
       "sigla": "CFC",
@@ -473,13 +480,6 @@
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "posicao": "Meia",
-      "gols": 3
-    },
-    {
-      "jogador": "Vítor Roque",
-      "time": "SE Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Centroavante",
       "gols": 3
     }
   ],
