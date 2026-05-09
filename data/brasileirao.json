@@ -8,14 +8,14 @@
       "cor": "#006437",
       "escudo": "https://crests.football-data.org/1769.png",
       "jogos": 14,
-      "vitorias": 10,
-      "empates": 3,
+      "vitorias": 11,
+      "empates": 2,
       "derrotas": 1,
-      "gols_pro": 24,
+      "gols_pro": 25,
       "gols_contra": 11,
-      "saldo": 13,
-      "pontos": 33,
-      "aproveitamento": 78.6
+      "saldo": 14,
+      "pontos": 35,
+      "aproveitamento": 83.3
     },
     {
       "posicao": 2,
@@ -131,8 +131,8 @@
       "empates": 4,
       "derrotas": 5,
       "gols_pro": 16,
-      "gols_contra": 17,
-      "saldo": -1,
+      "gols_contra": 18,
+      "saldo": -2,
       "pontos": 19,
       "aproveitamento": 45.2
     },
@@ -189,6 +189,23 @@
     },
     {
       "posicao": 12,
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "https://crests.football-data.org/1767.png",
+      "jogos": 14,
+      "vitorias": 4,
+      "empates": 5,
+      "derrotas": 5,
+      "gols_pro": 16,
+      "gols_contra": 16,
+      "saldo": 0,
+      "pontos": 17,
+      "aproveitamento": 40.5
+    },
+    {
+      "posicao": 13,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -205,7 +222,7 @@
       "aproveitamento": 40.5
     },
     {
-      "posicao": 13,
+      "posicao": 14,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "estado": "RJ",
@@ -217,23 +234,6 @@
       "derrotas": 5,
       "gols_pro": 20,
       "gols_contra": 21,
-      "saldo": -1,
-      "pontos": 17,
-      "aproveitamento": 40.5
-    },
-    {
-      "posicao": 14,
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "https://crests.football-data.org/1767.png",
-      "jogos": 14,
-      "vitorias": 4,
-      "empates": 5,
-      "derrotas": 5,
-      "gols_pro": 15,
-      "gols_contra": 16,
       "saldo": -1,
       "pontos": 17,
       "aproveitamento": 40.5
@@ -257,23 +257,6 @@
     },
     {
       "posicao": 16,
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/6685.png",
-      "jogos": 14,
-      "vitorias": 3,
-      "empates": 6,
-      "derrotas": 5,
-      "gols_pro": 19,
-      "gols_contra": 22,
-      "saldo": -3,
-      "pontos": 15,
-      "aproveitamento": 35.7
-    },
-    {
-      "posicao": 17,
       "time": "SC Corinthians Paulista",
       "sigla": "COR",
       "estado": "SP",
@@ -288,6 +271,23 @@
       "saldo": -3,
       "pontos": 15,
       "aproveitamento": 35.7
+    },
+    {
+      "posicao": 17,
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/6685.png",
+      "jogos": 14,
+      "vitorias": 3,
+      "empates": 5,
+      "derrotas": 6,
+      "gols_pro": 19,
+      "gols_contra": 23,
+      "saldo": -4,
+      "pontos": 14,
+      "aproveitamento": 33.3
     },
     {
       "posicao": 18,
@@ -491,7 +491,7 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
-    "lider_pontos": 33,
+    "lider_pontos": 35,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 8
   }
