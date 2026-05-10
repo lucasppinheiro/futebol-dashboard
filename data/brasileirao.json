@@ -7,15 +7,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "https://crests.football-data.org/1769.png",
-      "jogos": 14,
-      "vitorias": 10,
+      "jogos": 15,
+      "vitorias": 11,
       "empates": 3,
       "derrotas": 1,
-      "gols_pro": 24,
-      "gols_contra": 11,
-      "saldo": 13,
-      "pontos": 33,
-      "aproveitamento": 78.6
+      "gols_pro": 26,
+      "gols_contra": 12,
+      "saldo": 14,
+      "pontos": 36,
+      "aproveitamento": 80.0
     },
     {
       "posicao": 2,
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "https://crests.football-data.org/4287.png",
-      "jogos": 14,
+      "jogos": 15,
       "vitorias": 2,
       "empates": 5,
-      "derrotas": 7,
-      "gols_pro": 15,
-      "gols_contra": 24,
-      "saldo": -9,
+      "derrotas": 8,
+      "gols_pro": 16,
+      "gols_contra": 26,
+      "saldo": -10,
       "pontos": 11,
-      "aproveitamento": 26.2
+      "aproveitamento": 24.4
     },
     {
       "posicao": 20,
@@ -399,6 +399,13 @@
       "gols": 5
     },
     {
+      "jogador": "Luciano",
+      "time": "São Paulo FC",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 5
+    },
+    {
       "jogador": "Breno Lopes",
       "time": "Coritiba FBC",
       "sigla": "CFC",
@@ -424,13 +431,6 @@
       "time": "CA Paranaense",
       "sigla": "CAP",
       "posicao": "Ponta esquerda",
-      "gols": 4
-    },
-    {
-      "jogador": "Luciano",
-      "time": "São Paulo FC",
-      "sigla": "SAO",
-      "posicao": "Atacante",
       "gols": 4
     },
     {
@@ -476,7 +476,7 @@
       "gols": 4
     },
     {
-      "jogador": "Gabriel Barbosa",
+      "jogador": "Neymar",
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Atacante",
@@ -491,7 +491,7 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
-    "lider_pontos": 33,
+    "lider_pontos": 36,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 8
   }
