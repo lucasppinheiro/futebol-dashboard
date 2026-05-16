@@ -343,6 +343,13 @@
   ],
   "artilharia": [
     {
+      "jogador": "John Kennedy",
+      "time": "Fluminense FC",
+      "sigla": "FLU",
+      "posicao": "Centroavante",
+      "gols": 8
+    },
+    {
       "jogador": "Kevin Viveros",
       "time": "CA Paranaense",
       "sigla": "CAP",
@@ -368,13 +375,6 @@
       "time": "Botafogo FR",
       "sigla": "BOT",
       "posicao": "Volante",
-      "gols": 7
-    },
-    {
-      "jogador": "John Kennedy",
-      "time": "Fluminense FC",
-      "sigla": "FLU",
-      "posicao": "Centroavante",
       "gols": 7
     },
     {
@@ -492,7 +492,7 @@
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
     "lider_pontos": 34,
-    "artilheiro": "Kevin Viveros",
+    "artilheiro": "John Kennedy",
     "artilheiro_gols": 8
   }
 }
