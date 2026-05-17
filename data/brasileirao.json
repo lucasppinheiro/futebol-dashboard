@@ -399,6 +399,13 @@
       "gols": 6
     },
     {
+      "jogador": "Arthur Cabral",
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "posicao": "Centroavante",
+      "gols": 6
+    },
+    {
       "jogador": "José Manuel López",
       "time": "SE Palmeiras",
       "sigla": "PAL",
@@ -445,13 +452,6 @@
       "time": "Clube do Remo",
       "sigla": "REM",
       "posicao": "Atacante",
-      "gols": 4
-    },
-    {
-      "jogador": "Arthur Cabral",
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "posicao": "Centroavante",
       "gols": 4
     },
     {
