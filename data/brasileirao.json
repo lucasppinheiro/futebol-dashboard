@@ -413,6 +413,13 @@
       "gols": 5
     },
     {
+      "jogador": "Stiven Mendoza",
+      "time": "CA Paranaense",
+      "sigla": "CAP",
+      "posicao": "Ponta esquerda",
+      "gols": 5
+    },
+    {
       "jogador": "Luciano",
       "time": "São Paulo FC",
       "sigla": "SAO",
@@ -432,13 +439,6 @@
       "sigla": "RBB",
       "posicao": "Meia",
       "gols": 5
-    },
-    {
-      "jogador": "Stiven Mendoza",
-      "time": "CA Paranaense",
-      "sigla": "CAP",
-      "posicao": "Ponta esquerda",
-      "gols": 4
     },
     {
       "jogador": "Matheus Martins",
