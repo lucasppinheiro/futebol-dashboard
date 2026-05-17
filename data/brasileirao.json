@@ -45,9 +45,9 @@
       "vitorias": 9,
       "empates": 3,
       "derrotas": 4,
-      "gols_pro": 27,
+      "gols_pro": 28,
       "gols_contra": 21,
-      "saldo": 6,
+      "saldo": 7,
       "pontos": 30,
       "aproveitamento": 62.5
     },
@@ -63,8 +63,8 @@
       "empates": 3,
       "derrotas": 6,
       "gols_pro": 22,
-      "gols_contra": 18,
-      "saldo": 4,
+      "gols_contra": 19,
+      "saldo": 3,
       "pontos": 24,
       "aproveitamento": 50.0
     },
@@ -378,6 +378,13 @@
       "gols": 7
     },
     {
+      "jogador": "Breno Lopes",
+      "time": "Coritiba FBC",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
       "jogador": "Luciano Juba",
       "time": "EC Bahia",
       "sigla": "BAH",
@@ -402,13 +409,6 @@
       "jogador": "Luciano",
       "time": "São Paulo FC",
       "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 5
-    },
-    {
-      "jogador": "Breno Lopes",
-      "time": "Coritiba FBC",
-      "sigla": "CFC",
       "posicao": "Atacante",
       "gols": 5
     },
