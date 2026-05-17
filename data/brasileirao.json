@@ -45,9 +45,9 @@
       "vitorias": 9,
       "empates": 3,
       "derrotas": 4,
-      "gols_pro": 28,
+      "gols_pro": 27,
       "gols_contra": 21,
-      "saldo": 7,
+      "saldo": 6,
       "pontos": 30,
       "aproveitamento": 62.5
     },
@@ -63,8 +63,8 @@
       "empates": 3,
       "derrotas": 6,
       "gols_pro": 22,
-      "gols_contra": 19,
-      "saldo": 3,
+      "gols_contra": 18,
+      "saldo": 4,
       "pontos": 24,
       "aproveitamento": 50.0
     },
@@ -87,6 +87,23 @@
     },
     {
       "posicao": 6,
+      "time": "Coritiba FBC",
+      "sigla": "CFC",
+      "estado": "PR",
+      "cor": "#006633",
+      "escudo": "https://crests.football-data.org/4241.png",
+      "jogos": 16,
+      "vitorias": 6,
+      "empates": 5,
+      "derrotas": 5,
+      "gols_pro": 21,
+      "gols_contra": 19,
+      "saldo": 2,
+      "pontos": 23,
+      "aproveitamento": 47.9
+    },
+    {
+      "posicao": 7,
       "time": "EC Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -103,7 +120,7 @@
       "aproveitamento": 52.4
     },
     {
-      "posicao": 7,
+      "posicao": 8,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -120,7 +137,7 @@
       "aproveitamento": 43.8
     },
     {
-      "posicao": 8,
+      "posicao": 9,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -137,7 +154,7 @@
       "aproveitamento": 43.8
     },
     {
-      "posicao": 9,
+      "posicao": 10,
       "time": "RB Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -149,23 +166,6 @@
       "derrotas": 7,
       "gols_pro": 17,
       "gols_contra": 18,
-      "saldo": -1,
-      "pontos": 20,
-      "aproveitamento": 44.4
-    },
-    {
-      "posicao": 10,
-      "time": "Coritiba FBC",
-      "sigla": "CFC",
-      "estado": "PR",
-      "cor": "#006633",
-      "escudo": "https://crests.football-data.org/4241.png",
-      "jogos": 15,
-      "vitorias": 5,
-      "empates": 5,
-      "derrotas": 5,
-      "gols_pro": 18,
-      "gols_contra": 19,
       "saldo": -1,
       "pontos": 20,
       "aproveitamento": 44.4
@@ -240,23 +240,6 @@
     },
     {
       "posicao": 15,
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/6685.png",
-      "jogos": 15,
-      "vitorias": 4,
-      "empates": 6,
-      "derrotas": 5,
-      "gols_pro": 21,
-      "gols_contra": 22,
-      "saldo": -1,
-      "pontos": 18,
-      "aproveitamento": 40.0
-    },
-    {
-      "posicao": 16,
       "time": "SC Corinthians Paulista",
       "sigla": "COR",
       "estado": "SP",
@@ -271,6 +254,23 @@
       "saldo": -2,
       "pontos": 18,
       "aproveitamento": 40.0
+    },
+    {
+      "posicao": 16,
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/6685.png",
+      "jogos": 16,
+      "vitorias": 4,
+      "empates": 6,
+      "derrotas": 6,
+      "gols_pro": 21,
+      "gols_contra": 25,
+      "saldo": -4,
+      "pontos": 18,
+      "aproveitamento": 37.5
     },
     {
       "posicao": 17,
