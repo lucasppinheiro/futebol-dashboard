@@ -109,18 +109,35 @@
       "estado": "BA",
       "cor": "#004A99",
       "escudo": "https://crests.football-data.org/1777.png",
-      "jogos": 14,
+      "jogos": 15,
       "vitorias": 6,
-      "empates": 4,
+      "empates": 5,
       "derrotas": 4,
-      "gols_pro": 20,
-      "gols_contra": 18,
+      "gols_pro": 21,
+      "gols_contra": 19,
       "saldo": 2,
-      "pontos": 22,
-      "aproveitamento": 52.4
+      "pontos": 23,
+      "aproveitamento": 51.1
     },
     {
       "posicao": 8,
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/1770.png",
+      "jogos": 15,
+      "vitorias": 6,
+      "empates": 3,
+      "derrotas": 6,
+      "gols_pro": 29,
+      "gols_contra": 28,
+      "saldo": 1,
+      "pontos": 21,
+      "aproveitamento": 46.7
+    },
+    {
+      "posicao": 9,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -137,7 +154,7 @@
       "aproveitamento": 43.8
     },
     {
-      "posicao": 9,
+      "posicao": 10,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -154,7 +171,7 @@
       "aproveitamento": 43.8
     },
     {
-      "posicao": 10,
+      "posicao": 11,
       "time": "RB Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -171,7 +188,7 @@
       "aproveitamento": 44.4
     },
     {
-      "posicao": 11,
+      "posicao": 12,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "estado": "RJ",
@@ -188,7 +205,7 @@
       "aproveitamento": 41.7
     },
     {
-      "posicao": 12,
+      "posicao": 13,
       "time": "Cruzeiro EC",
       "sigla": "CRU",
       "estado": "MG",
@@ -205,7 +222,7 @@
       "aproveitamento": 41.7
     },
     {
-      "posicao": 13,
+      "posicao": 14,
       "time": "EC Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -222,38 +239,21 @@
       "aproveitamento": 45.2
     },
     {
-      "posicao": 14,
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/1770.png",
-      "jogos": 14,
-      "vitorias": 5,
-      "empates": 3,
-      "derrotas": 6,
-      "gols_pro": 26,
-      "gols_contra": 27,
-      "saldo": -1,
-      "pontos": 18,
-      "aproveitamento": 42.9
-    },
-    {
       "posicao": 15,
-      "time": "SC Corinthians Paulista",
-      "sigla": "COR",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/1779.png",
-      "jogos": 15,
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "https://crests.football-data.org/1767.png",
+      "jogos": 16,
       "vitorias": 4,
       "empates": 6,
-      "derrotas": 5,
-      "gols_pro": 13,
-      "gols_contra": 15,
+      "derrotas": 6,
+      "gols_pro": 16,
+      "gols_contra": 18,
       "saldo": -2,
       "pontos": 18,
-      "aproveitamento": 40.0
+      "aproveitamento": 37.5
     },
     {
       "posicao": 16,
@@ -274,20 +274,20 @@
     },
     {
       "posicao": 17,
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "https://crests.football-data.org/1767.png",
-      "jogos": 15,
+      "time": "SC Corinthians Paulista",
+      "sigla": "COR",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/1779.png",
+      "jogos": 16,
       "vitorias": 4,
-      "empates": 5,
+      "empates": 6,
       "derrotas": 6,
-      "gols_pro": 15,
-      "gols_contra": 17,
-      "saldo": -2,
-      "pontos": 17,
-      "aproveitamento": 37.8
+      "gols_pro": 14,
+      "gols_contra": 18,
+      "saldo": -4,
+      "pontos": 18,
+      "aproveitamento": 37.5
     },
     {
       "posicao": 18,
@@ -378,6 +378,13 @@
       "gols": 7
     },
     {
+      "jogador": "Arthur Cabral",
+      "time": "Botafogo FR",
+      "sigla": "BOT",
+      "posicao": "Centroavante",
+      "gols": 7
+    },
+    {
       "jogador": "Breno Lopes",
       "time": "Coritiba FBC",
       "sigla": "CFC",
@@ -396,13 +403,6 @@
       "time": "São Paulo FC",
       "sigla": "SAO",
       "posicao": "Atacante",
-      "gols": 6
-    },
-    {
-      "jogador": "Arthur Cabral",
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "posicao": "Centroavante",
       "gols": 6
     },
     {
