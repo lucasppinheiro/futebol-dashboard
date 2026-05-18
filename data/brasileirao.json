@@ -24,15 +24,15 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1783.png",
-      "jogos": 14,
+      "jogos": 15,
       "vitorias": 9,
-      "empates": 3,
+      "empates": 4,
       "derrotas": 2,
-      "gols_pro": 27,
-      "gols_contra": 12,
+      "gols_pro": 28,
+      "gols_contra": 13,
       "saldo": 15,
-      "pontos": 30,
-      "aproveitamento": 71.4
+      "pontos": 31,
+      "aproveitamento": 68.9
     },
     {
       "posicao": 3,
@@ -75,15 +75,15 @@
       "estado": "PR",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1768.png",
-      "jogos": 15,
+      "jogos": 16,
       "vitorias": 7,
-      "empates": 2,
+      "empates": 3,
       "derrotas": 6,
-      "gols_pro": 20,
-      "gols_contra": 16,
+      "gols_pro": 21,
+      "gols_contra": 17,
       "saldo": 4,
-      "pontos": 23,
-      "aproveitamento": 51.1
+      "pontos": 24,
+      "aproveitamento": 50.0
     },
     {
       "posicao": 6,
@@ -343,6 +343,13 @@
   ],
   "artilharia": [
     {
+      "jogador": "Pedro",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "posicao": "Atacante",
+      "gols": 9
+    },
+    {
       "jogador": "John Kennedy",
       "time": "Fluminense FC",
       "sigla": "FLU",
@@ -353,13 +360,6 @@
       "jogador": "Kevin Viveros",
       "time": "CA Paranaense",
       "sigla": "CAP",
-      "posicao": "Atacante",
-      "gols": 8
-    },
-    {
-      "jogador": "Pedro",
-      "time": "CR Flamengo",
-      "sigla": "FLA",
       "posicao": "Atacante",
       "gols": 8
     },
@@ -492,7 +492,7 @@
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
     "lider_pontos": 35,
-    "artilheiro": "John Kennedy",
-    "artilheiro_gols": 8
+    "artilheiro": "Pedro",
+    "artilheiro_gols": 9
   }
 }
