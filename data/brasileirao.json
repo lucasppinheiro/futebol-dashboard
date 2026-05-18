@@ -87,6 +87,23 @@
     },
     {
       "posicao": 6,
+      "time": "RB Bragantino",
+      "sigla": "RBB",
+      "estado": "SP",
+      "cor": "#E30613",
+      "escudo": "https://crests.football-data.org/4286.png",
+      "jogos": 16,
+      "vitorias": 7,
+      "empates": 2,
+      "derrotas": 7,
+      "gols_pro": 19,
+      "gols_contra": 18,
+      "saldo": 1,
+      "pontos": 23,
+      "aproveitamento": 47.9
+    },
+    {
+      "posicao": 7,
       "time": "Coritiba FBC",
       "sigla": "CFC",
       "estado": "PR",
@@ -103,7 +120,7 @@
       "aproveitamento": 47.9
     },
     {
-      "posicao": 7,
+      "posicao": 8,
       "time": "EC Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -120,7 +137,7 @@
       "aproveitamento": 51.1
     },
     {
-      "posicao": 8,
+      "posicao": 9,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -137,7 +154,7 @@
       "aproveitamento": 46.7
     },
     {
-      "posicao": 9,
+      "posicao": 10,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -154,7 +171,7 @@
       "aproveitamento": 43.8
     },
     {
-      "posicao": 10,
+      "posicao": 11,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -169,23 +186,6 @@
       "saldo": 3,
       "pontos": 21,
       "aproveitamento": 43.8
-    },
-    {
-      "posicao": 11,
-      "time": "RB Bragantino",
-      "sigla": "RBB",
-      "estado": "SP",
-      "cor": "#E30613",
-      "escudo": "https://crests.football-data.org/4286.png",
-      "jogos": 15,
-      "vitorias": 6,
-      "empates": 2,
-      "derrotas": 7,
-      "gols_pro": 17,
-      "gols_contra": 18,
-      "saldo": -1,
-      "pontos": 20,
-      "aproveitamento": 44.4
     },
     {
       "posicao": 12,
@@ -228,15 +228,15 @@
       "estado": "BA",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1782.png",
-      "jogos": 14,
+      "jogos": 15,
       "vitorias": 5,
       "empates": 4,
-      "derrotas": 5,
+      "derrotas": 6,
       "gols_pro": 18,
-      "gols_contra": 20,
-      "saldo": -2,
+      "gols_contra": 22,
+      "saldo": -4,
       "pontos": 19,
-      "aproveitamento": 45.2
+      "aproveitamento": 42.2
     },
     {
       "posicao": 15,
@@ -291,6 +291,23 @@
     },
     {
       "posicao": 18,
+      "time": "Clube do Remo",
+      "sigla": "REM",
+      "estado": "PA",
+      "cor": "#00008B",
+      "escudo": "https://crests.football-data.org/4287.png",
+      "jogos": 16,
+      "vitorias": 3,
+      "empates": 6,
+      "derrotas": 7,
+      "gols_pro": 19,
+      "gols_contra": 27,
+      "saldo": -8,
+      "pontos": 15,
+      "aproveitamento": 31.2
+    },
+    {
+      "posicao": 19,
       "time": "Mirassol FC",
       "sigla": "MIR",
       "estado": "SP",
@@ -307,38 +324,21 @@
       "aproveitamento": 28.9
     },
     {
-      "posicao": 19,
-      "time": "Clube do Remo",
-      "sigla": "REM",
-      "estado": "PA",
-      "cor": "#00008B",
-      "escudo": "https://crests.football-data.org/4287.png",
-      "jogos": 15,
-      "vitorias": 2,
-      "empates": 6,
-      "derrotas": 7,
-      "gols_pro": 16,
-      "gols_contra": 25,
-      "saldo": -9,
-      "pontos": 12,
-      "aproveitamento": 26.7
-    },
-    {
       "posicao": 20,
       "time": "Chapecoense AF",
       "sigla": "CHA",
       "estado": "SC",
       "cor": "#008000",
       "escudo": "https://crests.football-data.org/1772_large.png",
-      "jogos": 14,
+      "jogos": 15,
       "vitorias": 1,
       "empates": 6,
-      "derrotas": 7,
-      "gols_pro": 14,
-      "gols_contra": 27,
-      "saldo": -13,
+      "derrotas": 8,
+      "gols_pro": 16,
+      "gols_contra": 30,
+      "saldo": -14,
       "pontos": 9,
-      "aproveitamento": 21.4
+      "aproveitamento": 20.0
     }
   ],
   "artilharia": [
