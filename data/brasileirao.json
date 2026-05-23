@@ -399,6 +399,13 @@
       "gols": 7
     },
     {
+      "jogador": "Luciano",
+      "time": "São Paulo FC",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 6
+    },
+    {
       "jogador": "Jonathan Calleri",
       "time": "São Paulo FC",
       "sigla": "SAO",
@@ -417,13 +424,6 @@
       "time": "CA Paranaense",
       "sigla": "CAP",
       "posicao": "Ponta esquerda",
-      "gols": 5
-    },
-    {
-      "jogador": "Luciano",
-      "time": "São Paulo FC",
-      "sigla": "SAO",
-      "posicao": "Atacante",
       "gols": 5
     },
     {
