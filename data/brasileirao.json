@@ -45,9 +45,9 @@
       "vitorias": 9,
       "empates": 3,
       "derrotas": 4,
-      "gols_pro": 28,
+      "gols_pro": 27,
       "gols_contra": 21,
-      "saldo": 7,
+      "saldo": 6,
       "pontos": 30,
       "aproveitamento": 62.5
     },
@@ -63,8 +63,8 @@
       "empates": 4,
       "derrotas": 6,
       "gols_pro": 23,
-      "gols_contra": 20,
-      "saldo": 3,
+      "gols_contra": 19,
+      "saldo": 4,
       "pontos": 25,
       "aproveitamento": 49.0
     },
@@ -350,6 +350,13 @@
       "gols": 9
     },
     {
+      "jogador": "Carlos Vinícius",
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "posicao": "Centroavante",
+      "gols": 8
+    },
+    {
       "jogador": "John Kennedy",
       "time": "Fluminense FC",
       "sigla": "FLU",
@@ -362,13 +369,6 @@
       "sigla": "CAP",
       "posicao": "Atacante",
       "gols": 8
-    },
-    {
-      "jogador": "Carlos Vinícius",
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "posicao": "Centroavante",
-      "gols": 7
     },
     {
       "jogador": "Danilo dos Santos de Oliveira",
@@ -427,6 +427,13 @@
       "gols": 5
     },
     {
+      "jogador": "Gabriel Barbosa",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Atacante",
+      "gols": 5
+    },
+    {
       "jogador": "Christian",
       "time": "Cruzeiro EC",
       "sigla": "CRU",
@@ -472,13 +479,6 @@
       "jogador": "Pedro Rocha",
       "time": "Coritiba FBC",
       "sigla": "CFC",
-      "posicao": "Atacante",
-      "gols": 4
-    },
-    {
-      "jogador": "Neymar",
-      "time": "Santos FC",
-      "sigla": "SAN",
       "posicao": "Atacante",
       "gols": 4
     }
