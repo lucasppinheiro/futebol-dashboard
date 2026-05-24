@@ -41,15 +41,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "https://crests.football-data.org/1765.png",
-      "jogos": 16,
+      "jogos": 17,
       "vitorias": 9,
       "empates": 3,
-      "derrotas": 4,
+      "derrotas": 5,
       "gols_pro": 27,
-      "gols_contra": 21,
-      "saldo": 6,
+      "gols_contra": 22,
+      "saldo": 5,
       "pontos": 30,
-      "aproveitamento": 62.5
+      "aproveitamento": 58.8
     },
     {
       "posicao": 4,
@@ -206,6 +206,23 @@
     },
     {
       "posicao": 13,
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "https://crests.football-data.org/1767.png",
+      "jogos": 17,
+      "vitorias": 5,
+      "empates": 6,
+      "derrotas": 6,
+      "gols_pro": 19,
+      "gols_contra": 20,
+      "saldo": -1,
+      "pontos": 21,
+      "aproveitamento": 41.2
+    },
+    {
+      "posicao": 14,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "estado": "RJ",
@@ -222,7 +239,7 @@
       "aproveitamento": 41.7
     },
     {
-      "posicao": 14,
+      "posicao": 15,
       "time": "Cruzeiro EC",
       "sigla": "CRU",
       "estado": "MG",
@@ -239,41 +256,7 @@
       "aproveitamento": 41.7
     },
     {
-      "posicao": 15,
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "https://crests.football-data.org/1767.png",
-      "jogos": 16,
-      "vitorias": 4,
-      "empates": 6,
-      "derrotas": 6,
-      "gols_pro": 16,
-      "gols_contra": 18,
-      "saldo": -2,
-      "pontos": 18,
-      "aproveitamento": 37.5
-    },
-    {
       "posicao": 16,
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/6685.png",
-      "jogos": 16,
-      "vitorias": 4,
-      "empates": 6,
-      "derrotas": 6,
-      "gols_pro": 21,
-      "gols_contra": 25,
-      "saldo": -4,
-      "pontos": 18,
-      "aproveitamento": 37.5
-    },
-    {
-      "posicao": 17,
       "time": "SC Corinthians Paulista",
       "sigla": "COR",
       "estado": "SP",
@@ -290,7 +273,41 @@
       "aproveitamento": 37.5
     },
     {
+      "posicao": 17,
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/6685.png",
+      "jogos": 17,
+      "vitorias": 4,
+      "empates": 6,
+      "derrotas": 7,
+      "gols_pro": 23,
+      "gols_contra": 28,
+      "saldo": -5,
+      "pontos": 18,
+      "aproveitamento": 35.3
+    },
+    {
       "posicao": 18,
+      "time": "Mirassol FC",
+      "sigla": "MIR",
+      "estado": "SP",
+      "cor": "#FFD700",
+      "escudo": "https://crests.football-data.org/4364.png",
+      "jogos": 16,
+      "vitorias": 4,
+      "empates": 4,
+      "derrotas": 8,
+      "gols_pro": 18,
+      "gols_contra": 23,
+      "saldo": -5,
+      "pontos": 16,
+      "aproveitamento": 33.3
+    },
+    {
+      "posicao": 19,
       "time": "Clube do Remo",
       "sigla": "REM",
       "estado": "PA",
@@ -305,23 +322,6 @@
       "saldo": -8,
       "pontos": 15,
       "aproveitamento": 31.2
-    },
-    {
-      "posicao": 19,
-      "time": "Mirassol FC",
-      "sigla": "MIR",
-      "estado": "SP",
-      "cor": "#FFD700",
-      "escudo": "https://crests.football-data.org/4364.png",
-      "jogos": 15,
-      "vitorias": 3,
-      "empates": 4,
-      "derrotas": 8,
-      "gols_pro": 17,
-      "gols_contra": 23,
-      "saldo": -6,
-      "pontos": 13,
-      "aproveitamento": 28.9
     },
     {
       "posicao": 20,
@@ -343,18 +343,18 @@
   ],
   "artilharia": [
     {
+      "jogador": "Carlos Vinícius",
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "posicao": "Centroavante",
+      "gols": 9
+    },
+    {
       "jogador": "Pedro",
       "time": "CR Flamengo",
       "sigla": "FLA",
       "posicao": "Atacante",
       "gols": 9
-    },
-    {
-      "jogador": "Carlos Vinícius",
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "posicao": "Centroavante",
-      "gols": 8
     },
     {
       "jogador": "John Kennedy",
@@ -413,6 +413,13 @@
       "gols": 6
     },
     {
+      "jogador": "Gabriel Barbosa",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Atacante",
+      "gols": 6
+    },
+    {
       "jogador": "José Manuel López",
       "time": "SE Palmeiras",
       "sigla": "PAL",
@@ -424,13 +431,6 @@
       "time": "CA Paranaense",
       "sigla": "CAP",
       "posicao": "Ponta esquerda",
-      "gols": 5
-    },
-    {
-      "jogador": "Gabriel Barbosa",
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "posicao": "Atacante",
       "gols": 5
     },
     {
@@ -492,7 +492,7 @@
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
     "lider_pontos": 35,
-    "artilheiro": "Pedro",
+    "artilheiro": "Carlos Vinícius",
     "artilheiro_gols": 9
   }
 }
