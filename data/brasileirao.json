@@ -223,6 +223,23 @@
     },
     {
       "posicao": 14,
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "estado": "MG",
+      "cor": "#003DA5",
+      "escudo": "https://crests.football-data.org/1771.png",
+      "jogos": 17,
+      "vitorias": 5,
+      "empates": 6,
+      "derrotas": 6,
+      "gols_pro": 23,
+      "gols_contra": 28,
+      "saldo": -5,
+      "pontos": 21,
+      "aproveitamento": 41.2
+    },
+    {
+      "posicao": 15,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
       "estado": "RJ",
@@ -235,23 +252,6 @@
       "gols_pro": 22,
       "gols_contra": 25,
       "saldo": -3,
-      "pontos": 20,
-      "aproveitamento": 41.7
-    },
-    {
-      "posicao": 15,
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "estado": "MG",
-      "cor": "#003DA5",
-      "escudo": "https://crests.football-data.org/1771.png",
-      "jogos": 16,
-      "vitorias": 5,
-      "empates": 5,
-      "derrotas": 6,
-      "gols_pro": 21,
-      "gols_contra": 26,
-      "saldo": -5,
       "pontos": 20,
       "aproveitamento": 41.7
     },
@@ -330,18 +330,25 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "https://crests.football-data.org/1772_large.png",
-      "jogos": 15,
+      "jogos": 16,
       "vitorias": 1,
-      "empates": 6,
+      "empates": 7,
       "derrotas": 8,
-      "gols_pro": 16,
-      "gols_contra": 30,
+      "gols_pro": 18,
+      "gols_contra": 32,
       "saldo": -14,
-      "pontos": 9,
-      "aproveitamento": 20.0
+      "pontos": 10,
+      "aproveitamento": 20.8
     }
   ],
   "artilharia": [
+    {
+      "jogador": "Kevin Viveros",
+      "time": "CA Paranaense",
+      "sigla": "CAP",
+      "posicao": "Atacante",
+      "gols": 10
+    },
     {
       "jogador": "Carlos Vinícius",
       "time": "Grêmio FBPA",
@@ -361,13 +368,6 @@
       "time": "Fluminense FC",
       "sigla": "FLU",
       "posicao": "Centroavante",
-      "gols": 8
-    },
-    {
-      "jogador": "Kevin Viveros",
-      "time": "CA Paranaense",
-      "sigla": "CAP",
-      "posicao": "Atacante",
       "gols": 8
     },
     {
@@ -492,7 +492,7 @@
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
     "lider_pontos": 38,
-    "artilheiro": "Carlos Vinícius",
-    "artilheiro_gols": 9
+    "artilheiro": "Kevin Viveros",
+    "artilheiro_gols": 10
   }
 }
