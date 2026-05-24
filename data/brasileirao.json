@@ -7,15 +7,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "https://crests.football-data.org/1769.png",
-      "jogos": 16,
-      "vitorias": 10,
+      "jogos": 17,
+      "vitorias": 11,
       "empates": 5,
       "derrotas": 1,
-      "gols_pro": 26,
+      "gols_pro": 29,
       "gols_contra": 13,
-      "saldo": 13,
-      "pontos": 35,
-      "aproveitamento": 72.9
+      "saldo": 16,
+      "pontos": 38,
+      "aproveitamento": 74.5
     },
     {
       "posicao": 2,
@@ -24,15 +24,15 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1783.png",
-      "jogos": 15,
+      "jogos": 16,
       "vitorias": 9,
       "empates": 4,
-      "derrotas": 2,
+      "derrotas": 3,
       "gols_pro": 28,
-      "gols_contra": 13,
-      "saldo": 15,
+      "gols_contra": 16,
+      "saldo": 12,
       "pontos": 31,
-      "aproveitamento": 68.9
+      "aproveitamento": 64.6
     },
     {
       "posicao": 3,
@@ -45,9 +45,9 @@
       "vitorias": 9,
       "empates": 3,
       "derrotas": 5,
-      "gols_pro": 27,
+      "gols_pro": 28,
       "gols_contra": 22,
-      "saldo": 5,
+      "saldo": 6,
       "pontos": 30,
       "aproveitamento": 58.8
     },
@@ -63,8 +63,8 @@
       "empates": 4,
       "derrotas": 6,
       "gols_pro": 23,
-      "gols_contra": 19,
-      "saldo": 4,
+      "gols_contra": 20,
+      "saldo": 3,
       "pontos": 25,
       "aproveitamento": 49.0
     },
@@ -399,6 +399,13 @@
       "gols": 7
     },
     {
+      "jogador": "José Manuel López",
+      "time": "SE Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Meia",
+      "gols": 6
+    },
+    {
       "jogador": "Luciano",
       "time": "São Paulo FC",
       "sigla": "SAO",
@@ -418,13 +425,6 @@
       "sigla": "SAN",
       "posicao": "Atacante",
       "gols": 6
-    },
-    {
-      "jogador": "José Manuel López",
-      "time": "SE Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Meia",
-      "gols": 5
     },
     {
       "jogador": "Stiven Mendoza",
@@ -469,14 +469,14 @@
       "gols": 4
     },
     {
-      "jogador": "Joaquín Lavega",
-      "time": "Coritiba FBC",
-      "sigla": "CFC",
+      "jogador": "Allan",
+      "time": "SE Palmeiras",
+      "sigla": "PAL",
       "posicao": "Atacante",
       "gols": 4
     },
     {
-      "jogador": "Pedro Rocha",
+      "jogador": "Joaquín Lavega",
       "time": "Coritiba FBC",
       "sigla": "CFC",
       "posicao": "Atacante",
@@ -491,7 +491,7 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
-    "lider_pontos": 35,
+    "lider_pontos": 38,
     "artilheiro": "Carlos Vinícius",
     "artilheiro_gols": 9
   }
