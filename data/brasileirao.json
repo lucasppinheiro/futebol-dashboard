@@ -45,9 +45,9 @@
       "vitorias": 9,
       "empates": 3,
       "derrotas": 5,
-      "gols_pro": 27,
+      "gols_pro": 28,
       "gols_contra": 22,
-      "saldo": 5,
+      "saldo": 6,
       "pontos": 30,
       "aproveitamento": 58.8
     },
@@ -62,9 +62,9 @@
       "vitorias": 8,
       "empates": 3,
       "derrotas": 6,
-      "gols_pro": 23,
+      "gols_pro": 24,
       "gols_contra": 18,
-      "saldo": 5,
+      "saldo": 6,
       "pontos": 27,
       "aproveitamento": 52.9
     },
@@ -79,9 +79,9 @@
       "vitorias": 8,
       "empates": 2,
       "derrotas": 7,
-      "gols_pro": 21,
+      "gols_pro": 22,
       "gols_contra": 18,
-      "saldo": 3,
+      "saldo": 4,
       "pontos": 26,
       "aproveitamento": 51.0
     },
@@ -97,8 +97,8 @@
       "empates": 4,
       "derrotas": 6,
       "gols_pro": 23,
-      "gols_contra": 19,
-      "saldo": 4,
+      "gols_contra": 20,
+      "saldo": 3,
       "pontos": 25,
       "aproveitamento": 49.0
     },
@@ -138,23 +138,6 @@
     },
     {
       "posicao": 9,
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "estado": "MG",
-      "cor": "#003DA5",
-      "escudo": "https://crests.football-data.org/1771.png",
-      "jogos": 17,
-      "vitorias": 6,
-      "empates": 5,
-      "derrotas": 6,
-      "gols_pro": 23,
-      "gols_contra": 27,
-      "saldo": -4,
-      "pontos": 23,
-      "aproveitamento": 45.1
-    },
-    {
-      "posicao": 10,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -171,7 +154,7 @@
       "aproveitamento": 45.8
     },
     {
-      "posicao": 11,
+      "posicao": 10,
       "time": "EC Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -188,7 +171,7 @@
       "aproveitamento": 45.8
     },
     {
-      "posicao": 12,
+      "posicao": 11,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -205,7 +188,7 @@
       "aproveitamento": 41.2
     },
     {
-      "posicao": 13,
+      "posicao": 12,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -222,7 +205,7 @@
       "aproveitamento": 41.2
     },
     {
-      "posicao": 14,
+      "posicao": 13,
       "time": "Grêmio FBPA",
       "sigla": "GRE",
       "estado": "RS",
@@ -239,7 +222,7 @@
       "aproveitamento": 41.2
     },
     {
-      "posicao": 15,
+      "posicao": 14,
       "time": "SC Corinthians Paulista",
       "sigla": "COR",
       "estado": "SP",
@@ -256,6 +239,23 @@
       "aproveitamento": 41.2
     },
     {
+      "posicao": 15,
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "estado": "MG",
+      "cor": "#003DA5",
+      "escudo": "https://crests.football-data.org/1771.png",
+      "jogos": 17,
+      "vitorias": 5,
+      "empates": 6,
+      "derrotas": 6,
+      "gols_pro": 23,
+      "gols_contra": 28,
+      "saldo": -5,
+      "pontos": 21,
+      "aproveitamento": 41.2
+    },
+    {
       "posicao": 16,
       "time": "CR Vasco da Gama",
       "sigla": "VAS",
@@ -267,8 +267,8 @@
       "empates": 5,
       "derrotas": 7,
       "gols_pro": 22,
-      "gols_contra": 27,
-      "saldo": -5,
+      "gols_contra": 28,
+      "saldo": -6,
       "pontos": 20,
       "aproveitamento": 39.2
     },
@@ -318,8 +318,8 @@
       "empates": 6,
       "derrotas": 8,
       "gols_pro": 20,
-      "gols_contra": 29,
-      "saldo": -9,
+      "gols_contra": 30,
+      "saldo": -10,
       "pontos": 15,
       "aproveitamento": 29.4
     },
@@ -332,13 +332,13 @@
       "escudo": "https://crests.football-data.org/1772_large.png",
       "jogos": 16,
       "vitorias": 1,
-      "empates": 6,
-      "derrotas": 9,
-      "gols_pro": 17,
+      "empates": 7,
+      "derrotas": 8,
+      "gols_pro": 18,
       "gols_contra": 32,
-      "saldo": -15,
-      "pontos": 9,
-      "aproveitamento": 18.8
+      "saldo": -14,
+      "pontos": 10,
+      "aproveitamento": 20.8
     }
   ],
   "artilharia": [
