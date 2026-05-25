@@ -79,9 +79,9 @@
       "vitorias": 8,
       "empates": 2,
       "derrotas": 7,
-      "gols_pro": 22,
+      "gols_pro": 21,
       "gols_contra": 18,
-      "saldo": 4,
+      "saldo": 3,
       "pontos": 26,
       "aproveitamento": 51.0
     },
@@ -267,8 +267,8 @@
       "empates": 5,
       "derrotas": 7,
       "gols_pro": 22,
-      "gols_contra": 28,
-      "saldo": -6,
+      "gols_contra": 27,
+      "saldo": -5,
       "pontos": 20,
       "aproveitamento": 39.2
     },
