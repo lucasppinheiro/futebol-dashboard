@@ -24,18 +24,35 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1783.png",
-      "jogos": 16,
-      "vitorias": 9,
+      "jogos": 17,
+      "vitorias": 10,
       "empates": 4,
       "derrotas": 3,
-      "gols_pro": 28,
+      "gols_pro": 31,
       "gols_contra": 16,
-      "saldo": 12,
-      "pontos": 31,
-      "aproveitamento": 64.6
+      "saldo": 15,
+      "pontos": 34,
+      "aproveitamento": 66.7
     },
     {
       "posicao": 3,
+      "time": "CA Paranaense",
+      "sigla": "CAP",
+      "estado": "PR",
+      "cor": "#E11D1D",
+      "escudo": "https://crests.football-data.org/1768.png",
+      "jogos": 18,
+      "vitorias": 9,
+      "empates": 3,
+      "derrotas": 6,
+      "gols_pro": 24,
+      "gols_contra": 18,
+      "saldo": 6,
+      "pontos": 30,
+      "aproveitamento": 55.6
+    },
+    {
+      "posicao": 4,
       "time": "Fluminense FC",
       "sigla": "FLU",
       "estado": "RJ",
@@ -50,23 +67,6 @@
       "saldo": 5,
       "pontos": 30,
       "aproveitamento": 58.8
-    },
-    {
-      "posicao": 4,
-      "time": "CA Paranaense",
-      "sigla": "CAP",
-      "estado": "PR",
-      "cor": "#E11D1D",
-      "escudo": "https://crests.football-data.org/1768.png",
-      "jogos": 17,
-      "vitorias": 8,
-      "empates": 3,
-      "derrotas": 6,
-      "gols_pro": 23,
-      "gols_contra": 18,
-      "saldo": 5,
-      "pontos": 27,
-      "aproveitamento": 52.9
     },
     {
       "posicao": 5,
@@ -92,15 +92,15 @@
       "estado": "PR",
       "cor": "#006633",
       "escudo": "https://crests.football-data.org/4241.png",
-      "jogos": 17,
+      "jogos": 18,
       "vitorias": 7,
       "empates": 5,
-      "derrotas": 5,
+      "derrotas": 6,
       "gols_pro": 24,
-      "gols_contra": 21,
-      "saldo": 3,
+      "gols_contra": 24,
+      "saldo": 0,
       "pontos": 26,
-      "aproveitamento": 51.0
+      "aproveitamento": 48.1
     },
     {
       "posicao": 7,
@@ -296,15 +296,15 @@
       "estado": "SP",
       "cor": "#FFD700",
       "escudo": "https://crests.football-data.org/4364.png",
-      "jogos": 16,
+      "jogos": 17,
       "vitorias": 4,
       "empates": 4,
-      "derrotas": 8,
+      "derrotas": 9,
       "gols_pro": 18,
-      "gols_contra": 23,
-      "saldo": -5,
+      "gols_contra": 24,
+      "saldo": -6,
       "pontos": 16,
-      "aproveitamento": 33.3
+      "aproveitamento": 31.4
     },
     {
       "posicao": 19,
@@ -347,6 +347,13 @@
       "time": "CA Paranaense",
       "sigla": "CAP",
       "posicao": "Atacante",
+      "gols": 11
+    },
+    {
+      "jogador": "Pedro",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "posicao": "Atacante",
       "gols": 10
     },
     {
@@ -354,13 +361,6 @@
       "time": "Grêmio FBPA",
       "sigla": "GRE",
       "posicao": "Centroavante",
-      "gols": 9
-    },
-    {
-      "jogador": "Pedro",
-      "time": "CR Flamengo",
-      "sigla": "FLA",
-      "posicao": "Atacante",
       "gols": 9
     },
     {
@@ -487,12 +487,12 @@
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
-    "rodada_atual": 17,
+    "rodada_atual": 18,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
     "lider_pontos": 38,
     "artilheiro": "Kevin Viveros",
-    "artilheiro_gols": 10
+    "artilheiro_gols": 11
   }
 }
