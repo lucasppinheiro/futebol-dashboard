@@ -399,6 +399,13 @@
       "gols": 7
     },
     {
+      "jogador": "Gabriel Barbosa",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
       "jogador": "José Manuel López",
       "time": "SE Palmeiras",
       "sigla": "PAL",
@@ -416,13 +423,6 @@
       "jogador": "Jonathan Calleri",
       "time": "São Paulo FC",
       "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 6
-    },
-    {
-      "jogador": "Gabriel Barbosa",
-      "time": "Santos FC",
-      "sigla": "SAN",
       "posicao": "Atacante",
       "gols": 6
     },
@@ -455,6 +455,13 @@
       "gols": 5
     },
     {
+      "jogador": "Carlos Renê",
+      "time": "EC Vitória",
+      "sigla": "VIT",
+      "posicao": "Atacante",
+      "gols": 5
+    },
+    {
       "jogador": "Matheus Martins",
       "time": "Botafogo FR",
       "sigla": "BOT",
@@ -473,13 +480,6 @@
       "time": "Botafogo FR",
       "sigla": "BOT",
       "posicao": "Meia",
-      "gols": 4
-    },
-    {
-      "jogador": "Allan",
-      "time": "SE Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Atacante",
       "gols": 4
     }
   ],
