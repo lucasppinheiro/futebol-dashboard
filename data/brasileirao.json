@@ -7,15 +7,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "https://crests.football-data.org/1769.png",
-      "jogos": 17,
-      "vitorias": 11,
+      "jogos": 18,
+      "vitorias": 12,
       "empates": 5,
       "derrotas": 1,
-      "gols_pro": 29,
+      "gols_pro": 30,
       "gols_contra": 13,
-      "saldo": 16,
-      "pontos": 38,
-      "aproveitamento": 74.5
+      "saldo": 17,
+      "pontos": 41,
+      "aproveitamento": 75.9
     },
     {
       "posicao": 2,
@@ -138,6 +138,23 @@
     },
     {
       "posicao": 9,
+      "time": "Atlético Mineiro",
+      "sigla": "CAM",
+      "estado": "MG",
+      "cor": "#000000",
+      "escudo": "https://crests.football-data.org/1766.png",
+      "jogos": 18,
+      "vitorias": 7,
+      "empates": 3,
+      "derrotas": 8,
+      "gols_pro": 22,
+      "gols_contra": 23,
+      "saldo": -1,
+      "pontos": 24,
+      "aproveitamento": 44.4
+    },
+    {
+      "posicao": 10,
       "time": "SC Corinthians Paulista",
       "sigla": "COR",
       "estado": "SP",
@@ -154,7 +171,7 @@
       "aproveitamento": 44.4
     },
     {
-      "posicao": 10,
+      "posicao": 11,
       "time": "Cruzeiro EC",
       "sigla": "CRU",
       "estado": "MG",
@@ -171,7 +188,7 @@
       "aproveitamento": 45.1
     },
     {
-      "posicao": 11,
+      "posicao": 12,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -188,7 +205,7 @@
       "aproveitamento": 43.1
     },
     {
-      "posicao": 12,
+      "posicao": 13,
       "time": "EC Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -203,23 +220,6 @@
       "saldo": -2,
       "pontos": 22,
       "aproveitamento": 45.8
-    },
-    {
-      "posicao": 13,
-      "time": "Atlético Mineiro",
-      "sigla": "CAM",
-      "estado": "MG",
-      "cor": "#000000",
-      "escudo": "https://crests.football-data.org/1766.png",
-      "jogos": 17,
-      "vitorias": 6,
-      "empates": 3,
-      "derrotas": 8,
-      "gols_pro": 21,
-      "gols_contra": 23,
-      "saldo": -2,
-      "pontos": 21,
-      "aproveitamento": 41.2
     },
     {
       "posicao": 14,
@@ -262,15 +262,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/1780.png",
-      "jogos": 17,
+      "jogos": 18,
       "vitorias": 5,
       "empates": 5,
-      "derrotas": 7,
+      "derrotas": 8,
       "gols_pro": 22,
-      "gols_contra": 28,
-      "saldo": -6,
+      "gols_contra": 29,
+      "saldo": -7,
       "pontos": 20,
-      "aproveitamento": 39.2
+      "aproveitamento": 37.0
     },
     {
       "posicao": 17,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "https://crests.football-data.org/1772_large.png",
-      "jogos": 16,
+      "jogos": 17,
       "vitorias": 1,
       "empates": 6,
-      "derrotas": 9,
+      "derrotas": 10,
       "gols_pro": 17,
-      "gols_contra": 32,
-      "saldo": -15,
+      "gols_contra": 33,
+      "saldo": -16,
       "pontos": 9,
-      "aproveitamento": 18.8
+      "aproveitamento": 17.6
     }
   ],
   "artilharia": [
@@ -491,7 +491,7 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
-    "lider_pontos": 38,
+    "lider_pontos": 41,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 11
   }
