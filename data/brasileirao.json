@@ -42,14 +42,14 @@
       "cor": "#7B0023",
       "escudo": "https://crests.football-data.org/1765.png",
       "jogos": 18,
-      "vitorias": 10,
-      "empates": 3,
+      "vitorias": 9,
+      "empates": 4,
       "derrotas": 5,
       "gols_pro": 28,
-      "gols_contra": 22,
-      "saldo": 6,
-      "pontos": 33,
-      "aproveitamento": 61.1
+      "gols_contra": 23,
+      "saldo": 5,
+      "pontos": 31,
+      "aproveitamento": 57.4
     },
     {
       "posicao": 4,
@@ -179,13 +179,13 @@
       "escudo": "https://crests.football-data.org/1771.png",
       "jogos": 18,
       "vitorias": 6,
-      "empates": 5,
-      "derrotas": 7,
-      "gols_pro": 23,
+      "empates": 6,
+      "derrotas": 6,
+      "gols_pro": 24,
       "gols_contra": 28,
-      "saldo": -5,
-      "pontos": 23,
-      "aproveitamento": 42.6
+      "saldo": -4,
+      "pontos": 24,
+      "aproveitamento": 44.4
     },
     {
       "posicao": 12,
