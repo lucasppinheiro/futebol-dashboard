@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+import re
 from typing import Any
 
 
 class DadosInvalidosError(ValueError):
     """Erro de validacao para estrutura e regras dos dados do dashboard."""
+
+
+_COR_HEX_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
 
 
 def _validar_campos_obrigatorios(item: dict[str, Any], campos: tuple[str, ...], contexto: str) -> None:
@@ -64,6 +68,8 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
     )
 
     posicoes: set[int] = set()
+    siglas: set[str] = set()
+    nomes: set[str] = set()
     for indice, time in enumerate(classificacao, start=1):
         contexto = f"classificacao[{indice}]"
         if not isinstance(time, dict):
@@ -79,12 +85,18 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
         if posicao != indice:
             raise DadosInvalidosError(f"{contexto}: lista deve estar ordenada por posicao crescente")
 
-        _validar_str_nao_vazia(time, "time", contexto)
-        _validar_str_nao_vazia(time, "sigla", contexto)
+        nome = _validar_str_nao_vazia(time, "time", contexto)
+        sigla = _validar_str_nao_vazia(time, "sigla", contexto)
+        if nome.casefold() in nomes:
+            raise DadosInvalidosError(f"{contexto}: time duplicado '{nome}'")
+        if sigla.upper() in siglas:
+            raise DadosInvalidosError(f"{contexto}: sigla duplicada '{sigla}'")
+        nomes.add(nome.casefold())
+        siglas.add(sigla.upper())
         _validar_str_nao_vazia(time, "estado", contexto)
 
         cor = _validar_str_nao_vazia(time, "cor", contexto)
-        if not cor.startswith("#"):
+        if not _COR_HEX_RE.fullmatch(cor):
             raise DadosInvalidosError(f"{contexto}: campo 'cor' deve ser hexadecimal")
 
         escudo = time.get("escudo")
@@ -175,8 +187,6 @@ def _validar_info(info: Any, classificacao: list[dict[str, Any]], artilharia: li
     _validar_str_nao_vazia(info, "temporada", "info")
     _validar_str_nao_vazia(info, "lider", "info")
     _validar_str_nao_vazia(info, "artilheiro", "info")
-    _validar_int_nao_negativo(info, "rodadas_total", "info")
-    _validar_int_nao_negativo(info, "rodada_atual", "info")
     _validar_int_nao_negativo(info, "times_total", "info")
     rodadas_total = _validar_int_nao_negativo(info, "rodadas_total", "info")
     rodada_atual = _validar_int_nao_negativo(info, "rodada_atual", "info")

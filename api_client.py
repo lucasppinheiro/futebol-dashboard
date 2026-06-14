@@ -9,6 +9,7 @@ import os
 import urllib.request
 import urllib.error
 import json
+import time
 from typing import Any
 
 from env_config import carregar_env_local
@@ -33,21 +34,26 @@ def _get_token() -> str:
     return token
 
 
-def _fetch(url: str) -> dict[str, Any]:
+def _fetch(url: str, tentativas: int = 3) -> dict[str, Any]:
     token = _get_token()
     req = urllib.request.Request(url, headers={"X-Auth-Token": token})
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        body = ""
+    for tentativa in range(1, tentativas + 1):
         try:
-            body = e.read().decode("utf-8", errors="replace")
-        except Exception:
-            pass
-        raise ConnectionError(f"API retornou HTTP {e.code}: {e.reason} — {body}") from e
-    except urllib.error.URLError as e:
-        raise ConnectionError(f"Erro de conexao com a API: {e.reason}") from e
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as e:
+            body = ""
+            try:
+                body = e.read().decode("utf-8", errors="replace")
+            except Exception:
+                pass
+            if e.code not in {429, 500, 502, 503, 504} or tentativa == tentativas:
+                raise ConnectionError(f"API retornou HTTP {e.code}: {e.reason} - {body}") from e
+        except urllib.error.URLError as e:
+            if tentativa == tentativas:
+                raise ConnectionError(f"Erro de conexao com a API: {e.reason}") from e
+        time.sleep(2 ** (tentativa - 1))
 
     if "errorCode" in data:
         raise ValueError(f"API retornou erro: {data.get('message', data)}")
@@ -284,8 +290,10 @@ def _classificacao_dos_jogos(
             classificacao_por_id[away_id] = _criar_base_time(away_team)
 
         placar = partida.get("score", {}).get("fullTime", {})
-        gols_casa = int(placar.get("home") or 0)
-        gols_fora = int(placar.get("away") or 0)
+        gols_casa = placar.get("home")
+        gols_fora = placar.get("away")
+        if not isinstance(gols_casa, int) or not isinstance(gols_fora, int):
+            raise ValueError("Partida finalizada possui placar ausente ou invalido")
 
         _registrar_estatisticas_time(classificacao_por_id[home_id], gols_casa, gols_fora)
         _registrar_estatisticas_time(classificacao_por_id[away_id], gols_fora, gols_casa)
@@ -312,8 +320,7 @@ def _classificacao_dos_jogos(
 def buscar_classificacao(temporada: str | None = None) -> list[dict[str, Any]]:
     temporada = temporada or temporada_brasileirao_atual()
     tabela_standings = _buscar_standings(temporada)
-    partidas = _buscar_partidas(temporada)
-    return _classificacao_dos_jogos(tabela_standings, partidas)
+    return [_normalizar_linha_classificacao(item) for item in tabela_standings]
 
 
 def buscar_artilharia(temporada: str | None = None, limite: int = 20) -> list[dict[str, Any]]:

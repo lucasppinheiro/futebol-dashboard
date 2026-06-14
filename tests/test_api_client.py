@@ -1,3 +1,8 @@
+import json
+import urllib.error
+
+import pytest
+
 import api_client
 from temporada import temporada_brasileirao_atual
 
@@ -131,7 +136,7 @@ def test_busca_classificacao_usa_temporada_atual_por_padrao(monkeypatch):
     assert all(f"season={temporada_brasileirao_atual()}" in url for url in urls)
 
 
-def test_busca_classificacao_recalcula_tabela_com_partidas_finalizadas(monkeypatch):
+def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
     standings_payload = {
         "standings": [
             {
@@ -184,12 +189,12 @@ def test_busca_classificacao_recalcula_tabela_com_partidas_finalizadas(monkeypat
     classificacao = api_client.buscar_classificacao("2026")
 
     assert classificacao[0]["sigla"] == "SAO"
-    assert classificacao[0]["jogos"] == 1
-    assert classificacao[0]["pontos"] == 3
-    assert classificacao[0]["gols_pro"] == 4
-    assert classificacao[0]["gols_contra"] == 1
+    assert classificacao[0]["jogos"] == 9
+    assert classificacao[0]["pontos"] == 17
+    assert classificacao[0]["gols_pro"] == 15
+    assert classificacao[0]["gols_contra"] == 9
     assert classificacao[1]["sigla"] == "CRU"
-    assert classificacao[1]["derrotas"] == 1
+    assert classificacao[1]["derrotas"] == 3
 
 
 def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monkeypatch):
@@ -238,3 +243,58 @@ def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monke
     assert classificacao[0]["estado"] == "PR"
     assert classificacao[1]["sigla"] == "COR"
     assert classificacao[1]["estado"] == "SP"
+
+
+def test_fetch_repete_erro_transitorio_antes_de_retornar(monkeypatch):
+    tentativas = 0
+
+    class FakeResponse:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return None
+
+        def read(self):
+            return json.dumps({"standings": []}).encode()
+
+    def fake_urlopen(*args, **kwargs):
+        nonlocal tentativas
+        tentativas += 1
+        if tentativas < 3:
+            raise urllib.error.URLError("temporario")
+        return FakeResponse()
+
+    monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "teste")
+    monkeypatch.setattr(api_client.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(api_client.time, "sleep", lambda _: None)
+
+    assert api_client._fetch("https://example.com") == {"standings": []}
+    assert tentativas == 3
+
+
+def test_classificacao_dos_jogos_rejeita_placar_ausente():
+    standings = [
+        {
+            "position": 1,
+            "team": {"id": 1, "name": "Palmeiras", "tla": "PAL", "crest": ""},
+            "playedGames": 0,
+            "won": 0,
+            "draw": 0,
+            "lost": 0,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "points": 0,
+        }
+    ]
+    partidas = [
+        {
+            "status": "FINISHED",
+            "homeTeam": {"id": 1, "name": "Palmeiras", "tla": "PAL", "crest": ""},
+            "awayTeam": {"id": 2, "name": "Santos", "tla": "SAN", "crest": ""},
+            "score": {"fullTime": {"home": None, "away": 1}},
+        }
+    ]
+
+    with pytest.raises(ValueError, match="placar"):
+        api_client._classificacao_dos_jogos(standings, partidas)

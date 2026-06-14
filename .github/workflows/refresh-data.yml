@@ -1,0 +1,73 @@
+name: Refresh Competition Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 * * * *"
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+concurrency:
+  group: refresh-competition-data
+  cancel-in-progress: true
+
+jobs:
+  refresh-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          npm ci
+
+      - name: Refresh competition data
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+          DATA_AUTO_REFRESH_HOURS: "0"
+        run: python atualizar_dados.py
+
+      - name: Run Python tests
+        run: python -m pytest tests -q
+
+      - name: Run JavaScript tests
+        run: npm test
+
+      - name: Build static output
+        env:
+          DATA_AUTO_REFRESH_HOURS: "0"
+          SITE_BASE_PATH: ""
+          SITE_ORIGIN: "https://futebol-dashboard.vercel.app"
+        run: python build_static.py
+
+      - name: Commit validated dataset
+        shell: bash
+        run: |
+          if git diff --quiet -- data/brasileirao.json; then
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/brasileirao.json
+          git commit -m "chore: refresh competition data"
+          git push

@@ -104,6 +104,21 @@ class TestClassificacao:
         with pytest.raises(DadosInvalidosError, match="hexadecimal"):
             validar_dados_dashboard(dados_validos)
 
+    def test_rejeita_cor_hexadecimal_malformada(self, dados_validos):
+        dados_validos["classificacao"][0]["cor"] = "#12GG00"
+        with pytest.raises(DadosInvalidosError, match="hexadecimal"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_sigla_duplicada(self, dados_validos):
+        dados_validos["classificacao"][1]["sigla"] = dados_validos["classificacao"][0]["sigla"]
+        with pytest.raises(DadosInvalidosError, match="sigla duplicada"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_time_duplicado(self, dados_validos):
+        dados_validos["classificacao"][1]["time"] = dados_validos["classificacao"][0]["time"]
+        with pytest.raises(DadosInvalidosError, match="time duplicado"):
+            validar_dados_dashboard(dados_validos)
+
     def test_rejeita_gols_negativos(self, dados_validos):
         dados_validos["classificacao"][0]["gols_pro"] = -1
         with pytest.raises(DadosInvalidosError, match="negativo"):

@@ -43,6 +43,6 @@ yarn-error.log*
 .env.local
 *.local
 
-# Netlify local state
-.netlify/
+# Vercel local state
+.vercel/
 

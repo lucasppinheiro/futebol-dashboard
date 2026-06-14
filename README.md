@@ -1,143 +1,97 @@
 # Futebol Dashboard
 
-Projeto pessoal para acompanhar o Brasileirao Serie A 2026.
+[![Data refresh](https://img.shields.io/github/actions/workflow/status/lucassgsantos/futebol-dashboard/refresh-data.yml?label=data%20refresh)](https://github.com/lucassgsantos/futebol-dashboard/actions)
+[![Live Demo](https://img.shields.io/badge/demo-Vercel-000000)](https://futebol-dashboard.vercel.app/)
 
-O dashboard reune classificacao, artilharia, paginas por clube, comparador e graficos em um unico lugar. O projeto roda localmente com Flask e tambem gera uma versao estatica pronta para publicar no GitHub Pages.
+Dashboard responsivo do Campeonato Brasileiro Série A com classificação, artilharia, páginas por clube, gráficos e comparação de desempenho.
 
-Site:
-[https://lucassgsantos.github.io/futebol-dashboard/](https://lucassgsantos.github.io/futebol-dashboard/)
+**[Abrir demonstração](https://futebol-dashboard.vercel.app/)**
 
-## Stack
+## Destaques técnicos
 
-- Python + Flask
-- HTML, CSS e JavaScript vanilla
-- Chart.js
-- pytest
-- jest + jsdom
-- GitHub Pages
-- GitHub Actions
+- Aplicação Flask com geração estática e deploy na Vercel.
+- Dados da [football-data.org](https://www.football-data.org/) atualizados automaticamente.
+- Validação de schema e gravação atômica para proteger o dataset.
+- Testes com pytest, Jest e jsdom executados antes de cada deploy.
+- URLs compatíveis com subdiretórios e páginas individuais para os clubes.
+- Tema claro/escuro, navegação por teclado e layout responsivo.
 
-## Rodando localmente
+## Arquitetura
 
-Requisitos:
+```text
+football-data.org
+       |
+atualizar_dados.py -> validação -> data/brasileirao.json
+                                      |
+                               build_static.py
+                                      |
+                               dist/ -> Vercel
+```
 
-- Python 3.10+
-- Node.js 18+
+O GitHub Actions atualiza e valida os dados a cada hora. A integração Git da Vercel cria previews para branches e publica `main` automaticamente.
+
+## Desenvolvimento local
+
+Requisitos: Python 3.10+ e Node.js 24+.
 
 ```bash
 git clone https://github.com/lucassgsantos/futebol-dashboard.git
 cd futebol-dashboard
-python -m venv venv
+python -m venv .venv
 ```
 
 Windows:
 
-```bash
-venv\Scripts\activate
-copy .env.example .env
+```powershell
+.\.venv\Scripts\Activate.ps1
+Copy-Item .env.example .env
 ```
 
 macOS/Linux:
 
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 cp .env.example .env
 ```
 
-Depois:
+Instale e execute:
 
 ```bash
 pip install -r requirements.txt
-npm install
-python atualizar_dados.py
+npm ci
 python app.py
 ```
 
-Local:
-[http://127.0.0.1:5000](http://127.0.0.1:5000)
+A aplicação estará em [http://127.0.0.1:5000](http://127.0.0.1:5000). Para buscar dados novos, configure `FOOTBALL_DATA_TOKEN` no `.env` e execute `python atualizar_dados.py`.
 
-## Dados
-
-A base do projeto e o arquivo `data/brasileirao.json`.
-
-Se `FOOTBALL_DATA_TOKEN` estiver configurada, da para atualizar os dados com:
-
-```bash
-python atualizar_dados.py
-```
-
-No deploy, o site e estatico. O workflow do repositorio atualiza esse JSON, faz o build e publica no GitHub Pages.
-
-## Variaveis de ambiente
-
-- `FOOTBALL_DATA_TOKEN`
-- `API_UPDATE_TOKEN`
-- `DATA_AUTO_REFRESH_HOURS`
-- `DATA_AUTO_REFRESH_COOLDOWN_MINUTES`
-- `FLASK_DEBUG`
-- `FLASK_HOST`
-- `FLASK_PORT`
-- `SITE_BASE_PATH`
-
-O formato esta em `.env.example`.
-
-## Testes
-
-Python:
+## Qualidade e build
 
 ```bash
 python -m pytest tests -q
-```
-
-JavaScript:
-
-```bash
 npm test
+npm audit
+python build_static.py
 ```
 
-## Build estatico
-
-Build local padrao:
+Para gerar exatamente o conteúdo servido pela Vercel:
 
 ```bash
 python build_static.py
 ```
 
-Build para GitHub Pages:
+O resultado é escrito em `dist/`, incluindo páginas dos clubes, APIs JSON, `404.html`, `robots.txt` e `sitemap.xml`.
 
-Windows PowerShell:
+## Configuração
 
-```powershell
-$env:SITE_BASE_PATH = "/futebol-dashboard"
-python build_static.py
-```
+As variáveis disponíveis estão documentadas em `.env.example`. No GitHub, `FOOTBALL_DATA_TOKEN` deve existir apenas em **Settings > Secrets and variables > Actions**.
 
-macOS/Linux:
+## Publicação na Vercel
 
-```bash
-SITE_BASE_PATH=/futebol-dashboard python build_static.py
-```
+1. Importe `lucassgsantos/futebol-dashboard` no painel da Vercel.
+2. Mantenha o diretório raiz como `.`; o `vercel.json` já define o build e a saída `dist`.
+3. Use `main` como branch de produção.
+4. Configure `SITE_ORIGIN` caso o domínio final seja diferente de `https://futebol-dashboard.vercel.app`.
 
-Saida em `dist/`.
+Não é necessário cadastrar o token da football-data.org na Vercel: a atualização ocorre no GitHub Actions e o JSON validado é versionado.
 
-## Automacao
-
-O workflow `.github/workflows/refresh-data-and-deploy.yml` roda periodicamente para:
-
-- atualizar os dados
-- commitar o JSON quando houver mudanca
-- gerar o build estatico com o prefixo do repositorio
-- publicar no GitHub Pages
-
-Secrets esperados no GitHub Actions:
-
-- `FOOTBALL_DATA_TOKEN`
-
-Tambem deixe o Pages configurado para publicar via GitHub Actions nas configuracoes do repositorio.
-
-## Observacoes
-
-- `.env` nao deve ir para o repositorio
-- tokens nao devem ser commitados
-- se a API atrasar, o site tambem atrasa
-- no GitHub Pages, os arquivos JSON ficam disponiveis em `api/*.json`
+Nunca registre tokens no código, no histórico Git ou em arquivos versionados.

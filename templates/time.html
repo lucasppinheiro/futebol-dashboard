@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ time.time }} | Brasileirão 2026</title>
-    <meta name="description" content="Página de detalhe do {{ time.time }} no Brasileirão 2026.">
+    <title>{{ time.time }} | Brasileirão {{ dados.info.temporada }}</title>
+    <meta name="description" content="Página de detalhe do {{ time.time }} no Brasileirão {{ dados.info.temporada }}.">
+    <link rel="canonical" href="https://futebol-dashboard.vercel.app/time/{{ time.sigla }}/">
+    <meta property="og:title" content="{{ time.time }} | Brasileirão {{ dados.info.temporada }}">
+    <meta property="og:description" content="Campanha, desempenho e artilheiros do {{ time.time }} na Série A.">
+    <meta property="og:type" content="website">
     <script>
         (function () {
             var savedTheme = localStorage.getItem('theme');
@@ -40,7 +44,7 @@
                     {% endif %}
                     <div>
                         <h1>{{ time.time }}</h1>
-                        <p class="hero-subtitle">Ficha de transmissão do clube na Série A 2026, com foco em campanha, saldo e produção ofensiva.</p>
+                        <p class="hero-subtitle">Ficha do clube na Série A {{ dados.info.temporada }}, com foco em campanha, saldo e produção ofensiva.</p>
                     </div>
                 </div>
                 <div class="hero-actions">
@@ -218,7 +222,7 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <p><strong>Brasileirão Dashboard 2026</strong> · <a href="{{ site_url() }}">Voltar ao painel principal</a></p>
+            <p><strong>Brasileirão Dashboard {{ dados.info.temporada }}</strong> · <a href="{{ site_url() }}">Voltar ao painel principal</a></p>
         </div>
     </footer>
 

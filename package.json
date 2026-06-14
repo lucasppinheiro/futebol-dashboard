@@ -1,13 +1,15 @@
 {
   "name": "futebol-dashboard",
   "version": "1.0.0",
-  "description": "Interactive Brasileirao Serie A 2026 dashboard with Flask, live data sync, and GitHub Pages static deployment.",
-  "main": "index.js",
+  "description": "Interactive Brasileirao Serie A dashboard with Flask, automated data sync, tests, and Vercel deployment.",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "test:python": "python -m pytest tests -q",
+    "build": "python build_static.py",
+    "audit": "npm audit --audit-level=high"
   },
   "jest": {
     "testMatch": [
@@ -25,10 +27,10 @@
   "bugs": {
     "url": "https://github.com/lucassgsantos/futebol-dashboard/issues"
   },
-  "homepage": "https://lucassgsantos.github.io/futebol-dashboard/",
+  "homepage": "https://futebol-dashboard.vercel.app/",
   "devDependencies": {
-    "@jest/globals": "^30.2.0",
-    "jest": "^30.2.0",
-    "jsdom": "^24.1.3"
+    "@jest/globals": "^30.4.1",
+    "jest": "^30.4.2",
+    "jsdom": "^26.1.0"
   }
 }

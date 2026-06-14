@@ -14,6 +14,8 @@ import json
 import logging
 import os
 import sys
+import tempfile
+from pathlib import Path
 
 from api_client import buscar_classificacao, buscar_artilharia
 from dados_schema import validar_dados_dashboard
@@ -29,6 +31,30 @@ OUTPUT_FILE = os.path.join(DATA_DIR, "brasileirao.json")
 
 
 carregar_env_local()
+
+
+def _escrever_json_atomico(destino: str | Path, dados: object) -> None:
+    destino = Path(destino)
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    temporario: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=destino.parent,
+            prefix=f".{destino.name}.",
+            suffix=".tmp",
+            delete=False,
+        ) as arquivo:
+            temporario = Path(arquivo.name)
+            json.dump(dados, arquivo, ensure_ascii=False, indent=2)
+            arquivo.write("\n")
+            arquivo.flush()
+            os.fsync(arquivo.fileno())
+        os.replace(temporario, destino)
+    finally:
+        if temporario and temporario.exists():
+            temporario.unlink()
 
 
 def atualizar(temporada: str | None = None) -> None:
@@ -65,9 +91,7 @@ def atualizar(temporada: str | None = None) -> None:
         logger.info("Mantendo dados locais existentes.")
         raise
 
-    os.makedirs(DATA_DIR, exist_ok=True)
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(dados, f, ensure_ascii=False, indent=2)
+    _escrever_json_atomico(OUTPUT_FILE, dados)
 
     logger.info("Dados atualizados em: %s", OUTPUT_FILE)
     logger.info("%d times | %d artilheiros", len(classificacao), len(artilharia))

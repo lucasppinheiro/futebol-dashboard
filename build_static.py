@@ -46,11 +46,6 @@ def _resolver_site_base_path(site_base_path: str | None = None) -> str:
     if configurado is not None:
         return app_module.normalizar_site_base_path(configurado)
 
-    github_repository = (os.environ.get("GITHUB_REPOSITORY") or "").strip()
-    if "/" in github_repository:
-        _, repo = github_repository.split("/", 1)
-        return app_module.normalizar_site_base_path(repo)
-
     return ""
 
 
@@ -69,7 +64,9 @@ def build(site_base_path: str | None = None) -> None:
 
         _copiar_estaticos()
         _escrever_arquivo(".nojekyll", "")
-        _escrever_arquivo("index.html", _render("/", "index.html", dados=dados))
+        index_html = _render("/", "index.html", dados=dados)
+        _escrever_arquivo("index.html", index_html)
+        _escrever_arquivo("404.html", index_html)
 
         for time in dados["classificacao"]:
             artilheiros = [j for j in dados["artilharia"] if j["sigla"] == time["sigla"]]
@@ -82,8 +79,10 @@ def build(site_base_path: str | None = None) -> None:
         try:
             mtime = Path(app_module.DATA_PATH).stat().st_mtime
             atualizado_em = datetime.fromtimestamp(mtime, tz=timezone.utc).isoformat()
+            dados_desatualizados = app_module._dados_estao_desatualizados(mtime)
         except OSError:
             atualizado_em = None
+            dados_desatualizados = True
 
         _escrever_json(
             "api/health.json",
@@ -91,10 +90,19 @@ def build(site_base_path: str | None = None) -> None:
                 "status": "ok",
                 "versao": "1.0.0",
                 "dados_atualizados_em": atualizado_em,
-                "dados_desatualizados": False,
+                "dados_desatualizados": dados_desatualizados,
                 "refresh_automatico": False,
                 "temporada_padrao": dados["info"]["temporada"],
             },
+        )
+        site_root = (os.environ.get("SITE_ORIGIN") or "https://futebol-dashboard.vercel.app").rstrip("/") + "/"
+        _escrever_arquivo("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {site_root}sitemap.xml\n")
+        urls = [site_root] + [f"{site_root}time/{time['sigla']}/" for time in dados["classificacao"]]
+        sitemap = "\n".join(f"  <url><loc>{url}</loc></url>" for url in urls)
+        _escrever_arquivo(
+            "sitemap.xml",
+            f'<?xml version="1.0" encoding="UTF-8"?>\n'
+            f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sitemap}\n</urlset>\n',
         )
     finally:
         app_module.app.config["SITE_BASE_PATH"] = previous_site_base_path

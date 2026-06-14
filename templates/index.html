@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brasileirão 2026 | Dashboard Editorial</title>
+    <title>Brasileirão {{ dados.info.temporada }} | Dashboard Editorial</title>
     <meta name="description"
-        content="Dashboard interativo do Campeonato Brasileiro Série A 2026 com classificação, artilharia, comparativos e gráficos temáticos.">
+        content="Dashboard interativo do Campeonato Brasileiro Série A {{ dados.info.temporada }} com classificação, artilharia, comparativos e gráficos.">
+    <link rel="canonical" href="https://futebol-dashboard.vercel.app/">
+    <meta property="og:title" content="Brasileirão {{ dados.info.temporada }} | Dashboard Editorial">
+    <meta property="og:description" content="Classificação, artilharia e comparativos da Série A em um dashboard responsivo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://futebol-dashboard.vercel.app/">
     <script>
         (function () {
             var savedTheme = localStorage.getItem('theme');
@@ -298,7 +303,7 @@
                 <div class="table-wrapper">
                     <div class="table-card">
                         <table class="data-table" id="tabela-classificacao">
-                            <caption class="visually-hidden">Tabela completa de classificação do Campeonato Brasileiro Série A 2026.</caption>
+                            <caption class="visually-hidden">Tabela completa de classificação do Campeonato Brasileiro Série A {{ dados.info.temporada }}.</caption>
                             <thead>
                                 <tr>
                                     <th scope="col" class="col-pos" data-sort="posicao">#</th>
@@ -407,7 +412,7 @@
                 <div class="table-wrapper">
                     <div class="table-card">
                         <table class="data-table">
-                            <caption class="visually-hidden">Lista dos 20 principais artilheiros do Brasileirão 2026.</caption>
+                            <caption class="visually-hidden">Lista dos principais artilheiros do Brasileirão {{ dados.info.temporada }}.</caption>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -545,9 +550,9 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <p><strong>Brasileirão Dashboard 2026</strong> · Python + Flask + Chart.js</p>
+            <p><strong>Brasileirão Dashboard {{ dados.info.temporada }}</strong> · Python + Flask + Chart.js</p>
             <p class="footer-author">por <a href="https://github.com/lucassgsantos" target="_blank" rel="noopener noreferrer">Lucas Santos</a></p>
-            <p class="footer-note">Dados reais da temporada 2026 com leitura visual refinada para consulta rápida.</p>
+            <p class="footer-note">Dados da temporada {{ dados.info.temporada }} com atualização automatizada e consulta rápida.</p>
         </div>
     </footer>
 
