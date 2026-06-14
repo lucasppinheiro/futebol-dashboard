@@ -28,4 +28,4 @@ def test_vercel_publica_o_build_estatico_sem_detectar_flask():
 
     assert config["framework"] is None
     assert config["outputDirectory"] == "dist"
-    assert "python build_static.py" in config["buildCommand"]
+    assert "python3 build_static.py" in config["buildCommand"]
