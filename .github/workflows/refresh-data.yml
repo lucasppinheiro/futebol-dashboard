@@ -41,10 +41,30 @@ jobs:
           npm ci
 
       - name: Refresh competition data
+        shell: bash
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
           DATA_AUTO_REFRESH_HOURS: "0"
-        run: python atualizar_dados.py
+        run: |
+          set -euo pipefail
+
+          if [ -z "${FOOTBALL_DATA_TOKEN:-}" ]; then
+            echo "::warning::FOOTBALL_DATA_TOKEN is not configured; keeping the current dataset."
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              exit 1
+            fi
+            exit 0
+          fi
+
+          if python atualizar_dados.py; then
+            exit 0
+          fi
+
+          status=$?
+          echo "::warning::Competition data refresh failed with status ${status}; keeping the current dataset for this scheduled run."
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            exit "${status}"
+          fi
 
       - name: Run Python tests
         run: python -m pytest tests -q

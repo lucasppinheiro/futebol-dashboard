@@ -29,6 +29,8 @@
   },
   "homepage": "https://futebol-dashboard.vercel.app/",
   "devDependencies": {
+    "@emnapi/core": "^1.11.1",
+    "@emnapi/runtime": "^1.11.1",
     "@jest/globals": "^30.4.1",
     "jest": "^30.4.2",
     "jsdom": "^26.1.0"
