@@ -13,7 +13,7 @@ import time
 from typing import Any
 
 from env_config import carregar_env_local
-from normalizacao import normalizar_posicao_jogador
+from normalizacao import calcular_aproveitamento, normalizar_posicao_jogador
 from temporada import temporada_brasileirao_atual
 
 
@@ -190,7 +190,7 @@ def _normalizar_linha_classificacao(item: dict[str, Any]) -> dict[str, Any]:
         "gols_contra": gols_contra,
         "saldo": gols_pro - gols_contra,
         "pontos": pontos,
-        "aproveitamento": round(pontos / (jogos * 3) * 100, 1) if jogos > 0 else 0.0,
+        "aproveitamento": calcular_aproveitamento(pontos, jogos),
     }
 
 
@@ -203,116 +203,6 @@ def _buscar_standings(temporada: str) -> list[dict[str, Any]]:
         raise ValueError("API retornou standings vazio ou invalido")
 
     return standings[0]["table"]
-
-
-def _buscar_partidas(temporada: str) -> list[dict[str, Any]]:
-    url = f"{API_BASE}/competitions/{COMPETITION}/matches?season={temporada}"
-    data = _fetch(url)
-    matches = data.get("matches")
-    if not isinstance(matches, list):
-        raise ValueError("API retornou matches invalido")
-    return matches
-
-
-def _registrar_estatisticas_time(classificacao: dict[str, Any], gols_pro: int, gols_contra: int) -> None:
-    classificacao["jogos"] += 1
-    classificacao["gols_pro"] += gols_pro
-    classificacao["gols_contra"] += gols_contra
-    classificacao["saldo"] = classificacao["gols_pro"] - classificacao["gols_contra"]
-
-    if gols_pro > gols_contra:
-        classificacao["vitorias"] += 1
-        classificacao["pontos"] += 3
-    elif gols_pro == gols_contra:
-        classificacao["empates"] += 1
-        classificacao["pontos"] += 1
-    else:
-        classificacao["derrotas"] += 1
-
-    jogos = classificacao["jogos"]
-    pontos = classificacao["pontos"]
-    classificacao["aproveitamento"] = round(pontos / (jogos * 3) * 100, 1) if jogos > 0 else 0.0
-
-
-def _criar_base_time(team: dict[str, Any], posicao_inicial: int = 999) -> dict[str, Any]:
-    nome = team["name"]
-    nome_exibir = NOME_DISPLAY.get(nome, nome)
-    sigla = _sigla_do_time(team, nome)
-
-    return {
-        "posicao": posicao_inicial,
-        "time": nome_exibir,
-        "sigla": sigla,
-        "estado": _estado_de(sigla),
-        "cor": _cor_padrao(sigla),
-        "escudo": team.get("crest") or "",
-        "jogos": 0,
-        "vitorias": 0,
-        "empates": 0,
-        "derrotas": 0,
-        "gols_pro": 0,
-        "gols_contra": 0,
-        "saldo": 0,
-        "pontos": 0,
-        "aproveitamento": 0.0,
-        "_seed_posicao": posicao_inicial,
-    }
-
-
-def _classificacao_dos_jogos(
-    tabela_standings: list[dict[str, Any]],
-    partidas: list[dict[str, Any]],
-) -> list[dict[str, Any]]:
-    classificacao_por_id: dict[int, dict[str, Any]] = {}
-    classificacao_base = [_normalizar_linha_classificacao(item) for item in tabela_standings]
-
-    for item in tabela_standings:
-        team = item["team"]
-        team_id = int(team["id"])
-        base = _criar_base_time(team, posicao_inicial=item["position"])
-        classificacao_por_id[team_id] = base
-
-    partidas_finalizadas = [partida for partida in partidas if partida.get("status") == "FINISHED"]
-    if not partidas_finalizadas:
-        return classificacao_base
-
-    for partida in partidas_finalizadas:
-        home_team = partida["homeTeam"]
-        away_team = partida["awayTeam"]
-        home_id = int(home_team["id"])
-        away_id = int(away_team["id"])
-
-        if home_id not in classificacao_por_id:
-            classificacao_por_id[home_id] = _criar_base_time(home_team)
-        if away_id not in classificacao_por_id:
-            classificacao_por_id[away_id] = _criar_base_time(away_team)
-
-        placar = partida.get("score", {}).get("fullTime", {})
-        gols_casa = placar.get("home")
-        gols_fora = placar.get("away")
-        if not isinstance(gols_casa, int) or not isinstance(gols_fora, int):
-            raise ValueError("Partida finalizada possui placar ausente ou invalido")
-
-        _registrar_estatisticas_time(classificacao_por_id[home_id], gols_casa, gols_fora)
-        _registrar_estatisticas_time(classificacao_por_id[away_id], gols_fora, gols_casa)
-
-    classificacao = list(classificacao_por_id.values())
-    classificacao.sort(
-        key=lambda time: (
-            -time["pontos"],
-            -time["vitorias"],
-            -time["saldo"],
-            -time["gols_pro"],
-            time["_seed_posicao"],
-            time["time"],
-        )
-    )
-
-    for index, time in enumerate(classificacao, start=1):
-        time["posicao"] = index
-        time.pop("_seed_posicao", None)
-
-    return classificacao
 
 
 def buscar_classificacao(temporada: str | None = None) -> list[dict[str, Any]]:

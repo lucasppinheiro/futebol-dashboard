@@ -9,11 +9,16 @@ import app as app_module
 
 @pytest.fixture(autouse=True)
 def _limpar_cache():
-    app_module._dados_cache = None
-    app_module._dados_mtime = 0.0
+    app_module.limpar_cache()
+    app_module._ultimo_refresh_automatico = 0.0
+    app_module._refresh_thread = None
     yield
-    app_module._dados_cache = None
-    app_module._dados_mtime = 0.0
+    thread = app_module._refresh_thread
+    if thread is not None and thread.is_alive():
+        thread.join(timeout=5)
+    app_module.limpar_cache()
+    app_module._ultimo_refresh_automatico = 0.0
+    app_module._refresh_thread = None
 
 
 @pytest.fixture
@@ -170,20 +175,65 @@ class TestCacheInvalidacao:
         os.utime(str(arquivo), (1, 1))
 
         def fake_atualizar(_temporada=None):
-            arquivo.write_text(json.dumps(dados_atualizados, ensure_ascii=False), encoding="utf-8")
-            os.utime(str(arquivo), None)
+            temporario = tmp_path / "dados.json.tmp"
+            temporario.write_text(json.dumps(dados_atualizados, ensure_ascii=False), encoding="utf-8")
+            os.replace(str(temporario), str(arquivo))
+
+        import atualizar_dados as atu
+        monkeypatch.setattr(atu, "atualizar", fake_atualizar)
+
+        # O refresh roda em background: o primeiro GET dispara a thread e
+        # responde imediatamente; o dado novo aparece apos a thread concluir.
+        app_module.app.config["TESTING"] = False
+        try:
+            resp1 = client.get("/api/classificacao")
+            assert resp1.status_code == 200
+            thread = app_module._refresh_thread
+            assert thread is not None
+            thread.join(timeout=5)
+            assert not thread.is_alive()
+            resp2 = client.get("/api/classificacao")
+        finally:
+            app_module.app.config["TESTING"] = True
+
+        assert resp2.status_code == 200
+        assert resp2.get_json()[0]["time"] == "Atualizado FC"
+
+    def test_refresh_automatico_concorrente_dispara_uma_unica_atualizacao(
+        self, client, monkeypatch, tmp_path, dados_json_validos
+    ):
+        import threading
+
+        arquivo = tmp_path / "dados.json"
+        arquivo.write_text(json.dumps(dados_json_validos, ensure_ascii=False), encoding="utf-8")
+        monkeypatch.setattr(app_module, "DATA_PATH", str(arquivo))
+        monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "token_teste")
+        monkeypatch.setenv("DATA_AUTO_REFRESH_HOURS", "1")
+        monkeypatch.setenv("DATA_AUTO_REFRESH_COOLDOWN_MINUTES", "0")
+        os.utime(str(arquivo), (1, 1))
+
+        chamadas = []
+        liberar = threading.Event()
+
+        def fake_atualizar(_temporada=None):
+            chamadas.append(1)
+            liberar.wait(timeout=5)
 
         import atualizar_dados as atu
         monkeypatch.setattr(atu, "atualizar", fake_atualizar)
 
         app_module.app.config["TESTING"] = False
         try:
-            resp = client.get("/api/classificacao")
+            client.get("/api/classificacao")
+            client.get("/api/classificacao")
         finally:
+            liberar.set()
             app_module.app.config["TESTING"] = True
 
-        assert resp.status_code == 200
-        assert resp.get_json()[0]["time"] == "Atualizado FC"
+        thread = app_module._refresh_thread
+        assert thread is not None
+        thread.join(timeout=5)
+        assert len(chamadas) == 1
 
 
 class TestAPIAtualizar:

@@ -3,6 +3,8 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from normalizacao import calcular_aproveitamento
+
 
 class DadosInvalidosError(ValueError):
     """Erro de validacao para estrutura e regras dos dados do dashboard."""
@@ -132,7 +134,7 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
                 f"{contexto}: saldo deve ser igual a gols_pro - gols_contra"
             )
 
-        aproveitamento_esperado = round((pontos / (jogos * 3)) * 100, 1) if jogos > 0 else 0.0
+        aproveitamento_esperado = calcular_aproveitamento(pontos, jogos)
         if round(aproveitamento, 1) != aproveitamento_esperado:
             raise DadosInvalidosError(
                 f"{contexto}: aproveitamento inconsistente com jogos e pontos"

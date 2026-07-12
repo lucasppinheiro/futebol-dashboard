@@ -79,7 +79,7 @@ def build(site_base_path: str | None = None) -> None:
         try:
             mtime = Path(app_module.DATA_PATH).stat().st_mtime
             atualizado_em = datetime.fromtimestamp(mtime, tz=timezone.utc).isoformat()
-            dados_desatualizados = app_module._dados_estao_desatualizados(mtime)
+            dados_desatualizados = app_module.dados_estao_desatualizados(mtime)
         except OSError:
             atualizado_em = None
             dados_desatualizados = True

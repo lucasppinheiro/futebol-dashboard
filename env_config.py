@@ -23,5 +23,5 @@ def carregar_env_local(env_path: str | None = None, override: bool = False) -> N
             if len(valor) >= 2 and valor[0] == valor[-1] and valor[0] in {"'", '"'}:
                 valor = valor[1:-1]
 
-            if override or not os.environ.get(chave):
+            if override or chave not in os.environ:
                 os.environ[chave] = valor

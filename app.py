@@ -2,9 +2,11 @@ from flask import Flask, render_template, jsonify, request
 from typing import Any
 import json
 import logging
+import math
 import os
 import re
 import secrets
+import threading
 import time
 import traceback
 
@@ -64,13 +66,17 @@ app.jinja_env.globals["site_url"] = site_url
 _dados_cache: dict | None = None
 _dados_mtime: float = 0.0
 _ultimo_refresh_automatico: float = 0.0
+_cache_lock = threading.Lock()
+_refresh_lock = threading.Lock()
+_refresh_thread: threading.Thread | None = None
 
 
 def limpar_cache() -> None:
     """Limpa o cache de dados."""
     global _dados_cache, _dados_mtime
-    _dados_cache = None
-    _dados_mtime = 0.0
+    with _cache_lock:
+        _dados_cache = None
+        _dados_mtime = 0.0
 
 
 def _ler_numero_env(nome: str, padrao: float) -> float:
@@ -78,10 +84,14 @@ def _ler_numero_env(nome: str, padrao: float) -> float:
     if not bruto:
         return padrao
     try:
-        return float(bruto)
+        valor = float(bruto)
     except ValueError:
         logger.warning("Valor invalido em %s=%r. Usando padrao %s.", nome, bruto, padrao)
         return padrao
+    if not math.isfinite(valor):
+        logger.warning("Valor invalido em %s=%r. Usando padrao %s.", nome, bruto, padrao)
+        return padrao
+    return valor
 
 
 def _refresh_automatico_horas() -> float:
@@ -97,7 +107,7 @@ def _token_football_data_disponivel() -> bool:
     return bool((os.environ.get("FOOTBALL_DATA_TOKEN") or "").strip())
 
 
-def _dados_estao_desatualizados(mtime: float) -> bool:
+def dados_estao_desatualizados(mtime: float) -> bool:
     horas = _refresh_automatico_horas()
     if horas <= 0:
         return False
@@ -113,8 +123,21 @@ def _pode_tentar_refresh_automatico() -> bool:
     return _ultimo_refresh_automatico == 0.0 or (time.time() - _ultimo_refresh_automatico) >= cooldown
 
 
+def _executar_refresh_automatico() -> None:
+    try:
+        from atualizar_dados import atualizar
+
+        atualizar(temporada_brasileirao_atual())
+        limpar_cache()
+        logger.info("Refresh automatico concluido com sucesso.")
+    except Exception as e:
+        logger.warning("Refresh automatico falhou. Mantendo cache local atual: %s", e)
+    finally:
+        _refresh_lock.release()
+
+
 def _tentar_refresh_automatico() -> None:
-    global _ultimo_refresh_automatico
+    global _ultimo_refresh_automatico, _refresh_thread
 
     if app.config.get("TESTING"):
         return
@@ -124,22 +147,23 @@ def _tentar_refresh_automatico() -> None:
 
     if os.path.exists(DATA_PATH):
         mtime = os.path.getmtime(DATA_PATH)
-        if not _dados_estao_desatualizados(mtime):
+        if not dados_estao_desatualizados(mtime):
             return
-        logger.info("Dados locais estao desatualizados. Iniciando refresh automatico.")
-    else:
-        logger.info("Arquivo de dados nao existe. Tentando gerar dados atualizados automaticamente.")
+        if not _refresh_lock.acquire(blocking=False):
+            return
+        logger.info("Dados locais estao desatualizados. Iniciando refresh automatico em background.")
+        _ultimo_refresh_automatico = time.time()
+        # O request atual serve o dado antigo imediatamente; a rede roda fora dele.
+        _refresh_thread = threading.Thread(target=_executar_refresh_automatico, daemon=True, name="refresh-dados")
+        _refresh_thread.start()
+        return
 
+    # Sem arquivo local nao ha o que servir: o refresh sincrono e o unico caminho.
+    if not _refresh_lock.acquire(blocking=False):
+        return
+    logger.info("Arquivo de dados nao existe. Tentando gerar dados atualizados automaticamente.")
     _ultimo_refresh_automatico = time.time()
-
-    try:
-        from atualizar_dados import atualizar
-
-        atualizar(temporada_brasileirao_atual())
-        limpar_cache()
-        logger.info("Refresh automatico concluido com sucesso.")
-    except Exception as e:
-        logger.warning("Refresh automatico falhou. Mantendo cache local atual: %s", e)
+    _executar_refresh_automatico()
 
 
 def carregar_dados() -> dict[str, Any]:
@@ -151,17 +175,18 @@ def carregar_dados() -> dict[str, Any]:
         raise FileNotFoundError(f"Dados nao encontrados em {DATA_PATH}. Execute: python gerar_dados.py")
 
     mtime = os.path.getmtime(DATA_PATH)
-    if _dados_cache is not None and mtime == _dados_mtime:
-        return _dados_cache
+    with _cache_lock:
+        if _dados_cache is not None and mtime == _dados_mtime:
+            return _dados_cache
 
-    with open(DATA_PATH, "r", encoding="utf-8") as f:
-        data: Any = json.load(f)
+        with open(DATA_PATH, "r", encoding="utf-8") as f:
+            data: Any = json.load(f)
 
-    normalizar_dados_dashboard(data)
-    validar_dados_dashboard(data)
-    _dados_cache = data
-    _dados_mtime = mtime
-    return data
+        normalizar_dados_dashboard(data)
+        validar_dados_dashboard(data)
+        _dados_cache = data
+        _dados_mtime = mtime
+        return data
 
 
 def _is_api_request() -> bool:
@@ -178,13 +203,13 @@ def index():
 def detalhe_time(sigla: str):
     dados = carregar_dados()
     sigla_upper = sigla.upper()
-    time = next((t for t in dados["classificacao"] if t["sigla"] == sigla_upper), None)
-    if not time:
+    clube = next((t for t in dados["classificacao"] if t["sigla"] == sigla_upper), None)
+    if not clube:
         if _is_api_request():
             return jsonify({"erro": f"Time '{sigla}' nao encontrado", "codigo": "TIME_NAO_ENCONTRADO"}), 404
         return f"<h1>Time nao encontrado</h1><p>Sigla '{sigla}' nao existe na classificacao.</p>", 404
     artilheiros_time = [j for j in dados["artilharia"] if j["sigla"] == sigla_upper]
-    return render_template("time.html", time=time, artilheiros=artilheiros_time, dados=dados)
+    return render_template("time.html", time=clube, artilheiros=artilheiros_time, dados=dados)
 
 
 @app.route("/api/classificacao")
@@ -229,7 +254,7 @@ def api_health():
         mtime = os.path.getmtime(DATA_PATH)
         from datetime import datetime, timezone
         status["dados_atualizados_em"] = datetime.fromtimestamp(mtime, tz=timezone.utc).isoformat()
-        status["dados_desatualizados"] = _dados_estao_desatualizados(mtime)
+        status["dados_desatualizados"] = dados_estao_desatualizados(mtime)
     except OSError:
         status["dados_atualizados_em"] = None
         status["dados_desatualizados"] = True
@@ -278,7 +303,7 @@ if __name__ == "__main__":
     
     limpar_cache()
 
-    debug = os.environ.get("FLASK_DEBUG", "1") == "1"
+    debug = os.environ.get("FLASK_DEBUG", "0") == "1"
     host = os.environ.get("FLASK_HOST", "127.0.0.1")
     port = int(os.environ.get("FLASK_PORT", "5000"))
 

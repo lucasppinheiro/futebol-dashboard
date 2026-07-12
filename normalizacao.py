@@ -25,6 +25,10 @@ POSICOES_MAPA: dict[str, str] = {
 }
 
 
+def calcular_aproveitamento(pontos: int, jogos: int) -> float:
+    return round(pontos / (jogos * 3) * 100, 1) if jogos > 0 else 0.0
+
+
 def normalizar_posicao_jogador(posicao: str | None) -> str:
     valor = (posicao or "").strip()
     if not valor:

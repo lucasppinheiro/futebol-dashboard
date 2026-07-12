@@ -24,7 +24,7 @@ def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
     assert not (dist_dir / "_redirects").exists()
 
     health = json.loads((dist_dir / "api" / "health.json").read_text(encoding="utf-8"))
-    assert health["dados_desatualizados"] == build_static.app_module._dados_estao_desatualizados(
+    assert health["dados_desatualizados"] == build_static.app_module.dados_estao_desatualizados(
         build_static.Path(build_static.app_module.DATA_PATH).stat().st_mtime
     )
 

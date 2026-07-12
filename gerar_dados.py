@@ -4,6 +4,7 @@ import os
 from typing import Any
 
 from dados_schema import validar_dados_dashboard
+from normalizacao import calcular_aproveitamento
 from temporada import temporada_brasileirao_atual
 
 logger = logging.getLogger(__name__)
@@ -68,7 +69,7 @@ def gerar_classificacao() -> list[dict[str, Any]]:
         pontos = vitorias * 3 + empates
         time["saldo"] = gols_pro - gols_contra
         time["pontos"] = pontos
-        time["aproveitamento"] = round(pontos / (jogos * 3) * 100, 1)
+        time["aproveitamento"] = calcular_aproveitamento(pontos, jogos)
 
     return dados_reais
 

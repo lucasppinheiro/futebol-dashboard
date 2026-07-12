@@ -1,8 +1,6 @@
 import json
 import urllib.error
 
-import pytest
-
 import api_client
 from temporada import temporada_brasileirao_atual
 
@@ -27,14 +25,7 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
             }
         ]
     }
-    matches_payload = {"matches": []}
-
-    def fake_fetch(url):
-        if "standings" in url:
-            return standings_payload
-        return matches_payload
-
-    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
+    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
 
     classificacao = api_client.buscar_classificacao()
 
@@ -62,14 +53,7 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
             }
         ]
     }
-    matches_payload = {"matches": []}
-
-    def fake_fetch(url):
-        if "standings" in url:
-            return standings_payload
-        return matches_payload
-
-    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
+    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
 
     classificacao = api_client.buscar_classificacao()
 
@@ -126,7 +110,7 @@ def test_busca_classificacao_usa_temporada_atual_por_padrao(monkeypatch):
                     }
                 ]
             }
-        return {"matches": []}
+        raise AssertionError(f"URL inesperada: {url}")
 
     monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
@@ -167,24 +151,7 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
             }
         ]
     }
-    matches_payload = {
-        "matches": [
-            {
-                "status": "FINISHED",
-                "matchday": 10,
-                "homeTeam": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
-                "awayTeam": {"id": 1771, "name": "Cruzeiro EC", "tla": "CRU", "crest": "https://example.com/cru.png"},
-                "score": {"fullTime": {"home": 4, "away": 1}},
-            }
-        ]
-    }
-
-    def fake_fetch(url):
-        if "standings" in url:
-            return standings_payload
-        return matches_payload
-
-    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
+    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
 
     classificacao = api_client.buscar_classificacao("2026")
 
@@ -228,14 +195,7 @@ def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monke
             }
         ]
     }
-    matches_payload = {"matches": []}
-
-    def fake_fetch(url):
-        if "standings" in url:
-            return standings_payload
-        return matches_payload
-
-    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
+    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
 
     classificacao = api_client.buscar_classificacao("2026")
 
@@ -301,28 +261,3 @@ def test_fetch_repete_erro_transitorio_antes_de_retornar(monkeypatch):
     assert tentativas == 3
 
 
-def test_classificacao_dos_jogos_rejeita_placar_ausente():
-    standings = [
-        {
-            "position": 1,
-            "team": {"id": 1, "name": "Palmeiras", "tla": "PAL", "crest": ""},
-            "playedGames": 0,
-            "won": 0,
-            "draw": 0,
-            "lost": 0,
-            "goalsFor": 0,
-            "goalsAgainst": 0,
-            "points": 0,
-        }
-    ]
-    partidas = [
-        {
-            "status": "FINISHED",
-            "homeTeam": {"id": 1, "name": "Palmeiras", "tla": "PAL", "crest": ""},
-            "awayTeam": {"id": 2, "name": "Santos", "tla": "SAN", "crest": ""},
-            "score": {"fullTime": {"home": None, "away": 1}},
-        }
-    ]
-
-    with pytest.raises(ValueError, match="placar"):
-        api_client._classificacao_dos_jogos(standings, partidas)
