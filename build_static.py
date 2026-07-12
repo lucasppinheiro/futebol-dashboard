@@ -8,7 +8,6 @@ from flask import render_template
 
 import app as app_module
 
-
 BASE_DIR = Path(__file__).resolve().parent
 DIST_DIR = BASE_DIR / "dist"
 STATIC_DIR = BASE_DIR / "static"

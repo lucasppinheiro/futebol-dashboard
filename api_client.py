@@ -5,17 +5,16 @@ Requer variavel de ambiente FOOTBALL_DATA_TOKEN com o token da API.
 Documentacao: https://docs.football-data.org/general/v4/index.html
 """
 
-import os
-import urllib.request
-import urllib.error
 import json
+import os
 import time
+import urllib.error
+import urllib.request
 from typing import Any
 
 from env_config import carregar_env_local
 from normalizacao import calcular_aproveitamento, normalizar_posicao_jogador
 from temporada import temporada_brasileirao_atual
-
 
 carregar_env_local()
 
@@ -27,7 +26,7 @@ COMPETITION = "BSA"
 def _get_token() -> str:
     token = os.environ.get("FOOTBALL_DATA_TOKEN", "").strip()
     if not token:
-        raise EnvironmentError(
+        raise OSError(
             "Variavel FOOTBALL_DATA_TOKEN nao definida. "
             "Cadastre-se em https://www.football-data.org/client/register e defina o token."
         )
@@ -62,6 +61,7 @@ def _fetch(url: str, tentativas: int = 3) -> dict[str, Any]:
 
 
 def _cor_padrao(sigla: str) -> str:
+    # fmt: off
     cores: dict[str, str] = {
         "COR": "#000000", "FLA": "#E11D1D", "PAL": "#006437", "SAO": "#FF0000",
         "SAN": "#000000", "RBB": "#E30613", "MIR": "#FFD700", "FLU": "#7B0023",
@@ -71,9 +71,11 @@ def _cor_padrao(sigla: str) -> str:
         "CEA": "#1a1a2e", "FOR": "#004A99", "JUV": "#006633", "SPO": "#E30613",
         "NOV": "#E30613", "AME": "#006633", "CUI": "#006437", "GOI": "#006437", "AVA": "#004A99",
     }
+    # fmt: on
     return cores.get(sigla.upper(), "#64748b")
 
 
+# fmt: off
 SIGLAS_MAPA: dict[str, str] = {
     "CR Flamengo": "FLA", "Flamengo": "FLA",
     "SE Palmeiras": "PAL", "Palmeiras": "PAL",
@@ -106,6 +108,7 @@ SIGLAS_MAPA: dict[str, str] = {
     "Clube do Remo": "REM", "Remo": "REM",
     "Avaí FC": "AVA", "Avai": "AVA",
 }
+# fmt: on
 
 SIGLAS_OFICIAIS_MAPA: dict[str, str] = {
     "PAU": "SAO",
@@ -145,6 +148,7 @@ def _sigla_do_time(team: dict[str, Any], nome: str) -> str:
 
 
 def _estado_de(sigla: str) -> str:
+    # fmt: off
     estados: dict[str, str] = {
         "FLA": "RJ", "PAL": "SP", "CRU": "MG", "MIR": "SP", "FLU": "RJ",
         "BOT": "RJ", "BAH": "BA", "SAO": "SP", "GRE": "RS", "RBB": "SP",
@@ -153,6 +157,7 @@ def _estado_de(sigla: str) -> str:
         "CFC": "PR", "AME": "MG", "CUI": "MT", "GOI": "GO", "CAP": "PR",
         "AVA": "SC", "CHA": "SC", "REM": "PA",
     }
+    # fmt: on
     return estados.get(sigla.upper(), "??")
 
 
@@ -229,12 +234,14 @@ def buscar_artilharia(temporada: str | None = None, limite: int = 20) -> list[di
 
         gols = item.get("goals") or item.get("numberOfGoals") or 0
 
-        resultado.append({
-            "jogador": player.get("name", "Desconhecido"),
-            "time": team_name_exibir,
-            "sigla": sigla,
-            "posicao": posicao,
-            "gols": gols,
-        })
+        resultado.append(
+            {
+                "jogador": player.get("name", "Desconhecido"),
+                "time": team_name_exibir,
+                "sigla": sigla,
+                "posicao": posicao,
+                "gols": gols,
+            }
+        )
 
     return resultado

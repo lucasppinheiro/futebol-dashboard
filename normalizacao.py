@@ -1,6 +1,5 @@
 from typing import Any
 
-
 POSICOES_MAPA: dict[str, str] = {
     "Offence": "Atacante",
     "Attack": "Atacante",

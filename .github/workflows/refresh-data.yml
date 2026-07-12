@@ -37,7 +37,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          python -m pip install -U pip
+          pip install -r requirements.txt --group dev
           npm ci
 
       - name: Refresh competition data

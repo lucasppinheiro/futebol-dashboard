@@ -13,11 +13,10 @@ import argparse
 import json
 import logging
 import os
-import sys
 import tempfile
 from pathlib import Path
 
-from api_client import buscar_classificacao, buscar_artilharia
+from api_client import buscar_artilharia, buscar_classificacao
 from dados_schema import validar_dados_dashboard
 from env_config import carregar_env_local
 from gerar_dados import montar_info
@@ -104,4 +103,4 @@ if __name__ == "__main__":
     try:
         atualizar(args.temporada)
     except Exception:
-        raise SystemExit(1)
+        raise SystemExit(1) from None

@@ -18,6 +18,11 @@ build/
 .pytest_cache/
 htmlcov/
 .coverage
+coverage/
+coverage.xml
+
+# Lint
+.ruff_cache/
 
 # IDE / Editor
 .idea/

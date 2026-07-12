@@ -12,7 +12,12 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
                 "table": [
                     {
                         "position": 1,
-                        "team": {"id": 1, "name": "Nome Variavel FC", "tla": "PAL", "crest": "https://example.com/pal.png"},
+                        "team": {
+                            "id": 1,
+                            "name": "Nome Variavel FC",
+                            "tla": "PAL",
+                            "crest": "https://example.com/pal.png",
+                        },
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -40,7 +45,12 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
                 "table": [
                     {
                         "position": 1,
-                        "team": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
+                        "team": {
+                            "id": 1776,
+                            "name": "São Paulo FC",
+                            "tla": "PAU",
+                            "crest": "https://example.com/sp.png",
+                        },
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -127,7 +137,12 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
                 "table": [
                     {
                         "position": 1,
-                        "team": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
+                        "team": {
+                            "id": 1776,
+                            "name": "São Paulo FC",
+                            "tla": "PAU",
+                            "crest": "https://example.com/sp.png",
+                        },
                         "playedGames": 9,
                         "won": 5,
                         "draw": 2,
@@ -138,7 +153,12 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
                     },
                     {
                         "position": 2,
-                        "team": {"id": 1771, "name": "Cruzeiro EC", "tla": "CRU", "crest": "https://example.com/cru.png"},
+                        "team": {
+                            "id": 1771,
+                            "name": "Cruzeiro EC",
+                            "tla": "CRU",
+                            "crest": "https://example.com/cru.png",
+                        },
                         "playedGames": 9,
                         "won": 5,
                         "draw": 1,
@@ -259,5 +279,3 @@ def test_fetch_repete_erro_transitorio_antes_de_retornar(monkeypatch):
 
     assert api_client._fetch("https://example.com") == {"standings": []}
     assert tentativas == 3
-
-

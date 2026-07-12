@@ -10,10 +10,21 @@ def test_atualizar_substitui_arquivo_atomicamente(monkeypatch, tmp_path):
     output.write_text('{"original": true}', encoding="utf-8")
     classificacao = [
         {
-            "posicao": 1, "time": "Palmeiras", "sigla": "PAL", "estado": "SP",
-            "cor": "#006437", "escudo": "", "jogos": 1, "vitorias": 1,
-            "empates": 0, "derrotas": 0, "gols_pro": 1, "gols_contra": 0,
-            "saldo": 1, "pontos": 3, "aproveitamento": 100.0,
+            "posicao": 1,
+            "time": "Palmeiras",
+            "sigla": "PAL",
+            "estado": "SP",
+            "cor": "#006437",
+            "escudo": "",
+            "jogos": 1,
+            "vitorias": 1,
+            "empates": 0,
+            "derrotas": 0,
+            "gols_pro": 1,
+            "gols_contra": 0,
+            "saldo": 1,
+            "pontos": 3,
+            "aproveitamento": 100.0,
         }
     ]
     artilharia = [{"jogador": "Jogador", "time": "Palmeiras", "sigla": "PAL", "posicao": "Atacante", "gols": 1}]
