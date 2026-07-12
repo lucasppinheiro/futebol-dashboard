@@ -141,7 +141,7 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
     return classificacao
 
 
-def _validar_artilharia(artilharia: Any) -> list[dict[str, Any]]:
+def _validar_artilharia(artilharia: Any, siglas_classificacao: set[str]) -> list[dict[str, Any]]:
     if not isinstance(artilharia, list) or not artilharia:
         raise DadosInvalidosError("artilharia deve ser uma lista nao vazia")
 
@@ -155,7 +155,9 @@ def _validar_artilharia(artilharia: Any) -> list[dict[str, Any]]:
         _validar_campos_obrigatorios(jogador, campos, contexto)
         _validar_str_nao_vazia(jogador, "jogador", contexto)
         _validar_str_nao_vazia(jogador, "time", contexto)
-        _validar_str_nao_vazia(jogador, "sigla", contexto)
+        sigla = _validar_str_nao_vazia(jogador, "sigla", contexto)
+        if sigla.upper() not in siglas_classificacao:
+            raise DadosInvalidosError(f"{contexto}: sigla '{sigla}' nao existe na classificacao")
         _validar_str_nao_vazia(jogador, "posicao", contexto)
         gols = _validar_int_nao_negativo(jogador, "gols", contexto)
         if gols_anteriores is not None and gols > gols_anteriores:
@@ -221,7 +223,8 @@ def validar_dados_dashboard(dados: Any) -> dict[str, Any]:
             raise DadosInvalidosError(f"bloco '{bloco}' ausente")
 
     classificacao = _validar_classificacao(dados["classificacao"])
-    artilharia = _validar_artilharia(dados["artilharia"])
+    siglas_classificacao = {time["sigla"].upper() for time in classificacao}
+    artilharia = _validar_artilharia(dados["artilharia"], siglas_classificacao)
     _validar_info(dados["info"], classificacao, artilharia)
 
     return dados

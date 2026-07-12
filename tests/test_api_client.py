@@ -245,6 +245,34 @@ def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monke
     assert classificacao[1]["estado"] == "SP"
 
 
+def test_busca_classificacao_nao_casa_nome_desconhecido_por_substring(monkeypatch):
+    standings_payload = {
+        "standings": [
+            {
+                "table": [
+                    {
+                        "position": 1,
+                        "team": {"id": 9001, "name": "Grêmio Novorizontino", "tla": "GNO", "crest": ""},
+                        "playedGames": 1,
+                        "won": 1,
+                        "draw": 0,
+                        "lost": 0,
+                        "goalsFor": 1,
+                        "goalsAgainst": 0,
+                        "points": 3,
+                    }
+                ]
+            }
+        ]
+    }
+
+    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
+
+    classificacao = api_client.buscar_classificacao("2026")
+
+    assert classificacao[0]["sigla"] == "GNO"
+
+
 def test_fetch_repete_erro_transitorio_antes_de_retornar(monkeypatch):
     tentativas = 0
 

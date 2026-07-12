@@ -115,13 +115,11 @@ SIGLAS_OFICIAIS_MAPA: dict[str, str] = {
 }
 
 
+_SIGLAS_POR_NOME_CASEFOLD: dict[str, str] = {chave.casefold(): sigla for chave, sigla in SIGLAS_MAPA.items()}
+
+
 def _sigla_por_nome(nome: str) -> str | None:
-    if nome in SIGLAS_MAPA:
-        return SIGLAS_MAPA[nome]
-    for chave, sigla in SIGLAS_MAPA.items():
-        if chave.lower() in nome.lower() or nome.lower() in chave.lower():
-            return sigla
-    return None
+    return _SIGLAS_POR_NOME_CASEFOLD.get(nome.strip().casefold())
 
 
 def _sigla_de(nome: str) -> str:
