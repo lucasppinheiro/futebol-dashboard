@@ -9,7 +9,11 @@
     "test": "jest --verbose",
     "test:python": "python -m pytest tests -q",
     "build": "python build_static.py",
-    "audit": "npm audit --audit-level=high"
+    "audit": "npm audit --audit-level=high",
+    "lint": "eslint static/js tests/js eslint.config.mjs",
+    "lint:fix": "eslint static/js tests/js eslint.config.mjs --fix",
+    "format": "prettier --write \"static/js/**/*.js\" \"tests/js/**/*.js\"",
+    "format:check": "prettier --check \"static/js/**/*.js\" \"tests/js/**/*.js\""
   },
   "jest": {
     "testMatch": [
@@ -31,8 +35,13 @@
   "devDependencies": {
     "@emnapi/core": "^1.11.1",
     "@emnapi/runtime": "^1.11.1",
+    "@eslint/js": "^10.0.1",
     "@jest/globals": "^30.4.1",
+    "eslint": "^10.7.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.7.0",
     "jest": "^30.4.2",
-    "jsdom": "^26.1.0"
+    "jsdom": "^26.1.0",
+    "prettier": "^3.9.5"
   }
 }

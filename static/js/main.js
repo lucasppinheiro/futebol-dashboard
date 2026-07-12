@@ -16,9 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function annotateResponsiveTables() {
         document.querySelectorAll('.data-table').forEach((table) => {
-            const headers = Array.from(table.querySelectorAll('thead th')).map((header) =>
-                header.textContent.trim()
-            );
+            const headers = Array.from(table.querySelectorAll('thead th')).map((header) => header.textContent.trim());
 
             table.querySelectorAll('tbody tr').forEach((row) => {
                 row.querySelectorAll('td').forEach((cell, index) => {
@@ -125,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!raw) return [];
             const parsed = JSON.parse(raw);
             return Array.isArray(parsed) ? parsed : [];
-        } catch (error) {
+        } catch {
             localStorage.removeItem(key);
             return [];
         }
@@ -193,7 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const zona = row.dataset.zona || '';
 
             const matchBusca = !termo || nome.includes(termo) || sigla.includes(termo);
-            const matchZona = filtroZonaAtivo === 'todas' || filtroZonaAtivo === 'favoritos' || zona === filtroZonaAtivo;
+            const matchZona =
+                filtroZonaAtivo === 'todas' || filtroZonaAtivo === 'favoritos' || zona === filtroZonaAtivo;
             const matchFav = filtroZonaAtivo !== 'favoritos' || isFavorito((row.dataset.sigla || '').toUpperCase());
             const mostrar = matchBusca && matchZona && matchFav;
 
@@ -342,9 +341,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const normalized = hex.replace('#', '');
         if (![3, 6].includes(normalized.length)) return `rgba(82, 183, 255, ${alpha})`;
 
-        const full = normalized.length === 3
-            ? normalized.split('').map((char) => char + char).join('')
-            : normalized;
+        const full =
+            normalized.length === 3
+                ? normalized
+                      .split('')
+                      .map((char) => char + char)
+                      .join('')
+                : normalized;
 
         const intValue = parseInt(full, 16);
         const r = (intValue >> 16) & 255;

@@ -90,8 +90,8 @@ describe('Navegacao por abas', () => {
         const sections = document.querySelectorAll('.section');
 
         tabs[2].click();
-        const ativas = [...tabs].filter(t => t.classList.contains('active'));
-        const secAtivas = [...sections].filter(s => s.classList.contains('active'));
+        const ativas = [...tabs].filter((t) => t.classList.contains('active'));
+        const secAtivas = [...sections].filter((s) => s.classList.contains('active'));
 
         expect(ativas).toHaveLength(1);
         expect(secAtivas).toHaveLength(1);

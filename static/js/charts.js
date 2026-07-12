@@ -40,7 +40,10 @@ function tooltipBase() {
 }
 
 function formatarNomeCurto(nome) {
-    const partes = String(nome || '').trim().split(/\s+/).filter(Boolean);
+    const partes = String(nome || '')
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
     if (partes.length <= 1) return partes[0] || '';
     const ultimo = partes[partes.length - 1];
     if (partes[0].length + ultimo.length <= 14) {
@@ -63,18 +66,20 @@ function criarGraficoPontos(classificacao) {
         type: 'bar',
         data: {
             labels: top10.map((time) => time.sigla),
-            datasets: [{
-                label: 'Pontos',
-                data: top10.map((time) => time.pontos),
-                backgroundColor: top10.map((_, index) => {
-                    if (index >= 6) return theme.brand;
-                    if (index >= 4) return theme.warning;
-                    return theme.brandAlt;
-                }),
-                borderRadius: 10,
-                borderSkipped: false,
-                barPercentage: 0.72
-            }]
+            datasets: [
+                {
+                    label: 'Pontos',
+                    data: top10.map((time) => time.pontos),
+                    backgroundColor: top10.map((_, index) => {
+                        if (index >= 6) return theme.brand;
+                        if (index >= 4) return theme.warning;
+                        return theme.brandAlt;
+                    }),
+                    borderRadius: 10,
+                    borderSkipped: false,
+                    barPercentage: 0.72
+                }
+            ]
         },
         options: {
             indexAxis: 'y',
@@ -132,18 +137,20 @@ function criarGraficoArtilheiros(artilharia) {
         type: 'bar',
         data: {
             labels: top10.map((jogador) => formatarNomeCurto(jogador.jogador)),
-            datasets: [{
-                label: 'Gols',
-                data: top10.map((jogador) => jogador.gols),
-                backgroundColor: top10.map((_, index) => {
-                    if (index === 0) return theme.warning;
-                    if (index <= 2) return theme.brandAlt;
-                    return theme.brand;
-                }),
-                borderRadius: 10,
-                borderSkipped: false,
-                barPercentage: 0.68
-            }]
+            datasets: [
+                {
+                    label: 'Gols',
+                    data: top10.map((jogador) => jogador.gols),
+                    backgroundColor: top10.map((_, index) => {
+                        if (index === 0) return theme.warning;
+                        if (index <= 2) return theme.brandAlt;
+                        return theme.brand;
+                    }),
+                    borderRadius: 10,
+                    borderSkipped: false,
+                    barPercentage: 0.68
+                }
+            ]
         },
         options: {
             responsive: true,
@@ -208,18 +215,20 @@ function criarGraficoAproveitamento(classificacao) {
         type: 'bar',
         data: {
             labels: dados.map((time) => time.sigla),
-            datasets: [{
-                label: 'Aproveitamento %',
-                data: dados.map((time) => time.aproveitamento),
-                backgroundColor: dados.map((time) => {
-                    if (time.aproveitamento >= 60) return theme.brand;
-                    if (time.aproveitamento >= 45) return theme.warning;
-                    return theme.danger;
-                }),
-                borderRadius: 10,
-                borderSkipped: false,
-                barPercentage: 0.72
-            }]
+            datasets: [
+                {
+                    label: 'Aproveitamento %',
+                    data: dados.map((time) => time.aproveitamento),
+                    backgroundColor: dados.map((time) => {
+                        if (time.aproveitamento >= 60) return theme.brand;
+                        if (time.aproveitamento >= 45) return theme.warning;
+                        return theme.danger;
+                    }),
+                    borderRadius: 10,
+                    borderSkipped: false,
+                    barPercentage: 0.72
+                }
+            ]
         },
         options: {
             indexAxis: 'y',
