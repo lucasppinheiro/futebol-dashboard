@@ -1,7 +1,4 @@
-function getCssVar(name, fallback) {
-    const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-    return value || fallback;
-}
+const { getCssVar } = window.dashboardShared;
 
 function getChartTheme() {
     return {

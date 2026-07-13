@@ -2,6 +2,7 @@ const { JSDOM, VirtualConsole } = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 
+const sharedJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/shared.js'), 'utf-8');
 const chartsJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/charts.js'), 'utf-8');
 
 function criarDOM(opcoes = {}) {
@@ -75,6 +76,7 @@ function criarDOM(opcoes = {}) {
         `);
     }
 
+    dom.window.eval(sharedJs);
     dom.window.eval(chartsJs);
     return dom;
 }

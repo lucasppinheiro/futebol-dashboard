@@ -2,6 +2,7 @@ const { JSDOM, VirtualConsole } = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 
+const sharedJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/shared.js'), 'utf-8');
 const timeJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/time.js'), 'utf-8');
 
 const todosClassificacao = [
@@ -49,6 +50,7 @@ function criarDOM(opcoes = {}) {
         `);
     }
 
+    dom.window.eval(sharedJs);
     dom.window.eval(timeJs);
     return dom;
 }

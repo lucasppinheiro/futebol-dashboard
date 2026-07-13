@@ -1,10 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const root = document.documentElement;
-    const getMediaQueryMatch = (query) => {
-        if (typeof window.matchMedia !== 'function') return false;
-        return window.matchMedia(query).matches;
-    };
-    const prefersReducedMotion = getMediaQueryMatch('(prefers-reduced-motion: reduce)');
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('.section');
     const chartsSection = document.getElementById('graficos');
@@ -12,20 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setChartsStatus(message) {
         if (chartsStatus) chartsStatus.textContent = message;
-    }
-
-    function annotateResponsiveTables() {
-        document.querySelectorAll('.data-table').forEach((table) => {
-            const headers = Array.from(table.querySelectorAll('thead th')).map((header) => header.textContent.trim());
-
-            table.querySelectorAll('tbody tr').forEach((row) => {
-                row.querySelectorAll('td').forEach((cell, index) => {
-                    if (!cell.dataset.label && headers[index]) {
-                        cell.dataset.label = headers[index];
-                    }
-                });
-            });
-        });
     }
 
     function ensureChartsInitialized(targetId) {
@@ -107,8 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    annotateResponsiveTables();
 
     const searchInput = document.getElementById('search-classificacao');
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -275,115 +253,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const themeToggle = document.getElementById('theme-toggle');
-
-    function atualizarCopiaTema(tema) {
-        if (!themeToggle) return;
-        const label = tema === 'light' ? 'Mudar para modo escuro' : 'Mudar para modo claro';
-        themeToggle.setAttribute('aria-label', label);
-        themeToggle.setAttribute('title', label);
-    }
-
-    function setTheme(tema) {
-        root.setAttribute('data-theme', tema);
-        localStorage.setItem('theme', tema);
-        atualizarCopiaTema(tema);
-    }
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else if (getMediaQueryMatch('(prefers-color-scheme: light)')) {
-        setTheme('light');
-    } else {
-        atualizarCopiaTema(root.getAttribute('data-theme') || 'dark');
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const atual = root.getAttribute('data-theme');
-            setTheme(atual === 'light' ? 'dark' : 'light');
-        });
-    }
-
-    document.querySelectorAll('[data-count]').forEach((element) => {
-        const target = parseInt(element.dataset.count, 10);
-        if (Number.isNaN(target)) return;
-
-        const original = element.textContent || '';
-        const suffix = original.replace(/^\s*[\d.+-]+\s*/, '').trim();
-
-        if (prefersReducedMotion) {
-            element.textContent = suffix ? `${target} ${suffix}` : `${target}`;
-            return;
-        }
-
-        const duration = 900;
-        const start = performance.now();
-
-        function step(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const value = Math.round(target * eased);
-            element.textContent = suffix ? `${value} ${suffix}` : `${value}`;
-            if (progress < 1) requestAnimationFrame(step);
-        }
-
-        requestAnimationFrame(step);
-    });
-
-    function getCssVar(name, fallback) {
-        const value = getComputedStyle(root).getPropertyValue(name).trim();
-        return value || fallback;
-    }
-
-    function hexToRgba(hex, alpha) {
-        const normalized = hex.replace('#', '');
-        if (![3, 6].includes(normalized.length)) return `rgba(82, 183, 255, ${alpha})`;
-
-        const full =
-            normalized.length === 3
-                ? normalized
-                      .split('')
-                      .map((char) => char + char)
-                      .join('')
-                : normalized;
-
-        const intValue = parseInt(full, 16);
-        const r = (intValue >> 16) & 255;
-        const g = (intValue >> 8) & 255;
-        const b = intValue & 255;
-        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-    }
-
-    function normalizarRadar(valor, valores, options = {}) {
-        const { invert = false } = options;
-        const numeros = valores.map((item) => Number(item) || 0);
-        const minimo = Math.min(...numeros);
-        const maximo = Math.max(...numeros);
-        if (maximo === minimo) return 100;
-
-        let proporcao = ((Number(valor) || 0) - minimo) / (maximo - minimo);
-        if (invert) proporcao = 1 - proporcao;
-        return Math.round(Math.max(0, Math.min(1, proporcao)) * 100);
-    }
-
     const cmpSelect1 = document.getElementById('cmp-time1');
     const cmpSelect2 = document.getElementById('cmp-time2');
     const cmpBtn = document.getElementById('cmp-btn');
     const cmpResult = document.getElementById('cmp-result');
 
     if (cmpBtn && cmpSelect1 && cmpSelect2 && cmpResult) {
+        const { hexToRgba, getRadarTheme, radarDataset, criarRadarChart, observarTemaRadar } = window.dashboardShared;
         let chartComparador = null;
-
-        function getRadarTheme() {
-            return {
-                grid: getCssVar('--chart-grid', 'rgba(181, 195, 216, 0.14)'),
-                label: getCssVar('--chart-label', '#c1cde0'),
-                brandAlt: getCssVar('--brand-alt', '#52b7ff'),
-                danger: getCssVar('--danger', '#ff6f61')
-            };
-        }
 
         function atualizarEstadoComparador() {
             const invalido = !cmpSelect1.value || !cmpSelect2.value || cmpSelect1.value === cmpSelect2.value;
@@ -394,15 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cmpSelect2.addEventListener('change', atualizarEstadoComparador);
         atualizarEstadoComparador();
 
-        const observer = new MutationObserver(() => {
-            if (!chartComparador) return;
-            const theme = getRadarTheme();
-            chartComparador.options.scales.r.grid.color = theme.grid;
-            chartComparador.options.scales.r.pointLabels.color = theme.label;
-            chartComparador.options.plugins.legend.labels.color = theme.label;
-            chartComparador.update('none');
-        });
-        observer.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+        observarTemaRadar(() => chartComparador);
 
         cmpBtn.addEventListener('click', () => {
             const s1 = cmpSelect1.value;
@@ -487,70 +356,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!radarEl) return;
 
                 const theme = getRadarTheme();
-                const pontosSerie = dadosClassificacao.map((time) => time.pontos);
-                const vitoriasSerie = dadosClassificacao.map((time) => time.vitorias);
-                const golsProSerie = dadosClassificacao.map((time) => time.gols_pro);
-                const aproveitamentoSerie = dadosClassificacao.map((time) => time.aproveitamento);
-                const saldoSerie = dadosClassificacao.map((time) => time.saldo);
-
                 const colorA = t1.cor || theme.brandAlt;
                 const colorB = t2.cor || theme.danger;
 
-                chartComparador = new Chart(radarEl.getContext('2d'), {
-                    type: 'radar',
-                    data: {
-                        labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
-                        datasets: [
-                            {
-                                label: t1.time,
-                                data: [
-                                    normalizarRadar(t1.pontos, pontosSerie),
-                                    normalizarRadar(t1.vitorias, vitoriasSerie),
-                                    normalizarRadar(t1.gols_pro, golsProSerie),
-                                    normalizarRadar(t1.aproveitamento, aproveitamentoSerie),
-                                    normalizarRadar(t1.saldo, saldoSerie)
-                                ],
-                                borderColor: colorA,
-                                backgroundColor: hexToRgba(colorA, 0.16),
-                                pointRadius: 3
-                            },
-                            {
-                                label: t2.time,
-                                data: [
-                                    normalizarRadar(t2.pontos, pontosSerie),
-                                    normalizarRadar(t2.vitorias, vitoriasSerie),
-                                    normalizarRadar(t2.gols_pro, golsProSerie),
-                                    normalizarRadar(t2.aproveitamento, aproveitamentoSerie),
-                                    normalizarRadar(t2.saldo, saldoSerie)
-                                ],
-                                borderColor: colorB,
-                                backgroundColor: hexToRgba(colorB, 0.16),
-                                pointRadius: 3
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            r: {
-                                beginAtZero: true,
-                                max: 100,
-                                grid: { color: theme.grid },
-                                pointLabels: { color: theme.label },
-                                ticks: { display: false }
-                            }
+                chartComparador = criarRadarChart(
+                    radarEl,
+                    [
+                        {
+                            label: t1.time,
+                            data: radarDataset(t1, dadosClassificacao),
+                            borderColor: colorA,
+                            backgroundColor: hexToRgba(colorA, 0.16),
+                            pointRadius: 3
                         },
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    color: theme.label,
-                                    font: { family: "'Outfit', sans-serif", weight: 600 }
-                                }
-                            }
+                        {
+                            label: t2.time,
+                            data: radarDataset(t2, dadosClassificacao),
+                            borderColor: colorB,
+                            backgroundColor: hexToRgba(colorB, 0.16),
+                            pointRadius: 3
                         }
-                    }
-                });
+                    ],
+                    { legend: true }
+                );
             }
         });
     }

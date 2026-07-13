@@ -2,6 +2,7 @@ const { JSDOM } = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 
+const sharedJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/shared.js'), 'utf-8');
 const mainJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/main.js'), 'utf-8');
 
 function criarDOM(setupWindow) {
@@ -37,6 +38,7 @@ function criarDOM(setupWindow) {
     if (typeof setupWindow === 'function') {
         setupWindow(dom.window);
     }
+    dom.window.eval(sharedJs);
     dom.window.eval(mainJs);
     return dom;
 }

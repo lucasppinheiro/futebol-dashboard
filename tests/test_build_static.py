@@ -15,9 +15,13 @@ def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
 
     assert 'href="/futebol-dashboard/static/css/style.css"' in index_html
     assert 'href="/futebol-dashboard/time/PAL/"' in index_html
+    assert 'src="/futebol-dashboard/static/js/shared.js"' in index_html
     assert 'src="/futebol-dashboard/static/js/main.js"' in index_html
     assert 'href="/futebol-dashboard/"' in time_html
     assert 'href="/futebol-dashboard/#classificacao"' in time_html
+    assert 'src="/futebol-dashboard/static/js/shared.js"' in time_html
+    # A pagina do clube nao carrega main.js (tabela/abas/comparador nao existem la)
+    assert "static/js/main.js" not in time_html
     assert (dist_dir / ".nojekyll").exists()
     assert (dist_dir / "404.html").exists()
     assert (dist_dir / "robots.txt").exists()
