@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada | Brasileirão Dashboard</title>
+    <meta name="robots" content="noindex">
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
+</head>
+
+<body>
+    <main id="main-content" class="container" style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px; padding: 48px 24px;">
+        <span class="hero-kicker">Erro 404</span>
+        <h1>Página não encontrada</h1>
+        <p style="color: var(--text-secondary); max-width: 52ch;">
+            O endereço que você tentou abrir não existe no Brasileirão Dashboard.
+            Pode ser um link antigo ou uma sigla de clube que não está na Série A
+            {% if dados %}{{ dados.info.temporada }}{% endif %}.
+        </p>
+        <a href="{{ site_url() }}" class="hero-action primary">Voltar ao dashboard</a>
+    </main>
+</body>
+
+</html>

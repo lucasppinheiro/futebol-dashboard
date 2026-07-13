@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucassgsantos/futebol-dashboard.git"
+    "url": "git+https://github.com/lucasppinheiro/futebol-dashboard.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucas Santos (https://github.com/lucasppinheiro)",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/lucassgsantos/futebol-dashboard/issues"
+    "url": "https://github.com/lucasppinheiro/futebol-dashboard/issues"
   },
   "homepage": "https://futebol-dashboard.vercel.app/",
   "devDependencies": {

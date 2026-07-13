@@ -26,7 +26,7 @@
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" integrity="sha384-e6nUZLBkQ86NJ6TVVKAeSaK8jWa3NhkYWZFomE39AvDbQWeie9PlQqM3pmYW5d1g" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                 <span class="hero-kicker">{{ time.estado }} · {{ time.sigla }}</span>
                 <div class="hero-time-header">
                     {% if time.escudo %}
-                    <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="hero-escudo">
+                    <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="hero-escudo" width="92" height="92" fetchpriority="high" onerror="this.style.display='none'">
                     {% endif %}
                     <div>
                         <h1>{{ time.time }}</h1>

@@ -24,6 +24,16 @@ def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
     assert (dist_dir / "sitemap.xml").exists()
     assert not (dist_dir / "_redirects").exists()
 
+    pagina_404 = (dist_dir / "404.html").read_text(encoding="utf-8")
+    assert "Página não encontrada" in pagina_404
+    assert "tabela-classificacao" not in pagina_404
+    assert 'href="/futebol-dashboard/"' in pagina_404
+
+    classificacao_json = json.loads((dist_dir / "api" / "classificacao.json").read_text(encoding="utf-8"))
+    artilharia_json = json.loads((dist_dir / "api" / "artilharia.json").read_text(encoding="utf-8"))
+    assert len(classificacao_json) == 20
+    assert artilharia_json and {"jogador", "time", "sigla", "gols"}.issubset(artilharia_json[0].keys())
+
     health = json.loads((dist_dir / "api" / "health.json").read_text(encoding="utf-8"))
     assert health["dados_desatualizados"] == build_static.app_module.dados_estao_desatualizados(
         build_static.Path(build_static.app_module.DATA_PATH).stat().st_mtime

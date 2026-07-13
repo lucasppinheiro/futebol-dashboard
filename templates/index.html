@@ -28,7 +28,7 @@
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" integrity="sha384-e6nUZLBkQ86NJ6TVVKAeSaK8jWa3NhkYWZFomE39AvDbQWeie9PlQqM3pmYW5d1g" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
@@ -343,7 +343,8 @@
                                     </td>
                                     <td class="col-time">
                                         {% if time.escudo %}
-                                        <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="time-escudo" loading="lazy">
+                                        <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="time-escudo" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+                                        <span class="time-cor" style="background: {{ time.cor }}" aria-hidden="true" hidden></span>
                                         {% else %}
                                         <span class="time-cor" style="background: {{ time.cor }}" aria-hidden="true"></span>
                                         {% endif %}
@@ -550,8 +551,8 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <p><strong>Brasileirão Dashboard {{ dados.info.temporada }}</strong> · Python + Flask + Chart.js</p>
-            <p class="footer-author">por <a href="https://github.com/lucassgsantos" target="_blank" rel="noopener noreferrer">Lucas Santos</a></p>
+            <p><strong>Brasileirão Dashboard {{ dados.info.temporada }}</strong> · Site estático gerado com Python/Jinja · Gráficos com Chart.js</p>
+            <p class="footer-author">por <a href="https://github.com/lucasppinheiro" target="_blank" rel="noopener noreferrer">Lucas Santos</a></p>
             <p class="footer-note">Dados da temporada {{ dados.info.temporada }} com atualização automatizada e consulta rápida.</p>
         </div>
     </footer>

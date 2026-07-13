@@ -65,7 +65,7 @@ def build(site_base_path: str | None = None) -> None:
         _escrever_arquivo(".nojekyll", "")
         index_html = _render("/", "index.html", dados=dados)
         _escrever_arquivo("index.html", index_html)
-        _escrever_arquivo("404.html", index_html)
+        _escrever_arquivo("404.html", _render("/404", "404.html", dados=dados))
 
         for time in dados["classificacao"]:
             artilheiros = [j for j in dados["artilharia"] if j["sigla"] == time["sigla"]]
