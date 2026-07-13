@@ -1,6 +1,8 @@
 import json
 import urllib.error
 
+import pytest
+
 import api_client
 from temporada import temporada_brasileirao_atual
 
@@ -278,4 +280,63 @@ def test_fetch_repete_erro_transitorio_antes_de_retornar(monkeypatch):
     monkeypatch.setattr(api_client.time, "sleep", lambda _: None)
 
     assert api_client._fetch("https://example.com") == {"standings": []}
+    assert tentativas == 3
+
+
+def test_fetch_sem_token_falha_com_mensagem_clara(monkeypatch):
+    monkeypatch.delenv("FOOTBALL_DATA_TOKEN", raising=False)
+    monkeypatch.setenv("ENV_FILE", "arquivo-que-nao-existe.env")
+
+    with pytest.raises(OSError, match="FOOTBALL_DATA_TOKEN"):
+        api_client._fetch("https://example.com")
+
+
+def test_fetch_esgota_tentativas_em_erro_de_conexao(monkeypatch):
+    tentativas = 0
+
+    def fake_urlopen(*args, **kwargs):
+        nonlocal tentativas
+        tentativas += 1
+        raise urllib.error.URLError("indisponivel")
+
+    monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "teste")
+    monkeypatch.setattr(api_client.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(api_client.time, "sleep", lambda _: None)
+
+    with pytest.raises(ConnectionError, match="Erro de conexao"):
+        api_client._fetch("https://example.com")
+    assert tentativas == 3
+
+
+def test_fetch_nao_repete_erro_http_nao_transitorio(monkeypatch):
+    tentativas = 0
+
+    def fake_urlopen(*args, **kwargs):
+        nonlocal tentativas
+        tentativas += 1
+        raise urllib.error.HTTPError("https://example.com", 404, "Not Found", None, None)
+
+    monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "teste")
+    monkeypatch.setattr(api_client.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(api_client.time, "sleep", lambda _: None)
+
+    with pytest.raises(ConnectionError, match="HTTP 404"):
+        api_client._fetch("https://example.com")
+    assert tentativas == 1
+
+
+def test_fetch_esgota_tentativas_em_erro_http_transitorio(monkeypatch):
+    tentativas = 0
+
+    def fake_urlopen(*args, **kwargs):
+        nonlocal tentativas
+        tentativas += 1
+        raise urllib.error.HTTPError("https://example.com", 503, "Service Unavailable", None, None)
+
+    monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "teste")
+    monkeypatch.setattr(api_client.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(api_client.time, "sleep", lambda _: None)
+
+    with pytest.raises(ConnectionError, match="HTTP 503"):
+        api_client._fetch("https://example.com")
     assert tentativas == 3

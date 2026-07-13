@@ -282,3 +282,76 @@ class TestAPIHealth:
         data = resp.get_json()
         assert data["refresh_automatico"] is True
         assert "temporada_padrao" in data
+
+
+class TestSiteUrl:
+    def test_normalizar_site_base_path(self):
+        assert app_module.normalizar_site_base_path(None) == ""
+        assert app_module.normalizar_site_base_path("") == ""
+        assert app_module.normalizar_site_base_path("/") == ""
+        assert app_module.normalizar_site_base_path("foo") == "/foo"
+        assert app_module.normalizar_site_base_path("/foo/bar/") == "/foo/bar"
+        assert app_module.normalizar_site_base_path("  /x/ ") == "/x"
+
+    def test_site_url_sem_base_path(self, monkeypatch):
+        monkeypatch.setitem(flask_app.config, "SITE_BASE_PATH", "")
+        with flask_app.test_request_context("/"):
+            assert app_module.site_url() == "/"
+            assert app_module.site_url("#abas") == "/#abas"
+            assert app_module.site_url("time/FLA/") == "/time/FLA/"
+            assert app_module.site_url("/time/FLA") == "/time/FLA"
+            assert app_module.site_url("https://example.com/x") == "https://example.com/x"
+            assert app_module.site_url("//cdn.example.com/x") == "//cdn.example.com/x"
+
+    def test_site_url_com_base_path(self, monkeypatch):
+        monkeypatch.setitem(flask_app.config, "SITE_BASE_PATH", "/app")
+        with flask_app.test_request_context("/"):
+            assert app_module.site_url() == "/app/"
+            assert app_module.site_url("#abas") == "/app/#abas"
+            assert app_module.site_url("time/FLA/") == "/app/time/FLA/"
+            assert app_module.site_url("/time/FLA") == "/app/time/FLA"
+
+
+class TestRotaTimeJson:
+    def test_time_inexistente_em_path_de_api_retorna_json_404(self, client):
+        # Nao ha rota /api/time/<sigla> registrada; o branch JSON de
+        # detalhe_time congela o contrato caso ela venha a existir.
+        with flask_app.test_request_context("/api/time/XXX"):
+            resposta, status = app_module.detalhe_time("XXX")
+            assert status == 404
+            assert resposta.get_json()["codigo"] == "TIME_NAO_ENCONTRADO"
+
+
+class TestErroChaveAusente:
+    def test_key_error_api_retorna_json_500(self, client, monkeypatch):
+        def quebrar():
+            raise KeyError("classificacao")
+
+        monkeypatch.setattr(app_module, "carregar_dados", quebrar)
+        resp = client.get("/api/classificacao")
+        assert resp.status_code == 500
+        assert resp.get_json()["codigo"] == "CHAVE_AUSENTE"
+
+    def test_key_error_web_retorna_html_500(self, client, monkeypatch):
+        def quebrar():
+            raise KeyError("classificacao")
+
+        monkeypatch.setattr(app_module, "carregar_dados", quebrar)
+        resp = client.get("/")
+        assert resp.status_code == 500
+        assert b"<h1>" in resp.data
+
+
+class TestLerNumeroEnv:
+    @pytest.mark.parametrize("bruto", ["abc", "inf", "-inf", "nan", "  "])
+    def test_valores_invalidos_usam_padrao(self, monkeypatch, bruto):
+        monkeypatch.setenv("TESTE_NUMERO_ENV", bruto)
+        assert app_module._ler_numero_env("TESTE_NUMERO_ENV", 6.0) == 6.0
+
+    def test_valor_valido_e_convertido(self, monkeypatch):
+        monkeypatch.setenv("TESTE_NUMERO_ENV", "2.5")
+        assert app_module._ler_numero_env("TESTE_NUMERO_ENV", 6.0) == 2.5
+
+    def test_ausente_usa_padrao(self, monkeypatch):
+        monkeypatch.delenv("TESTE_NUMERO_ENV", raising=False)
+        assert app_module._ler_numero_env("TESTE_NUMERO_ENV", 6.0) == 6.0
