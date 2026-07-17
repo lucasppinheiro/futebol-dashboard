@@ -462,21 +462,21 @@
       "gols": 5
     },
     {
-      "jogador": "Matheus Martins",
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "posicao": "Meia",
-      "gols": 4
-    },
-    {
-      "jogador": "Alef Manga",
-      "time": "Clube do Remo",
-      "sigla": "REM",
+      "jogador": "Renato Kayzer",
+      "time": "EC Vitória",
+      "sigla": "VIT",
       "posicao": "Atacante",
       "gols": 4
     },
     {
-      "jogador": "Edenilson",
+      "jogador": "Álvaro Barreal",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Meia",
+      "gols": 4
+    },
+    {
+      "jogador": "Matheus Martins",
       "time": "Botafogo FR",
       "sigla": "BOT",
       "posicao": "Meia",
