@@ -7,15 +7,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "https://crests.football-data.org/1769.png",
-      "jogos": 18,
-      "vitorias": 12,
+      "jogos": 19,
+      "vitorias": 13,
       "empates": 5,
       "derrotas": 1,
-      "gols_pro": 30,
-      "gols_contra": 13,
-      "saldo": 17,
-      "pontos": 41,
-      "aproveitamento": 75.9
+      "gols_pro": 33,
+      "gols_contra": 14,
+      "saldo": 19,
+      "pontos": 44,
+      "aproveitamento": 77.2
     },
     {
       "posicao": 2,
@@ -24,18 +24,35 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1783.png",
-      "jogos": 17,
-      "vitorias": 10,
+      "jogos": 18,
+      "vitorias": 11,
       "empates": 4,
       "derrotas": 3,
-      "gols_pro": 31,
+      "gols_pro": 35,
       "gols_contra": 16,
-      "saldo": 15,
-      "pontos": 34,
-      "aproveitamento": 66.7
+      "saldo": 19,
+      "pontos": 37,
+      "aproveitamento": 68.5
     },
     {
       "posicao": 3,
+      "time": "CA Paranaense",
+      "sigla": "CAP",
+      "estado": "PR",
+      "cor": "#E11D1D",
+      "escudo": "https://crests.football-data.org/1768.png",
+      "jogos": 19,
+      "vitorias": 10,
+      "empates": 3,
+      "derrotas": 6,
+      "gols_pro": 26,
+      "gols_contra": 19,
+      "saldo": 7,
+      "pontos": 33,
+      "aproveitamento": 57.9
+    },
+    {
+      "posicao": 4,
       "time": "Fluminense FC",
       "sigla": "FLU",
       "estado": "RJ",
@@ -52,7 +69,7 @@
       "aproveitamento": 56.1
     },
     {
-      "posicao": 4,
+      "posicao": 5,
       "time": "RB Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -67,23 +84,6 @@
       "saldo": 6,
       "pontos": 30,
       "aproveitamento": 52.6
-    },
-    {
-      "posicao": 5,
-      "time": "CA Paranaense",
-      "sigla": "CAP",
-      "estado": "PR",
-      "cor": "#E11D1D",
-      "escudo": "https://crests.football-data.org/1768.png",
-      "jogos": 18,
-      "vitorias": 9,
-      "empates": 3,
-      "derrotas": 6,
-      "gols_pro": 24,
-      "gols_contra": 18,
-      "saldo": 6,
-      "pontos": 30,
-      "aproveitamento": 55.6
     },
     {
       "posicao": 6,
@@ -104,40 +104,57 @@
     },
     {
       "posicao": 7,
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "estado": "MG",
+      "cor": "#003DA5",
+      "escudo": "https://crests.football-data.org/1771.png",
+      "jogos": 19,
+      "vitorias": 7,
+      "empates": 6,
+      "derrotas": 6,
+      "gols_pro": 26,
+      "gols_contra": 29,
+      "saldo": -3,
+      "pontos": 27,
+      "aproveitamento": 47.4
+    },
+    {
+      "posicao": 8,
       "time": "Coritiba FBC",
       "sigla": "CFC",
       "estado": "PR",
       "cor": "#006633",
       "escudo": "https://crests.football-data.org/4241.png",
-      "jogos": 18,
+      "jogos": 19,
       "vitorias": 7,
       "empates": 5,
-      "derrotas": 6,
-      "gols_pro": 24,
-      "gols_contra": 24,
-      "saldo": 0,
+      "derrotas": 7,
+      "gols_pro": 25,
+      "gols_contra": 27,
+      "saldo": -2,
       "pontos": 26,
-      "aproveitamento": 48.1
+      "aproveitamento": 45.6
     },
     {
-      "posicao": 8,
+      "posicao": 9,
       "time": "São Paulo FC",
       "sigla": "SAO",
       "estado": "SP",
       "cor": "#FF0000",
       "escudo": "https://crests.football-data.org/1776.png",
-      "jogos": 18,
+      "jogos": 19,
       "vitorias": 7,
       "empates": 4,
-      "derrotas": 7,
-      "gols_pro": 23,
-      "gols_contra": 20,
-      "saldo": 3,
+      "derrotas": 8,
+      "gols_pro": 24,
+      "gols_contra": 22,
+      "saldo": 2,
       "pontos": 25,
-      "aproveitamento": 46.3
+      "aproveitamento": 43.9
     },
     {
-      "posicao": 9,
+      "posicao": 10,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -154,7 +171,7 @@
       "aproveitamento": 46.3
     },
     {
-      "posicao": 10,
+      "posicao": 11,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -171,7 +188,7 @@
       "aproveitamento": 43.9
     },
     {
-      "posicao": 11,
+      "posicao": 12,
       "time": "EC Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -188,7 +205,7 @@
       "aproveitamento": 46.3
     },
     {
-      "posicao": 12,
+      "posicao": 13,
       "time": "SC Corinthians Paulista",
       "sigla": "COR",
       "estado": "SP",
@@ -205,38 +222,21 @@
       "aproveitamento": 44.4
     },
     {
-      "posicao": 13,
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "estado": "MG",
-      "cor": "#003DA5",
-      "escudo": "https://crests.football-data.org/1771.png",
-      "jogos": 18,
-      "vitorias": 6,
-      "empates": 6,
-      "derrotas": 6,
-      "gols_pro": 24,
-      "gols_contra": 28,
-      "saldo": -4,
-      "pontos": 24,
-      "aproveitamento": 44.4
-    },
-    {
       "posicao": 14,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
       "cor": "#E30613",
       "escudo": "https://crests.football-data.org/6684.png",
-      "jogos": 18,
+      "jogos": 19,
       "vitorias": 5,
       "empates": 6,
-      "derrotas": 7,
-      "gols_pro": 21,
-      "gols_contra": 22,
-      "saldo": -1,
+      "derrotas": 8,
+      "gols_pro": 22,
+      "gols_contra": 24,
+      "saldo": -2,
       "pontos": 21,
-      "aproveitamento": 38.9
+      "aproveitamento": 36.8
     },
     {
       "posicao": 15,
@@ -330,18 +330,25 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "https://crests.football-data.org/1772_large.png",
-      "jogos": 18,
+      "jogos": 19,
       "vitorias": 1,
       "empates": 6,
-      "derrotas": 11,
+      "derrotas": 12,
       "gols_pro": 17,
-      "gols_contra": 35,
-      "saldo": -18,
+      "gols_contra": 39,
+      "saldo": -22,
       "pontos": 9,
-      "aproveitamento": 16.7
+      "aproveitamento": 15.8
     }
   ],
   "artilharia": [
+    {
+      "jogador": "Pedro",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "posicao": "Atacante",
+      "gols": 12
+    },
     {
       "jogador": "Kevin Viveros",
       "time": "CA Paranaense",
@@ -354,13 +361,6 @@
       "time": "Grêmio FBPA",
       "sigla": "GRE",
       "posicao": "Centroavante",
-      "gols": 10
-    },
-    {
-      "jogador": "Pedro",
-      "time": "CR Flamengo",
-      "sigla": "FLA",
-      "posicao": "Atacante",
       "gols": 10
     },
     {
@@ -448,10 +448,24 @@
       "gols": 5
     },
     {
+      "jogador": "Kaio Jorge",
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "posicao": "Centroavante",
+      "gols": 5
+    },
+    {
       "jogador": "Christian",
       "time": "Cruzeiro EC",
       "sigla": "CRU",
       "posicao": "Meia",
+      "gols": 5
+    },
+    {
+      "jogador": "Johan Carbonero",
+      "time": "SC Internacional",
+      "sigla": "INT",
+      "posicao": "Atacante",
       "gols": 5
     },
     {
@@ -467,20 +481,6 @@
       "sigla": "VIT",
       "posicao": "Atacante",
       "gols": 4
-    },
-    {
-      "jogador": "Álvaro Barreal",
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "posicao": "Meia",
-      "gols": 4
-    },
-    {
-      "jogador": "Matheus Martins",
-      "time": "Botafogo FR",
-      "sigla": "BOT",
-      "posicao": "Meia",
-      "gols": 4
     }
   ],
   "info": {
@@ -491,8 +491,8 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
-    "lider_pontos": 41,
-    "artilheiro": "Kevin Viveros",
-    "artilheiro_gols": 11
+    "lider_pontos": 44,
+    "artilheiro": "Pedro",
+    "artilheiro_gols": 12
   }
 }
