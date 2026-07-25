@@ -343,18 +343,18 @@
   ],
   "artilharia": [
     {
+      "jogador": "Kevin Viveros",
+      "time": "CA Paranaense",
+      "sigla": "CAP",
+      "posicao": "Atacante",
+      "gols": 12
+    },
+    {
       "jogador": "Pedro",
       "time": "CR Flamengo",
       "sigla": "FLA",
       "posicao": "Atacante",
       "gols": 12
-    },
-    {
-      "jogador": "Kevin Viveros",
-      "time": "CA Paranaense",
-      "sigla": "CAP",
-      "posicao": "Atacante",
-      "gols": 11
     },
     {
       "jogador": "Carlos Vinícius",
@@ -492,7 +492,7 @@
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
     "lider_pontos": 44,
-    "artilheiro": "Pedro",
+    "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 12
   }
 }
