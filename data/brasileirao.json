@@ -455,6 +455,13 @@
       "gols": 5
     },
     {
+      "jogador": "Neymar",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Atacante",
+      "gols": 5
+    },
+    {
       "jogador": "Christian",
       "time": "Cruzeiro EC",
       "sigla": "CRU",
@@ -474,13 +481,6 @@
       "sigla": "VIT",
       "posicao": "Atacante",
       "gols": 5
-    },
-    {
-      "jogador": "Renato Kayzer",
-      "time": "EC Vitória",
-      "sigla": "VIT",
-      "posicao": "Atacante",
-      "gols": 4
     }
   ],
   "info": {
