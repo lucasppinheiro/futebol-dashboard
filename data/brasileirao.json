@@ -385,6 +385,13 @@
       "gols": 7
     },
     {
+      "jogador": "Jonathan Calleri",
+      "time": "São Paulo FC",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
       "jogador": "Arthur Cabral",
       "time": "Botafogo FR",
       "sigla": "BOT",
@@ -414,13 +421,6 @@
     },
     {
       "jogador": "Luciano",
-      "time": "São Paulo FC",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 6
-    },
-    {
-      "jogador": "Jonathan Calleri",
       "time": "São Paulo FC",
       "sigla": "SAO",
       "posicao": "Atacante",
@@ -476,9 +476,9 @@
       "gols": 5
     },
     {
-      "jogador": "Carlos Renê",
-      "time": "EC Vitória",
-      "sigla": "VIT",
+      "jogador": "Jája Silva",
+      "time": "Clube do Remo",
+      "sigla": "REM",
       "posicao": "Atacante",
       "gols": 5
     }
