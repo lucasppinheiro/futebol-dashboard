@@ -279,15 +279,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/1780.png",
-      "jogos": 19,
+      "jogos": 20,
       "vitorias": 5,
-      "empates": 5,
+      "empates": 6,
       "derrotas": 9,
-      "gols_pro": 22,
-      "gols_contra": 30,
+      "gols_pro": 23,
+      "gols_contra": 31,
       "saldo": -8,
-      "pontos": 20,
-      "aproveitamento": 35.1
+      "pontos": 21,
+      "aproveitamento": 35.0
     },
     {
       "posicao": 18,
@@ -296,15 +296,15 @@
       "estado": "SP",
       "cor": "#FFD700",
       "escudo": "https://crests.football-data.org/4364.png",
-      "jogos": 18,
+      "jogos": 19,
       "vitorias": 5,
-      "empates": 4,
+      "empates": 5,
       "derrotas": 9,
-      "gols_pro": 20,
-      "gols_contra": 25,
+      "gols_pro": 21,
+      "gols_contra": 26,
       "saldo": -5,
-      "pontos": 19,
-      "aproveitamento": 35.2
+      "pontos": 20,
+      "aproveitamento": 35.1
     },
     {
       "posicao": 19,
