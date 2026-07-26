@@ -41,15 +41,15 @@
       "estado": "PR",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1768.png",
-      "jogos": 19,
-      "vitorias": 10,
+      "jogos": 20,
+      "vitorias": 11,
       "empates": 3,
       "derrotas": 6,
-      "gols_pro": 26,
+      "gols_pro": 28,
       "gols_contra": 19,
-      "saldo": 7,
-      "pontos": 33,
-      "aproveitamento": 57.9
+      "saldo": 9,
+      "pontos": 36,
+      "aproveitamento": 60.0
     },
     {
       "posicao": 4,
@@ -223,37 +223,37 @@
     },
     {
       "posicao": 14,
-      "time": "SC Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "https://crests.football-data.org/6684.png",
-      "jogos": 19,
-      "vitorias": 5,
-      "empates": 6,
-      "derrotas": 8,
-      "gols_pro": 22,
-      "gols_contra": 24,
-      "saldo": -2,
-      "pontos": 21,
-      "aproveitamento": 36.8
-    },
-    {
-      "posicao": 15,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/6685.png",
-      "jogos": 19,
+      "jogos": 20,
+      "vitorias": 5,
+      "empates": 7,
+      "derrotas": 8,
+      "gols_pro": 29,
+      "gols_contra": 33,
+      "saldo": -4,
+      "pontos": 22,
+      "aproveitamento": 36.7
+    },
+    {
+      "posicao": 15,
+      "time": "SC Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "https://crests.football-data.org/6684.png",
+      "jogos": 20,
       "vitorias": 5,
       "empates": 6,
-      "derrotas": 8,
-      "gols_pro": 27,
-      "gols_contra": 31,
+      "derrotas": 9,
+      "gols_pro": 22,
+      "gols_contra": 26,
       "saldo": -4,
       "pontos": 21,
-      "aproveitamento": 36.8
+      "aproveitamento": 35.0
     },
     {
       "posicao": 16,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "https://crests.football-data.org/1772_large.png",
-      "jogos": 19,
+      "jogos": 20,
       "vitorias": 1,
-      "empates": 6,
+      "empates": 7,
       "derrotas": 12,
-      "gols_pro": 17,
-      "gols_contra": 39,
+      "gols_pro": 19,
+      "gols_contra": 41,
       "saldo": -22,
-      "pontos": 9,
-      "aproveitamento": 15.8
+      "pontos": 10,
+      "aproveitamento": 16.7
     }
   ],
   "artilharia": [
@@ -427,6 +427,13 @@
       "gols": 6
     },
     {
+      "jogador": "Neymar",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Atacante",
+      "gols": 6
+    },
+    {
       "jogador": "Isidro Pitta",
       "time": "RB Bragantino",
       "sigla": "RBB",
@@ -455,13 +462,6 @@
       "gols": 5
     },
     {
-      "jogador": "Neymar",
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "posicao": "Atacante",
-      "gols": 5
-    },
-    {
       "jogador": "Christian",
       "time": "Cruzeiro EC",
       "sigla": "CRU",
@@ -487,7 +487,7 @@
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
-    "rodada_atual": 19,
+    "rodada_atual": 20,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
