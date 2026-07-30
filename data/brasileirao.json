@@ -469,17 +469,17 @@
       "gols": 5
     },
     {
+      "jogador": "Samuel Lino",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "posicao": "Ponta esquerda",
+      "gols": 5
+    },
+    {
       "jogador": "Christian",
       "time": "Cruzeiro EC",
       "sigla": "CRU",
       "posicao": "Meia",
-      "gols": 5
-    },
-    {
-      "jogador": "Johan Carbonero",
-      "time": "SC Internacional",
-      "sigla": "INT",
-      "posicao": "Atacante",
       "gols": 5
     }
   ],
