@@ -41,15 +41,15 @@
       "estado": "PR",
       "cor": "#E11D1D",
       "escudo": "https://crests.football-data.org/1768.png",
-      "jogos": 20,
+      "jogos": 21,
       "vitorias": 11,
-      "empates": 3,
+      "empates": 4,
       "derrotas": 6,
       "gols_pro": 28,
       "gols_contra": 19,
       "saldo": 9,
-      "pontos": 36,
-      "aproveitamento": 60.0
+      "pontos": 37,
+      "aproveitamento": 58.7
     },
     {
       "posicao": 4,
@@ -104,6 +104,23 @@
     },
     {
       "posicao": 7,
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "estado": "MG",
+      "cor": "#003DA5",
+      "escudo": "https://crests.football-data.org/1771.png",
+      "jogos": 21,
+      "vitorias": 8,
+      "empates": 6,
+      "derrotas": 7,
+      "gols_pro": 27,
+      "gols_contra": 30,
+      "saldo": -3,
+      "pontos": 30,
+      "aproveitamento": 47.6
+    },
+    {
+      "posicao": 8,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -120,24 +137,24 @@
       "aproveitamento": 48.3
     },
     {
-      "posicao": 8,
+      "posicao": 9,
       "time": "SC Corinthians Paulista",
       "sigla": "COR",
       "estado": "SP",
       "cor": "#000000",
       "escudo": "https://crests.football-data.org/1779.png",
-      "jogos": 20,
+      "jogos": 21,
       "vitorias": 7,
-      "empates": 7,
+      "empates": 8,
       "derrotas": 6,
       "gols_pro": 22,
       "gols_contra": 20,
       "saldo": 2,
-      "pontos": 28,
-      "aproveitamento": 46.7
+      "pontos": 29,
+      "aproveitamento": 46.0
     },
     {
-      "posicao": 9,
+      "posicao": 10,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -154,38 +171,21 @@
       "aproveitamento": 46.7
     },
     {
-      "posicao": 10,
+      "posicao": 11,
       "time": "Coritiba FBC",
       "sigla": "CFC",
       "estado": "PR",
       "cor": "#006633",
       "escudo": "https://crests.football-data.org/4241.png",
-      "jogos": 20,
+      "jogos": 21,
       "vitorias": 7,
       "empates": 6,
-      "derrotas": 7,
+      "derrotas": 8,
       "gols_pro": 25,
-      "gols_contra": 27,
-      "saldo": -2,
+      "gols_contra": 28,
+      "saldo": -3,
       "pontos": 27,
-      "aproveitamento": 45.0
-    },
-    {
-      "posicao": 11,
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "estado": "MG",
-      "cor": "#003DA5",
-      "escudo": "https://crests.football-data.org/1771.png",
-      "jogos": 20,
-      "vitorias": 7,
-      "empates": 6,
-      "derrotas": 7,
-      "gols_pro": 26,
-      "gols_contra": 30,
-      "saldo": -4,
-      "pontos": 27,
-      "aproveitamento": 45.0
+      "aproveitamento": 42.9
     },
     {
       "posicao": 12,
@@ -455,6 +455,13 @@
       "gols": 5
     },
     {
+      "jogador": "Matheus Pereira",
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "posicao": "Atacante",
+      "gols": 5
+    },
+    {
       "jogador": "Joaquín Lavega",
       "time": "Coritiba FBC",
       "sigla": "CFC",
@@ -473,13 +480,6 @@
       "time": "CR Flamengo",
       "sigla": "FLA",
       "posicao": "Ponta esquerda",
-      "gols": 5
-    },
-    {
-      "jogador": "Christian",
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "posicao": "Meia",
       "gols": 5
     }
   ],
