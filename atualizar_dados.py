@@ -13,7 +13,6 @@ import argparse
 import json
 import logging
 import os
-import sys
 import tempfile
 from pathlib import Path
 
@@ -121,5 +120,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     try:
         atualizar(args.temporada)
-    except Exception:
-        raise SystemExit(1)
+    except Exception as exc:
+        raise SystemExit(1) from exc

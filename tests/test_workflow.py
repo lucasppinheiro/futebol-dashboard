@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 WORKFLOW = Path(__file__).parents[1] / ".github" / "workflows" / "refresh-data.yml"
 VERCEL_CONFIG = Path(__file__).parents[1] / "vercel.json"
 

@@ -5,12 +5,12 @@ football-data.org requer FOOTBALL_DATA_TOKEN quando usado como fallback.
 Documentacao football-data: https://docs.football-data.org/general/v4/index.html
 """
 
-import os
-import urllib.request
-import urllib.error
 import json
+import os
 import re
 import time
+import urllib.error
+import urllib.request
 from typing import Any
 
 from club_assets import escudo_do_time
@@ -18,20 +18,21 @@ from env_config import carregar_env_local
 from normalizacao import normalizar_posicao_jogador
 from temporada import temporada_brasileirao_atual
 
-
 carregar_env_local()
 
 
 API_BASE = "https://api.football-data.org/v4"
 COMPETITION = "BSA"
-CBF_COMPETITION_URL = "https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/{temporada}?documento=IMT"
+CBF_COMPETITION_URL = (
+    "https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/{temporada}?documento=IMT"
+)
 CBF_SCORERS_URL = "https://www.cbf.com.br/api/cbf/artilheiros/42/1/{temporada}/{pagina}"
 
 
 def _get_token() -> str:
     token = os.environ.get("FOOTBALL_DATA_TOKEN", "").strip()
     if not token:
-        raise EnvironmentError(
+        raise OSError(
             "Variavel FOOTBALL_DATA_TOKEN nao definida. "
             "Cadastre-se em https://www.football-data.org/client/register e defina o token."
         )
@@ -67,48 +68,113 @@ def _fetch(url: str, tentativas: int = 3) -> dict[str, Any]:
 
 def _cor_padrao(sigla: str) -> str:
     cores: dict[str, str] = {
-        "COR": "#000000", "FLA": "#E11D1D", "PAL": "#006437", "SAO": "#FF0000",
-        "SAN": "#000000", "RBB": "#E30613", "MIR": "#FFD700", "FLU": "#7B0023",
-        "VAS": "#000000", "BOT": "#000000", "CRU": "#003DA5", "CAM": "#000000",
-        "BAH": "#004A99", "VIT": "#E11D1D", "GRE": "#0080C8", "INT": "#E30613",
-        "CFC": "#006633", "CAP": "#E11D1D", "CHA": "#008000", "REM": "#00008B",
-        "CEA": "#1a1a2e", "FOR": "#004A99", "JUV": "#006633", "SPO": "#E30613",
-        "NOV": "#E30613", "AME": "#006633", "CUI": "#006437", "GOI": "#006437", "AVA": "#004A99",
+        "COR": "#000000",
+        "FLA": "#E11D1D",
+        "PAL": "#006437",
+        "SAO": "#FF0000",
+        "SAN": "#000000",
+        "RBB": "#E30613",
+        "MIR": "#FFD700",
+        "FLU": "#7B0023",
+        "VAS": "#000000",
+        "BOT": "#000000",
+        "CRU": "#003DA5",
+        "CAM": "#000000",
+        "BAH": "#004A99",
+        "VIT": "#E11D1D",
+        "GRE": "#0080C8",
+        "INT": "#E30613",
+        "CFC": "#006633",
+        "CAP": "#E11D1D",
+        "CHA": "#008000",
+        "REM": "#00008B",
+        "CEA": "#1a1a2e",
+        "FOR": "#004A99",
+        "JUV": "#006633",
+        "SPO": "#E30613",
+        "NOV": "#E30613",
+        "AME": "#006633",
+        "CUI": "#006437",
+        "GOI": "#006437",
+        "AVA": "#004A99",
     }
     return cores.get(sigla.upper(), "#64748b")
 
 
 SIGLAS_MAPA: dict[str, str] = {
-    "CR Flamengo": "FLA", "Flamengo": "FLA",
-    "SE Palmeiras": "PAL", "Palmeiras": "PAL",
-    "Cruzeiro EC": "CRU", "Cruzeiro": "CRU",
+    "CR Flamengo": "FLA",
+    "Flamengo": "FLA",
+    "SE Palmeiras": "PAL",
+    "Palmeiras": "PAL",
+    "Cruzeiro EC": "CRU",
+    "Cruzeiro": "CRU",
     "Coritiba FBC": "CFC",
-    "Mirassol FC": "MIR", "Mirassol": "MIR",
-    "Fluminense FC": "FLU", "Fluminense": "FLU",
-    "Botafogo FR": "BOT", "Botafogo": "BOT",
-    "EC Bahia": "BAH", "Bahia": "BAH",
-    "São Paulo FC": "SAO", "Sao Paulo": "SAO", "São Paulo": "SAO",
-    "Grêmio FBPA": "GRE", "Gremio": "GRE", "Grêmio": "GRE",
-    "Red Bull Bragantino": "RBB", "Bragantino": "RBB", "RB Bragantino": "RBB",
-    "Clube Atlético Mineiro": "CAM", "Atlético Mineiro": "CAM", "CA Mineiro": "CAM", "Atletico-MG": "CAM", "Atlético-MG": "CAM",
-    "Santos FC": "SAN", "Santos": "SAN",
-    "SC Corinthians": "COR", "Corinthians": "COR", "SC Corinthians Paulista": "COR",
-    "CR Vasco da Gama": "VAS", "Vasco da Gama": "VAS", "Vasco": "VAS",
-    "EC Vitória": "VIT", "Vitoria": "VIT", "Vitória": "VIT",
-    "SC Internacional": "INT", "Internacional": "INT",
-    "Ceará SC": "CEA", "Ceara": "CEA", "Ceará": "CEA",
-    "Fortaleza EC": "FOR", "Fortaleza": "FOR",
-    "EC Juventude": "JUV", "Juventude": "JUV",
-    "Sport Club do Recife": "SPO", "Sport Recife": "SPO", "Sport": "SPO",
-    "Coritiba FC": "CFC", "Coritiba": "CFC",
-    "EC Noroeste": "NOV", "Noroeste": "NOV",
-    "América MG": "AME", "América Mineiro": "AME",
-    "Cuiabá EC": "CUI", "Cuiaba": "CUI", "Cuiabá": "CUI",
-    "Goiás EC": "GOI", "Goias": "GOI", "Goiás": "GOI",
-    "Athletico Paranaense": "CAP", "Athletico-PR": "CAP", "CA Paranaense": "CAP",
-    "Chapecoense AF": "CHA", "Chapecoense": "CHA",
-    "Clube do Remo": "REM", "Remo": "REM",
-    "Avaí FC": "AVA", "Avai": "AVA",
+    "Mirassol FC": "MIR",
+    "Mirassol": "MIR",
+    "Fluminense FC": "FLU",
+    "Fluminense": "FLU",
+    "Botafogo FR": "BOT",
+    "Botafogo": "BOT",
+    "EC Bahia": "BAH",
+    "Bahia": "BAH",
+    "São Paulo FC": "SAO",
+    "Sao Paulo": "SAO",
+    "São Paulo": "SAO",
+    "Grêmio FBPA": "GRE",
+    "Gremio": "GRE",
+    "Grêmio": "GRE",
+    "Red Bull Bragantino": "RBB",
+    "Bragantino": "RBB",
+    "RB Bragantino": "RBB",
+    "Clube Atlético Mineiro": "CAM",
+    "Atlético Mineiro": "CAM",
+    "CA Mineiro": "CAM",
+    "Atletico-MG": "CAM",
+    "Atlético-MG": "CAM",
+    "Santos FC": "SAN",
+    "Santos": "SAN",
+    "SC Corinthians": "COR",
+    "Corinthians": "COR",
+    "SC Corinthians Paulista": "COR",
+    "CR Vasco da Gama": "VAS",
+    "Vasco da Gama": "VAS",
+    "Vasco": "VAS",
+    "EC Vitória": "VIT",
+    "Vitoria": "VIT",
+    "Vitória": "VIT",
+    "SC Internacional": "INT",
+    "Internacional": "INT",
+    "Ceará SC": "CEA",
+    "Ceara": "CEA",
+    "Ceará": "CEA",
+    "Fortaleza EC": "FOR",
+    "Fortaleza": "FOR",
+    "EC Juventude": "JUV",
+    "Juventude": "JUV",
+    "Sport Club do Recife": "SPO",
+    "Sport Recife": "SPO",
+    "Sport": "SPO",
+    "Coritiba FC": "CFC",
+    "Coritiba": "CFC",
+    "EC Noroeste": "NOV",
+    "Noroeste": "NOV",
+    "América MG": "AME",
+    "América Mineiro": "AME",
+    "Cuiabá EC": "CUI",
+    "Cuiaba": "CUI",
+    "Cuiabá": "CUI",
+    "Goiás EC": "GOI",
+    "Goias": "GOI",
+    "Goiás": "GOI",
+    "Athletico Paranaense": "CAP",
+    "Athletico-PR": "CAP",
+    "CA Paranaense": "CAP",
+    "Chapecoense AF": "CHA",
+    "Chapecoense": "CHA",
+    "Clube do Remo": "REM",
+    "Remo": "REM",
+    "Avaí FC": "AVA",
+    "Avai": "AVA",
 }
 
 SIGLAS_OFICIAIS_MAPA: dict[str, str] = {
@@ -152,12 +218,34 @@ def _sigla_do_time(team: dict[str, Any], nome: str) -> str:
 
 def _estado_de(sigla: str) -> str:
     estados: dict[str, str] = {
-        "FLA": "RJ", "PAL": "SP", "CRU": "MG", "MIR": "SP", "FLU": "RJ",
-        "BOT": "RJ", "BAH": "BA", "SAO": "SP", "GRE": "RS", "RBB": "SP",
-        "CAM": "MG", "SAN": "SP", "COR": "SP", "VAS": "RJ", "VIT": "BA",
-        "INT": "RS", "CEA": "CE", "FOR": "CE", "JUV": "RS", "SPO": "PE",
-        "CFC": "PR", "AME": "MG", "CUI": "MT", "GOI": "GO", "CAP": "PR",
-        "AVA": "SC", "CHA": "SC", "REM": "PA",
+        "FLA": "RJ",
+        "PAL": "SP",
+        "CRU": "MG",
+        "MIR": "SP",
+        "FLU": "RJ",
+        "BOT": "RJ",
+        "BAH": "BA",
+        "SAO": "SP",
+        "GRE": "RS",
+        "RBB": "SP",
+        "CAM": "MG",
+        "SAN": "SP",
+        "COR": "SP",
+        "VAS": "RJ",
+        "VIT": "BA",
+        "INT": "RS",
+        "CEA": "CE",
+        "FOR": "CE",
+        "JUV": "RS",
+        "SPO": "PE",
+        "CFC": "PR",
+        "AME": "MG",
+        "CUI": "MT",
+        "GOI": "GO",
+        "CAP": "PR",
+        "AVA": "SC",
+        "CHA": "SC",
+        "REM": "PA",
     }
     return estados.get(sigla.upper(), "??")
 
@@ -199,7 +287,7 @@ def _fetch_public(url: str, tentativas: int = 3) -> Any:
 
 
 def _extrair_array_next(html: str, chave: str, marcador_final: str) -> list[dict[str, Any]]:
-    padrao = rf'\\\"{chave}\\\":\[(.*?)\],\\\"{marcador_final}\\\"'
+    padrao = rf"\\\"{chave}\\\":\[(.*?)\],\\\"{marcador_final}\\\""
     match = re.search(padrao, html)
     if not match:
         raise ValueError(f"Payload da CBF nao contem '{chave}'")
@@ -449,9 +537,9 @@ def _classificacao_dos_jogos(
         )
     )
 
-    for index, time in enumerate(classificacao, start=1):
-        time["posicao"] = index
-        time.pop("_seed_posicao", None)
+    for index, clube in enumerate(classificacao, start=1):
+        clube["posicao"] = index
+        clube.pop("_seed_posicao", None)
 
     return classificacao
 
@@ -480,12 +568,14 @@ def buscar_artilharia(temporada: str | None = None, limite: int = 20) -> list[di
 
         gols = item.get("goals") or item.get("numberOfGoals") or 0
 
-        resultado.append({
-            "jogador": player.get("name", "Desconhecido"),
-            "time": team_name_exibir,
-            "sigla": sigla,
-            "posicao": posicao,
-            "gols": gols,
-        })
+        resultado.append(
+            {
+                "jogador": player.get("name", "Desconhecido"),
+                "time": team_name_exibir,
+                "sigla": sigla,
+                "posicao": posicao,
+                "gols": gols,
+            }
+        )
 
     return resultado

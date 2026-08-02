@@ -3,8 +3,8 @@ import os
 
 import pytest
 
-from app import app as flask_app
 import app as app_module
+from app import app as flask_app
 
 
 @pytest.fixture(autouse=True)
@@ -25,7 +25,7 @@ def client():
 
 @pytest.fixture
 def dados_json_validos():
-    from gerar_dados import gerar_classificacao, gerar_artilharia, montar_info
+    from gerar_dados import gerar_artilharia, gerar_classificacao, montar_info
 
     classificacao = gerar_classificacao()
     artilharia = gerar_artilharia()
@@ -148,7 +148,6 @@ class TestCacheInvalidacao:
 
         resp1 = client.get("/api/classificacao")
         assert resp1.status_code == 200
-        times_v1 = resp1.get_json()
 
         dados_json_validos["classificacao"][0]["time"] = "Alterado FC"
         dados_json_validos["info"]["lider"] = "Alterado FC"
@@ -179,6 +178,7 @@ class TestCacheInvalidacao:
             os.utime(str(arquivo), None)
 
         import atualizar_dados as atu
+
         monkeypatch.setattr(atu, "atualizar", fake_atualizar)
 
         app_module.app.config["TESTING"] = False
@@ -216,6 +216,7 @@ class TestAPIAtualizar:
             pass
 
         import atualizar_dados as atu
+
         monkeypatch.setattr(atu, "atualizar", fake_atualizar)
 
         resp = client.post("/api/atualizar", headers={"Authorization": "Bearer segredo"})

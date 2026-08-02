@@ -1,5 +1,3 @@
-from flask import Flask, render_template, jsonify, request
-from typing import Any
 import json
 import logging
 import os
@@ -7,12 +5,14 @@ import re
 import secrets
 import time
 import traceback
+from typing import Any
 
-from dados_schema import validar_dados_dashboard, DadosInvalidosError
+from flask import Flask, jsonify, render_template, request
+
+from dados_schema import DadosInvalidosError, validar_dados_dashboard
 from env_config import carregar_env_local
 from normalizacao import normalizar_dados_dashboard
 from temporada import temporada_brasileirao_atual
-
 
 carregar_env_local()
 
@@ -33,6 +33,7 @@ def normalizar_site_base_path(base_path: str | None) -> str:
     if not valor or valor == "/":
         return ""
     return "/" + valor.strip("/")
+
 
 app = Flask(__name__)
 app.config["SITE_BASE_PATH"] = normalizar_site_base_path(os.environ.get("SITE_BASE_PATH"))
@@ -154,7 +155,7 @@ def carregar_dados() -> dict[str, Any]:
     if _dados_cache is not None and mtime == _dados_mtime:
         return _dados_cache
 
-    with open(DATA_PATH, "r", encoding="utf-8") as f:
+    with open(DATA_PATH, encoding="utf-8") as f:
         data: Any = json.load(f)
 
     normalizar_dados_dashboard(data)
@@ -211,10 +212,11 @@ def api_atualizar():
 
     try:
         from atualizar_dados import atualizar
+
         atualizar(temporada_brasileirao_atual())
         limpar_cache()
         return jsonify({"status": "ok", "mensagem": "Dados atualizados com sucesso"})
-    except (ConnectionError, ValueError, EnvironmentError) as e:
+    except (OSError, ConnectionError, ValueError) as e:
         logger.error("Falha ao atualizar dados: %s", e)
         return jsonify({"erro": f"Falha ao atualizar dados: {e}", "codigo": "ATUALIZACAO_FALHOU"}), 500
     except Exception as e:
@@ -229,6 +231,7 @@ def api_health():
     try:
         mtime = os.path.getmtime(DATA_PATH)
         from datetime import datetime, timezone
+
         status["dados_atualizados_em"] = datetime.fromtimestamp(mtime, tz=timezone.utc).isoformat()
         status["dados_desatualizados"] = _dados_estao_desatualizados(mtime)
     except OSError:
@@ -275,8 +278,9 @@ def erro_chave_ausente(e: Exception):
 if __name__ == "__main__":
     if not os.path.exists(DATA_PATH):
         from gerar_dados import gerar_dados
+
         gerar_dados()
-    
+
     limpar_cache()
 
     debug = os.environ.get("FLASK_DEBUG", "1") == "1"

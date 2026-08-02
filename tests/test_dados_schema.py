@@ -1,12 +1,11 @@
-import copy
 import pytest
 
-from dados_schema import validar_dados_dashboard, DadosInvalidosError
+from dados_schema import DadosInvalidosError, validar_dados_dashboard
 
 
 @pytest.fixture
 def dados_validos():
-    from gerar_dados import gerar_classificacao, gerar_artilharia
+    from gerar_dados import gerar_artilharia, gerar_classificacao
 
     classificacao = gerar_classificacao()
     artilharia = gerar_artilharia()

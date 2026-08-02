@@ -1,6 +1,5 @@
 import os
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_ENV_PATH = os.path.join(BASE_DIR, ".env")
 
@@ -10,7 +9,7 @@ def carregar_env_local(env_path: str | None = None, override: bool = False) -> N
     if not os.path.exists(caminho):
         return
 
-    with open(caminho, "r", encoding="utf-8") as arquivo:
+    with open(caminho, encoding="utf-8") as arquivo:
         for linha in arquivo:
             conteudo = linha.strip()
             if not conteudo or conteudo.startswith("#") or "=" not in conteudo:

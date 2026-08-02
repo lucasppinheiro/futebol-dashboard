@@ -9,15 +9,31 @@ from temporada import temporada_brasileirao_atual
 
 def _payload_next(chave, dados, marcador="message"):
     texto = json.dumps(dados, ensure_ascii=False).replace('"', '\\"')
-    return f'<script>self.__next_f.push([1,"\\\"{chave}\\\":{texto},\\\"{marcador}\\\":\\\"\\\""])</script>'
+    return f'<script>self.__next_f.push([1,"\\"{chave}\\":{texto},\\"{marcador}\\":\\"\\""])</script>'
 
 
 def test_busca_classificacao_cbf_normaliza_tabela_oficial(monkeypatch):
     nomes = [
-        "Palmeiras", "Flamengo", "Athletico Paranaense", "Fluminense", "Bahia",
-        "Red Bull Bragantino", "Cruzeiro", "Botafogo", "Corinthians", "Atlético Mineiro",
-        "Coritiba SAF", "São Paulo", "Vitória", "Mirassol", "Santos FC",
-        "Internacional", "Grêmio", "Vasco da Gama Saf", "Remo", "Chapecoense",
+        "Palmeiras",
+        "Flamengo",
+        "Athletico Paranaense",
+        "Fluminense",
+        "Bahia",
+        "Red Bull Bragantino",
+        "Cruzeiro",
+        "Botafogo",
+        "Corinthians",
+        "Atlético Mineiro",
+        "Coritiba SAF",
+        "São Paulo",
+        "Vitória",
+        "Mirassol",
+        "Santos FC",
+        "Internacional",
+        "Grêmio",
+        "Vasco da Gama Saf",
+        "Remo",
+        "Chapecoense",
     ]
     tabela = []
     for indice, nome in enumerate(nomes, start=1):
@@ -28,20 +44,22 @@ def test_busca_classificacao_cbf_normaliza_tabela_oficial(monkeypatch):
         if nome == "Corinthians":
             pontos, jogos, vitorias, empates = 29, 21, 7, 8
 
-        tabela.append({
-            "cod_time": str(20000 + indice),
-            "uf_time": "SP",
-            "time": nome,
-            "escudo": f"https://conteudo.cbf.com.br/clubes/{20000 + indice}/escudo.jpg",
-            "posicao": str(indice),
-            "pontos": str(pontos),
-            "jogos": str(jogos),
-            "vitorias": str(vitorias),
-            "empates": str(empates),
-            "derrotas": str(jogos - vitorias - empates),
-            "gols_pro": "22",
-            "gols_contra": "20",
-        })
+        tabela.append(
+            {
+                "cod_time": str(20000 + indice),
+                "uf_time": "SP",
+                "time": nome,
+                "escudo": f"https://conteudo.cbf.com.br/clubes/{20000 + indice}/escudo.jpg",
+                "posicao": str(indice),
+                "pontos": str(pontos),
+                "jogos": str(jogos),
+                "vitorias": str(vitorias),
+                "empates": str(empates),
+                "derrotas": str(jogos - vitorias - empates),
+                "gols_pro": "22",
+                "gols_contra": "20",
+            }
+        )
 
     monkeypatch.setattr(api_client, "_fetch_public", lambda url: _payload_next("data", tabela))
 
@@ -87,7 +105,12 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
                 "table": [
                     {
                         "position": 1,
-                        "team": {"id": 1, "name": "Nome Variavel FC", "tla": "PAL", "crest": "https://example.com/pal.png"},
+                        "team": {
+                            "id": 1,
+                            "name": "Nome Variavel FC",
+                            "tla": "PAL",
+                            "crest": "https://example.com/pal.png",
+                        },
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -122,7 +145,12 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
                 "table": [
                     {
                         "position": 1,
-                        "team": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
+                        "team": {
+                            "id": 1776,
+                            "name": "São Paulo FC",
+                            "tla": "PAU",
+                            "crest": "https://example.com/sp.png",
+                        },
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -157,7 +185,12 @@ def test_busca_classificacao_usa_escudo_local_do_athletico(monkeypatch):
                 "table": [
                     {
                         "position": 1,
-                        "team": {"id": 1768, "name": "CA Paranaense", "tla": "CAP", "crest": "https://example.com/api-cap.png"},
+                        "team": {
+                            "id": 1768,
+                            "name": "CA Paranaense",
+                            "tla": "CAP",
+                            "crest": "https://example.com/api-cap.png",
+                        },
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -251,7 +284,12 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
                 "table": [
                     {
                         "position": 1,
-                        "team": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
+                        "team": {
+                            "id": 1776,
+                            "name": "São Paulo FC",
+                            "tla": "PAU",
+                            "crest": "https://example.com/sp.png",
+                        },
                         "playedGames": 9,
                         "won": 5,
                         "draw": 2,
@@ -262,7 +300,12 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
                     },
                     {
                         "position": 2,
-                        "team": {"id": 1771, "name": "Cruzeiro EC", "tla": "CRU", "crest": "https://example.com/cru.png"},
+                        "team": {
+                            "id": 1771,
+                            "name": "Cruzeiro EC",
+                            "tla": "CRU",
+                            "crest": "https://example.com/cru.png",
+                        },
                         "playedGames": 9,
                         "won": 5,
                         "draw": 1,

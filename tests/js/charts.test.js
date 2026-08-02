@@ -19,13 +19,21 @@ function criarDOM(opcoes = {}) {
 
     const classificacao = [
         { posicao: 1, time: 'Flamengo', sigla: 'FLA', pontos: 79, aproveitamento: 69.3, gols_pro: 78, gols_contra: 27 },
-        { posicao: 2, time: 'Palmeiras', sigla: 'PAL', pontos: 76, aproveitamento: 66.7, gols_pro: 66, gols_contra: 33 },
-        { posicao: 3, time: 'Cruzeiro', sigla: 'CRU', pontos: 70, aproveitamento: 61.4, gols_pro: 55, gols_contra: 31 },
+        {
+            posicao: 2,
+            time: 'Palmeiras',
+            sigla: 'PAL',
+            pontos: 76,
+            aproveitamento: 66.7,
+            gols_pro: 66,
+            gols_contra: 33
+        },
+        { posicao: 3, time: 'Cruzeiro', sigla: 'CRU', pontos: 70, aproveitamento: 61.4, gols_pro: 55, gols_contra: 31 }
     ];
 
     const artilharia = [
         { jogador: 'Kaio Jorge', time: 'Cruzeiro', sigla: 'CRU', gols: 21 },
-        { jogador: 'Arrascaeta', time: 'Flamengo', sigla: 'FLA', gols: 18 },
+        { jogador: 'Arrascaeta', time: 'Flamengo', sigla: 'FLA', gols: 18 }
     ];
 
     const vc = new VirtualConsole();
@@ -34,7 +42,7 @@ function criarDOM(opcoes = {}) {
     const dom = new JSDOM(html, {
         runScripts: 'dangerously',
         pretendToBeVisual: true,
-        virtualConsole: vc,
+        virtualConsole: vc
     });
 
     if (comCanvas) {

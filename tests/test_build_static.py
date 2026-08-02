@@ -1,6 +1,7 @@
-import build_static
 import json
 import re
+
+import build_static
 
 
 def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):

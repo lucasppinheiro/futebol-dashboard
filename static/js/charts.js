@@ -55,7 +55,10 @@ function corPorZona(time, theme) {
 }
 
 function formatarNomeCurto(nome) {
-    const partes = String(nome || '').trim().split(/\s+/).filter(Boolean);
+    const partes = String(nome || '')
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
     if (partes.length <= 1) return partes[0] || '';
     const ultimo = partes[partes.length - 1];
     if (partes[0].length + ultimo.length <= 14) {
@@ -78,14 +81,16 @@ function criarGraficoPontos(classificacao) {
         type: 'bar',
         data: {
             labels: top10.map((time) => time.sigla),
-            datasets: [{
-                label: 'Pontos',
-                data: top10.map((time) => time.pontos),
-                backgroundColor: top10.map((time) => corPorZona(time, theme)),
-                borderRadius: 2,
-                borderSkipped: false,
-                barPercentage: 0.72
-            }]
+            datasets: [
+                {
+                    label: 'Pontos',
+                    data: top10.map((time) => time.pontos),
+                    backgroundColor: top10.map((time) => corPorZona(time, theme)),
+                    borderRadius: 2,
+                    borderSkipped: false,
+                    barPercentage: 0.72
+                }
+            ]
         },
         options: {
             indexAxis: 'y',
@@ -139,14 +144,16 @@ function criarGraficoArtilheiros(artilharia) {
         type: 'bar',
         data: {
             labels: top10.map((jogador) => formatarNomeCurto(jogador.jogador)),
-            datasets: [{
-                label: 'Gols',
-                data: top10.map((jogador) => jogador.gols),
-                backgroundColor: top10.map((_, index) => index === 0 ? theme.primary : theme.neutral),
-                borderRadius: 2,
-                borderSkipped: false,
-                barPercentage: 0.68
-            }]
+            datasets: [
+                {
+                    label: 'Gols',
+                    data: top10.map((jogador) => jogador.gols),
+                    backgroundColor: top10.map((_, index) => (index === 0 ? theme.primary : theme.neutral)),
+                    borderRadius: 2,
+                    borderSkipped: false,
+                    barPercentage: 0.68
+                }
+            ]
         },
         options: {
             responsive: true,
@@ -177,7 +184,9 @@ function criarGraficoArtilheiros(artilharia) {
     chartsRegistry.push({
         chart,
         updateTheme: (newTheme) => {
-            chart.data.datasets[0].backgroundColor = top10.map((_, index) => index === 0 ? newTheme.primary : newTheme.neutral);
+            chart.data.datasets[0].backgroundColor = top10.map((_, index) =>
+                index === 0 ? newTheme.primary : newTheme.neutral
+            );
             chart.options.scales.y.grid.color = newTheme.grid;
             chart.options.plugins.tooltip = {
                 ...tooltipBase(),
@@ -207,14 +216,18 @@ function criarGraficoAproveitamento(classificacao) {
         type: 'bar',
         data: {
             labels: dados.map((time) => time.sigla),
-            datasets: [{
-                label: 'Aproveitamento %',
-                data: dados.map((time) => time.aproveitamento),
-                backgroundColor: dados.map((time, index) => index === dados.length - 1 ? theme.primary : theme.neutral),
-                borderRadius: 2,
-                borderSkipped: false,
-                barPercentage: 0.72
-            }]
+            datasets: [
+                {
+                    label: 'Aproveitamento %',
+                    data: dados.map((time) => time.aproveitamento),
+                    backgroundColor: dados.map((time, index) =>
+                        index === dados.length - 1 ? theme.primary : theme.neutral
+                    ),
+                    borderRadius: 2,
+                    borderSkipped: false,
+                    barPercentage: 0.72
+                }
+            ]
         },
         options: {
             indexAxis: 'y',
@@ -244,7 +257,9 @@ function criarGraficoAproveitamento(classificacao) {
     chartsRegistry.push({
         chart,
         updateTheme: (newTheme) => {
-            chart.data.datasets[0].backgroundColor = dados.map((time, index) => index === dados.length - 1 ? newTheme.primary : newTheme.neutral);
+            chart.data.datasets[0].backgroundColor = dados.map((time, index) =>
+                index === dados.length - 1 ? newTheme.primary : newTheme.neutral
+            );
             chart.options.scales.x.grid.color = newTheme.grid;
             chart.options.plugins.tooltip = {
                 ...tooltipBase(),

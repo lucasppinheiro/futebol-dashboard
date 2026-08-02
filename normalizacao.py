@@ -2,7 +2,6 @@ from typing import Any
 
 from club_assets import aplicar_escudos_locais
 
-
 POSICOES_MAPA: dict[str, str] = {
     "Offence": "Atacante",
     "Attack": "Atacante",

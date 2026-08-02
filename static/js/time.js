@@ -13,9 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const normalized = (hex || '').replace('#', '');
         if (![3, 6].includes(normalized.length)) return `rgba(82, 183, 255, ${alpha})`;
 
-        const full = normalized.length === 3
-            ? normalized.split('').map((char) => char + char).join('')
-            : normalized;
+        const full =
+            normalized.length === 3
+                ? normalized
+                      .split('')
+                      .map((char) => char + char)
+                      .join('')
+                : normalized;
 
         const value = parseInt(full, 16);
         const r = (value >> 16) & 255;
@@ -57,19 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
         type: 'radar',
         data: {
             labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
-            datasets: [{
-                label: timeData.time,
-                data: [
-                    normalizarRadar(timeData.pontos, pontosSerie),
-                    normalizarRadar(timeData.vitorias, vitoriasSerie),
-                    normalizarRadar(timeData.gols_pro, golsProSerie),
-                    normalizarRadar(timeData.aproveitamento, aproveitamentoSerie),
-                    normalizarRadar(timeData.saldo, saldoSerie)
-                ],
-                borderColor: accent,
-                backgroundColor: hexToRgba(accent, 0.18),
-                pointRadius: 4
-            }]
+            datasets: [
+                {
+                    label: timeData.time,
+                    data: [
+                        normalizarRadar(timeData.pontos, pontosSerie),
+                        normalizarRadar(timeData.vitorias, vitoriasSerie),
+                        normalizarRadar(timeData.gols_pro, golsProSerie),
+                        normalizarRadar(timeData.aproveitamento, aproveitamentoSerie),
+                        normalizarRadar(timeData.saldo, saldoSerie)
+                    ],
+                    borderColor: accent,
+                    backgroundColor: hexToRgba(accent, 0.18),
+                    pointRadius: 4
+                }
+            ]
         },
         options: {
             responsive: true,

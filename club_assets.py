@@ -1,6 +1,5 @@
 from typing import Any
 
-
 ESCUDOS_LOCAIS: dict[str, str] = {
     "BAH": "static/img/escudos/BAH.jpg",
     "BOT": "static/img/escudos/BOT.gif",

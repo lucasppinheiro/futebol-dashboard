@@ -3,7 +3,7 @@ name = "futebol-dashboard"
 version = "1.0.0"
 description = "Dashboard do Brasileirão Série A com Flask, geração estática e deploy na Vercel"
 requires-python = ">=3.10"
-license = "ISC"
+license = "MIT"
 dependencies = ["flask>=3.0,<4"]
 
 [dependency-groups]

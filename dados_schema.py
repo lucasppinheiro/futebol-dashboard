@@ -32,9 +32,7 @@ def _validar_numero_intervalo(item: dict[str, Any], campo: str, minimo: float, m
         raise DadosInvalidosError(f"{contexto}: campo '{campo}' deve ser numero")
     valor_float = float(valor)
     if valor_float < minimo or valor_float > maximo:
-        raise DadosInvalidosError(
-            f"{contexto}: campo '{campo}' deve estar entre {minimo} e {maximo}"
-        )
+        raise DadosInvalidosError(f"{contexto}: campo '{campo}' deve estar entre {minimo} e {maximo}")
     return valor_float
 
 
@@ -120,23 +118,15 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
         aproveitamento = _validar_numero_intervalo(time, "aproveitamento", 0.0, 100.0, contexto)
 
         if jogos != vitorias + empates + derrotas:
-            raise DadosInvalidosError(
-                f"{contexto}: jogos deve ser igual a vitorias + empates + derrotas"
-            )
+            raise DadosInvalidosError(f"{contexto}: jogos deve ser igual a vitorias + empates + derrotas")
         if pontos != vitorias * 3 + empates:
-            raise DadosInvalidosError(
-                f"{contexto}: pontos deve ser igual a vitorias*3 + empates"
-            )
+            raise DadosInvalidosError(f"{contexto}: pontos deve ser igual a vitorias*3 + empates")
         if saldo != gols_pro - gols_contra:
-            raise DadosInvalidosError(
-                f"{contexto}: saldo deve ser igual a gols_pro - gols_contra"
-            )
+            raise DadosInvalidosError(f"{contexto}: saldo deve ser igual a gols_pro - gols_contra")
 
         aproveitamento_esperado = round((pontos / (jogos * 3)) * 100, 1) if jogos > 0 else 0.0
         if round(aproveitamento, 1) != aproveitamento_esperado:
-            raise DadosInvalidosError(
-                f"{contexto}: aproveitamento inconsistente com jogos e pontos"
-            )
+            raise DadosInvalidosError(f"{contexto}: aproveitamento inconsistente com jogos e pontos")
 
     return classificacao
 
