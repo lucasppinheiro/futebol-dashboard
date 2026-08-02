@@ -1,4 +1,4 @@
-from normalizacao import calcular_aproveitamento, normalizar_dados_dashboard, normalizar_posicao_jogador
+from normalizacao import normalizar_dados_dashboard, normalizar_posicao_jogador
 
 
 def test_normaliza_posicoes_em_ingles_para_portugues():
@@ -22,7 +22,7 @@ def test_normaliza_artilharia_dentro_do_dashboard():
     dados = {
         "classificacao": [
             {"time": "B", "posicao": 2},
-            {"time": "A", "posicao": 1},
+            {"time": "CA Paranaense", "sigla": "CAP", "posicao": 1, "escudo": "https://example.com/cap.png"},
         ],
         "artilharia": [
             {"jogador": "B", "posicao": "Defensive Midfield", "gols": 1},
@@ -33,15 +33,9 @@ def test_normaliza_artilharia_dentro_do_dashboard():
 
     normalizar_dados_dashboard(dados)
 
-    assert dados["classificacao"][0]["time"] == "A"
+    assert dados["classificacao"][0]["time"] == "CA Paranaense"
+    assert dados["classificacao"][0]["escudo"] == "static/img/escudos/CAP.png"
     assert dados["classificacao"][1]["time"] == "B"
     assert dados["artilharia"][0]["posicao"] == "Centroavante"
     assert dados["artilharia"][1]["posicao"] == "Volante"
     assert dados["artilharia"][0]["jogador"] == "A"
-
-
-def test_calcular_aproveitamento():
-    assert calcular_aproveitamento(17, 9) == 63.0
-    assert calcular_aproveitamento(0, 5) == 0.0
-    assert calcular_aproveitamento(0, 0) == 0.0
-    assert calcular_aproveitamento(114, 38) == 100.0

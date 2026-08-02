@@ -4,8 +4,6 @@ import os
 from typing import Any
 
 from dados_schema import validar_dados_dashboard
-from normalizacao import calcular_aproveitamento
-from temporada import temporada_brasileirao_atual
 
 logger = logging.getLogger(__name__)
 
@@ -69,7 +67,7 @@ def gerar_classificacao() -> list[dict[str, Any]]:
         pontos = vitorias * 3 + empates
         time["saldo"] = gols_pro - gols_contra
         time["pontos"] = pontos
-        time["aproveitamento"] = calcular_aproveitamento(pontos, jogos)
+        time["aproveitamento"] = round(pontos / (jogos * 3) * 100, 1)
 
     return dados_reais
 
@@ -86,7 +84,7 @@ def gerar_artilharia() -> list[dict[str, Any]]:
         {"jogador": "Carlos Vinícius",  "time": "Grêmio",              "sigla": "GRE", "posicao": "Atacante", "gols": 12},
         {"jogador": "Flaco López",      "time": "Palmeiras",           "sigla": "PAL", "posicao": "Atacante", "gols": 12},
         {"jogador": "Willian José",     "time": "Bahia",               "sigla": "BAH", "posicao": "Atacante", "gols": 11},
-        {"jogador": "Igor Jesus",       "time": "Botafogo",            "sigla": "BOT", "posicao": "Atacante", "gols": 11},
+        {"jogador": "Pedro Raúl",       "time": "Ceará",               "sigla": "CEA", "posicao": "Atacante", "gols": 11},
         {"jogador": "Alan Patrick",     "time": "Internacional",       "sigla": "INT", "posicao": "Meia",     "gols": 11},
         {"jogador": "Yuri Alberto",     "time": "Corinthians",         "sigla": "COR", "posicao": "Atacante", "gols": 10},
         {"jogador": "Jhon Jhon",        "time": "Red Bull Bragantino", "sigla": "RBB", "posicao": "Meia",     "gols": 10},
@@ -95,7 +93,7 @@ def gerar_artilharia() -> list[dict[str, Any]]:
         {"jogador": "Renato Kayzer",    "time": "Vitória",             "sigla": "VIT", "posicao": "Atacante", "gols": 9},
         {"jogador": "Hulk",             "time": "Atlético Mineiro",         "sigla": "CAM", "posicao": "Atacante", "gols": 8},
         {"jogador": "Bruno Henrique",   "time": "Flamengo",            "sigla": "FLA", "posicao": "Atacante", "gols": 8},
-        {"jogador": "Lucas Ronier",     "time": "Coritiba",            "sigla": "CFC", "posicao": "Atacante", "gols": 8},
+        {"jogador": "Gabriel Taliari",  "time": "Juventude",           "sigla": "JUV", "posicao": "Atacante", "gols": 8},
     ]
 
     return artilheiros
@@ -113,7 +111,7 @@ def gerar_dados() -> None:
     dados = {
         "classificacao": classificacao,
         "artilharia": artilharia,
-        "info": montar_info(classificacao, artilharia, temporada_brasileirao_atual()),
+        "info": montar_info(classificacao, artilharia, "2026"),
     }
 
     validar_dados_dashboard(dados)

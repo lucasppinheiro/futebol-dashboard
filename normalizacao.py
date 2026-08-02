@@ -1,5 +1,8 @@
 from typing import Any
 
+from club_assets import aplicar_escudos_locais
+
+
 POSICOES_MAPA: dict[str, str] = {
     "Offence": "Atacante",
     "Attack": "Atacante",
@@ -24,10 +27,6 @@ POSICOES_MAPA: dict[str, str] = {
 }
 
 
-def calcular_aproveitamento(pontos: int, jogos: int) -> float:
-    return round(pontos / (jogos * 3) * 100, 1) if jogos > 0 else 0.0
-
-
 def normalizar_posicao_jogador(posicao: str | None) -> str:
     valor = (posicao or "").strip()
     if not valor:
@@ -45,6 +44,7 @@ def _safe_int(value: Any, default: int = 0) -> int:
 def normalizar_dados_dashboard(dados: dict[str, Any]) -> dict[str, Any]:
     classificacao = dados.get("classificacao")
     if isinstance(classificacao, list):
+        aplicar_escudos_locais(classificacao)
         classificacao.sort(key=lambda time: _safe_int(time.get("posicao"), 10**9))
 
     artilharia = dados.get("artilharia")

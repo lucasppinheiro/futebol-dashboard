@@ -37,33 +37,23 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install -U pip
-          pip install -r requirements.txt --group dev
+          pip install -r requirements.txt
           npm ci
 
       - name: Refresh competition data
         shell: bash
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+          DATA_SOURCE: "cbf"
           DATA_AUTO_REFRESH_HOURS: "0"
         run: |
           set -euo pipefail
 
-          if [ -z "${FOOTBALL_DATA_TOKEN:-}" ]; then
-            echo "::warning::FOOTBALL_DATA_TOKEN is not configured; keeping the current dataset."
-            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-              exit 1
-            fi
+          if python atualizar_dados.py; then
             exit 0
           fi
 
-          status=0
-          python atualizar_dados.py || status=$?
-
-          if [ "${status}" -eq 0 ]; then
-            exit 0
-          fi
-
+          status=$?
           echo "::warning::Competition data refresh failed with status ${status}; keeping the current dataset for this scheduled run."
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             exit "${status}"

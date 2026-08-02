@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+
 WORKFLOW = Path(__file__).parents[1] / ".github" / "workflows" / "refresh-data.yml"
 VERCEL_CONFIG = Path(__file__).parents[1] / "vercel.json"
 
@@ -23,10 +24,11 @@ def test_workflow_limita_tempo_e_permissoes_por_job():
     assert conteudo.count("    permissions:") == 1
 
 
-def test_workflow_nao_falha_refresh_agendado_por_token_ou_api():
+def test_workflow_usa_cbf_e_nao_falha_refresh_agendado_por_api():
     conteudo = WORKFLOW.read_text(encoding="utf-8")
 
-    assert 'if [ -z "${FOOTBALL_DATA_TOKEN:-}" ]; then' in conteudo
+    assert 'DATA_SOURCE: "cbf"' in conteudo
+    assert 'if [ -z "${FOOTBALL_DATA_TOKEN:-}" ]; then' not in conteudo
     assert "keeping the current dataset" in conteudo
     assert 'if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then' in conteudo
     assert "Competition data refresh failed" in conteudo

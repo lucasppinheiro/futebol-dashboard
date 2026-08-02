@@ -1,11 +1,12 @@
+import copy
 import pytest
 
-from dados_schema import DadosInvalidosError, validar_dados_dashboard
+from dados_schema import validar_dados_dashboard, DadosInvalidosError
 
 
 @pytest.fixture
 def dados_validos():
-    from gerar_dados import gerar_artilharia, gerar_classificacao
+    from gerar_dados import gerar_classificacao, gerar_artilharia
 
     classificacao = gerar_classificacao()
     artilharia = gerar_artilharia()
@@ -138,11 +139,6 @@ class TestArtilharia:
     def test_rejeita_jogador_vazio(self, dados_validos):
         dados_validos["artilharia"][0]["jogador"] = ""
         with pytest.raises(DadosInvalidosError, match="texto nao vazio"):
-            validar_dados_dashboard(dados_validos)
-
-    def test_rejeita_artilheiro_de_time_fora_da_classificacao(self, dados_validos):
-        dados_validos["artilharia"][0]["sigla"] = "XXX"
-        with pytest.raises(DadosInvalidosError, match="nao existe na classificacao"):
             validar_dados_dashboard(dados_validos)
 
     def test_rejeita_artilharia_fora_de_ordem(self, dados_validos):

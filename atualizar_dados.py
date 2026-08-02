@@ -1,11 +1,11 @@
 """
-Busca dados atualizados do Brasileirao via football-data.org e grava em data/brasileirao.json.
+Busca dados atualizados do Brasileirao e grava em data/brasileirao.json.
 
 Uso:
     python atualizar_dados.py
     python atualizar_dados.py --temporada 2026
 
-Requer: FOOTBALL_DATA_TOKEN definida como variavel de ambiente.
+Fonte padrao: CBF. Fallback opcional: football-data.org com FOOTBALL_DATA_TOKEN.
 Fallback: se a API falhar, mantem os dados locais existentes.
 """
 
@@ -13,10 +13,16 @@ import argparse
 import json
 import logging
 import os
+import sys
 import tempfile
 from pathlib import Path
 
-from api_client import buscar_artilharia, buscar_classificacao
+from api_client import (
+    buscar_artilharia,
+    buscar_artilharia_cbf,
+    buscar_classificacao,
+    buscar_classificacao_cbf,
+)
 from dados_schema import validar_dados_dashboard
 from env_config import carregar_env_local
 from gerar_dados import montar_info
@@ -56,15 +62,27 @@ def _escrever_json_atomico(destino: str | Path, dados: object) -> None:
             temporario.unlink()
 
 
-def atualizar(temporada: str | None = None) -> None:
-    temporada = temporada or temporada_brasileirao_atual()
-    logger.info("Buscando dados da temporada %s via football-data.org...", temporada)
+def _buscar_dados(temporada: str) -> tuple[list[dict], list[dict], str]:
+    fonte = os.environ.get("DATA_SOURCE", "cbf").strip().lower()
+    if fonte == "football-data":
+        return buscar_classificacao(temporada), buscar_artilharia(temporada), "football-data.org"
 
     try:
-        classificacao = buscar_classificacao(temporada)
-        artilharia = buscar_artilharia(temporada)
+        return buscar_classificacao_cbf(temporada), buscar_artilharia_cbf(temporada), "CBF"
     except Exception as e:
-        logger.error("Erro ao buscar dados da API: %s", e)
+        logger.warning("Falha ao buscar dados da CBF: %s", e)
+        logger.info("Tentando fallback via football-data.org...")
+        return buscar_classificacao(temporada), buscar_artilharia(temporada), "football-data.org"
+
+
+def atualizar(temporada: str | None = None) -> None:
+    temporada = temporada or temporada_brasileirao_atual()
+    logger.info("Buscando dados da temporada %s...", temporada)
+
+    try:
+        classificacao, artilharia, fonte = _buscar_dados(temporada)
+    except Exception as e:
+        logger.error("Erro ao buscar dados: %s", e)
         if os.path.exists(OUTPUT_FILE):
             logger.info("Mantendo dados locais existentes.")
         else:
@@ -93,14 +111,15 @@ def atualizar(temporada: str | None = None) -> None:
     _escrever_json_atomico(OUTPUT_FILE, dados)
 
     logger.info("Dados atualizados em: %s", OUTPUT_FILE)
+    logger.info("Fonte: %s", fonte)
     logger.info("%d times | %d artilheiros", len(classificacao), len(artilharia))
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Atualizar dados do Brasileirao via football-data.org")
+    parser = argparse.ArgumentParser(description="Atualizar dados do Brasileirao")
     parser.add_argument("--temporada", default=None, help="Temporada (ex: 2026). Padrao: ano atual.")
     args = parser.parse_args()
     try:
         atualizar(args.temporada)
     except Exception:
-        raise SystemExit(1) from None
+        raise SystemExit(1)

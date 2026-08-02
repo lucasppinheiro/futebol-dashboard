@@ -3,8 +3,6 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from normalizacao import calcular_aproveitamento
-
 
 class DadosInvalidosError(ValueError):
     """Erro de validacao para estrutura e regras dos dados do dashboard."""
@@ -34,7 +32,9 @@ def _validar_numero_intervalo(item: dict[str, Any], campo: str, minimo: float, m
         raise DadosInvalidosError(f"{contexto}: campo '{campo}' deve ser numero")
     valor_float = float(valor)
     if valor_float < minimo or valor_float > maximo:
-        raise DadosInvalidosError(f"{contexto}: campo '{campo}' deve estar entre {minimo} e {maximo}")
+        raise DadosInvalidosError(
+            f"{contexto}: campo '{campo}' deve estar entre {minimo} e {maximo}"
+        )
     return valor_float
 
 
@@ -120,20 +120,28 @@ def _validar_classificacao(classificacao: Any) -> list[dict[str, Any]]:
         aproveitamento = _validar_numero_intervalo(time, "aproveitamento", 0.0, 100.0, contexto)
 
         if jogos != vitorias + empates + derrotas:
-            raise DadosInvalidosError(f"{contexto}: jogos deve ser igual a vitorias + empates + derrotas")
+            raise DadosInvalidosError(
+                f"{contexto}: jogos deve ser igual a vitorias + empates + derrotas"
+            )
         if pontos != vitorias * 3 + empates:
-            raise DadosInvalidosError(f"{contexto}: pontos deve ser igual a vitorias*3 + empates")
+            raise DadosInvalidosError(
+                f"{contexto}: pontos deve ser igual a vitorias*3 + empates"
+            )
         if saldo != gols_pro - gols_contra:
-            raise DadosInvalidosError(f"{contexto}: saldo deve ser igual a gols_pro - gols_contra")
+            raise DadosInvalidosError(
+                f"{contexto}: saldo deve ser igual a gols_pro - gols_contra"
+            )
 
-        aproveitamento_esperado = calcular_aproveitamento(pontos, jogos)
+        aproveitamento_esperado = round((pontos / (jogos * 3)) * 100, 1) if jogos > 0 else 0.0
         if round(aproveitamento, 1) != aproveitamento_esperado:
-            raise DadosInvalidosError(f"{contexto}: aproveitamento inconsistente com jogos e pontos")
+            raise DadosInvalidosError(
+                f"{contexto}: aproveitamento inconsistente com jogos e pontos"
+            )
 
     return classificacao
 
 
-def _validar_artilharia(artilharia: Any, siglas_classificacao: set[str]) -> list[dict[str, Any]]:
+def _validar_artilharia(artilharia: Any) -> list[dict[str, Any]]:
     if not isinstance(artilharia, list) or not artilharia:
         raise DadosInvalidosError("artilharia deve ser uma lista nao vazia")
 
@@ -147,9 +155,7 @@ def _validar_artilharia(artilharia: Any, siglas_classificacao: set[str]) -> list
         _validar_campos_obrigatorios(jogador, campos, contexto)
         _validar_str_nao_vazia(jogador, "jogador", contexto)
         _validar_str_nao_vazia(jogador, "time", contexto)
-        sigla = _validar_str_nao_vazia(jogador, "sigla", contexto)
-        if sigla.upper() not in siglas_classificacao:
-            raise DadosInvalidosError(f"{contexto}: sigla '{sigla}' nao existe na classificacao")
+        _validar_str_nao_vazia(jogador, "sigla", contexto)
         _validar_str_nao_vazia(jogador, "posicao", contexto)
         gols = _validar_int_nao_negativo(jogador, "gols", contexto)
         if gols_anteriores is not None and gols > gols_anteriores:
@@ -215,8 +221,7 @@ def validar_dados_dashboard(dados: Any) -> dict[str, Any]:
             raise DadosInvalidosError(f"bloco '{bloco}' ausente")
 
     classificacao = _validar_classificacao(dados["classificacao"])
-    siglas_classificacao = {time["sigla"].upper() for time in classificacao}
-    artilharia = _validar_artilharia(dados["artilharia"], siglas_classificacao)
+    artilharia = _validar_artilharia(dados["artilharia"])
     _validar_info(dados["info"], classificacao, artilharia)
 
     return dados

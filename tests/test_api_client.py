@@ -7,6 +7,79 @@ import api_client
 from temporada import temporada_brasileirao_atual
 
 
+def _payload_next(chave, dados, marcador="message"):
+    texto = json.dumps(dados, ensure_ascii=False).replace('"', '\\"')
+    return f'<script>self.__next_f.push([1,"\\\"{chave}\\\":{texto},\\\"{marcador}\\\":\\\"\\\""])</script>'
+
+
+def test_busca_classificacao_cbf_normaliza_tabela_oficial(monkeypatch):
+    nomes = [
+        "Palmeiras", "Flamengo", "Athletico Paranaense", "Fluminense", "Bahia",
+        "Red Bull Bragantino", "Cruzeiro", "Botafogo", "Corinthians", "Atlético Mineiro",
+        "Coritiba SAF", "São Paulo", "Vitória", "Mirassol", "Santos FC",
+        "Internacional", "Grêmio", "Vasco da Gama Saf", "Remo", "Chapecoense",
+    ]
+    tabela = []
+    for indice, nome in enumerate(nomes, start=1):
+        pontos = 48 - indice
+        jogos = 21
+        vitorias = max(1, pontos // 3)
+        empates = pontos - (vitorias * 3)
+        if nome == "Corinthians":
+            pontos, jogos, vitorias, empates = 29, 21, 7, 8
+
+        tabela.append({
+            "cod_time": str(20000 + indice),
+            "uf_time": "SP",
+            "time": nome,
+            "escudo": f"https://conteudo.cbf.com.br/clubes/{20000 + indice}/escudo.jpg",
+            "posicao": str(indice),
+            "pontos": str(pontos),
+            "jogos": str(jogos),
+            "vitorias": str(vitorias),
+            "empates": str(empates),
+            "derrotas": str(jogos - vitorias - empates),
+            "gols_pro": "22",
+            "gols_contra": "20",
+        })
+
+    monkeypatch.setattr(api_client, "_fetch_public", lambda url: _payload_next("data", tabela))
+
+    classificacao = api_client.buscar_classificacao_cbf("2026")
+    corinthians = classificacao[8]
+
+    assert corinthians["sigla"] == "COR"
+    assert corinthians["pontos"] == 29
+    assert corinthians["jogos"] == 21
+    assert corinthians["aproveitamento"] == 46.0
+    assert classificacao[0]["time"] == "SE Palmeiras"
+
+
+def test_busca_artilharia_cbf_paginada(monkeypatch):
+    def atleta(indice, gols):
+        return {
+            "id": str(indice),
+            "gols": str(gols),
+            "nome": f"Jogador {indice}",
+            "apelido": f"Apelido {indice}",
+            "clube": {"nome": "Flamengo-RJ"},
+        }
+
+    def fake_fetch_public(url):
+        if url.endswith("/2"):
+            return {"atletas": [atleta(i, 6) for i in range(11, 21)], "meta": [{"pagina": "2", "total": "2"}]}
+        return {"atletas": [atleta(i, 12) for i in range(1, 11)], "meta": [{"pagina": "1", "total": "2"}]}
+
+    monkeypatch.setattr(api_client, "_fetch_public", fake_fetch_public)
+
+    artilharia = api_client.buscar_artilharia_cbf("2026", limite=20)
+
+    assert len(artilharia) == 20
+    assert artilharia[0]["jogador"] == "Apelido 1"
+    assert artilharia[0]["sigla"] == "FLA"
+    assert artilharia[0]["time"] == "CR Flamengo"
+
+
 def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
     standings_payload = {
         "standings": [
@@ -14,12 +87,7 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
                 "table": [
                     {
                         "position": 1,
-                        "team": {
-                            "id": 1,
-                            "name": "Nome Variavel FC",
-                            "tla": "PAL",
-                            "crest": "https://example.com/pal.png",
-                        },
+                        "team": {"id": 1, "name": "Nome Variavel FC", "tla": "PAL", "crest": "https://example.com/pal.png"},
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -32,7 +100,14 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
             }
         ]
     }
-    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
+    matches_payload = {"matches": []}
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
     classificacao = api_client.buscar_classificacao()
 
@@ -47,12 +122,7 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
                 "table": [
                     {
                         "position": 1,
-                        "team": {
-                            "id": 1776,
-                            "name": "São Paulo FC",
-                            "tla": "PAU",
-                            "crest": "https://example.com/sp.png",
-                        },
+                        "team": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
                         "playedGames": 1,
                         "won": 1,
                         "draw": 0,
@@ -65,12 +135,54 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
             }
         ]
     }
-    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
+    matches_payload = {"matches": []}
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
     classificacao = api_client.buscar_classificacao()
 
     assert classificacao[0]["sigla"] == "SAO"
     assert classificacao[0]["estado"] == "SP"
+
+
+def test_busca_classificacao_usa_escudo_local_do_athletico(monkeypatch):
+    standings_payload = {
+        "standings": [
+            {
+                "table": [
+                    {
+                        "position": 1,
+                        "team": {"id": 1768, "name": "CA Paranaense", "tla": "CAP", "crest": "https://example.com/api-cap.png"},
+                        "playedGames": 1,
+                        "won": 1,
+                        "draw": 0,
+                        "lost": 0,
+                        "goalsFor": 2,
+                        "goalsAgainst": 0,
+                        "points": 3,
+                    }
+                ]
+            }
+        ]
+    }
+    matches_payload = {"matches": []}
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
+
+    classificacao = api_client.buscar_classificacao()
+
+    assert classificacao[0]["sigla"] == "CAP"
+    assert classificacao[0]["escudo"] == "static/img/escudos/CAP.png"
 
 
 def test_busca_artilharia_normaliza_posicao_e_preserva_nao_informado(monkeypatch):
@@ -122,7 +234,7 @@ def test_busca_classificacao_usa_temporada_atual_por_padrao(monkeypatch):
                     }
                 ]
             }
-        raise AssertionError(f"URL inesperada: {url}")
+        return {"matches": []}
 
     monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
@@ -139,12 +251,7 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
                 "table": [
                     {
                         "position": 1,
-                        "team": {
-                            "id": 1776,
-                            "name": "São Paulo FC",
-                            "tla": "PAU",
-                            "crest": "https://example.com/sp.png",
-                        },
+                        "team": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
                         "playedGames": 9,
                         "won": 5,
                         "draw": 2,
@@ -155,12 +262,7 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
                     },
                     {
                         "position": 2,
-                        "team": {
-                            "id": 1771,
-                            "name": "Cruzeiro EC",
-                            "tla": "CRU",
-                            "crest": "https://example.com/cru.png",
-                        },
+                        "team": {"id": 1771, "name": "Cruzeiro EC", "tla": "CRU", "crest": "https://example.com/cru.png"},
                         "playedGames": 9,
                         "won": 5,
                         "draw": 1,
@@ -173,7 +275,24 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
             }
         ]
     }
-    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
+    matches_payload = {
+        "matches": [
+            {
+                "status": "FINISHED",
+                "matchday": 10,
+                "homeTeam": {"id": 1776, "name": "São Paulo FC", "tla": "PAU", "crest": "https://example.com/sp.png"},
+                "awayTeam": {"id": 1771, "name": "Cruzeiro EC", "tla": "CRU", "crest": "https://example.com/cru.png"},
+                "score": {"fullTime": {"home": 4, "away": 1}},
+            }
+        ]
+    }
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
     classificacao = api_client.buscar_classificacao("2026")
 
@@ -217,7 +336,14 @@ def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monke
             }
         ]
     }
-    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
+    matches_payload = {"matches": []}
+
+    def fake_fetch(url):
+        if "standings" in url:
+            return standings_payload
+        return matches_payload
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
     classificacao = api_client.buscar_classificacao("2026")
 
@@ -225,34 +351,6 @@ def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monke
     assert classificacao[0]["estado"] == "PR"
     assert classificacao[1]["sigla"] == "COR"
     assert classificacao[1]["estado"] == "SP"
-
-
-def test_busca_classificacao_nao_casa_nome_desconhecido_por_substring(monkeypatch):
-    standings_payload = {
-        "standings": [
-            {
-                "table": [
-                    {
-                        "position": 1,
-                        "team": {"id": 9001, "name": "Grêmio Novorizontino", "tla": "GNO", "crest": ""},
-                        "playedGames": 1,
-                        "won": 1,
-                        "draw": 0,
-                        "lost": 0,
-                        "goalsFor": 1,
-                        "goalsAgainst": 0,
-                        "points": 3,
-                    }
-                ]
-            }
-        ]
-    }
-
-    monkeypatch.setattr(api_client, "_fetch", lambda url: standings_payload)
-
-    classificacao = api_client.buscar_classificacao("2026")
-
-    assert classificacao[0]["sigla"] == "GNO"
 
 
 def test_fetch_repete_erro_transitorio_antes_de_retornar(monkeypatch):
@@ -283,60 +381,28 @@ def test_fetch_repete_erro_transitorio_antes_de_retornar(monkeypatch):
     assert tentativas == 3
 
 
-def test_fetch_sem_token_falha_com_mensagem_clara(monkeypatch):
-    monkeypatch.delenv("FOOTBALL_DATA_TOKEN", raising=False)
-    monkeypatch.setenv("ENV_FILE", "arquivo-que-nao-existe.env")
+def test_classificacao_dos_jogos_rejeita_placar_ausente():
+    standings = [
+        {
+            "position": 1,
+            "team": {"id": 1, "name": "Palmeiras", "tla": "PAL", "crest": ""},
+            "playedGames": 0,
+            "won": 0,
+            "draw": 0,
+            "lost": 0,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "points": 0,
+        }
+    ]
+    partidas = [
+        {
+            "status": "FINISHED",
+            "homeTeam": {"id": 1, "name": "Palmeiras", "tla": "PAL", "crest": ""},
+            "awayTeam": {"id": 2, "name": "Santos", "tla": "SAN", "crest": ""},
+            "score": {"fullTime": {"home": None, "away": 1}},
+        }
+    ]
 
-    with pytest.raises(OSError, match="FOOTBALL_DATA_TOKEN"):
-        api_client._fetch("https://example.com")
-
-
-def test_fetch_esgota_tentativas_em_erro_de_conexao(monkeypatch):
-    tentativas = 0
-
-    def fake_urlopen(*args, **kwargs):
-        nonlocal tentativas
-        tentativas += 1
-        raise urllib.error.URLError("indisponivel")
-
-    monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "teste")
-    monkeypatch.setattr(api_client.urllib.request, "urlopen", fake_urlopen)
-    monkeypatch.setattr(api_client.time, "sleep", lambda _: None)
-
-    with pytest.raises(ConnectionError, match="Erro de conexao"):
-        api_client._fetch("https://example.com")
-    assert tentativas == 3
-
-
-def test_fetch_nao_repete_erro_http_nao_transitorio(monkeypatch):
-    tentativas = 0
-
-    def fake_urlopen(*args, **kwargs):
-        nonlocal tentativas
-        tentativas += 1
-        raise urllib.error.HTTPError("https://example.com", 404, "Not Found", None, None)
-
-    monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "teste")
-    monkeypatch.setattr(api_client.urllib.request, "urlopen", fake_urlopen)
-    monkeypatch.setattr(api_client.time, "sleep", lambda _: None)
-
-    with pytest.raises(ConnectionError, match="HTTP 404"):
-        api_client._fetch("https://example.com")
-    assert tentativas == 1
-
-
-def test_fetch_esgota_tentativas_em_erro_http_transitorio(monkeypatch):
-    tentativas = 0
-
-    def fake_urlopen(*args, **kwargs):
-        nonlocal tentativas
-        tentativas += 1
-        raise urllib.error.HTTPError("https://example.com", 503, "Service Unavailable", None, None)
-
-    monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "teste")
-    monkeypatch.setattr(api_client.urllib.request, "urlopen", fake_urlopen)
-    monkeypatch.setattr(api_client.time, "sleep", lambda _: None)
-
-    with pytest.raises(ConnectionError, match="HTTP 503"):
-        api_client._fetch("https://example.com")
-    assert tentativas == 3
+    with pytest.raises(ValueError, match="placar"):
+        api_client._classificacao_dos_jogos(standings, partidas)

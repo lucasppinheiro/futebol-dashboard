@@ -1,6 +1,9 @@
 import json
+import os
 
-from gerar_dados import gerar_artilharia, gerar_classificacao, gerar_dados
+import pytest
+
+from gerar_dados import gerar_classificacao, gerar_artilharia, gerar_dados, OUTPUT_FILE
 
 
 class TestGerarClassificacao:
@@ -43,7 +46,7 @@ class TestGerarDados:
         gerar_dados()
 
         assert arquivo.exists()
-        with open(arquivo, encoding="utf-8") as f:
+        with open(arquivo, "r", encoding="utf-8") as f:
             dados = json.load(f)
         assert "classificacao" in dados
         assert "artilharia" in dados
