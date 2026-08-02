@@ -1,6 +1,6 @@
 # Brasileirão Dashboard
 
-[![Data refresh](https://img.shields.io/github/actions/workflow/status/lucassgsantos/futebol-dashboard/refresh-data.yml?label=data%20refresh)](https://github.com/lucassgsantos/futebol-dashboard/actions)
+[![Data refresh](https://img.shields.io/github/actions/workflow/status/lucasppinheiro/futebol-dashboard/refresh-data.yml?label=data%20refresh)](https://github.com/lucasppinheiro/futebol-dashboard/actions)
 [![Live Demo](https://img.shields.io/badge/demo-Vercel-000000)](https://futebol-dashboard.vercel.app/)
 
 Dashboard editorial do Campeonato Brasileiro Série A com classificação, artilharia, gráficos, comparador de clubes e páginas individuais por time. O projeto combina dados oficiais da CBF, geração estática e uma interface inspirada em produtos jornalísticos esportivos.
@@ -52,7 +52,7 @@ O GitHub Actions roda a cada hora, tenta atualizar os dados pela CBF, valida o J
 Requisitos: Python 3.10+ e Node.js 24+.
 
 ```bash
-git clone https://github.com/lucassgsantos/futebol-dashboard.git
+git clone https://github.com/lucasppinheiro/futebol-dashboard.git
 cd futebol-dashboard
 python -m venv .venv
 ```
@@ -112,7 +112,7 @@ Em execuções agendadas, uma falha temporária da fonte de dados não sobrescre
 
 ## Publicação na Vercel
 
-1. Importe `lucassgsantos/futebol-dashboard` no painel da Vercel.
+1. Importe `lucasppinheiro/futebol-dashboard` no painel da Vercel.
 2. Mantenha o diretório raiz como `.`; o `vercel.json` já define o build e a saída `dist`.
 3. Use `main` como branch de produção.
 4. Configure `SITE_ORIGIN` caso o domínio final seja diferente de `https://futebol-dashboard.vercel.app`.
