@@ -1,43 +1,58 @@
-# Futebol Dashboard
+# Brasileirão Dashboard
 
-[![CI](https://img.shields.io/github/actions/workflow/status/lucasppinheiro/futebol-dashboard/ci.yml?label=CI)](https://github.com/lucasppinheiro/futebol-dashboard/actions/workflows/ci.yml)
-[![Data refresh](https://img.shields.io/github/actions/workflow/status/lucasppinheiro/futebol-dashboard/refresh-data.yml?label=data%20refresh)](https://github.com/lucasppinheiro/futebol-dashboard/actions/workflows/refresh-data.yml)
+[![Data refresh](https://img.shields.io/github/actions/workflow/status/lucassgsantos/futebol-dashboard/refresh-data.yml?label=data%20refresh)](https://github.com/lucassgsantos/futebol-dashboard/actions)
 [![Live Demo](https://img.shields.io/badge/demo-Vercel-000000)](https://futebol-dashboard.vercel.app/)
 
-Dashboard responsivo do Campeonato Brasileiro Série A com classificação, artilharia, páginas por clube, gráficos e comparação de desempenho.
+Dashboard editorial do Campeonato Brasileiro Série A com classificação, artilharia, gráficos, comparador de clubes e páginas individuais por time. O projeto combina dados oficiais da CBF, geração estática e uma interface inspirada em produtos jornalísticos esportivos.
 
 **[Abrir demonstração](https://futebol-dashboard.vercel.app/)**
 
-## Destaques técnicos
+## Preview
 
-- Site estático gerado com Python/Jinja (Flask usado como SSG) e deploy na Vercel.
-- Dados da [football-data.org](https://www.football-data.org/) atualizados automaticamente.
-- Validação de schema e gravação atômica para proteger o dataset.
-- Testes com pytest, Jest e jsdom executados em todo push/PR (CI) e antes de cada refresh de dados.
-- Lint e formatação com Ruff (Python) e ESLint + Prettier (JavaScript).
-- URLs compatíveis com subdiretórios e páginas individuais para os clubes.
-- Tema claro/escuro, navegação por teclado e layout responsivo.
+![Classificação do Brasileirão Dashboard](docs/screenshot-classificacao.png)
+
+![Gráficos do Brasileirão Dashboard](docs/screenshot-graficos.png)
+
+## O que o projeto demonstra
+
+- Produto web completo: coleta de dados, validação, build estático, publicação e interface responsiva.
+- Automação confiável: GitHub Actions atualiza os dados, roda testes e só publica informações versionadas quando a validação passa.
+- Cuidado com dados reais: a CBF é a fonte principal; football-data.org fica como fallback opcional.
+- Engenharia de portfólio: rotas estáticas, páginas por clube, APIs JSON, sitemap, robots, página 404 e deploy na Vercel.
+
+## Funcionalidades
+
+- Tabela de classificação com filtros por zona, busca por clube e faixas laterais para Libertadores, Pré-Libertadores, Sul-Americana e rebaixamento.
+- Artilharia em formato editorial, usando os dados disponíveis da fonte oficial.
+- Gráficos de gols, aproveitamento e ataque/defesa com Chart.js.
+- Comparador de clubes com escudos, métricas lado a lado e radar de desempenho.
+- Páginas individuais por time geradas estaticamente.
+- Endpoints JSON em `dist/api/` para classificação, artilharia, clubes, estatísticas e saúde dos dados.
 
 ## Arquitetura
 
 ```text
-football-data.org
-       |
-atualizar_dados.py -> validação -> data/brasileirao.json
-                                      |
-                               build_static.py
-                                      |
-                               dist/ -> Vercel
+CBF oficial
+    |
+atualizar_dados.py
+    |
+validacao + escrita atomica
+    |
+data/brasileirao.json
+    |
+build_static.py
+    |
+dist/ -> Vercel
 ```
 
-O GitHub Actions atualiza e valida os dados a cada hora (`refresh-data.yml`) e roda lint + testes + build em todo push/PR (`ci.yml`). A integração Git da Vercel cria previews para branches e publica `main` automaticamente.
+O GitHub Actions roda a cada hora, tenta atualizar os dados pela CBF, valida o JSON, executa os testes e só então commita o dataset. A integração Git da Vercel publica `main` automaticamente quando há novo commit.
 
 ## Desenvolvimento local
 
-Requisitos: Python 3.10+ (CI testa 3.10 e 3.12) e Node.js 24+.
+Requisitos: Python 3.10+ e Node.js 24+.
 
 ```bash
-git clone https://github.com/lucasppinheiro/futebol-dashboard.git
+git clone https://github.com/lucassgsantos/futebol-dashboard.git
 cd futebol-dashboard
 python -m venv .venv
 ```
@@ -59,31 +74,20 @@ cp .env.example .env
 Instale e execute:
 
 ```bash
-python -m pip install -U pip
-pip install -r requirements.txt --group dev
-npm ci   # necessário apenas para testes/lint JS
+pip install -r requirements.txt
+npm ci
 python app.py
 ```
 
-A aplicação estará em [http://127.0.0.1:5000](http://127.0.0.1:5000) (defina `FLASK_DEBUG=1` no `.env` para modo debug em desenvolvimento). Para buscar dados novos, configure `FOOTBALL_DATA_TOKEN` no `.env` e execute `python atualizar_dados.py`.
+A aplicação estará em [http://127.0.0.1:5000](http://127.0.0.1:5000). Para buscar dados novos pela CBF, execute `python atualizar_dados.py`. O `FOOTBALL_DATA_TOKEN` só é necessário se você definir `DATA_SOURCE=football-data`.
 
 ## Qualidade e build
 
 ```bash
-python -m pytest tests -q   # testes Python
-npm test                    # testes JS (Jest + jsdom)
-ruff check .                # lint Python
-ruff format --check .       # formatação Python
-npm run lint                # ESLint
-npm run format:check        # Prettier
-npm audit                   # auditoria de dependências JS
-```
-
-Hooks de pre-commit (Ruff, Prettier, ESLint, gitleaks) estão configurados em `.pre-commit-config.yaml`:
-
-```bash
-pip install pre-commit
-pre-commit install
+npm run test:python
+npm test
+npm run audit
+npm run build
 ```
 
 Para gerar exatamente o conteúdo servido pela Vercel:
@@ -94,40 +98,25 @@ python build_static.py
 
 O resultado é escrito em `dist/`, incluindo páginas dos clubes, APIs JSON, `404.html`, `robots.txt` e `sitemap.xml`.
 
-## API estática
+## Dados e configuração
 
-O build publica snapshots JSON somente leitura, atualizados junto com cada deploy:
+As variáveis disponíveis estão documentadas em `.env.example`. A fonte padrão é `DATA_SOURCE=cbf`, sem token. Se usar o fallback da football-data.org, mantenha `FOOTBALL_DATA_TOKEN` apenas em **Settings > Secrets and variables > Actions**.
 
-- `https://futebol-dashboard.vercel.app/api/classificacao.json` — os 20 times com campos como `posicao`, `time`, `sigla`, `pontos`, `jogos`, `aproveitamento`.
-- `https://futebol-dashboard.vercel.app/api/artilharia.json` — artilheiros com `jogador`, `time`, `sigla`, `posicao`, `gols`.
-- `https://futebol-dashboard.vercel.app/api/health.json` — status do dataset (`dados_atualizados_em`, `dados_desatualizados`).
+Em execuções agendadas, uma falha temporária da fonte de dados não sobrescreve o dataset válido existente. Em execuções manuais (`workflow_dispatch`), o workflow falha para facilitar diagnóstico.
 
-## Configuração
+## Observações técnicas
 
-As variáveis disponíveis estão documentadas em `.env.example`:
-
-| Variável | Efeito |
-|---|---|
-| `FOOTBALL_DATA_TOKEN` | Token da football-data.org para atualizar dados. |
-| `API_UPDATE_TOKEN` | Habilita o endpoint `POST /api/atualizar` (Bearer token). |
-| `DATA_AUTO_REFRESH_HOURS` | Idade máxima dos dados antes do refresh automático (padrão 6; 0 desativa). |
-| `DATA_AUTO_REFRESH_COOLDOWN_MINUTES` | Intervalo mínimo entre tentativas de refresh (padrão 15). |
-| `FLASK_DEBUG` / `FLASK_HOST` / `FLASK_PORT` | Configuração do servidor local (debug desligado por padrão). |
-| `SITE_BASE_PATH` / `SITE_ORIGIN` | Subdiretório e origem usados no build estático. |
-
-No GitHub, `FOOTBALL_DATA_TOKEN` deve existir apenas em **Settings > Secrets and variables > Actions**.
+- A aplicação é estática por escolha arquitetural: os dados são atualizados pelo GitHub Actions e publicados automaticamente pela Vercel.
+- A CBF é usada como fonte principal; caso o formato da fonte mude, a rotina de coleta pode precisar de manutenção.
+- Campos indisponíveis na fonte oficial não são inventados pela aplicação.
 
 ## Publicação na Vercel
 
-1. Importe `lucasppinheiro/futebol-dashboard` no painel da Vercel.
+1. Importe `lucassgsantos/futebol-dashboard` no painel da Vercel.
 2. Mantenha o diretório raiz como `.`; o `vercel.json` já define o build e a saída `dist`.
 3. Use `main` como branch de produção.
 4. Configure `SITE_ORIGIN` caso o domínio final seja diferente de `https://futebol-dashboard.vercel.app`.
 
-Não é necessário cadastrar o token da football-data.org na Vercel: a atualização ocorre no GitHub Actions e o JSON validado é versionado.
+Não é necessário cadastrar tokens na Vercel: a atualização ocorre no GitHub Actions e o JSON validado é versionado.
 
 Nunca registre tokens no código, no histórico Git ou em arquivos versionados.
-
-## Licença
-
-[ISC](LICENSE)
