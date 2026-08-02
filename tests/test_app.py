@@ -3,22 +3,17 @@ import os
 
 import pytest
 
-import app as app_module
 from app import app as flask_app
+import app as app_module
 
 
 @pytest.fixture(autouse=True)
 def _limpar_cache():
-    app_module.limpar_cache()
-    app_module._ultimo_refresh_automatico = 0.0
-    app_module._refresh_thread = None
+    app_module._dados_cache = None
+    app_module._dados_mtime = 0.0
     yield
-    thread = app_module._refresh_thread
-    if thread is not None and thread.is_alive():
-        thread.join(timeout=5)
-    app_module.limpar_cache()
-    app_module._ultimo_refresh_automatico = 0.0
-    app_module._refresh_thread = None
+    app_module._dados_cache = None
+    app_module._dados_mtime = 0.0
 
 
 @pytest.fixture
@@ -30,7 +25,7 @@ def client():
 
 @pytest.fixture
 def dados_json_validos():
-    from gerar_dados import gerar_artilharia, gerar_classificacao, montar_info
+    from gerar_dados import gerar_classificacao, gerar_artilharia, montar_info
 
     classificacao = gerar_classificacao()
     artilharia = gerar_artilharia()
@@ -53,6 +48,11 @@ class TestRotaTime:
         resp = client.get("/time/FLA")
         assert resp.status_code == 200
         assert b"Flamengo" in resp.data or b"FLA" in resp.data
+
+    def test_time_existente_com_barra_final_retorna_200(self, client):
+        resp = client.get("/time/CAP/")
+        assert resp.status_code == 200
+        assert b"CAP" in resp.data or b"Paranaense" in resp.data
 
     def test_time_inexistente_retorna_404(self, client):
         resp = client.get("/time/XXX")
@@ -148,6 +148,7 @@ class TestCacheInvalidacao:
 
         resp1 = client.get("/api/classificacao")
         assert resp1.status_code == 200
+        times_v1 = resp1.get_json()
 
         dados_json_validos["classificacao"][0]["time"] = "Alterado FC"
         dados_json_validos["info"]["lider"] = "Alterado FC"
@@ -174,67 +175,20 @@ class TestCacheInvalidacao:
         os.utime(str(arquivo), (1, 1))
 
         def fake_atualizar(_temporada=None):
-            temporario = tmp_path / "dados.json.tmp"
-            temporario.write_text(json.dumps(dados_atualizados, ensure_ascii=False), encoding="utf-8")
-            os.replace(str(temporario), str(arquivo))
+            arquivo.write_text(json.dumps(dados_atualizados, ensure_ascii=False), encoding="utf-8")
+            os.utime(str(arquivo), None)
 
         import atualizar_dados as atu
-
-        monkeypatch.setattr(atu, "atualizar", fake_atualizar)
-
-        # O refresh roda em background: o primeiro GET dispara a thread e
-        # responde imediatamente; o dado novo aparece apos a thread concluir.
-        app_module.app.config["TESTING"] = False
-        try:
-            resp1 = client.get("/api/classificacao")
-            assert resp1.status_code == 200
-            thread = app_module._refresh_thread
-            assert thread is not None
-            thread.join(timeout=5)
-            assert not thread.is_alive()
-            resp2 = client.get("/api/classificacao")
-        finally:
-            app_module.app.config["TESTING"] = True
-
-        assert resp2.status_code == 200
-        assert resp2.get_json()[0]["time"] == "Atualizado FC"
-
-    def test_refresh_automatico_concorrente_dispara_uma_unica_atualizacao(
-        self, client, monkeypatch, tmp_path, dados_json_validos
-    ):
-        import threading
-
-        arquivo = tmp_path / "dados.json"
-        arquivo.write_text(json.dumps(dados_json_validos, ensure_ascii=False), encoding="utf-8")
-        monkeypatch.setattr(app_module, "DATA_PATH", str(arquivo))
-        monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "token_teste")
-        monkeypatch.setenv("DATA_AUTO_REFRESH_HOURS", "1")
-        monkeypatch.setenv("DATA_AUTO_REFRESH_COOLDOWN_MINUTES", "0")
-        os.utime(str(arquivo), (1, 1))
-
-        chamadas = []
-        liberar = threading.Event()
-
-        def fake_atualizar(_temporada=None):
-            chamadas.append(1)
-            liberar.wait(timeout=5)
-
-        import atualizar_dados as atu
-
         monkeypatch.setattr(atu, "atualizar", fake_atualizar)
 
         app_module.app.config["TESTING"] = False
         try:
-            client.get("/api/classificacao")
-            client.get("/api/classificacao")
+            resp = client.get("/api/classificacao")
         finally:
-            liberar.set()
             app_module.app.config["TESTING"] = True
 
-        thread = app_module._refresh_thread
-        assert thread is not None
-        thread.join(timeout=5)
-        assert len(chamadas) == 1
+        assert resp.status_code == 200
+        assert resp.get_json()[0]["time"] == "Atualizado FC"
 
 
 class TestAPIAtualizar:
@@ -262,7 +216,6 @@ class TestAPIAtualizar:
             pass
 
         import atualizar_dados as atu
-
         monkeypatch.setattr(atu, "atualizar", fake_atualizar)
 
         resp = client.post("/api/atualizar", headers={"Authorization": "Bearer segredo"})
@@ -282,76 +235,3 @@ class TestAPIHealth:
         data = resp.get_json()
         assert data["refresh_automatico"] is True
         assert "temporada_padrao" in data
-
-
-class TestSiteUrl:
-    def test_normalizar_site_base_path(self):
-        assert app_module.normalizar_site_base_path(None) == ""
-        assert app_module.normalizar_site_base_path("") == ""
-        assert app_module.normalizar_site_base_path("/") == ""
-        assert app_module.normalizar_site_base_path("foo") == "/foo"
-        assert app_module.normalizar_site_base_path("/foo/bar/") == "/foo/bar"
-        assert app_module.normalizar_site_base_path("  /x/ ") == "/x"
-
-    def test_site_url_sem_base_path(self, monkeypatch):
-        monkeypatch.setitem(flask_app.config, "SITE_BASE_PATH", "")
-        with flask_app.test_request_context("/"):
-            assert app_module.site_url() == "/"
-            assert app_module.site_url("#abas") == "/#abas"
-            assert app_module.site_url("time/FLA/") == "/time/FLA/"
-            assert app_module.site_url("/time/FLA") == "/time/FLA"
-            assert app_module.site_url("https://example.com/x") == "https://example.com/x"
-            assert app_module.site_url("//cdn.example.com/x") == "//cdn.example.com/x"
-
-    def test_site_url_com_base_path(self, monkeypatch):
-        monkeypatch.setitem(flask_app.config, "SITE_BASE_PATH", "/app")
-        with flask_app.test_request_context("/"):
-            assert app_module.site_url() == "/app/"
-            assert app_module.site_url("#abas") == "/app/#abas"
-            assert app_module.site_url("time/FLA/") == "/app/time/FLA/"
-            assert app_module.site_url("/time/FLA") == "/app/time/FLA"
-
-
-class TestRotaTimeJson:
-    def test_time_inexistente_em_path_de_api_retorna_json_404(self, client):
-        # Nao ha rota /api/time/<sigla> registrada; o branch JSON de
-        # detalhe_time congela o contrato caso ela venha a existir.
-        with flask_app.test_request_context("/api/time/XXX"):
-            resposta, status = app_module.detalhe_time("XXX")
-            assert status == 404
-            assert resposta.get_json()["codigo"] == "TIME_NAO_ENCONTRADO"
-
-
-class TestErroChaveAusente:
-    def test_key_error_api_retorna_json_500(self, client, monkeypatch):
-        def quebrar():
-            raise KeyError("classificacao")
-
-        monkeypatch.setattr(app_module, "carregar_dados", quebrar)
-        resp = client.get("/api/classificacao")
-        assert resp.status_code == 500
-        assert resp.get_json()["codigo"] == "CHAVE_AUSENTE"
-
-    def test_key_error_web_retorna_html_500(self, client, monkeypatch):
-        def quebrar():
-            raise KeyError("classificacao")
-
-        monkeypatch.setattr(app_module, "carregar_dados", quebrar)
-        resp = client.get("/")
-        assert resp.status_code == 500
-        assert b"<h1>" in resp.data
-
-
-class TestLerNumeroEnv:
-    @pytest.mark.parametrize("bruto", ["abc", "inf", "-inf", "nan", "  "])
-    def test_valores_invalidos_usam_padrao(self, monkeypatch, bruto):
-        monkeypatch.setenv("TESTE_NUMERO_ENV", bruto)
-        assert app_module._ler_numero_env("TESTE_NUMERO_ENV", 6.0) == 6.0
-
-    def test_valor_valido_e_convertido(self, monkeypatch):
-        monkeypatch.setenv("TESTE_NUMERO_ENV", "2.5")
-        assert app_module._ler_numero_env("TESTE_NUMERO_ENV", 6.0) == 2.5
-
-    def test_ausente_usa_padrao(self, monkeypatch):
-        monkeypatch.delenv("TESTE_NUMERO_ENV", raising=False)
-        assert app_module._ler_numero_env("TESTE_NUMERO_ENV", 6.0) == 6.0

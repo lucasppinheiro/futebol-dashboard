@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const root = document.documentElement;
+    const getMediaQueryMatch = (query) => {
+        if (typeof window.matchMedia !== 'function') return false;
+        return window.matchMedia(query).matches;
+    };
+    const prefersReducedMotion = getMediaQueryMatch('(prefers-reduced-motion: reduce)');
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('.section');
     const chartsSection = document.getElementById('graficos');
@@ -6,6 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setChartsStatus(message) {
         if (chartsStatus) chartsStatus.textContent = message;
+    }
+
+    function annotateResponsiveTables() {
+        document.querySelectorAll('.data-table').forEach((table) => {
+            const headers = Array.from(table.querySelectorAll('thead th')).map((header) =>
+                header.textContent.trim()
+            );
+
+            table.querySelectorAll('tbody tr').forEach((row) => {
+                row.querySelectorAll('td').forEach((cell, index) => {
+                    if (!cell.dataset.label && headers[index]) {
+                        cell.dataset.label = headers[index];
+                    }
+                });
+            });
+        });
     }
 
     function ensureChartsInitialized(targetId) {
@@ -25,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function ativarSecao(targetId, options = {}) {
-        const { updateHash = true } = options;
+        const { updateHash = true, alignSection = false } = options;
         const panel = document.getElementById(targetId);
         if (!panel) return;
 
@@ -44,6 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (updateHash && window.location.hash !== `#${targetId}`) {
             history.replaceState(null, '', `#${targetId}`);
+        }
+
+        if (alignSection) {
+            const alignPageStart = () => window.scrollTo({ top: 0, behavior: 'auto' });
+            alignPageStart();
+            requestAnimationFrame(alignPageStart);
+            setTimeout(alignPageStart, 80);
+            setTimeout(alignPageStart, 240);
         }
     }
 
@@ -74,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const sectionIds = new Set(Array.from(sections).map((section) => section.id));
         const hash = window.location.hash.replace('#', '');
         if (hash && sectionIds.has(hash)) {
-            ativarSecao(hash, { updateHash: false });
+            ativarSecao(hash, { updateHash: false, alignSection: true });
         } else {
             const activeTab = document.querySelector('.tab-btn.active');
             if (activeTab) ensureChartsInitialized(activeTab.dataset.section);
@@ -83,10 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('hashchange', () => {
             const nextHash = window.location.hash.replace('#', '');
             if (sectionIds.has(nextHash)) {
-                ativarSecao(nextHash, { updateHash: false });
+                ativarSecao(nextHash, { updateHash: false, alignSection: true });
             }
         });
     }
+
+    annotateResponsiveTables();
 
     const searchInput = document.getElementById('search-classificacao');
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -101,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!raw) return [];
             const parsed = JSON.parse(raw);
             return Array.isArray(parsed) ? parsed : [];
-        } catch {
+        } catch (error) {
             localStorage.removeItem(key);
             return [];
         }
@@ -169,8 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const zona = row.dataset.zona || '';
 
             const matchBusca = !termo || nome.includes(termo) || sigla.includes(termo);
-            const matchZona =
-                filtroZonaAtivo === 'todas' || filtroZonaAtivo === 'favoritos' || zona === filtroZonaAtivo;
+            const matchZona = filtroZonaAtivo === 'todas' || filtroZonaAtivo === 'favoritos' || zona === filtroZonaAtivo;
             const matchFav = filtroZonaAtivo !== 'favoritos' || isFavorito((row.dataset.sigla || '').toUpperCase());
             const mostrar = matchBusca && matchZona && matchFav;
 
@@ -253,25 +284,235 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    root.setAttribute('data-theme', 'light');
+    localStorage.removeItem('athletic-table-theme');
+
+    document.querySelectorAll('[data-count]').forEach((element) => {
+        const target = parseInt(element.dataset.count, 10);
+        if (Number.isNaN(target)) return;
+
+        const original = element.textContent || '';
+        const suffix = original.replace(/^\s*[\d.+-]+\s*/, '').trim();
+
+        if (prefersReducedMotion) {
+            element.textContent = suffix ? `${target} ${suffix}` : `${target}`;
+            return;
+        }
+
+        const duration = 900;
+        const start = performance.now();
+
+        function step(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.round(target * eased);
+            element.textContent = suffix ? `${value} ${suffix}` : `${value}`;
+            if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+    });
+
+    function getCssVar(name, fallback) {
+        const value = getComputedStyle(root).getPropertyValue(name).trim();
+        return value || fallback;
+    }
+
+    function hexToRgba(hex, alpha) {
+        const normalized = hex.replace('#', '');
+        if (![3, 6].includes(normalized.length)) return `rgba(82, 183, 255, ${alpha})`;
+
+        const full = normalized.length === 3
+            ? normalized.split('').map((char) => char + char).join('')
+            : normalized;
+
+        const intValue = parseInt(full, 16);
+        const r = (intValue >> 16) & 255;
+        const g = (intValue >> 8) & 255;
+        const b = intValue & 255;
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    function normalizarRadar(valor, valores, options = {}) {
+        const { invert = false } = options;
+        const numeros = valores.map((item) => Number(item) || 0);
+        const minimo = Math.min(...numeros);
+        const maximo = Math.max(...numeros);
+        if (maximo === minimo) return 100;
+
+        let proporcao = ((Number(valor) || 0) - minimo) / (maximo - minimo);
+        if (invert) proporcao = 1 - proporcao;
+        return Math.round(Math.max(0, Math.min(1, proporcao)) * 100);
+    }
+
     const cmpSelect1 = document.getElementById('cmp-time1');
     const cmpSelect2 = document.getElementById('cmp-time2');
     const cmpBtn = document.getElementById('cmp-btn');
     const cmpResult = document.getElementById('cmp-result');
 
     if (cmpBtn && cmpSelect1 && cmpSelect2 && cmpResult) {
-        const { hexToRgba, getRadarTheme, radarDataset, criarRadarChart, observarTemaRadar } = window.dashboardShared;
         let chartComparador = null;
+
+        function getRadarTheme() {
+            return {
+                grid: getCssVar('--chart-grid', 'rgba(181, 195, 216, 0.14)'),
+                label: getCssVar('--chart-label', '#c1cde0'),
+                primary: getCssVar('--chart-primary', '#6ebc83'),
+                secondary: getCssVar('--chart-secondary', '#65716c')
+            };
+        }
 
         function atualizarEstadoComparador() {
             const invalido = !cmpSelect1.value || !cmpSelect2.value || cmpSelect1.value === cmpSelect2.value;
             cmpBtn.disabled = invalido;
         }
 
+        function fecharPickers(excecao = null) {
+            document.querySelectorAll('.cmp-picker.open').forEach((picker) => {
+                if (picker === excecao) return;
+                picker.classList.remove('open');
+                const button = picker.querySelector('.cmp-picker-button');
+                if (button) button.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        function atualizarVisualPicker(select) {
+            const picker = document.querySelector(`.cmp-picker[data-select="${select.id}"]`);
+            if (!picker) return;
+
+            const button = picker.querySelector('.cmp-picker-button');
+            const options = Array.from(picker.querySelectorAll('.cmp-picker-option'));
+            const selectedOption = options.find((option) => option.dataset.value === select.value);
+            const currentId = select.id === 'cmp-time1' ? 'cmp-time1-current' : 'cmp-time2-current';
+
+            options.forEach((option) => {
+                option.setAttribute('aria-selected', String(option === selectedOption));
+            });
+
+            if (!button) return;
+            button.replaceChildren();
+
+            if (!selectedOption) {
+                const placeholder = document.createElement('span');
+                placeholder.id = currentId;
+                placeholder.className = 'cmp-picker-placeholder';
+                placeholder.textContent = select.id === 'cmp-time1' ? 'Selecione o 1º time' : 'Selecione o 2º time';
+                button.appendChild(placeholder);
+                return;
+            }
+
+            const escudo = selectedOption.querySelector('img');
+            if (escudo) {
+                const escudoAtual = escudo.cloneNode(true);
+                escudoAtual.className = 'cmp-picker-current-escudo';
+                button.appendChild(escudoAtual);
+            }
+
+            const nome = document.createElement('span');
+            nome.id = currentId;
+            nome.textContent = selectedOption.textContent.trim();
+            button.appendChild(nome);
+        }
+
+        function selecionarPickerOption(select, option) {
+            select.value = option.dataset.value || '';
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+            fecharPickers();
+        }
+
+        document.querySelectorAll('.cmp-picker').forEach((picker) => {
+            const select = document.getElementById(picker.dataset.select);
+            const button = picker.querySelector('.cmp-picker-button');
+            const options = Array.from(picker.querySelectorAll('.cmp-picker-option'));
+            if (!select || !button || !options.length) return;
+
+            const abrirPicker = () => {
+                const jaAberto = picker.classList.contains('open');
+                fecharPickers(picker);
+                picker.classList.toggle('open', !jaAberto);
+                button.setAttribute('aria-expanded', String(!jaAberto));
+            };
+
+            const focarOption = (option) => {
+                picker.classList.add('open');
+                button.setAttribute('aria-expanded', 'true');
+                option.focus();
+            };
+
+            button.addEventListener('click', abrirPicker);
+            button.addEventListener('keydown', (event) => {
+                if (!['ArrowDown', 'Enter', ' '].includes(event.key)) return;
+                event.preventDefault();
+                const selectedOption = options.find((option) => option.dataset.value === select.value);
+                focarOption(selectedOption || options[0]);
+            });
+
+            options.forEach((option, index) => {
+                option.addEventListener('click', () => {
+                    selecionarPickerOption(select, option);
+                    button.focus();
+                });
+
+                option.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') {
+                        event.preventDefault();
+                        fecharPickers();
+                        button.focus();
+                    }
+
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        selecionarPickerOption(select, option);
+                        button.focus();
+                    }
+
+                    if (event.key === 'ArrowDown') {
+                        event.preventDefault();
+                        options[Math.min(index + 1, options.length - 1)].focus();
+                    }
+
+                    if (event.key === 'ArrowUp') {
+                        event.preventDefault();
+                        options[Math.max(index - 1, 0)].focus();
+                    }
+
+                    if (event.key === 'Home') {
+                        event.preventDefault();
+                        options[0].focus();
+                    }
+
+                    if (event.key === 'End') {
+                        event.preventDefault();
+                        options[options.length - 1].focus();
+                    }
+                });
+            });
+
+            select.addEventListener('change', () => atualizarVisualPicker(select));
+            atualizarVisualPicker(select);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (event.target.closest('.cmp-picker')) return;
+            fecharPickers();
+        });
+
         cmpSelect1.addEventListener('change', atualizarEstadoComparador);
         cmpSelect2.addEventListener('change', atualizarEstadoComparador);
         atualizarEstadoComparador();
 
-        observarTemaRadar(() => chartComparador);
+        const observer = new MutationObserver(() => {
+            if (!chartComparador) return;
+            const theme = getRadarTheme();
+            chartComparador.options.scales.r.grid.color = theme.grid;
+            chartComparador.options.scales.r.pointLabels.color = theme.label;
+            chartComparador.data.datasets[0].borderColor = theme.primary;
+            chartComparador.data.datasets[0].backgroundColor = hexToRgba(theme.primary, 0.16);
+            chartComparador.data.datasets[1].borderColor = theme.secondary;
+            chartComparador.data.datasets[1].backgroundColor = hexToRgba(theme.secondary, 0.12);
+            chartComparador.update('none');
+        });
+        observer.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
 
         cmpBtn.addEventListener('click', () => {
             const s1 = cmpSelect1.value;
@@ -313,19 +554,18 @@ document.addEventListener('DOMContentLoaded', () => {
             let html = `
                 <div class="cmp-summary">
                     <div class="cmp-summary-team">
+                        ${t1.escudo ? `<img src="${t1.escudo}" alt="" class="cmp-summary-escudo">` : ''}
                         <strong>${t1.time}</strong>
                         <span>${t1.posicao}º lugar · ${t1.pontos} pontos</span>
                     </div>
                     <div class="cmp-summary-divider">vs</div>
                     <div class="cmp-summary-team">
+                        ${t2.escudo ? `<img src="${t2.escudo}" alt="" class="cmp-summary-escudo">` : ''}
                         <strong>${t2.time}</strong>
                         <span>${t2.posicao}º lugar · ${t2.pontos} pontos</span>
                     </div>
                 </div>
                 <div class="cmp-grid">
-                    <div class="cmp-header">${t1.time}</div>
-                    <div class="cmp-header cmp-label-center">métrica</div>
-                    <div class="cmp-header">${t2.time}</div>
             `;
 
             campos.forEach((campo) => {
@@ -344,8 +584,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
             html += `
                 </div>
-                <div class="chart-body chart-body-detail">
-                    <canvas id="chartRadarCmp" aria-label="Radar comparativo entre os clubes selecionados"></canvas>
+                <div class="cmp-radar-card">
+                    <div class="cmp-radar-header">
+                        <div>
+                            <h3>Perfil de desempenho</h3>
+                            <p>Escala normalizada da Série A para comparar força geral, produção ofensiva e consistência.</p>
+                        </div>
+                        <div class="cmp-radar-legend" aria-label="Legenda do radar">
+                            <span>
+                                <span class="cmp-radar-key cmp-radar-key-a" aria-hidden="true"></span>
+                                ${t1.escudo ? `<img src="${t1.escudo}" alt="" class="cmp-radar-escudo">` : ''}
+                                ${t1.time}
+                            </span>
+                            <span>
+                                <span class="cmp-radar-key cmp-radar-key-b" aria-hidden="true"></span>
+                                ${t2.escudo ? `<img src="${t2.escudo}" alt="" class="cmp-radar-escudo">` : ''}
+                                ${t2.time}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="chart-body chart-body-detail">
+                        <canvas id="chartRadarCmp" aria-label="Radar comparativo entre os clubes selecionados"></canvas>
+                    </div>
                 </div>
             `;
 
@@ -356,29 +616,71 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!radarEl) return;
 
                 const theme = getRadarTheme();
-                const colorA = t1.cor || theme.brandAlt;
-                const colorB = t2.cor || theme.danger;
+                const pontosSerie = dadosClassificacao.map((time) => time.pontos);
+                const vitoriasSerie = dadosClassificacao.map((time) => time.vitorias);
+                const golsProSerie = dadosClassificacao.map((time) => time.gols_pro);
+                const aproveitamentoSerie = dadosClassificacao.map((time) => time.aproveitamento);
+                const saldoSerie = dadosClassificacao.map((time) => time.saldo);
 
-                chartComparador = criarRadarChart(
-                    radarEl,
-                    [
-                        {
-                            label: t1.time,
-                            data: radarDataset(t1, dadosClassificacao),
-                            borderColor: colorA,
-                            backgroundColor: hexToRgba(colorA, 0.16),
-                            pointRadius: 3
+                const colorA = theme.primary;
+                const colorB = theme.secondary;
+
+                chartComparador = new Chart(radarEl.getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
+                        datasets: [
+                            {
+                                label: t1.time,
+                                data: [
+                                    normalizarRadar(t1.pontos, pontosSerie),
+                                    normalizarRadar(t1.vitorias, vitoriasSerie),
+                                    normalizarRadar(t1.gols_pro, golsProSerie),
+                                    normalizarRadar(t1.aproveitamento, aproveitamentoSerie),
+                                    normalizarRadar(t1.saldo, saldoSerie)
+                                ],
+                                borderColor: colorA,
+                                backgroundColor: hexToRgba(colorA, 0.16),
+                                borderWidth: 2,
+                                pointRadius: 2,
+                                pointHoverRadius: 4
+                            },
+                            {
+                                label: t2.time,
+                                data: [
+                                    normalizarRadar(t2.pontos, pontosSerie),
+                                    normalizarRadar(t2.vitorias, vitoriasSerie),
+                                    normalizarRadar(t2.gols_pro, golsProSerie),
+                                    normalizarRadar(t2.aproveitamento, aproveitamentoSerie),
+                                    normalizarRadar(t2.saldo, saldoSerie)
+                                ],
+                                borderColor: colorB,
+                                backgroundColor: hexToRgba(colorB, 0.12),
+                                borderWidth: 2,
+                                pointRadius: 2,
+                                pointHoverRadius: 4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 100,
+                                grid: { color: theme.grid },
+                                pointLabels: { color: theme.label },
+                                ticks: { display: false }
+                            }
                         },
-                        {
-                            label: t2.time,
-                            data: radarDataset(t2, dadosClassificacao),
-                            borderColor: colorB,
-                            backgroundColor: hexToRgba(colorB, 0.16),
-                            pointRadius: 3
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
                         }
-                    ],
-                    { legend: true }
-                );
+                    }
+                });
             }
         });
     }

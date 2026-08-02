@@ -1,4 +1,7 @@
-const { getCssVar } = window.dashboardShared;
+function getCssVar(name, fallback) {
+    const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return value || fallback;
+}
 
 function getChartTheme() {
     return {
@@ -9,7 +12,14 @@ function getChartTheme() {
         text: getCssVar('--chart-label', '#c1cde0'),
         grid: getCssVar('--chart-grid', 'rgba(181, 195, 216, 0.14)'),
         tooltipBg: getCssVar('--chart-tooltip-bg', '#102138'),
-        tooltipBorder: getCssVar('--chart-tooltip-border', 'rgba(181, 195, 216, 0.18)')
+        tooltipBorder: getCssVar('--chart-tooltip-border', 'rgba(181, 195, 216, 0.18)'),
+        primary: getCssVar('--chart-primary', '#6ebc83'),
+        neutral: getCssVar('--chart-neutral', '#85877f'),
+        mutedBar: getCssVar('--chart-muted-bar', '#d7d6ce'),
+        zoneLib: getCssVar('--zone-lib', '#2368a2'),
+        zonePre: getCssVar('--zone-pre', '#6f8f2e'),
+        zoneSula: getCssVar('--zone-sula', '#c78121'),
+        zoneReb: getCssVar('--zone-reb', '#b83a34')
     };
 }
 
@@ -18,7 +28,7 @@ function configureDefaults() {
     const theme = getChartTheme();
     Chart.defaults.color = theme.text;
     Chart.defaults.borderColor = theme.grid;
-    Chart.defaults.font.family = "'Outfit', sans-serif";
+    Chart.defaults.font.family = "'Libre Franklin', sans-serif";
     Chart.defaults.font.weight = 500;
     return true;
 }
@@ -30,17 +40,22 @@ function tooltipBase() {
         borderColor: theme.tooltipBorder,
         borderWidth: 1,
         padding: 12,
-        cornerRadius: 12,
+        cornerRadius: 0,
         titleColor: theme.text,
         bodyColor: theme.text
     };
 }
 
+function corPorZona(time, theme) {
+    if (time.posicao <= 4) return theme.zoneLib;
+    if (time.posicao === 5) return theme.zonePre;
+    if (time.posicao >= 6 && time.posicao <= 11) return theme.zoneSula;
+    if (time.posicao >= 17) return theme.zoneReb;
+    return theme.neutral;
+}
+
 function formatarNomeCurto(nome) {
-    const partes = String(nome || '')
-        .trim()
-        .split(/\s+/)
-        .filter(Boolean);
+    const partes = String(nome || '').trim().split(/\s+/).filter(Boolean);
     if (partes.length <= 1) return partes[0] || '';
     const ultimo = partes[partes.length - 1];
     if (partes[0].length + ultimo.length <= 14) {
@@ -63,20 +78,14 @@ function criarGraficoPontos(classificacao) {
         type: 'bar',
         data: {
             labels: top10.map((time) => time.sigla),
-            datasets: [
-                {
-                    label: 'Pontos',
-                    data: top10.map((time) => time.pontos),
-                    backgroundColor: top10.map((_, index) => {
-                        if (index >= 6) return theme.brand;
-                        if (index >= 4) return theme.warning;
-                        return theme.brandAlt;
-                    }),
-                    borderRadius: 10,
-                    borderSkipped: false,
-                    barPercentage: 0.72
-                }
-            ]
+            datasets: [{
+                label: 'Pontos',
+                data: top10.map((time) => time.pontos),
+                backgroundColor: top10.map((time) => corPorZona(time, theme)),
+                borderRadius: 2,
+                borderSkipped: false,
+                barPercentage: 0.72
+            }]
         },
         options: {
             indexAxis: 'y',
@@ -106,11 +115,7 @@ function criarGraficoPontos(classificacao) {
     chartsRegistry.push({
         chart,
         updateTheme: (newTheme) => {
-            chart.data.datasets[0].backgroundColor = top10.map((_, index) => {
-                if (index >= 6) return newTheme.brand;
-                if (index >= 4) return newTheme.warning;
-                return newTheme.brandAlt;
-            });
+            chart.data.datasets[0].backgroundColor = top10.map((time) => corPorZona(time, newTheme));
             chart.options.scales.x.grid.color = newTheme.grid;
             chart.options.plugins.tooltip = {
                 ...tooltipBase(),
@@ -134,20 +139,14 @@ function criarGraficoArtilheiros(artilharia) {
         type: 'bar',
         data: {
             labels: top10.map((jogador) => formatarNomeCurto(jogador.jogador)),
-            datasets: [
-                {
-                    label: 'Gols',
-                    data: top10.map((jogador) => jogador.gols),
-                    backgroundColor: top10.map((_, index) => {
-                        if (index === 0) return theme.warning;
-                        if (index <= 2) return theme.brandAlt;
-                        return theme.brand;
-                    }),
-                    borderRadius: 10,
-                    borderSkipped: false,
-                    barPercentage: 0.68
-                }
-            ]
+            datasets: [{
+                label: 'Gols',
+                data: top10.map((jogador) => jogador.gols),
+                backgroundColor: top10.map((_, index) => index === 0 ? theme.primary : theme.neutral),
+                borderRadius: 2,
+                borderSkipped: false,
+                barPercentage: 0.68
+            }]
         },
         options: {
             responsive: true,
@@ -178,11 +177,7 @@ function criarGraficoArtilheiros(artilharia) {
     chartsRegistry.push({
         chart,
         updateTheme: (newTheme) => {
-            chart.data.datasets[0].backgroundColor = top10.map((_, index) => {
-                if (index === 0) return newTheme.warning;
-                if (index <= 2) return newTheme.brandAlt;
-                return newTheme.brand;
-            });
+            chart.data.datasets[0].backgroundColor = top10.map((_, index) => index === 0 ? newTheme.primary : newTheme.neutral);
             chart.options.scales.y.grid.color = newTheme.grid;
             chart.options.plugins.tooltip = {
                 ...tooltipBase(),
@@ -212,20 +207,14 @@ function criarGraficoAproveitamento(classificacao) {
         type: 'bar',
         data: {
             labels: dados.map((time) => time.sigla),
-            datasets: [
-                {
-                    label: 'Aproveitamento %',
-                    data: dados.map((time) => time.aproveitamento),
-                    backgroundColor: dados.map((time) => {
-                        if (time.aproveitamento >= 60) return theme.brand;
-                        if (time.aproveitamento >= 45) return theme.warning;
-                        return theme.danger;
-                    }),
-                    borderRadius: 10,
-                    borderSkipped: false,
-                    barPercentage: 0.72
-                }
-            ]
+            datasets: [{
+                label: 'Aproveitamento %',
+                data: dados.map((time) => time.aproveitamento),
+                backgroundColor: dados.map((time, index) => index === dados.length - 1 ? theme.primary : theme.neutral),
+                borderRadius: 2,
+                borderSkipped: false,
+                barPercentage: 0.72
+            }]
         },
         options: {
             indexAxis: 'y',
@@ -255,11 +244,7 @@ function criarGraficoAproveitamento(classificacao) {
     chartsRegistry.push({
         chart,
         updateTheme: (newTheme) => {
-            chart.data.datasets[0].backgroundColor = dados.map((time) => {
-                if (time.aproveitamento >= 60) return newTheme.brand;
-                if (time.aproveitamento >= 45) return newTheme.warning;
-                return newTheme.danger;
-            });
+            chart.data.datasets[0].backgroundColor = dados.map((time, index) => index === dados.length - 1 ? newTheme.primary : newTheme.neutral);
             chart.options.scales.x.grid.color = newTheme.grid;
             chart.options.plugins.tooltip = {
                 ...tooltipBase(),
@@ -286,16 +271,16 @@ function criarGraficoGolsComparativo(classificacao) {
                 {
                     label: 'Gols pró',
                     data: top8.map((time) => time.gols_pro),
-                    backgroundColor: theme.brand,
-                    borderRadius: 6,
+                    backgroundColor: theme.primary,
+                    borderRadius: 2,
                     borderSkipped: false,
                     barPercentage: 0.7
                 },
                 {
                     label: 'Gols contra',
                     data: top8.map((time) => time.gols_contra),
-                    backgroundColor: theme.danger,
-                    borderRadius: 6,
+                    backgroundColor: theme.mutedBar,
+                    borderRadius: 2,
                     borderSkipped: false,
                     barPercentage: 0.7
                 }
@@ -337,8 +322,8 @@ function criarGraficoGolsComparativo(classificacao) {
     chartsRegistry.push({
         chart,
         updateTheme: (newTheme) => {
-            chart.data.datasets[0].backgroundColor = newTheme.brand;
-            chart.data.datasets[1].backgroundColor = newTheme.danger;
+            chart.data.datasets[0].backgroundColor = newTheme.primary;
+            chart.data.datasets[1].backgroundColor = newTheme.mutedBar;
             chart.options.scales.y.grid.color = newTheme.grid;
             chart.options.plugins.tooltip = {
                 ...tooltipBase(),

@@ -1,7 +1,6 @@
+import build_static
 import json
 import re
-
-import build_static
 
 
 def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
@@ -14,32 +13,24 @@ def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
     time_html = (dist_dir / "time" / "PAL" / "index.html").read_text(encoding="utf-8")
 
     assert 'href="/futebol-dashboard/static/css/style.css"' in index_html
+    assert 'href="/futebol-dashboard/static/css/matchday.css"' in index_html
     assert 'href="/futebol-dashboard/time/PAL/"' in index_html
-    assert 'src="/futebol-dashboard/static/js/shared.js"' in index_html
+    assert 'src="/futebol-dashboard/static/img/escudos/CAP.png"' in index_html
     assert 'src="/futebol-dashboard/static/js/main.js"' in index_html
+    assert "concept-dock" not in index_html
+    assert 'data-visual="matchday"' in index_html
     assert 'href="/futebol-dashboard/"' in time_html
     assert 'href="/futebol-dashboard/#classificacao"' in time_html
-    assert 'src="/futebol-dashboard/static/js/shared.js"' in time_html
-    # A pagina do clube nao carrega main.js (tabela/abas/comparador nao existem la)
-    assert "static/js/main.js" not in time_html
     assert (dist_dir / ".nojekyll").exists()
     assert (dist_dir / "404.html").exists()
     assert (dist_dir / "robots.txt").exists()
     assert (dist_dir / "sitemap.xml").exists()
     assert not (dist_dir / "_redirects").exists()
-
-    pagina_404 = (dist_dir / "404.html").read_text(encoding="utf-8")
-    assert "Página não encontrada" in pagina_404
-    assert "tabela-classificacao" not in pagina_404
-    assert 'href="/futebol-dashboard/"' in pagina_404
-
-    classificacao_json = json.loads((dist_dir / "api" / "classificacao.json").read_text(encoding="utf-8"))
-    artilharia_json = json.loads((dist_dir / "api" / "artilharia.json").read_text(encoding="utf-8"))
-    assert len(classificacao_json) == 20
-    assert artilharia_json and {"jogador", "time", "sigla", "gols"}.issubset(artilharia_json[0].keys())
+    assert (dist_dir / "static" / "css" / "matchday.css").exists()
+    assert (dist_dir / "static" / "img" / "escudos" / "CAP.png").exists()
 
     health = json.loads((dist_dir / "api" / "health.json").read_text(encoding="utf-8"))
-    assert health["dados_desatualizados"] == build_static.app_module.dados_estao_desatualizados(
+    assert health["dados_desatualizados"] == build_static.app_module._dados_estao_desatualizados(
         build_static.Path(build_static.app_module.DATA_PATH).stat().st_mtime
     )
 

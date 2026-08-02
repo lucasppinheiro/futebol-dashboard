@@ -8,6 +8,7 @@ from flask import render_template
 
 import app as app_module
 
+
 BASE_DIR = Path(__file__).resolve().parent
 DIST_DIR = BASE_DIR / "dist"
 STATIC_DIR = BASE_DIR / "static"
@@ -65,7 +66,7 @@ def build(site_base_path: str | None = None) -> None:
         _escrever_arquivo(".nojekyll", "")
         index_html = _render("/", "index.html", dados=dados)
         _escrever_arquivo("index.html", index_html)
-        _escrever_arquivo("404.html", _render("/404", "404.html", dados=dados))
+        _escrever_arquivo("404.html", index_html)
 
         for time in dados["classificacao"]:
             artilheiros = [j for j in dados["artilharia"] if j["sigla"] == time["sigla"]]
@@ -78,7 +79,7 @@ def build(site_base_path: str | None = None) -> None:
         try:
             mtime = Path(app_module.DATA_PATH).stat().st_mtime
             atualizado_em = datetime.fromtimestamp(mtime, tz=timezone.utc).isoformat()
-            dados_desatualizados = app_module.dados_estao_desatualizados(mtime)
+            dados_desatualizados = app_module._dados_estao_desatualizados(mtime)
         except OSError:
             atualizado_em = None
             dados_desatualizados = True

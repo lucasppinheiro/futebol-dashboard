@@ -1,153 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="light" data-visual="matchday">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brasileirão {{ dados.info.temporada }} | Dashboard Editorial</title>
+    <title>Brasileirão {{ dados.info.temporada }} | Tabela da Série A</title>
     <meta name="description"
         content="Dashboard interativo do Campeonato Brasileiro Série A {{ dados.info.temporada }} com classificação, artilharia, comparativos e gráficos.">
     <link rel="canonical" href="https://futebol-dashboard.vercel.app/">
-    <meta property="og:title" content="Brasileirão {{ dados.info.temporada }} | Dashboard Editorial">
+    <meta property="og:title" content="Brasileirão {{ dados.info.temporada }} | Tabela da Série A">
     <meta property="og:description" content="Classificação, artilharia e comparativos da Série A em um dashboard responsivo.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://futebol-dashboard.vercel.app/">
-    <script>
-        (function () {
-            var savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            } else if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" integrity="sha384-e6nUZLBkQ86NJ6TVVKAeSaK8jWa3NhkYWZFomE39AvDbQWeie9PlQqM3pmYW5d1g" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="{{ site_url('static/css/matchday.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 
 <body>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
-    {% set top4_cut = dados.classificacao[3] if dados.classificacao|length > 3 else none %}
-    {% set risk_cut = dados.classificacao[16] if dados.classificacao|length > 16 else none %}
-    {% set melhor_ataque = (dados.classificacao | sort(attribute='gols_pro', reverse=true) | first) %}
-    {% set melhor_defesa = (dados.classificacao | sort(attribute='gols_contra') | first) %}
-
     <header class="hero">
-        <div class="hero-orbit hero-orbit-a" aria-hidden="true"></div>
-        <div class="hero-orbit hero-orbit-b" aria-hidden="true"></div>
         <div class="container hero-grid">
             <div class="hero-copy">
-                <span class="hero-kicker">Temporada {{ dados.info.temporada }} · leitura rápida da Série A</span>
-                <h1>Radar do <span class="gradient-text">Brasileirão</span></h1>
+                <span class="hero-kicker">Brasileirão Série A · Temporada {{ dados.info.temporada }}</span>
+                <h1>Tabela do <span class="gradient-text">Brasileirão</span></h1>
                 <p class="hero-subtitle">
-                    Painel de rodada com tabela, artilharia, comparativos e cortes de disputa em uma leitura mais
-                    tensa, rápida e editorial.
+                    Classificação, zonas, saldo e artilharia em uma leitura limpa, direta e inspirada em páginas esportivas editoriais.
                 </p>
-                <div class="hero-actions">
-                    <a href="#classificacao" class="hero-action primary">Ver tabela</a>
-                    <a href="#graficos" class="hero-action secondary">Explorar gráficos</a>
-                </div>
-                <div class="hero-meta-grid">
-                    <article class="hero-stat-card">
-                        <div class="stat-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M8 4h8v3a4 4 0 0 1-8 0z" />
-                                <path d="M6 5H4v1a3 3 0 0 0 3 3" />
-                                <path d="M18 5h2v1a3 3 0 0 1-3 3" />
-                                <path d="M12 11v4" />
-                                <path d="M9 21h6" />
-                                <path d="M10 17h4" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">{{ 'Campeão' if dados.info.get('campeonato_finalizado') else 'Líder atual' }}</span>
-                            <span class="stat-value">{{ dados.info.lider }}</span>
-                            <span class="stat-detail" data-count="{{ dados.info.lider_pontos }}">{{ dados.info.lider_pontos }} pontos</span>
-                        </div>
-                    </article>
-                    <article class="hero-stat-card">
-                        <div class="stat-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="8" />
-                                <path d="m12 7 2.5 1.8-.95 3H9.45L8.5 8.8z" />
-                                <path d="m9.4 15-1.7 2.1" />
-                                <path d="m14.6 15 1.7 2.1" />
-                                <path d="m7.8 9.5-2.2-.7" />
-                                <path d="m18.4 8.8-2.2.7" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">Artilheiro</span>
-                            <span class="stat-value">{{ dados.info.artilheiro }}</span>
-                            <span class="stat-detail" data-count="{{ dados.info.artilheiro_gols }}">{{ dados.info.artilheiro_gols }} gols</span>
-                        </div>
-                    </article>
-                    <article class="hero-stat-card">
-                        <div class="stat-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <rect x="4" y="5" width="16" height="15" rx="2" />
-                                <path d="M8 3v4" />
-                                <path d="M16 3v4" />
-                                <path d="M4 10h16" />
-                                <path d="M8 14h3" />
-                                <path d="M13 14h3" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-label">Recorte da disputa</span>
-                            <span class="stat-value">{{ dados.info.rodada_atual }}/{{ dados.info.rodadas_total }}</span>
-                            <span class="stat-detail">{{ dados.info.times_total }} clubes no radar</span>
-                        </div>
-                    </article>
-                </div>
-                <div class="hero-ticker" aria-label="Cortes da rodada">
-                    <span class="hero-ticker-item">
-                        <strong>Corte G4</strong>
-                        {% if top4_cut %}{{ top4_cut.pontos }} pts{% else %}-{% endif %}
-                    </span>
-                    <span class="hero-ticker-item">
-                        <strong>Linha Z4</strong>
-                        {% if risk_cut %}{{ risk_cut.pontos }} pts{% else %}-{% endif %}
-                    </span>
-                    <span class="hero-ticker-item">
-                        <strong>Melhor ataque</strong>
-                        {{ melhor_ataque.gols_pro }} gols
-                    </span>
-                </div>
             </div>
-
-            <aside class="hero-panel" aria-label="Pulso da competição">
-                <div class="hero-panel-head">
-                    <span class="panel-label">Pulso da competição</span>
-                    <strong>{{ 'Temporada encerrada' if dados.info.get('campeonato_finalizado') else 'Disputa em aberto' }}</strong>
-                </div>
-                <p class="hero-panel-copy">
-                    {{ dados.info.lider }} dita o ritmo da temporada enquanto a artilharia segue liderada por
-                    {{ dados.info.artilheiro }}. Use os cortes abaixo para navegar mais rápido pelo cenário.
-                </p>
-                <div class="podium-list">
-                    {% for time in dados.classificacao[:3] %}
-                    <a href="{{ site_url('time/' ~ time.sigla ~ '/') }}" class="podium-item">
-                        <span class="podium-rank">0{{ loop.index }}</span>
-                        <div class="podium-team">
-                            <strong>{{ time.time }}</strong>
-                            <span>{{ time.sigla }} · {{ time.vitorias }} vitórias</span>
-                        </div>
-                        <span class="podium-points">{{ time.pontos }} pts</span>
-                    </a>
-                    {% endfor %}
-                </div>
-                <div class="hero-panel-foot">
-                    <span>{{ dados.info.rodadas_total }} rodadas previstas</span>
-                    <span>{{ dados.info.times_total }} clubes na elite</span>
-                </div>
-            </aside>
         </div>
     </header>
 
@@ -202,65 +87,10 @@
                     Comparador
                 </button>
             </div>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Mudar para modo claro" title="Alternar tema">
-                <span class="theme-icon-dark" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z" />
-                    </svg>
-                </span>
-                <span class="theme-icon-light" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="4" />
-                        <path d="M12 2v2" />
-                        <path d="M12 20v2" />
-                        <path d="m4.93 4.93 1.41 1.41" />
-                        <path d="m17.66 17.66 1.41 1.41" />
-                        <path d="M2 12h2" />
-                        <path d="M20 12h2" />
-                        <path d="m6.34 17.66-1.41 1.41" />
-                        <path d="m19.07 4.93-1.41 1.41" />
-                    </svg>
-                </span>
-            </button>
         </div>
     </nav>
 
     <main id="main-content" class="container main-content">
-        <section class="overview-band" aria-label="Panorama rápido">
-            <div class="overview-grid">
-                <article class="overview-card">
-                    <span class="overview-eyebrow">Corte G4</span>
-                    {% if top4_cut %}
-                    <strong class="overview-value" data-count="{{ top4_cut.pontos }}">{{ top4_cut.pontos }} pts</strong>
-                    <p class="overview-note">{{ top4_cut.time }} fecha hoje a zona direta de Libertadores.</p>
-                    {% else %}
-                    <strong class="overview-value">-</strong>
-                    <p class="overview-note">Dados insuficientes para determinar o corte.</p>
-                    {% endif %}
-                </article>
-                <article class="overview-card">
-                    <span class="overview-eyebrow">Linha do Z4</span>
-                    {% if risk_cut %}
-                    <strong class="overview-value" data-count="{{ risk_cut.pontos }}">{{ risk_cut.pontos }} pts</strong>
-                    <p class="overview-note">{{ risk_cut.time }} abre hoje a zona de rebaixamento.</p>
-                    {% else %}
-                    <strong class="overview-value">-</strong>
-                    <p class="overview-note">Dados insuficientes para definir a zona de risco.</p>
-                    {% endif %}
-                </article>
-                <article class="overview-card">
-                    <span class="overview-eyebrow">Melhor ataque</span>
-                    <strong class="overview-value" data-count="{{ melhor_ataque.gols_pro }}">{{ melhor_ataque.gols_pro }} gols</strong>
-                    <p class="overview-note">{{ melhor_ataque.time }} é o time com maior produção ofensiva.</p>
-                </article>
-                <article class="overview-card">
-                    <span class="overview-eyebrow">Melhor defesa</span>
-                    <strong class="overview-value" data-count="{{ melhor_defesa.gols_contra }}">{{ melhor_defesa.gols_contra }} sofridos</strong>
-                    <p class="overview-note">{{ melhor_defesa.time }} tem a retaguarda mais sólida até aqui.</p>
-                </article>
-            </div>
-        </section>
-
         <section id="classificacao" class="section active" role="tabpanel" aria-labelledby="tab-classificacao">
             <div class="section-header">
                 <span class="section-index" aria-hidden="true">01</span>
@@ -297,6 +127,12 @@
                         <button class="filter-btn" data-zona="sulamericana">Sula</button>
                         <button class="filter-btn" data-zona="rebaixamento">Rebaixamento</button>
                         <button class="filter-btn" data-zona="favoritos">Favoritos</button>
+                    </div>
+                    <div class="classification-legend" aria-label="Zonas de classificação">
+                        <span><span class="dot lib"></span> Libertadores direta (G4)</span>
+                        <span><span class="dot prelib"></span> Pré-Libertadores</span>
+                        <span><span class="dot sula"></span> Sul-Americana</span>
+                        <span><span class="dot reb"></span> Rebaixamento</span>
                     </div>
                 </div>
 
@@ -343,8 +179,7 @@
                                     </td>
                                     <td class="col-time">
                                         {% if time.escudo %}
-                                        <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="time-escudo" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
-                                        <span class="time-cor" style="background: {{ time.cor }}" aria-hidden="true" hidden></span>
+                                        <img src="{{ site_url(time.escudo) }}" alt="Escudo de {{ time.time }}" class="time-escudo" loading="lazy">
                                         {% else %}
                                         <span class="time-cor" style="background: {{ time.cor }}" aria-hidden="true"></span>
                                         {% endif %}
@@ -373,15 +208,6 @@
 
                 <p id="classificacao-empty" class="table-empty" hidden>Nenhum clube corresponde aos filtros atuais.</p>
             </div>
-
-            <div class="legend-card">
-                <div class="legenda">
-                    <div class="legenda-item"><span class="dot lib"></span> Libertadores direta (G4)</div>
-                    <div class="legenda-item"><span class="dot prelib"></span> Pré-Libertadores</div>
-                    <div class="legenda-item"><span class="dot sula"></span> Sul-Americana</div>
-                    <div class="legenda-item"><span class="dot reb"></span> Rebaixamento</div>
-                </div>
-            </div>
         </section>
 
         <section id="artilharia" class="section" role="tabpanel" aria-labelledby="tab-artilharia">
@@ -394,22 +220,8 @@
                 </div>
                 <span class="section-tag">Top 20</span>
             </div>
-
-            <div class="rank-grid">
-                {% for j in dados.artilharia[:3] %}
-                <article class="rank-card">
-                    <span class="rank-medal">0{{ loop.index }}</span>
-                    <strong class="rank-player">{{ j.jogador }}</strong>
-                    <span class="rank-team">{{ j.time }} · {{ j.sigla }}</span>
-                    <div class="rank-footer">
-                        <span class="scorer-position">{{ j.posicao }}</span>
-                        <strong class="rank-score" data-count="{{ j.gols }}">{{ j.gols }} gols</strong>
-                    </div>
-                </article>
-                {% endfor %}
-            </div>
-
             <div class="panel-shell">
+                {% set mostrar_posicao_artilharia = (dados.artilharia | rejectattr('posicao', 'equalto', 'Nao informado') | list | length) > 0 %}
                 <div class="table-wrapper">
                     <div class="table-card">
                         <table class="data-table">
@@ -419,7 +231,9 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Jogador</th>
                                     <th scope="col">Time</th>
+                                    {% if mostrar_posicao_artilharia %}
                                     <th scope="col">Posição</th>
+                                    {% endif %}
                                     <th scope="col">Gols</th>
                                 </tr>
                             </thead>
@@ -431,10 +245,17 @@
                                     </td>
                                     <td><strong>{{ j.jogador }}</strong></td>
                                     <td>
-                                        <span class="scorer-sigla">{{ j.sigla }}</span>
-                                        {{ j.time }}
+                                        {% set clube = (dados.classificacao | selectattr('sigla', 'equalto', j.sigla) | list | first) %}
+                                        <span class="scorer-team">
+                                            {% if clube and clube.escudo %}
+                                            <img src="{{ site_url(clube.escudo) }}" alt="Escudo de {{ j.time }}" class="scorer-escudo" loading="lazy">
+                                            {% endif %}
+                                            <span>{{ j.time }}</span>
+                                        </span>
                                     </td>
+                                    {% if mostrar_posicao_artilharia %}
                                     <td><span class="scorer-position">{{ j.posicao }}</span></td>
+                                    {% endif %}
                                     <td class="col-gols"><strong>{{ j.gols }}</strong></td>
                                 </tr>
                                 {% endfor %}
@@ -449,23 +270,20 @@
             <div class="section-header">
                 <span class="section-index" aria-hidden="true">03</span>
                 <div class="section-copy">
-                    <span class="section-kicker">Visualizações</span>
-                    <h2>Gráficos interativos</h2>
-                    <p>Quatro leituras para enxergar corrida pelo topo, decisão individual e balanço competitivo com menos ruído visual.</p>
+                    <span class="section-kicker">Desempenho</span>
+                    <h2>Radiografia da competição</h2>
+                    <p>Um recorte visual da liderança, artilharia, eficiência e equilíbrio entre ataque e defesa.</p>
                 </div>
-                <span class="section-tag">Chart.js</span>
+                <span class="section-tag">4 leituras</span>
             </div>
 
-            <div class="section-utility">
-                <p class="section-helper">Os gráficos são carregados quando esta aba é aberta, para reduzir o peso inicial da página.</p>
-                <p id="charts-status" class="visually-hidden" aria-live="polite"></p>
-            </div>
+            <p id="charts-status" class="visually-hidden" aria-live="polite"></p>
 
             <div class="charts-grid">
-                <article class="chart-card">
+                <article class="chart-card chart-card-primary">
                     <div class="chart-header">
-                        <h3>Pontuação do top 10</h3>
-                        <p id="chartPontosSummary">Quem está puxando a corrida pelo topo da tabela.</p>
+                        <h3>Corrida pelo topo</h3>
+                        <p id="chartPontosSummary">Pontuação dos dez primeiros clubes, colorida pelas zonas da tabela.</p>
                     </div>
                     <div class="chart-body">
                         <canvas id="chartPontos" aria-label="Gráfico de barras com pontuação dos dez primeiros clubes" aria-describedby="chartPontosSummary"></canvas>
@@ -473,8 +291,8 @@
                 </article>
                 <article class="chart-card">
                     <div class="chart-header">
-                        <h3>Top 10 artilheiros</h3>
-                        <p id="chartArtilheirosSummary">Produção individual de gols entre os destaques do campeonato.</p>
+                        <h3>Gols em destaque</h3>
+                        <p id="chartArtilheirosSummary">Os principais artilheiros da Série A no recorte atual.</p>
                     </div>
                     <div class="chart-body">
                         <canvas id="chartArtilheiros" aria-label="Gráfico de barras com os dez maiores artilheiros" aria-describedby="chartArtilheirosSummary"></canvas>
@@ -482,8 +300,8 @@
                 </article>
                 <article class="chart-card">
                     <div class="chart-header">
-                        <h3>Aproveitamento do top 10</h3>
-                        <p id="chartAproveitamentoSummary">Eficiência dos melhores times em percentual de pontos conquistados.</p>
+                        <h3>Eficiência dos clubes</h3>
+                        <p id="chartAproveitamentoSummary">Percentual de pontos conquistados entre os dez melhores aproveitamentos.</p>
                     </div>
                     <div class="chart-body">
                         <canvas id="chartAproveitamento" aria-label="Gráfico de barras com o aproveitamento dos dez primeiros clubes" aria-describedby="chartAproveitamentoSummary"></canvas>
@@ -491,8 +309,8 @@
                 </article>
                 <article class="chart-card">
                     <div class="chart-header">
-                        <h3>Ataque x defesa do top 8</h3>
-                        <p id="chartGolsComparativoSummary">Balanço ofensivo e defensivo dos clubes mais fortes no recorte atual.</p>
+                        <h3>Ataque e defesa</h3>
+                        <p id="chartGolsComparativoSummary">Gols marcados e sofridos pelos oito primeiros colocados.</p>
                     </div>
                     <div class="chart-body">
                         <canvas id="chartGolsComparativo" aria-label="Gráfico comparativo de gols pró e contra dos oito primeiros clubes" aria-describedby="chartGolsComparativoSummary"></canvas>
@@ -513,32 +331,56 @@
             </div>
 
             <div class="cmp-layout">
-                <article class="cmp-intro-card">
-                    <span class="section-kicker">Como ler</span>
-                    <h3>Compare força, consistência e volume ofensivo.</h3>
-                    <p>O comparador destaca quem leva vantagem em pontos, saldo, eficiência e produção na temporada atual.</p>
-                    <ul class="cmp-feature-list">
-                        <li>Leitura lado a lado das principais métricas.</li>
-                        <li>Radar com perfil de desempenho de cada clube.</li>
-                        <li>Atualização imediata ao trocar os selecionados.</li>
-                    </ul>
-                </article>
-
                 <div class="cmp-panel">
                     <div class="cmp-controls">
-                        <select id="cmp-time1" class="cmp-select" aria-label="Selecionar primeiro time">
-                            <option value="">Selecione o 1º time</option>
-                            {% for time in dados.classificacao %}
-                            <option value="{{ time.sigla }}">{{ time.time }}</option>
-                            {% endfor %}
-                        </select>
-                        <span class="cmp-vs" aria-hidden="true">vs</span>
-                        <select id="cmp-time2" class="cmp-select" aria-label="Selecionar segundo time">
-                            <option value="">Selecione o 2º time</option>
-                            {% for time in dados.classificacao %}
-                            <option value="{{ time.sigla }}">{{ time.time }}</option>
-                            {% endfor %}
-                        </select>
+                        <div class="cmp-field">
+                            <span id="cmp-time1-label">Primeiro time</span>
+                            <select id="cmp-time1" class="cmp-select cmp-select-native" aria-hidden="true" tabindex="-1">
+                                <option value="">Selecione o 1º time</option>
+                                {% for time in dados.classificacao %}
+                                <option value="{{ time.sigla }}">{{ time.time }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="cmp-picker" data-select="cmp-time1">
+                                <button type="button" class="cmp-picker-button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="cmp-time1-label cmp-time1-current">
+                                    <span class="cmp-picker-placeholder" id="cmp-time1-current">Selecione o 1º time</span>
+                                </button>
+                                <div class="cmp-picker-list" role="listbox" aria-labelledby="cmp-time1-label">
+                                    {% for time in dados.classificacao %}
+                                    <button type="button" class="cmp-picker-option" role="option" data-value="{{ time.sigla }}" aria-selected="false">
+                                        {% if time.escudo %}
+                                        <img src="{{ site_url(time.escudo) }}" alt="" class="cmp-picker-escudo" loading="lazy">
+                                        {% endif %}
+                                        <span>{{ time.time }}</span>
+                                    </button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cmp-field">
+                            <span id="cmp-time2-label">Segundo time</span>
+                            <select id="cmp-time2" class="cmp-select cmp-select-native" aria-hidden="true" tabindex="-1">
+                                <option value="">Selecione o 2º time</option>
+                                {% for time in dados.classificacao %}
+                                <option value="{{ time.sigla }}">{{ time.time }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="cmp-picker" data-select="cmp-time2">
+                                <button type="button" class="cmp-picker-button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="cmp-time2-label cmp-time2-current">
+                                    <span class="cmp-picker-placeholder" id="cmp-time2-current">Selecione o 2º time</span>
+                                </button>
+                                <div class="cmp-picker-list" role="listbox" aria-labelledby="cmp-time2-label">
+                                    {% for time in dados.classificacao %}
+                                    <button type="button" class="cmp-picker-option" role="option" data-value="{{ time.sigla }}" aria-selected="false">
+                                        {% if time.escudo %}
+                                        <img src="{{ site_url(time.escudo) }}" alt="" class="cmp-picker-escudo" loading="lazy">
+                                        {% endif %}
+                                        <span>{{ time.time }}</span>
+                                    </button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
                         <button id="cmp-btn" class="cmp-button">Comparar</button>
                     </div>
                     <div id="cmp-result" class="cmp-result" aria-live="polite">
@@ -551,9 +393,14 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <p><strong>Brasileirão Dashboard {{ dados.info.temporada }}</strong> · Site estático gerado com Python/Jinja · Gráficos com Chart.js</p>
-            <p class="footer-author">por <a href="https://github.com/lucasppinheiro" target="_blank" rel="noopener noreferrer">Lucas Santos</a></p>
-            <p class="footer-note">Dados da temporada {{ dados.info.temporada }} com atualização automatizada e consulta rápida.</p>
+            <div class="footer-brand">
+                <span class="footer-kicker">Brasileirão {{ dados.info.temporada }}</span>
+                <strong>Projeto de Lucas Pinheiro</strong>
+            </div>
+            <div class="footer-meta">
+                <span>Dados oficiais da CBF, atualizados automaticamente.</span>
+                <span>Classificação, artilharia e comparativos da Série A.</span>
+            </div>
         </div>
     </footer>
 
@@ -561,7 +408,6 @@
         const dadosClassificacao = {{ dados.classificacao | tojson }};
         const dadosArtilharia = {{ dados.artilharia | tojson }};
     </script>
-    <script src="{{ site_url('static/js/shared.js') }}"></script>
     <script src="{{ site_url('static/js/charts.js') }}"></script>
     <script src="{{ site_url('static/js/main.js') }}"></script>
 </body>

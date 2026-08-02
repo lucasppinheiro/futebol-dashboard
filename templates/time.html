@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="light" data-visual="matchday">
 
 <head>
     <meta charset="UTF-8">
@@ -10,23 +10,14 @@
     <meta property="og:title" content="{{ time.time }} | Brasileirão {{ dados.info.temporada }}">
     <meta property="og:description" content="Campanha, desempenho e artilheiros do {{ time.time }} na Série A.">
     <meta property="og:type" content="website">
-    <script>
-        (function () {
-            var savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            } else if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" integrity="sha384-e6nUZLBkQ86NJ6TVVKAeSaK8jWa3NhkYWZFomE39AvDbQWeie9PlQqM3pmYW5d1g" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="{{ site_url('static/css/matchday.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 
 <body>
@@ -40,7 +31,7 @@
                 <span class="hero-kicker">{{ time.estado }} · {{ time.sigla }}</span>
                 <div class="hero-time-header">
                     {% if time.escudo %}
-                    <img src="{{ time.escudo }}" alt="Escudo de {{ time.time }}" class="hero-escudo" width="92" height="92" fetchpriority="high" onerror="this.style.display='none'">
+                    <img src="{{ site_url(time.escudo) }}" alt="Escudo de {{ time.time }}" class="hero-escudo">
                     {% endif %}
                     <div>
                         <h1>{{ time.time }}</h1>
@@ -50,26 +41,6 @@
                 <div class="hero-actions">
                     <a href="{{ site_url('#classificacao') }}" class="hero-action primary">Voltar à tabela</a>
                     <a href="#time-radar" class="hero-action secondary">Ver radar</a>
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Mudar para modo claro" title="Alternar tema">
-                        <span class="theme-icon-dark" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z" />
-                            </svg>
-                        </span>
-                        <span class="theme-icon-light" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="4" />
-                                <path d="M12 2v2" />
-                                <path d="M12 20v2" />
-                                <path d="m4.93 4.93 1.41 1.41" />
-                                <path d="m17.66 17.66 1.41 1.41" />
-                                <path d="M2 12h2" />
-                                <path d="M20 12h2" />
-                                <path d="m6.34 17.66-1.41 1.41" />
-                                <path d="m19.07 4.93-1.41 1.41" />
-                            </svg>
-                        </span>
-                    </button>
                 </div>
                 <div class="hero-ticker hero-ticker-team" aria-label="Recortes do clube">
                     <span class="hero-ticker-item"><strong>Pontos</strong>{{ time.pontos }}</span>
@@ -190,6 +161,7 @@
                 <p>Os jogadores que mais contribuíram com gols para a campanha do clube.</p>
             </div>
             <div class="table-wrapper">
+                {% set mostrar_posicao_artilharia = (artilheiros | rejectattr('posicao', 'equalto', 'Nao informado') | list | length) > 0 %}
                 <div class="table-card">
                     <table class="data-table">
                         <caption class="visually-hidden">Lista de artilheiros do {{ time.time }} na temporada.</caption>
@@ -197,7 +169,9 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Jogador</th>
+                                {% if mostrar_posicao_artilharia %}
                                 <th scope="col">Posição</th>
+                                {% endif %}
                                 <th scope="col">Gols</th>
                             </tr>
                         </thead>
@@ -208,7 +182,9 @@
                                     <span class="pos-badge {% if loop.index <= 3 %}top3{% endif %}">{{ loop.index }}</span>
                                 </td>
                                 <td><strong>{{ j.jogador }}</strong></td>
+                                {% if mostrar_posicao_artilharia %}
                                 <td><span class="scorer-position">{{ j.posicao }}</span></td>
+                                {% endif %}
                                 <td class="col-gols"><strong>{{ j.gols }}</strong></td>
                             </tr>
                             {% endfor %}
@@ -230,7 +206,7 @@
         const timeData = {{ time | tojson }};
         const todosClassificacao = {{ dados.classificacao | tojson }};
     </script>
-    <script src="{{ site_url('static/js/shared.js') }}"></script>
+    <script src="{{ site_url('static/js/main.js') }}"></script>
     <script src="{{ site_url('static/js/time.js') }}"></script>
 </body>
 
