@@ -194,15 +194,15 @@
       "estado": "SP",
       "cor": "#FF0000",
       "escudo": "static/img/escudos/SAO.jpg",
-      "jogos": 20,
+      "jogos": 21,
       "vitorias": 7,
       "empates": 5,
-      "derrotas": 8,
-      "gols_pro": 25,
-      "gols_contra": 23,
-      "saldo": 2,
+      "derrotas": 9,
+      "gols_pro": 26,
+      "gols_contra": 25,
+      "saldo": 1,
       "pontos": 26,
-      "aproveitamento": 43.3
+      "aproveitamento": 41.3
     },
     {
       "posicao": 13,
@@ -223,6 +223,23 @@
     },
     {
       "posicao": 14,
+      "time": "Grêmio FBPA",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "static/img/escudos/GRE.jpg",
+      "jogos": 21,
+      "vitorias": 6,
+      "empates": 7,
+      "derrotas": 8,
+      "gols_pro": 24,
+      "gols_contra": 27,
+      "saldo": -3,
+      "pontos": 25,
+      "aproveitamento": 39.7
+    },
+    {
+      "posicao": 15,
       "time": "Mirassol FC",
       "sigla": "MIR",
       "estado": "SP",
@@ -239,7 +256,7 @@
       "aproveitamento": 38.3
     },
     {
-      "posicao": 15,
+      "posicao": 16,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
@@ -256,7 +273,7 @@
       "aproveitamento": 36.7
     },
     {
-      "posicao": 16,
+      "posicao": 17,
       "time": "SC Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -271,23 +288,6 @@
       "saldo": -4,
       "pontos": 22,
       "aproveitamento": 34.9
-    },
-    {
-      "posicao": 17,
-      "time": "Grêmio FBPA",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "static/img/escudos/GRE.jpg",
-      "jogos": 20,
-      "vitorias": 5,
-      "empates": 7,
-      "derrotas": 8,
-      "gols_pro": 22,
-      "gols_contra": 26,
-      "saldo": -4,
-      "pontos": 22,
-      "aproveitamento": 36.7
     },
     {
       "posicao": 18,
