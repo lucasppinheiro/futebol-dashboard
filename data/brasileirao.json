@@ -7,15 +7,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "static/img/escudos/PAL.gif",
-      "jogos": 21,
+      "jogos": 22,
       "vitorias": 14,
-      "empates": 5,
+      "empates": 6,
       "derrotas": 2,
       "gols_pro": 38,
       "gols_contra": 16,
       "saldo": 22,
-      "pontos": 47,
-      "aproveitamento": 74.6
+      "pontos": 48,
+      "aproveitamento": 72.7
     },
     {
       "posicao": 2,
@@ -70,6 +70,23 @@
     },
     {
       "posicao": 5,
+      "time": "EC Bahia",
+      "sigla": "BAH",
+      "estado": "BA",
+      "cor": "#004A99",
+      "escudo": "static/img/escudos/BAH.jpg",
+      "jogos": 22,
+      "vitorias": 8,
+      "empates": 9,
+      "derrotas": 5,
+      "gols_pro": 29,
+      "gols_contra": 25,
+      "saldo": 4,
+      "pontos": 33,
+      "aproveitamento": 50.0
+    },
+    {
+      "posicao": 6,
       "time": "Cruzeiro EC",
       "sigla": "CRU",
       "estado": "MG",
@@ -84,23 +101,6 @@
       "saldo": -1,
       "pontos": 33,
       "aproveitamento": 50.0
-    },
-    {
-      "posicao": 6,
-      "time": "EC Bahia",
-      "sigla": "BAH",
-      "estado": "BA",
-      "cor": "#004A99",
-      "escudo": "static/img/escudos/BAH.jpg",
-      "jogos": 21,
-      "vitorias": 8,
-      "empates": 8,
-      "derrotas": 5,
-      "gols_pro": 29,
-      "gols_contra": 25,
-      "saldo": 4,
-      "pontos": 32,
-      "aproveitamento": 50.8
     },
     {
       "posicao": 7,
@@ -240,6 +240,23 @@
     },
     {
       "posicao": 15,
+      "time": "SC Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "static/img/escudos/INT.gif",
+      "jogos": 22,
+      "vitorias": 5,
+      "empates": 8,
+      "derrotas": 9,
+      "gols_pro": 23,
+      "gols_contra": 27,
+      "saldo": -4,
+      "pontos": 23,
+      "aproveitamento": 34.8
+    },
+    {
+      "posicao": 16,
       "time": "Mirassol FC",
       "sigla": "MIR",
       "estado": "SP",
@@ -256,7 +273,7 @@
       "aproveitamento": 36.5
     },
     {
-      "posicao": 16,
+      "posicao": 17,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
@@ -273,24 +290,24 @@
       "aproveitamento": 36.7
     },
     {
-      "posicao": 17,
-      "time": "SC Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "static/img/escudos/INT.gif",
+      "posicao": 18,
+      "time": "CR Vasco da Gama",
+      "sigla": "VAS",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/VAS.gif",
       "jogos": 21,
       "vitorias": 5,
       "empates": 7,
       "derrotas": 9,
       "gols_pro": 23,
-      "gols_contra": 27,
-      "saldo": -4,
+      "gols_contra": 31,
+      "saldo": -8,
       "pontos": 22,
       "aproveitamento": 34.9
     },
     {
-      "posicao": 18,
+      "posicao": 19,
       "time": "Clube do Remo",
       "sigla": "REM",
       "estado": "PA",
@@ -305,23 +322,6 @@
       "saldo": -10,
       "pontos": 22,
       "aproveitamento": 33.3
-    },
-    {
-      "posicao": 19,
-      "time": "CR Vasco da Gama",
-      "sigla": "VAS",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/VAS.gif",
-      "jogos": 20,
-      "vitorias": 5,
-      "empates": 6,
-      "derrotas": 9,
-      "gols_pro": 23,
-      "gols_contra": 31,
-      "saldo": -8,
-      "pontos": 21,
-      "aproveitamento": 35.0
     },
     {
       "posicao": 20,
@@ -347,7 +347,7 @@
       "time": "CA Paranaense",
       "sigla": "CAP",
       "posicao": "Atacante",
-      "gols": 12
+      "gols": 13
     },
     {
       "jogador": "Pedro",
@@ -491,8 +491,8 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
-    "lider_pontos": 47,
+    "lider_pontos": 48,
     "artilheiro": "Kevin Viveros",
-    "artilheiro_gols": 12
+    "artilheiro_gols": 13
   }
 }
