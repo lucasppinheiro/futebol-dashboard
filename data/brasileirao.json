@@ -347,7 +347,7 @@
       "time": "CA Paranaense",
       "sigla": "CAP",
       "posicao": "Atacante",
-      "gols": 13
+      "gols": 14
     },
     {
       "jogador": "Pedro",
@@ -493,6 +493,6 @@
     "lider": "SE Palmeiras",
     "lider_pontos": 48,
     "artilheiro": "Kevin Viveros",
-    "artilheiro_gols": 13
+    "artilheiro_gols": 14
   }
 }
