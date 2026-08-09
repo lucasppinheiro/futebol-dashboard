@@ -70,6 +70,23 @@
     },
     {
       "posicao": 5,
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "estado": "MG",
+      "cor": "#003DA5",
+      "escudo": "static/img/escudos/CRU.gif",
+      "jogos": 22,
+      "vitorias": 9,
+      "empates": 6,
+      "derrotas": 7,
+      "gols_pro": 30,
+      "gols_contra": 31,
+      "saldo": -1,
+      "pontos": 33,
+      "aproveitamento": 50.0
+    },
+    {
+      "posicao": 6,
       "time": "EC Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -86,7 +103,7 @@
       "aproveitamento": 50.8
     },
     {
-      "posicao": 6,
+      "posicao": 7,
       "time": "RB Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -103,7 +120,7 @@
       "aproveitamento": 51.7
     },
     {
-      "posicao": 7,
+      "posicao": 8,
       "time": "Botafogo FR",
       "sigla": "BOT",
       "estado": "RJ",
@@ -120,7 +137,7 @@
       "aproveitamento": 47.6
     },
     {
-      "posicao": 8,
+      "posicao": 9,
       "time": "Coritiba FBC",
       "sigla": "CFC",
       "estado": "PR",
@@ -135,23 +152,6 @@
       "saldo": -2,
       "pontos": 30,
       "aproveitamento": 45.5
-    },
-    {
-      "posicao": 9,
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "estado": "MG",
-      "cor": "#003DA5",
-      "escudo": "static/img/escudos/CRU.gif",
-      "jogos": 21,
-      "vitorias": 8,
-      "empates": 6,
-      "derrotas": 7,
-      "gols_pro": 27,
-      "gols_contra": 30,
-      "saldo": -3,
-      "pontos": 30,
-      "aproveitamento": 47.6
     },
     {
       "posicao": 10,
@@ -245,15 +245,15 @@
       "estado": "SP",
       "cor": "#FFD700",
       "escudo": "static/img/escudos/MIR.svg",
-      "jogos": 20,
+      "jogos": 21,
       "vitorias": 6,
       "empates": 5,
-      "derrotas": 9,
-      "gols_pro": 23,
-      "gols_contra": 27,
-      "saldo": -4,
+      "derrotas": 10,
+      "gols_pro": 24,
+      "gols_contra": 30,
+      "saldo": -6,
       "pontos": 23,
-      "aproveitamento": 38.3
+      "aproveitamento": 36.5
     },
     {
       "posicao": 16,
