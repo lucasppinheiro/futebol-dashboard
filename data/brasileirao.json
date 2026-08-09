@@ -427,6 +427,13 @@
       "gols": 6
     },
     {
+      "jogador": "Kaio Jorge",
+      "time": "Cruzeiro EC",
+      "sigla": "CRU",
+      "posicao": "Centroavante",
+      "gols": 6
+    },
+    {
       "jogador": "Neymar",
       "time": "Santos FC",
       "sigla": "SAN",
@@ -473,13 +480,6 @@
       "time": "Coritiba FBC",
       "sigla": "CFC",
       "posicao": "Atacante",
-      "gols": 5
-    },
-    {
-      "jogador": "Kaio Jorge",
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "posicao": "Centroavante",
       "gols": 5
     }
   ],
