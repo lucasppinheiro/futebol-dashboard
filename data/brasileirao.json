@@ -19,6 +19,23 @@
     },
     {
       "posicao": 2,
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "estado": "RJ",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/FLA.gif",
+      "jogos": 21,
+      "vitorias": 12,
+      "empates": 6,
+      "derrotas": 3,
+      "gols_pro": 39,
+      "gols_contra": 18,
+      "saldo": 21,
+      "pontos": 42,
+      "aproveitamento": 66.7
+    },
+    {
+      "posicao": 3,
       "time": "CA Paranaense",
       "sigla": "CAP",
       "estado": "PR",
@@ -33,23 +50,6 @@
       "saldo": 11,
       "pontos": 40,
       "aproveitamento": 60.6
-    },
-    {
-      "posicao": 3,
-      "time": "CR Flamengo",
-      "sigla": "FLA",
-      "estado": "RJ",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/FLA.gif",
-      "jogos": 20,
-      "vitorias": 11,
-      "empates": 6,
-      "derrotas": 3,
-      "gols_pro": 37,
-      "gols_contra": 18,
-      "saldo": 19,
-      "pontos": 39,
-      "aproveitamento": 65.0
     },
     {
       "posicao": 4,
@@ -211,15 +211,15 @@
       "estado": "BA",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/VIT.jpg",
-      "jogos": 21,
+      "jogos": 22,
       "vitorias": 7,
       "empates": 5,
-      "derrotas": 9,
+      "derrotas": 10,
       "gols_pro": 22,
-      "gols_contra": 31,
-      "saldo": -9,
+      "gols_contra": 33,
+      "saldo": -11,
       "pontos": 26,
-      "aproveitamento": 41.3
+      "aproveitamento": 39.4
     },
     {
       "posicao": 14,
