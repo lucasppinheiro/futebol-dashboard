@@ -215,7 +215,7 @@ def test_busca_classificacao_usa_escudo_local_do_athletico(monkeypatch):
     classificacao = api_client.buscar_classificacao()
 
     assert classificacao[0]["sigla"] == "CAP"
-    assert classificacao[0]["escudo"] == "static/img/escudos/CAP.png"
+    assert classificacao[0]["escudo"] == "static/img/escudos/cbf/CAP.jpg"
 
 
 def test_busca_artilharia_normaliza_posicao_e_preserva_nao_informado(monkeypatch):

@@ -16,7 +16,7 @@ def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
     assert 'href="/futebol-dashboard/static/css/style.css"' in index_html
     assert 'href="/futebol-dashboard/static/css/matchday.css"' in index_html
     assert 'href="/futebol-dashboard/time/PAL/"' in index_html
-    assert 'src="/futebol-dashboard/static/img/escudos/CAP.png"' in index_html
+    assert 'src="/futebol-dashboard/static/img/escudos/cbf/CAP.jpg"' in index_html
     assert 'src="/futebol-dashboard/static/js/main.js"' in index_html
     assert "concept-dock" not in index_html
     assert 'data-visual="matchday"' in index_html
@@ -28,7 +28,7 @@ def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
     assert (dist_dir / "sitemap.xml").exists()
     assert not (dist_dir / "_redirects").exists()
     assert (dist_dir / "static" / "css" / "matchday.css").exists()
-    assert (dist_dir / "static" / "img" / "escudos" / "CAP.png").exists()
+    assert (dist_dir / "static" / "img" / "escudos" / "cbf" / "CAP.jpg").exists()
 
     health = json.loads((dist_dir / "api" / "health.json").read_text(encoding="utf-8"))
     assert health["dados_desatualizados"] == build_static.app_module._dados_estao_desatualizados(

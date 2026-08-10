@@ -9,9 +9,9 @@ Dashboard editorial do Campeonato Brasileiro Série A com classificação, artil
 
 ## Preview
 
-![Classificação do Brasileirão Dashboard](docs/screenshot-classificacao.png)
+![Classificação do Brasileirão Dashboard](docs/preview-classificacao-2026.png)
 
-![Gráficos do Brasileirão Dashboard](docs/screenshot-graficos.png)
+![Gráficos do Brasileirão Dashboard](docs/preview-graficos-2026.png)
 
 ## O que o projeto demonstra
 
