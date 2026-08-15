@@ -7,15 +7,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "static/img/escudos/cbf/PAL.jpg",
-      "jogos": 22,
+      "jogos": 23,
       "vitorias": 14,
       "empates": 6,
-      "derrotas": 2,
-      "gols_pro": 38,
-      "gols_contra": 16,
-      "saldo": 22,
+      "derrotas": 3,
+      "gols_pro": 40,
+      "gols_contra": 19,
+      "saldo": 21,
       "pontos": 48,
-      "aproveitamento": 72.7
+      "aproveitamento": 69.6
     },
     {
       "posicao": 2,
@@ -58,15 +58,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/cbf/FLU.jpg",
-      "jogos": 22,
-      "vitorias": 9,
+      "jogos": 23,
+      "vitorias": 10,
       "empates": 8,
       "derrotas": 5,
-      "gols_pro": 31,
-      "gols_contra": 26,
-      "saldo": 5,
-      "pontos": 35,
-      "aproveitamento": 53.0
+      "gols_pro": 34,
+      "gols_contra": 28,
+      "saldo": 6,
+      "pontos": 38,
+      "aproveitamento": 55.1
     },
     {
       "posicao": 5,
@@ -462,6 +462,13 @@
       "gols": 5
     },
     {
+      "jogador": "Mauricio",
+      "time": "SE Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Meia",
+      "gols": 5
+    },
+    {
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro EC",
       "sigla": "CRU",
@@ -474,20 +481,13 @@
       "sigla": "CFC",
       "posicao": "Atacante",
       "gols": 5
-    },
-    {
-      "jogador": "Pedro Rocha",
-      "time": "Coritiba FBC",
-      "sigla": "CFC",
-      "posicao": "Atacante",
-      "gols": 5
     }
   ],
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
-    "rodada_atual": 22,
+    "rodada_atual": 23,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "SE Palmeiras",
