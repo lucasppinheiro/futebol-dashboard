@@ -75,15 +75,15 @@
       "estado": "BA",
       "cor": "#004A99",
       "escudo": "static/img/escudos/cbf/BAH.jpg",
-      "jogos": 22,
+      "jogos": 23,
       "vitorias": 8,
-      "empates": 9,
+      "empates": 10,
       "derrotas": 5,
-      "gols_pro": 29,
-      "gols_contra": 25,
+      "gols_pro": 32,
+      "gols_contra": 28,
       "saldo": 4,
-      "pontos": 33,
-      "aproveitamento": 50.0
+      "pontos": 34,
+      "aproveitamento": 49.3
     },
     {
       "posicao": 6,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "static/img/escudos/cbf/CHA.jpg",
-      "jogos": 21,
+      "jogos": 22,
       "vitorias": 1,
-      "empates": 7,
+      "empates": 8,
       "derrotas": 13,
-      "gols_pro": 20,
-      "gols_contra": 43,
+      "gols_pro": 23,
+      "gols_contra": 46,
       "saldo": -23,
-      "pontos": 10,
-      "aproveitamento": 15.9
+      "pontos": 11,
+      "aproveitamento": 16.7
     }
   ],
   "artilharia": [
