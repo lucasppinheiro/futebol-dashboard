@@ -24,15 +24,15 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/cbf/FLA.jpg",
-      "jogos": 21,
-      "vitorias": 12,
+      "jogos": 22,
+      "vitorias": 13,
       "empates": 6,
       "derrotas": 3,
-      "gols_pro": 39,
-      "gols_contra": 18,
-      "saldo": 21,
-      "pontos": 42,
-      "aproveitamento": 66.7
+      "gols_pro": 44,
+      "gols_contra": 19,
+      "saldo": 25,
+      "pontos": 45,
+      "aproveitamento": 68.2
     },
     {
       "posicao": 3,
@@ -177,18 +177,35 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/cbf/BOT.jpg",
-      "jogos": 21,
+      "jogos": 22,
       "vitorias": 8,
       "empates": 6,
-      "derrotas": 7,
+      "derrotas": 8,
       "gols_pro": 35,
-      "gols_contra": 33,
-      "saldo": 2,
+      "gols_contra": 34,
+      "saldo": 1,
       "pontos": 30,
-      "aproveitamento": 47.6
+      "aproveitamento": 45.5
     },
     {
       "posicao": 12,
+      "time": "EC Vitória",
+      "sigla": "VIT",
+      "estado": "BA",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/cbf/VIT.jpg",
+      "jogos": 23,
+      "vitorias": 8,
+      "empates": 5,
+      "derrotas": 10,
+      "gols_pro": 23,
+      "gols_contra": 33,
+      "saldo": -10,
+      "pontos": 29,
+      "aproveitamento": 42.0
+    },
+    {
+      "posicao": 13,
       "time": "São Paulo FC",
       "sigla": "SAO",
       "estado": "SP",
@@ -203,23 +220,6 @@
       "saldo": 1,
       "pontos": 27,
       "aproveitamento": 40.9
-    },
-    {
-      "posicao": 13,
-      "time": "EC Vitória",
-      "sigla": "VIT",
-      "estado": "BA",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/cbf/VIT.jpg",
-      "jogos": 22,
-      "vitorias": 7,
-      "empates": 5,
-      "derrotas": 10,
-      "gols_pro": 22,
-      "gols_contra": 33,
-      "saldo": -11,
-      "pontos": 26,
-      "aproveitamento": 39.4
     },
     {
       "posicao": 14,
@@ -279,15 +279,15 @@
       "estado": "SP",
       "cor": "#FFD700",
       "escudo": "static/img/escudos/cbf/MIR.jpg",
-      "jogos": 21,
+      "jogos": 22,
       "vitorias": 6,
       "empates": 5,
-      "derrotas": 10,
-      "gols_pro": 24,
-      "gols_contra": 30,
-      "saldo": -6,
+      "derrotas": 11,
+      "gols_pro": 25,
+      "gols_contra": 35,
+      "saldo": -10,
       "pontos": 23,
-      "aproveitamento": 36.5
+      "aproveitamento": 34.8
     },
     {
       "posicao": 18,
@@ -354,7 +354,7 @@
       "time": "CR Flamengo",
       "sigla": "FLA",
       "posicao": "Atacante",
-      "gols": 12
+      "gols": 14
     },
     {
       "jogador": "Carlos Vinícius",
@@ -441,6 +441,13 @@
       "gols": 6
     },
     {
+      "jogador": "Samuel Lino",
+      "time": "CR Flamengo",
+      "sigla": "FLA",
+      "posicao": "Ponta esquerda",
+      "gols": 6
+    },
+    {
       "jogador": "Isidro Pitta",
       "time": "RB Bragantino",
       "sigla": "RBB",
@@ -472,13 +479,6 @@
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro EC",
       "sigla": "CRU",
-      "posicao": "Atacante",
-      "gols": 5
-    },
-    {
-      "jogador": "Joaquín Lavega",
-      "time": "Coritiba FBC",
-      "sigla": "CFC",
       "posicao": "Atacante",
       "gols": 5
     }
