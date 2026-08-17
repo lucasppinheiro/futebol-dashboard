@@ -448,6 +448,13 @@
       "gols": 6
     },
     {
+      "jogador": "Johan Carbonero",
+      "time": "SC Internacional",
+      "sigla": "INT",
+      "posicao": "Atacante",
+      "gols": 6
+    },
+    {
       "jogador": "Isidro Pitta",
       "time": "RB Bragantino",
       "sigla": "RBB",
@@ -473,13 +480,6 @@
       "time": "SE Palmeiras",
       "sigla": "PAL",
       "posicao": "Meia",
-      "gols": 5
-    },
-    {
-      "jogador": "Matheus Pereira",
-      "time": "Cruzeiro EC",
-      "sigla": "CRU",
-      "posicao": "Atacante",
       "gols": 5
     }
   ],
