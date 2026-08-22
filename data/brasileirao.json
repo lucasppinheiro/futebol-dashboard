@@ -104,6 +104,23 @@
     },
     {
       "posicao": 7,
+      "time": "Atlético Mineiro",
+      "sigla": "CAM",
+      "estado": "MG",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/CAM.png",
+      "jogos": 23,
+      "vitorias": 9,
+      "empates": 6,
+      "derrotas": 8,
+      "gols_pro": 30,
+      "gols_contra": 27,
+      "saldo": 3,
+      "pontos": 33,
+      "aproveitamento": 47.8
+    },
+    {
+      "posicao": 8,
       "time": "Red Bull Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -116,23 +133,6 @@
       "gols_pro": 27,
       "gols_contra": 23,
       "saldo": 4,
-      "pontos": 32,
-      "aproveitamento": 48.5
-    },
-    {
-      "posicao": 8,
-      "time": "Atlético Mineiro",
-      "sigla": "CAM",
-      "estado": "MG",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 22,
-      "vitorias": 9,
-      "empates": 5,
-      "derrotas": 8,
-      "gols_pro": 30,
-      "gols_contra": 27,
-      "saldo": 3,
       "pontos": 32,
       "aproveitamento": 48.5
     },
@@ -240,6 +240,23 @@
     },
     {
       "posicao": 15,
+      "time": "Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "static/img/escudos/normalizados/INT.png",
+      "jogos": 24,
+      "vitorias": 5,
+      "empates": 10,
+      "derrotas": 9,
+      "gols_pro": 24,
+      "gols_contra": 28,
+      "saldo": -4,
+      "pontos": 25,
+      "aproveitamento": 34.7
+    },
+    {
+      "posicao": 16,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
@@ -254,23 +271,6 @@
       "saldo": -6,
       "pontos": 25,
       "aproveitamento": 37.9
-    },
-    {
-      "posicao": 16,
-      "time": "Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "static/img/escudos/normalizados/INT.png",
-      "jogos": 23,
-      "vitorias": 5,
-      "empates": 9,
-      "derrotas": 9,
-      "gols_pro": 24,
-      "gols_contra": 28,
-      "saldo": -4,
-      "pontos": 24,
-      "aproveitamento": 34.8
     },
     {
       "posicao": 17,
@@ -483,7 +483,7 @@
       "gols": 5
     }
   ],
-  "dados_atualizados_em": "2026-08-22T21:36:34.151403+00:00",
+  "dados_atualizados_em": "2026-08-22T23:35:39.592272+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
