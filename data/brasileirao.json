@@ -58,15 +58,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 23,
-      "vitorias": 10,
+      "jogos": 24,
+      "vitorias": 11,
       "empates": 8,
       "derrotas": 5,
-      "gols_pro": 34,
-      "gols_contra": 28,
-      "saldo": 6,
-      "pontos": 38,
-      "aproveitamento": 55.1
+      "gols_pro": 36,
+      "gols_contra": 29,
+      "saldo": 7,
+      "pontos": 41,
+      "aproveitamento": 56.9
     },
     {
       "posicao": 5,
@@ -274,23 +274,6 @@
     },
     {
       "posicao": 17,
-      "time": "Remo",
-      "sigla": "REM",
-      "estado": "PA",
-      "cor": "#00008B",
-      "escudo": "static/img/escudos/normalizados/REM.png",
-      "jogos": 23,
-      "vitorias": 5,
-      "empates": 8,
-      "derrotas": 10,
-      "gols_pro": 27,
-      "gols_contra": 37,
-      "saldo": -10,
-      "pontos": 23,
-      "aproveitamento": 33.3
-    },
-    {
-      "posicao": 18,
       "time": "Mirassol",
       "sigla": "MIR",
       "estado": "SP",
@@ -305,6 +288,23 @@
       "saldo": -10,
       "pontos": 23,
       "aproveitamento": 34.8
+    },
+    {
+      "posicao": 18,
+      "time": "Remo",
+      "sigla": "REM",
+      "estado": "PA",
+      "cor": "#00008B",
+      "escudo": "static/img/escudos/normalizados/REM.png",
+      "jogos": 24,
+      "vitorias": 5,
+      "empates": 8,
+      "derrotas": 11,
+      "gols_pro": 28,
+      "gols_contra": 39,
+      "saldo": -11,
+      "pontos": 23,
+      "aproveitamento": 31.9
     },
     {
       "posicao": 19,
@@ -483,12 +483,12 @@
       "gols": 5
     }
   ],
-  "dados_atualizados_em": "2026-08-22T19:36:26.614268+00:00",
+  "dados_atualizados_em": "2026-08-22T21:36:34.151403+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
-    "rodada_atual": 23,
+    "rodada_atual": 24,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Palmeiras",
