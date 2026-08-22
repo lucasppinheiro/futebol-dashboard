@@ -455,6 +455,13 @@
       "gols": 6
     },
     {
+      "jogador": "Jája Silva",
+      "time": "Remo",
+      "sigla": "REM",
+      "posicao": "Atacante",
+      "gols": 6
+    },
+    {
       "jogador": "Isidro Pitta",
       "time": "Red Bull Bragantino",
       "sigla": "RBB",
@@ -474,16 +481,9 @@
       "sigla": "REM",
       "posicao": "Atacante",
       "gols": 5
-    },
-    {
-      "jogador": "Mauricio",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Meia",
-      "gols": 5
     }
   ],
-  "dados_atualizados_em": "2026-08-22T03:57:30.012514+00:00",
+  "dados_atualizados_em": "2026-08-22T19:36:26.614268+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
