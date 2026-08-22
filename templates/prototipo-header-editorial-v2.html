@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light" data-visual="matchday">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header editorial v2 | Brasileirão {{ dados.info.temporada }}</title>
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Prévia do header editorial v2 do dashboard do Brasileirão em largura real.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
+    <link rel="stylesheet" href="{{ site_url('static/css/matchday.css') }}">
+    <link rel="stylesheet" href="{{ site_url('static/css/header-prototypes.css') }}">
+</head>
+
+<body class="prototype-page prototype-editorial-page">
+    <a href="#editorial-v2-preview" class="skip-link">Pular para a prévia</a>
+    <header class="prototype-live-toolbar">
+        <div class="container prototype-live-toolbar-inner">
+            <div>
+                <span class="prototype-eyebrow">Prévia em largura real · Série A {{ dados.info.temporada }}</span>
+                <h1>Header editorial v2</h1>
+                <p>Uma versão mais compacta, alinhada e informativa, conectada aos dados reais da rodada.</p>
+            </div>
+            <a href="{{ site_url('prototipos/header/') }}" class="prototype-back">&larr; Voltar às opções</a>
+        </div>
+    </header>
+
+    <main id="editorial-v2-preview">
+        {% set full_width = true %}
+        {% include 'partials/header-editorial-v2.html' %}
+
+        <section class="prototype-live-context container" aria-labelledby="prototype-live-context-title">
+            <span class="prototype-eyebrow">Abaixo do header</span>
+            <h2 id="prototype-live-context-title">Tabela de classificação</h2>
+            <p>O título, o resumo da rodada, a navegação e o conteúdo agora seguem o mesmo eixo visual do dashboard.</p>
+            <div class="prototype-context-strip" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

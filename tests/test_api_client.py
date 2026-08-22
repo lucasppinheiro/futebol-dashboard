@@ -13,30 +13,30 @@ def _payload_next(chave, dados, marcador="message"):
 
 
 def test_busca_classificacao_cbf_normaliza_tabela_oficial(monkeypatch):
-    nomes = [
-        "Palmeiras",
-        "Flamengo",
-        "Athletico Paranaense",
-        "Fluminense",
-        "Bahia",
-        "Red Bull Bragantino",
-        "Cruzeiro",
-        "Botafogo",
-        "Corinthians",
-        "Atlético Mineiro",
-        "Coritiba SAF",
-        "São Paulo",
-        "Vitória",
-        "Mirassol",
-        "Santos FC",
-        "Internacional",
-        "Grêmio",
-        "Vasco da Gama Saf",
-        "Remo",
-        "Chapecoense",
+    clubes = [
+        ("Palmeiras", "SP"),
+        ("Flamengo", "RJ"),
+        ("Athletico Paranaense", "PR"),
+        ("Fluminense", "RJ"),
+        ("Bahia", "BA"),
+        ("Red Bull Bragantino", "SP"),
+        ("Cruzeiro", "MG"),
+        ("Botafogo", "RJ"),
+        ("Corinthians", "SP"),
+        ("Atlético Mineiro", "MG"),
+        ("Coritiba SAF", "PR"),
+        ("São Paulo", "SP"),
+        ("Vitória", "BA"),
+        ("Mirassol", "SP"),
+        ("Santos FC", "SP"),
+        ("Internacional", "RS"),
+        ("Grêmio", "RS"),
+        ("Vasco da Gama Saf", "RJ"),
+        ("Remo", "PA"),
+        ("Chapecoense", "SC"),
     ]
     tabela = []
-    for indice, nome in enumerate(nomes, start=1):
+    for indice, (nome, uf) in enumerate(clubes, start=1):
         pontos = 48 - indice
         jogos = 21
         vitorias = max(1, pontos // 3)
@@ -47,7 +47,7 @@ def test_busca_classificacao_cbf_normaliza_tabela_oficial(monkeypatch):
         tabela.append(
             {
                 "cod_time": str(20000 + indice),
-                "uf_time": "SP",
+                "uf_time": uf,
                 "time": nome,
                 "escudo": f"https://conteudo.cbf.com.br/clubes/{20000 + indice}/escudo.jpg",
                 "posicao": str(indice),
@@ -70,7 +70,7 @@ def test_busca_classificacao_cbf_normaliza_tabela_oficial(monkeypatch):
     assert corinthians["pontos"] == 29
     assert corinthians["jogos"] == 21
     assert corinthians["aproveitamento"] == 46.0
-    assert classificacao[0]["time"] == "SE Palmeiras"
+    assert [(time["time"], time["estado"]) for time in classificacao] == clubes
 
 
 def test_busca_artilharia_cbf_paginada(monkeypatch):
@@ -95,7 +95,7 @@ def test_busca_artilharia_cbf_paginada(monkeypatch):
     assert len(artilharia) == 20
     assert artilharia[0]["jogador"] == "Apelido 1"
     assert artilharia[0]["sigla"] == "FLA"
-    assert artilharia[0]["time"] == "CR Flamengo"
+    assert artilharia[0]["time"] == "Flamengo"
 
 
 def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
@@ -215,7 +215,7 @@ def test_busca_classificacao_usa_escudo_local_do_athletico(monkeypatch):
     classificacao = api_client.buscar_classificacao()
 
     assert classificacao[0]["sigla"] == "CAP"
-    assert classificacao[0]["escudo"] == "static/img/escudos/cbf/CAP.jpg"
+    assert classificacao[0]["escudo"] == "static/img/escudos/normalizados/CAP.png"
 
 
 def test_busca_artilharia_normaliza_posicao_e_preserva_nao_informado(monkeypatch):

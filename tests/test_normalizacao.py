@@ -22,7 +22,13 @@ def test_normaliza_artilharia_dentro_do_dashboard():
     dados = {
         "classificacao": [
             {"time": "B", "posicao": 2},
-            {"time": "CA Paranaense", "sigla": "CAP", "posicao": 1, "escudo": "https://example.com/cap.png"},
+            {
+                "time": "CA Paranaense",
+                "sigla": "CAP",
+                "estado": "SP",
+                "posicao": 1,
+                "escudo": "https://example.com/cap.png",
+            },
         ],
         "artilharia": [
             {"jogador": "B", "posicao": "Defensive Midfield", "gols": 1},
@@ -33,8 +39,9 @@ def test_normaliza_artilharia_dentro_do_dashboard():
 
     normalizar_dados_dashboard(dados)
 
-    assert dados["classificacao"][0]["time"] == "CA Paranaense"
-    assert dados["classificacao"][0]["escudo"] == "static/img/escudos/cbf/CAP.jpg"
+    assert dados["classificacao"][0]["time"] == "Athletico Paranaense"
+    assert dados["classificacao"][0]["estado"] == "PR"
+    assert dados["classificacao"][0]["escudo"] == "static/img/escudos/normalizados/CAP.png"
     assert dados["classificacao"][1]["time"] == "B"
     assert dados["artilharia"][0]["posicao"] == "Centroavante"
     assert dados["artilharia"][1]["posicao"] == "Volante"

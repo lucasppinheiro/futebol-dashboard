@@ -10,13 +10,22 @@
     <meta property="og:title" content="{{ time.time }} | Brasileirão {{ dados.info.temporada }}">
     <meta property="og:description" content="Campanha, desempenho e artilheiros do {{ time.time }} na Série A.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://futebol-dashboard.vercel.app/time/{{ time.sigla }}/">
+    <meta property="og:image" content="https://futebol-dashboard.vercel.app/static/img/og-brasileirao.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ time.time }} | Brasileirão {{ dados.info.temporada }}">
+    <meta name="twitter:description" content="Campanha, desempenho e artilheiros do {{ time.time }} na Série A.">
+    <meta name="twitter:image" content="https://futebol-dashboard.vercel.app/static/img/og-brasileirao.png">
+    <link rel="icon" href="{{ site_url('static/img/favicon.svg') }}" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
-    <link rel="stylesheet" href="{{ site_url('static/css/matchday.css') }}">
+    <link rel="stylesheet" href="{{ asset_url('static/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset_url('static/css/matchday.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 
@@ -42,11 +51,11 @@
                     <a href="{{ site_url('#classificacao') }}" class="hero-action primary">Voltar à tabela</a>
                     <a href="#time-radar" class="hero-action secondary">Ver radar</a>
                 </div>
-                <div class="hero-ticker hero-ticker-team" aria-label="Recortes do clube">
-                    <span class="hero-ticker-item"><strong>Pontos</strong>{{ time.pontos }}</span>
-                    <span class="hero-ticker-item"><strong>Saldo</strong>{% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}</span>
-                    <span class="hero-ticker-item"><strong>Gols pró</strong>{{ time.gols_pro }}</span>
-                </div>
+                <ul class="hero-ticker hero-ticker-team" aria-label="Recortes do clube">
+                    <li class="hero-ticker-item"><strong>Pontos</strong>{{ time.pontos }}</li>
+                    <li class="hero-ticker-item"><strong>Saldo</strong>{% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}</li>
+                    <li class="hero-ticker-item"><strong>Gols pró</strong>{{ time.gols_pro }}</li>
+                </ul>
             </div>
 
             <aside class="hero-panel" aria-label="Resumo do clube">
@@ -145,10 +154,17 @@
                 <div class="section-copy section-copy-compact">
                     <span class="section-kicker">Perfil</span>
                     <h2>Radar de desempenho</h2>
-                    <p>Comparação normalizada da campanha do clube dentro da competição.</p>
+                    <p id="timeRadarSummary">Comparação normalizada da campanha do clube dentro da competição.</p>
                 </div>
                 <div class="chart-body chart-body-detail">
-                    <canvas id="chartRadarTime" aria-label="Radar de desempenho do clube"></canvas>
+                    <canvas id="chartRadarTime" role="img" aria-label="Radar de desempenho do {{ time.time }}" aria-describedby="timeRadarSummary timeRadarData"></canvas>
+                    <ul id="timeRadarData" class="visually-hidden">
+                        <li>{{ time.pontos }} pontos</li>
+                        <li>{{ time.vitorias }} vitórias</li>
+                        <li>{{ time.gols_pro }} gols pró</li>
+                        <li>{{ time.aproveitamento }}% de aproveitamento</li>
+                        <li>Saldo de {% if time.saldo > 0 %}+{% endif %}{{ time.saldo }} gols</li>
+                    </ul>
                 </div>
             </article>
         </div>
@@ -203,11 +219,13 @@
     </footer>
 
     <script>
+        window.siteBasePath = {{ site_url() | tojson }};
+        window.escudoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%231a4331'/%3E%3Cpath d='M48 18 71 31v20c0 15-10 25-23 31C35 76 25 66 25 51V31z' fill='%236ebc83'/%3E%3Cpath d='m48 34 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z' fill='white'/%3E%3C/svg%3E";
         const timeData = {{ time | tojson }};
         const todosClassificacao = {{ dados.classificacao | tojson }};
     </script>
-    <script src="{{ site_url('static/js/main.js') }}"></script>
-    <script src="{{ site_url('static/js/time.js') }}"></script>
+    <script src="{{ asset_url('static/js/main.js') }}"></script>
+    <script src="{{ asset_url('static/js/time.js') }}"></script>
 </body>
 
 </html>

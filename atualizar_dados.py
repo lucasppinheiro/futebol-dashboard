@@ -14,6 +14,7 @@ import json
 import logging
 import os
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 from api_client import (
@@ -74,6 +75,33 @@ def _buscar_dados(temporada: str) -> tuple[list[dict], list[dict], str]:
         return buscar_classificacao(temporada), buscar_artilharia(temporada), "football-data.org"
 
 
+def _timestamp_atualizacao(dados_base: dict) -> str:
+    existentes: dict | None = None
+    try:
+        with open(OUTPUT_FILE, encoding="utf-8") as arquivo:
+            carregados = json.load(arquivo)
+            if isinstance(carregados, dict):
+                existentes = carregados
+    except (OSError, json.JSONDecodeError):
+        existentes = None
+
+    blocos_competicao = ("classificacao", "artilharia", "info")
+    dados_inalterados = existentes is not None and all(
+        existentes.get(bloco) == dados_base[bloco] for bloco in blocos_competicao
+    )
+
+    if dados_inalterados:
+        valor_salvo = existentes.get("dados_atualizados_em")
+        if isinstance(valor_salvo, str) and valor_salvo:
+            return valor_salvo
+        try:
+            return datetime.fromtimestamp(os.path.getmtime(OUTPUT_FILE), tz=timezone.utc).isoformat()
+        except OSError:
+            pass
+
+    return datetime.now(timezone.utc).isoformat()
+
+
 def atualizar(temporada: str | None = None) -> None:
     temporada = temporada or temporada_brasileirao_atual()
     logger.info("Buscando dados da temporada %s...", temporada)
@@ -94,10 +122,16 @@ def atualizar(temporada: str | None = None) -> None:
     if not artilharia:
         raise ValueError("API retornou artilharia vazia. Mantendo dados locais.")
 
-    dados = {
+    dados_base = {
         "classificacao": classificacao,
         "artilharia": artilharia,
         "info": montar_info(classificacao, artilharia, temporada),
+    }
+    dados = {
+        "classificacao": dados_base["classificacao"],
+        "artilharia": dados_base["artilharia"],
+        "dados_atualizados_em": _timestamp_atualizacao(dados_base),
+        "info": dados_base["info"],
     }
 
     try:

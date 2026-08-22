@@ -1,0 +1,35 @@
+{% set frame_class = 'prototype-live-frame' if full_width else 'prototype-frame' %}
+<div class="{{ frame_class }} prototype-frame-editorial">
+    <header class="mock-header">
+        <div class="prototype-header-inner">
+            <div class="mock-header-topline">
+                <div class="mock-brand-mark" aria-hidden="true">
+                    <span>BR</span>
+                    <strong>26</strong>
+                    <i class="mock-flag-palette"><b></b><b></b><b></b></i>
+                </div>
+                <span class="mock-season">Brasileirão Série A <b>·</b> Temporada {{ dados.info.temporada }}</span>
+                <span class="mock-status"><i></i> Dados atualizados</span>
+            </div>
+            <div class="mock-header-content">
+                <div>
+                    <h3>Tabela do<br><em>Brasileirão</em></h3>
+                    <p>Classificação, zonas, saldo e artilharia numa leitura limpa e direta.</p>
+                </div>
+                <div class="mock-round-card">
+                    <span>Rodada</span>
+                    <strong>{{ dados.info.rodada_atual }}/{{ dados.info.rodadas_total }}</strong>
+                    <small>em disputa</small>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="mock-nav" aria-label="Menu simulado da opção Editorial">
+        <div class="prototype-nav-inner">
+            <span class="is-active">Classificação</span>
+            <span>Artilharia</span>
+            <span>Gráficos</span>
+            <span>Comparador</span>
+        </div>
+    </nav>
+</div>

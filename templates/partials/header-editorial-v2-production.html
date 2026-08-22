@@ -1,0 +1,58 @@
+{% set lider = dados.classificacao[0] %}
+{% set progresso_rodada = ((dados.info.rodada_atual / dados.info.rodadas_total) * 100) | round(1) %}
+<header class="hero editorial-v2-production">
+    <div class="container editorial-v2-inner">
+        <div class="editorial-v2-topline">
+            <span class="editorial-v2-season">Série A <b aria-hidden="true">·</b> Temporada {{ dados.info.temporada }}</span>
+            <span class="editorial-v2-status"><i aria-hidden="true"></i> Dados atualizados em {{ atualizado_em }}</span>
+        </div>
+
+        <div class="editorial-v2-main">
+            <div class="editorial-v2-copy">
+                <span class="editorial-v2-kicker">A temporada em movimento</span>
+                <h1><span>Tabela do</span><em>Brasileirão</em></h1>
+                <p>Classificação, zonas, saldo e artilharia em uma leitura limpa, direta e atualizada a cada rodada.</p>
+            </div>
+
+            <aside class="editorial-v2-scoreboard" aria-label="Resumo da rodada">
+                <div class="editorial-v2-round-heading">
+                    <div>
+                        <span>Rodada atual</span>
+                        <strong>{{ dados.info.rodada_atual }} <small>de {{ dados.info.rodadas_total }}</small></strong>
+                    </div>
+                    <span class="editorial-v2-live">Em disputa</span>
+                </div>
+                <div class="editorial-v2-progress" role="progressbar"
+                    aria-label="Progresso da temporada"
+                    aria-valuemin="0"
+                    aria-valuemax="{{ dados.info.rodadas_total }}"
+                    aria-valuenow="{{ dados.info.rodada_atual }}"
+                    aria-valuetext="Rodada {{ dados.info.rodada_atual }} de {{ dados.info.rodadas_total }}">
+                    <span style="width: {{ progresso_rodada }}%"></span>
+                </div>
+                <div class="editorial-v2-metrics">
+                    <div class="editorial-v2-metric">
+                        {% if lider.escudo %}
+                        <span class="editorial-v2-crest" aria-hidden="true">
+                            <img src="{{ asset_url(lider.escudo) }}" alt="" width="32" height="32" loading="eager">
+                        </span>
+                        {% endif %}
+                        <div>
+                            <span>Líder</span>
+                            <strong>{{ lider.time }}</strong>
+                            <small>{{ lider.pontos }} pontos</small>
+                        </div>
+                    </div>
+                    <div class="editorial-v2-metric editorial-v2-metric--scorer">
+                        <span class="editorial-v2-scorer-accent" aria-hidden="true"></span>
+                        <div>
+                            <span>Artilheiro</span>
+                            <strong>{{ dados.info.artilheiro }}</strong>
+                            <small>{{ dados.info.artilheiro_gols }} gols</small>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</header>

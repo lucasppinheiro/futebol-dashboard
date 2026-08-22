@@ -8,6 +8,7 @@ dependencies = ["flask>=3.0,<4"]
 
 [dependency-groups]
 dev = [
+    "pillow>=12,<13",
     "pytest>=8.0,<9",
     "pytest-cov>=6",
     "ruff>=0.14",

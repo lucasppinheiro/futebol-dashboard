@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="light" data-visual="matchday">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página não encontrada | Brasileirão Dashboard</title>
-    <meta name="robots" content="noindex">
-    <script>
-        (function () {
-            var savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            } else if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
+    <meta name="description" content="O endereço solicitado não existe no Brasileirão Dashboard.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="{{ site_url('static/img/favicon.svg') }}" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset_url('static/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset_url('static/css/matchday.css') }}">
 </head>
 
-<body>
-    <main id="main-content" class="container" style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px; padding: 48px 24px;">
-        <span class="hero-kicker">Erro 404</span>
+<body class="not-found-page">
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <main id="main-content" class="container not-found">
+        <span class="not-found-code">Erro 404</span>
+        <p class="not-found-season">Brasileirão {% if dados %}{{ dados.info.temporada }}{% endif %}</p>
         <h1>Página não encontrada</h1>
-        <p style="color: var(--text-secondary); max-width: 52ch;">
-            O endereço que você tentou abrir não existe no Brasileirão Dashboard.
-            Pode ser um link antigo ou uma sigla de clube que não está na Série A
-            {% if dados %}{{ dados.info.temporada }}{% endif %}.
+        <p class="not-found-copy">
+            O endereço que você tentou abrir não existe. Pode ser um link antigo ou a página de um clube que não está na Série A.
         </p>
-        <a href="{{ site_url() }}" class="hero-action primary">Voltar ao dashboard</a>
+        <a href="{{ site_url() }}" class="not-found-action">Voltar ao dashboard</a>
     </main>
 </body>
 

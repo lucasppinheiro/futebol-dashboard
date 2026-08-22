@@ -11,7 +11,7 @@ html[data-visual="matchday"][data-theme="light"] {
     --line-strong: #1d1d1b;
     --text-primary: #1b1b19;
     --text-secondary: #5a5a55;
-    --text-muted: #7a7a73;
+    --text-muted: #62625c;
     --brand: #1b1b19;
     --brand-strong: #000000;
     --brand-alt: #d5332f;
@@ -813,6 +813,12 @@ html[data-visual="matchday"] {
     filter: none;
 }
 
+[data-visual="matchday"] .hero-ticker-team {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 [data-visual="matchday"] .back-link {
     color: color-mix(in srgb, var(--score-text) 76%, transparent);
     font-weight: 700;
@@ -874,6 +880,22 @@ html[data-visual="matchday"] {
     font-size: 0.78rem;
     line-height: 1.45;
     text-align: right;
+}
+
+[data-visual="matchday"] .footer-content > p,
+[data-visual="matchday"] .footer-content > p strong {
+    color: #f7f7f2;
+}
+
+[data-visual="matchday"] .footer-content > p a {
+    color: #d7e8df;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+[data-visual="matchday"] .footer-content > p a:hover {
+    color: #ffffff;
 }
 
 /* Editorial tightening: keep the experience closer to a sports table page. */
@@ -987,6 +1009,77 @@ html[data-visual="matchday"] {
 
 [data-visual="matchday"] #artilharia .panel-shell {
     margin-top: 0;
+}
+
+[data-visual="matchday"] .scorer-podium {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-bottom: 24px;
+    border: 1px solid var(--table-line);
+    background: var(--table-line);
+}
+
+[data-visual="matchday"] .scorer-podium-item {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: center;
+    min-width: 0;
+    padding: 16px;
+    background: #ffffff;
+}
+
+[data-visual="matchday"] .scorer-podium-rank {
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+[data-visual="matchday"] .scorer-podium-crest {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+[data-visual="matchday"] .scorer-podium-copy {
+    min-width: 0;
+}
+
+[data-visual="matchday"] .scorer-podium-copy h3 {
+    margin: 0;
+    overflow: hidden;
+    color: var(--table-text);
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+[data-visual="matchday"] .scorer-podium-copy span {
+    display: block;
+    margin-top: 3px;
+    overflow: hidden;
+    color: var(--table-muted);
+    font-size: 0.72rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+[data-visual="matchday"] .scorer-podium-goals {
+    color: var(--table-muted);
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+[data-visual="matchday"] .scorer-podium-goals strong {
+    margin-right: 2px;
+    color: var(--table-text);
+    font-size: 1rem;
+    font-variant-numeric: tabular-nums;
 }
 
 [data-visual="matchday"] #artilharia .data-table td {
@@ -1224,6 +1317,35 @@ html[data-visual="matchday"] {
 [data-visual="matchday"] .cmp-aviso {
     margin-top: 16px;
     color: var(--text-secondary);
+}
+
+[data-visual="matchday"] .cmp-empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+    padding: 18px 0;
+}
+
+[data-visual="matchday"] .cmp-empty-state .cmp-empty {
+    margin: 0;
+}
+
+[data-visual="matchday"] .cmp-quick-button {
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid var(--score-panel);
+    background: #ffffff;
+    color: var(--score-panel);
+    font: inherit;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+[data-visual="matchday"] .cmp-quick-button:hover {
+    background: var(--score-panel);
+    color: #ffffff;
 }
 
 [data-visual="matchday"] .cmp-result {
@@ -1605,6 +1727,23 @@ html[data-visual="matchday"] {
         grid-template-columns: 1fr;
     }
 
+    [data-visual="matchday"] .scorer-podium {
+        grid-template-columns: 1fr;
+    }
+
+    [data-visual="matchday"] .scorer-podium-item {
+        padding: 13px 14px;
+    }
+
+    [data-visual="matchday"] .cmp-empty-state {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    [data-visual="matchday"] .cmp-quick-button {
+        width: 100%;
+    }
+
     [data-visual="matchday"] .cmp-field,
     [data-visual="matchday"] .cmp-field:first-of-type,
     [data-visual="matchday"] .cmp-field:nth-of-type(2) {
@@ -1718,4 +1857,77 @@ html[data-visual="matchday"] {
     [data-visual="matchday"] .podium-item:hover {
         transform: none;
     }
+}
+
+.not-found-page {
+    min-height: 100vh;
+    background:
+        linear-gradient(90deg, transparent 0 74%, rgba(36, 89, 184, 0.08) 74% 75%, transparent 75%),
+        #f6f6f2;
+}
+
+.not-found {
+    display: flex;
+    min-height: 100vh;
+    max-width: 760px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.not-found-code,
+.not-found-season {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.not-found-code {
+    color: #2459b8;
+}
+
+.not-found-season {
+    margin: 14px 0 0;
+    color: #62625c;
+}
+
+.not-found h1 {
+    max-width: 620px;
+    margin: 16px 0 0;
+    color: #173c34;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.9;
+    text-wrap: balance;
+}
+
+.not-found-copy {
+    max-width: 58ch;
+    margin: 24px 0 0;
+    color: #4e4e49;
+    font-size: 1rem;
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+.not-found-action {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    padding: 0 20px;
+    border: 1px solid #173c34;
+    background: #173c34;
+    color: #ffffff;
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.not-found-action:hover {
+    background: #2459b8;
 }

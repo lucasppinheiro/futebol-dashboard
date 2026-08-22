@@ -47,6 +47,7 @@ class TestGerarDados:
             dados = json.load(f)
         assert "classificacao" in dados
         assert "artilharia" in dados
+        assert "dados_atualizados_em" in dados
         assert "info" in dados
         assert dados["info"]["lider"] == dados["classificacao"][0]["time"]
         assert dados["info"]["artilheiro"] == dados["artilharia"][0]["jogador"]

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light" data-visual="matchday">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipos de header | Brasileirão {{ dados.info.temporada }}</title>
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Quatro propostas visuais para o header do dashboard do Brasileirão.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ site_url('static/css/style.css') }}">
+    <link rel="stylesheet" href="{{ site_url('static/css/matchday.css') }}">
+    <link rel="stylesheet" href="{{ site_url('static/css/header-prototypes.css') }}">
+</head>
+
+<body class="prototype-page">
+    <a href="#prototypes" class="skip-link">Pular para os protótipos</a>
+    <main class="prototype-shell">
+        <header class="prototype-intro">
+            <div class="prototype-intro-copy">
+                <span class="prototype-eyebrow">Laboratório de interface · Série A {{ dados.info.temporada }}</span>
+                <h1>Escolha o novo rosto da tabela</h1>
+                <p>Quatro direções para refazer o header mantendo a leitura esportiva, a personalidade editorial e a navegação principal.</p>
+            </div>
+            <a href="{{ site_url() }}" class="prototype-back">&larr; Voltar ao dashboard</a>
+        </header>
+
+        <section class="prototype-note" aria-labelledby="prototype-note-title">
+            <span class="prototype-note-index" aria-hidden="true">01</span>
+            <div>
+                <h2 id="prototype-note-title">Como comparar</h2>
+                <p>Veja o peso do título, a presença da temporada, a hierarquia do texto de apoio e o espaço ocupado pelo menu. Clique em “Escolher esta” para marcar a sua favorita.</p>
+            </div>
+            <p id="prototype-status" class="prototype-status" aria-live="polite">Nenhuma opção selecionada.</p>
+        </section>
+
+        <section id="prototypes" class="prototype-grid" aria-label="Opções de header">
+            <article class="prototype-card" data-prototype="Editorial de domingo">
+                <div class="prototype-card-meta">
+                    <div>
+                        <span class="prototype-card-number">Opção 01</span>
+                        <h2>Editorial de domingo</h2>
+                    </div>
+                    <button class="prototype-select" type="button" aria-pressed="false">Escolher esta</button>
+                </div>
+                {% include 'partials/header-editorial.html' %}
+                <p class="prototype-card-description"><strong>Clima:</strong> mais editorial, claro e próximo de uma capa esportiva impressa.</p>
+                <a href="{{ site_url('prototipos/header/editorial/') }}" class="prototype-open">Abrir em largura do site &rarr;</a>
+            </article>
+
+            <article class="prototype-card" data-prototype="Editorial v2">
+                <div class="prototype-card-meta">
+                    <div>
+                        <span class="prototype-card-number">Opção 02</span>
+                        <h2>Editorial v2</h2>
+                    </div>
+                    <button class="prototype-select" type="button" aria-pressed="false">Escolher esta</button>
+                </div>
+                {% include 'partials/header-editorial-v2.html' %}
+                <p class="prototype-card-description"><strong>Clima:</strong> editorial mais compacto, alinhado e informativo, com um resumo vivo da rodada.</p>
+                <a href="{{ site_url('prototipos/header/editorial-v2/') }}" class="prototype-open">Abrir em largura do site &rarr;</a>
+            </article>
+
+            <article class="prototype-card" data-prototype="Placar ao vivo">
+                <div class="prototype-card-meta">
+                    <div>
+                        <span class="prototype-card-number">Opção 03</span>
+                        <h2>Placar ao vivo</h2>
+                    </div>
+                    <button class="prototype-select" type="button" aria-pressed="false">Escolher esta</button>
+                </div>
+                <div class="prototype-frame prototype-frame-scoreboard">
+                    <header class="mock-header">
+                        <div class="mock-score-topline">
+                            <div class="mock-wordmark"><span>BRASILEIRÃO</span><strong>SÉRIE A</strong></div>
+                            <span class="mock-season-badge">2026</span>
+                        </div>
+                        <div class="mock-score-content">
+                            <div>
+                                <span class="mock-kicker">CAMPEONATO BRASILEIRO</span>
+                                <h3>A tabela que<br><strong>conta a rodada.</strong></h3>
+                                <p>Posição, desempenho e disputa por zona em um só lugar.</p>
+                            </div>
+                            <div class="mock-score-number" aria-label="Temporada 2026">26</div>
+                        </div>
+                        <div class="mock-score-strip" aria-label="Resumo da rodada">
+                            <span><b>{{ dados.classificacao|length }}</b> clubes</span>
+                            <span><b>{{ dados.artilharia|length }}</b> artilheiros</span>
+                            <span><b>G4</b> em foco</span>
+                        </div>
+                    </header>
+                    <nav class="mock-nav" aria-label="Menu simulado da opção Placar">
+                        <span class="is-active">Classificação</span>
+                        <span>Artilharia</span>
+                        <span>Gráficos</span>
+                        <span>Comparador</span>
+                    </nav>
+                </div>
+                <p class="prototype-card-description"><strong>Clima:</strong> mais forte e compacto, com cara de central de placares e foco nos dados.</p>
+            </article>
+
+            <article class="prototype-card" data-prototype="Capa de revista">
+                <div class="prototype-card-meta">
+                    <div>
+                        <span class="prototype-card-number">Opção 04</span>
+                        <h2>Capa de revista</h2>
+                    </div>
+                    <button class="prototype-select" type="button" aria-pressed="false">Escolher esta</button>
+                </div>
+                <div class="prototype-frame prototype-frame-cover">
+                    <header class="mock-header">
+                        <div class="mock-cover-side-label">SÉRIE A<br><strong>26</strong></div>
+                        <div class="mock-cover-main">
+                            <div class="mock-cover-eyebrow">A temporada em números</div>
+                            <h3>Brasileirão<br><strong>2026</strong></h3>
+                            <p>Uma leitura rápida da classificação, das zonas e dos protagonistas do campeonato.</p>
+                            <div class="mock-cover-clubs" aria-label="Clubes em destaque">
+                                {% for time in dados.classificacao[:4] %}
+                                {% if time.escudo %}
+                                <img src="{{ site_url(time.escudo) }}" alt="" loading="lazy">
+                                {% endif %}
+                                {% endfor %}
+                                <span>+ {{ dados.classificacao|length - 4 }} times</span>
+                            </div>
+                        </div>
+                        <div class="mock-cover-season">TEMPORADA<br><strong>{{ dados.info.temporada }}</strong></div>
+                    </header>
+                    <nav class="mock-nav" aria-label="Menu simulado da opção Capa">
+                        <span class="is-active">Classificação</span>
+                        <span>Artilharia</span>
+                        <span>Gráficos</span>
+                        <span>Comparador</span>
+                    </nav>
+                </div>
+                <p class="prototype-card-description"><strong>Clima:</strong> mais autoral e memorável, com o ano como elemento visual principal.</p>
+            </article>
+        </section>
+    </main>
+
+    <script src="{{ site_url('static/js/header-prototypes.js') }}"></script>
+</body>
+
+</html>

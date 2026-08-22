@@ -1,14 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
-    const getMediaQueryMatch = (query) => {
-        if (typeof window.matchMedia !== 'function') return false;
-        return window.matchMedia(query).matches;
-    };
-    const prefersReducedMotion = getMediaQueryMatch('(prefers-reduced-motion: reduce)');
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('.section');
     const chartsSection = document.getElementById('graficos');
     const chartsStatus = document.getElementById('charts-status');
+    const escudoFallback = window.escudoFallback;
+    const safeStorage = (() => {
+        try {
+            return window.localStorage;
+        } catch {
+            return null;
+        }
+    })();
+    const seletoresDeEscudo = [
+        '.time-escudo',
+        '.scorer-escudo',
+        '.scorer-podium-crest',
+        '.hero-escudo',
+        '.cmp-picker-escudo',
+        '.cmp-picker-current-escudo',
+        '.cmp-summary-escudo',
+        '.cmp-radar-escudo'
+    ].join(', ');
+
+    function aplicarFallbackEscudo(img) {
+        if (!escudoFallback || img.dataset.fallbackAplicado === 'true') return;
+
+        img.dataset.fallbackAplicado = 'true';
+        img.src = escudoFallback;
+    }
+
+    document.addEventListener(
+        'error',
+        (event) => {
+            const elemento = event.target;
+            if (elemento instanceof HTMLImageElement && elemento.matches(seletoresDeEscudo)) {
+                aplicarFallbackEscudo(elemento);
+            }
+        },
+        true
+    );
+
+    document.querySelectorAll(seletoresDeEscudo).forEach((img) => {
+        if (img.complete && img.naturalWidth === 0) aplicarFallbackEscudo(img);
+    });
 
     function setChartsStatus(message) {
         if (chartsStatus) chartsStatus.textContent = message;
@@ -126,13 +161,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let filtroZonaAtivo = 'todas';
 
     function readStoredArray(key) {
+        if (!safeStorage) return [];
         try {
-            const raw = localStorage.getItem(key);
+            const raw = safeStorage.getItem(key);
             if (!raw) return [];
             const parsed = JSON.parse(raw);
             return Array.isArray(parsed) ? parsed : [];
         } catch {
-            localStorage.removeItem(key);
+            try {
+                safeStorage.removeItem(key);
+            } catch {
+                return [];
+            }
             return [];
         }
     }
@@ -140,7 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const favoritos = readStoredArray('favoritos');
 
     function salvarFavoritos() {
-        localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        if (!safeStorage) return;
+        try {
+            safeStorage.setItem('favoritos', JSON.stringify(favoritos));
+        } catch {
+            // Favoritos continuam funcionando durante a sessão quando o armazenamento está indisponível.
+        }
     }
 
     function isFavorito(sigla) {
@@ -223,8 +268,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
-            filterBtns.forEach((item) => item.classList.remove('active'));
+            filterBtns.forEach((item) => {
+                item.classList.remove('active');
+                item.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
             filtroZonaAtivo = btn.dataset.zona;
             aplicarFiltros();
         });
@@ -284,7 +333,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     root.setAttribute('data-theme', 'light');
-    localStorage.removeItem('athletic-table-theme');
+    try {
+        safeStorage?.removeItem('athletic-table-theme');
+    } catch {
+        // O tema claro continua ativo mesmo sem armazenamento local.
+    }
 
     document.querySelectorAll('[data-count]').forEach((element) => {
         const target = parseInt(element.dataset.count, 10);
@@ -292,24 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const original = element.textContent || '';
         const suffix = original.replace(/^\s*[\d.+-]+\s*/, '').trim();
-
-        if (prefersReducedMotion) {
-            element.textContent = suffix ? `${target} ${suffix}` : `${target}`;
-            return;
-        }
-
-        const duration = 900;
-        const start = performance.now();
-
-        function step(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const value = Math.round(target * eased);
-            element.textContent = suffix ? `${value} ${suffix}` : `${value}`;
-            if (progress < 1) requestAnimationFrame(step);
-        }
-
-        requestAnimationFrame(step);
+        element.textContent = suffix ? `${target} ${suffix}` : `${target}`;
     });
 
     function getCssVar(name, fallback) {
@@ -352,6 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cmpSelect2 = document.getElementById('cmp-time2');
     const cmpBtn = document.getElementById('cmp-btn');
     const cmpResult = document.getElementById('cmp-result');
+    const cmpQuickLeaders = document.getElementById('cmp-quick-leaders');
 
     if (cmpBtn && cmpSelect1 && cmpSelect2 && cmpResult) {
         let chartComparador = null;
@@ -503,6 +540,16 @@ document.addEventListener('DOMContentLoaded', () => {
         cmpSelect1.addEventListener('change', atualizarEstadoComparador);
         cmpSelect2.addEventListener('change', atualizarEstadoComparador);
         atualizarEstadoComparador();
+
+        if (cmpQuickLeaders && typeof dadosClassificacao !== 'undefined' && dadosClassificacao.length >= 2) {
+            cmpQuickLeaders.addEventListener('click', () => {
+                cmpSelect1.value = dadosClassificacao[0].sigla;
+                cmpSelect2.value = dadosClassificacao[1].sigla;
+                cmpSelect1.dispatchEvent(new Event('change', { bubbles: true }));
+                cmpSelect2.dispatchEvent(new Event('change', { bubbles: true }));
+                cmpBtn.click();
+            });
+        }
 
         const observer = new MutationObserver(() => {
             if (!chartComparador) return;

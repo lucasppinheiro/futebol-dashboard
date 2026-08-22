@@ -41,6 +41,32 @@ class TestRotaWeb:
         resp = client.get("/")
         assert resp.status_code == 200
         assert b"Brasileir" in resp.data
+        assert b"editorial-v2-production" in resp.data
+        assert b"Dados atualizados em" in resp.data
+
+    def test_prototipos_header_retorna_200(self, client):
+        resp = client.get("/prototipos/header/")
+        assert resp.status_code == 200
+        assert b"Editorial de domingo" in resp.data
+        assert b"Editorial v2" in resp.data
+        assert b"Placar ao vivo" in resp.data
+        assert b"Capa de revista" in resp.data
+
+    def test_prototipo_editorial_em_largura_real_retorna_200(self, client):
+        resp = client.get("/prototipos/header/editorial/")
+        assert resp.status_code == 200
+        assert b"Header editorial do Brasileir" in resp.data
+        assert b"prototype-live-frame" in resp.data
+
+    def test_prototipo_editorial_v2_em_largura_real_retorna_200(self, client):
+        resp = client.get("/prototipos/header/editorial-v2/")
+        assert resp.status_code == 200
+        assert b"Header editorial v2" in resp.data
+        assert b"editorial-v2-scoreboard" in resp.data
+
+    def test_formata_data_de_atualizacao_salva_nos_dados(self):
+        dados = {"dados_atualizados_em": "2026-08-10T02:35:34+00:00"}
+        assert app_module.formatar_atualizacao_dados(dados) == "09/08/2026"
 
 
 class TestRotaTime:
@@ -57,7 +83,12 @@ class TestRotaTime:
     def test_time_inexistente_retorna_404(self, client):
         resp = client.get("/time/XXX")
         assert resp.status_code == 404
-        assert b"nao encontrado" in resp.data.lower() or b"nao existe" in resp.data.lower()
+        assert "Página não encontrada" in resp.get_data(as_text=True)
+
+    def test_rota_inexistente_usa_pagina_404(self, client):
+        resp = client.get("/rota-inexistente")
+        assert resp.status_code == 404
+        assert "Página não encontrada" in resp.get_data(as_text=True)
 
 
 class TestAPIClassificacao:
@@ -149,8 +180,7 @@ class TestCacheInvalidacao:
         resp1 = client.get("/api/classificacao")
         assert resp1.status_code == 200
 
-        dados_json_validos["classificacao"][0]["time"] = "Alterado FC"
-        dados_json_validos["info"]["lider"] = "Alterado FC"
+        dados_json_validos["classificacao"][0]["cor"] = "#123456"
         arquivo.write_text(json.dumps(dados_json_validos, ensure_ascii=False), encoding="utf-8")
 
         os.utime(str(arquivo), (arquivo.stat().st_mtime + 10, arquivo.stat().st_mtime + 10))
@@ -158,7 +188,7 @@ class TestCacheInvalidacao:
         resp2 = client.get("/api/classificacao")
         assert resp2.status_code == 200
         times_v2 = resp2.get_json()
-        assert times_v2[0]["time"] == "Alterado FC"
+        assert times_v2[0]["cor"] == "#123456"
 
     def test_refresh_automatico_atualiza_arquivo_antigo(self, client, monkeypatch, tmp_path, dados_json_validos):
         arquivo = tmp_path / "dados.json"
@@ -169,8 +199,7 @@ class TestCacheInvalidacao:
         monkeypatch.setenv("DATA_AUTO_REFRESH_COOLDOWN_MINUTES", "0")
 
         dados_atualizados = json.loads(json.dumps(dados_json_validos))
-        dados_atualizados["classificacao"][0]["time"] = "Atualizado FC"
-        dados_atualizados["info"]["lider"] = "Atualizado FC"
+        dados_atualizados["classificacao"][0]["cor"] = "#654321"
         os.utime(str(arquivo), (1, 1))
 
         def fake_atualizar(_temporada=None):
@@ -188,7 +217,7 @@ class TestCacheInvalidacao:
             app_module.app.config["TESTING"] = True
 
         assert resp.status_code == 200
-        assert resp.get_json()[0]["time"] == "Atualizado FC"
+        assert resp.get_json()[0]["cor"] == "#654321"
 
 
 class TestAPIAtualizar:

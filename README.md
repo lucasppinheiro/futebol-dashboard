@@ -27,6 +27,7 @@ Dashboard editorial do Campeonato Brasileiro Série A com classificação, artil
 - Gráficos de gols, aproveitamento e ataque/defesa com Chart.js.
 - Comparador de clubes com escudos, métricas lado a lado e radar de desempenho.
 - Páginas individuais por time geradas estaticamente.
+- Vinte escudos oficiais preservados localmente, com versões transparentes e visualmente equilibradas.
 - Endpoints JSON em `dist/api/` para classificação, artilharia, clubes, estatísticas e saúde dos dados.
 
 ## Arquitetura
@@ -97,6 +98,21 @@ python build_static.py
 ```
 
 O resultado é escrito em `dist/`, incluindo páginas dos clubes, APIs JSON, `404.html`, `robots.txt` e `sitemap.xml`.
+
+## Escudos dos clubes
+
+Os arquivos recebidos da CBF ficam preservados, sem alterações, em `static/img/escudos/cbf/`. O site usa as versões de exibição em `static/img/escudos/normalizados/`, com fundo transparente, tela quadrada e margem proporcional para equilibrar formatos redondos, largos e verticais.
+
+A normalização remove somente o fundo claro e neutro conectado às bordas. Áreas brancas internas, estrelas e demais elementos oficiais são mantidos. A arte não é recortada, esticada nem reamostrada durante o processo.
+
+Para recriar os PNGs depois de substituir algum original da CBF:
+
+```bash
+pip install "Pillow>=12,<13"
+python scripts/normalize_crests.py
+```
+
+O script exige exatamente os 20 arquivos JPG da temporada e gera novamente todos os PNGs. Não edite os arquivos normalizados manualmente.
 
 ## Dados e configuração
 

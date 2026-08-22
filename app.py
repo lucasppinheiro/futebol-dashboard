@@ -5,6 +5,7 @@ import re
 import secrets
 import time
 import traceback
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from flask import Flask, jsonify, render_template, request
@@ -60,7 +61,24 @@ def site_url(path: str = "") -> str:
     return url
 
 
+def asset_url(path: str) -> str:
+    """Retorna um asset local com versão baseada no arquivo para invalidar cache."""
+    url = site_url(path)
+    destino = (path or "").strip().lstrip("/")
+    if not destino.startswith("static/"):
+        return url
+
+    caminho = os.path.join(BASE_DIR, *destino.split("/"))
+    try:
+        versao = format(os.stat(caminho).st_mtime_ns, "x")
+    except OSError:
+        return url
+    separador = "&" if "?" in url else "?"
+    return f"{url}{separador}v={versao}"
+
+
 app.jinja_env.globals["site_url"] = site_url
+app.jinja_env.globals["asset_url"] = asset_url
 
 _dados_cache: dict | None = None
 _dados_mtime: float = 0.0
@@ -169,10 +187,67 @@ def _is_api_request() -> bool:
     return request.path.startswith("/api/")
 
 
+def formatar_atualizacao_dados(dados: dict[str, Any] | None = None) -> str:
+    atualizado_em: datetime | None = None
+    valor_salvo = dados.get("dados_atualizados_em") if dados else None
+
+    if isinstance(valor_salvo, str):
+        try:
+            atualizado_em = datetime.fromisoformat(valor_salvo.replace("Z", "+00:00"))
+        except ValueError:
+            atualizado_em = None
+
+    if atualizado_em is None:
+        try:
+            atualizado_em = datetime.fromtimestamp(os.path.getmtime(DATA_PATH), tz=timezone.utc)
+        except OSError:
+            return "data indisponível"
+
+    if atualizado_em.tzinfo is None:
+        atualizado_em = atualizado_em.replace(tzinfo=timezone.utc)
+
+    horario_brasilia = timezone(timedelta(hours=-3))
+    return atualizado_em.astimezone(horario_brasilia).strftime("%d/%m/%Y")
+
+
 @app.route("/")
 def index():
     dados = carregar_dados()
-    return render_template("index.html", dados=dados)
+    return render_template(
+        "index.html",
+        dados=dados,
+        atualizado_em=formatar_atualizacao_dados(dados),
+    )
+
+
+@app.route("/prototipos/header/")
+@app.route("/prototipos/header")
+def prototipos_header():
+    dados = carregar_dados()
+    return render_template(
+        "prototipos-header.html",
+        dados=dados,
+        atualizado_em=formatar_atualizacao_dados(dados),
+    )
+
+
+@app.route("/prototipos/header/editorial/")
+@app.route("/prototipos/header/editorial")
+def prototipo_header_editorial():
+    dados = carregar_dados()
+    return render_template("prototipo-header-editorial.html", dados=dados, full_width=True)
+
+
+@app.route("/prototipos/header/editorial-v2/")
+@app.route("/prototipos/header/editorial-v2")
+def prototipo_header_editorial_v2():
+    dados = carregar_dados()
+    return render_template(
+        "prototipo-header-editorial-v2.html",
+        dados=dados,
+        atualizado_em=formatar_atualizacao_dados(dados),
+        full_width=True,
+    )
 
 
 @app.route("/time/<sigla>/")
@@ -182,9 +257,7 @@ def detalhe_time(sigla: str):
     sigla_upper = sigla.upper()
     time = next((t for t in dados["classificacao"] if t["sigla"] == sigla_upper), None)
     if not time:
-        if _is_api_request():
-            return jsonify({"erro": f"Time '{sigla}' nao encontrado", "codigo": "TIME_NAO_ENCONTRADO"}), 404
-        return f"<h1>Time nao encontrado</h1><p>Sigla '{sigla}' nao existe na classificacao.</p>", 404
+        return render_template("404.html", dados=dados), 404
     artilheiros_time = [j for j in dados["artilharia"] if j["sigla"] == sigla_upper]
     return render_template("time.html", time=time, artilheiros=artilheiros_time, dados=dados)
 
@@ -240,6 +313,18 @@ def api_health():
     status["refresh_automatico"] = _token_football_data_disponivel() and _refresh_automatico_horas() > 0
     status["temporada_padrao"] = temporada_brasileirao_atual()
     return jsonify(status)
+
+
+@app.errorhandler(404)
+def pagina_nao_encontrada(_erro):
+    if _is_api_request():
+        return jsonify({"erro": "Recurso nao encontrado", "codigo": "NAO_ENCONTRADO"}), 404
+
+    try:
+        dados = carregar_dados()
+    except (FileNotFoundError, json.JSONDecodeError, DadosInvalidosError, KeyError):
+        dados = None
+    return render_template("404.html", dados=dados), 404
 
 
 @app.errorhandler(FileNotFoundError)

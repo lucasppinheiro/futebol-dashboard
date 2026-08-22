@@ -156,6 +156,7 @@ function criarGraficoArtilheiros(artilharia) {
             ]
         },
         options: {
+            indexAxis: 'y',
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
@@ -172,10 +173,13 @@ function criarGraficoArtilheiros(artilharia) {
                 }
             },
             scales: {
-                x: { grid: { display: false } },
-                y: {
+                x: {
                     beginAtZero: true,
                     grid: { color: theme.grid }
+                },
+                y: {
+                    grid: { display: false },
+                    ticks: { autoSkip: false, font: { size: 10 } }
                 }
             }
         }
@@ -187,7 +191,7 @@ function criarGraficoArtilheiros(artilharia) {
             chart.data.datasets[0].backgroundColor = top10.map((_, index) =>
                 index === 0 ? newTheme.primary : newTheme.neutral
             );
-            chart.options.scales.y.grid.color = newTheme.grid;
+            chart.options.scales.x.grid.color = newTheme.grid;
             chart.options.plugins.tooltip = {
                 ...tooltipBase(),
                 callbacks: {

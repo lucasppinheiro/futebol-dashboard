@@ -1,6 +1,7 @@
 from typing import Any
 
 from club_assets import aplicar_escudos_locais
+from club_identity import nome_popular_cbf, uf_cbf
 
 POSICOES_MAPA: dict[str, str] = {
     "Offence": "Atacante",
@@ -43,12 +44,18 @@ def _safe_int(value: Any, default: int = 0) -> int:
 def normalizar_dados_dashboard(dados: dict[str, Any]) -> dict[str, Any]:
     classificacao = dados.get("classificacao")
     if isinstance(classificacao, list):
+        for time in classificacao:
+            sigla = str(time.get("sigla") or "").upper()
+            time["time"] = nome_popular_cbf(sigla, str(time.get("time") or ""))
+            time["estado"] = uf_cbf(sigla, str(time.get("estado") or ""))
         aplicar_escudos_locais(classificacao)
         classificacao.sort(key=lambda time: _safe_int(time.get("posicao"), 10**9))
 
     artilharia = dados.get("artilharia")
     if isinstance(artilharia, list):
         for jogador in artilharia:
+            sigla = str(jogador.get("sigla") or "").upper()
+            jogador["time"] = nome_popular_cbf(sigla, str(jogador.get("time") or ""))
             jogador["posicao"] = normalizar_posicao_jogador(jogador.get("posicao"))
 
         artilharia.sort(
@@ -58,5 +65,9 @@ def normalizar_dados_dashboard(dados: dict[str, Any]) -> dict[str, Any]:
                 str(jogador.get("time") or ""),
             )
         )
+
+    info = dados.get("info")
+    if isinstance(info, dict) and isinstance(classificacao, list) and classificacao:
+        info["lider"] = classificacao[0].get("time")
 
     return dados

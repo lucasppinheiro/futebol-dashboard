@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+from datetime import datetime, timezone
 from typing import Any
 
 from dados_schema import validar_dados_dashboard
@@ -111,6 +112,7 @@ def gerar_dados() -> None:
     dados = {
         "classificacao": classificacao,
         "artilharia": artilharia,
+        "dados_atualizados_em": datetime.now(timezone.utc).isoformat(),
         "info": montar_info(classificacao, artilharia, "2026"),
     }
 

@@ -14,6 +14,7 @@ import urllib.request
 from typing import Any
 
 from club_assets import escudo_do_time
+from club_identity import nome_popular_cbf, uf_cbf
 from env_config import carregar_env_local
 from normalizacao import normalizar_posicao_jogador
 from temporada import temporada_brasileirao_atual
@@ -217,6 +218,10 @@ def _sigla_do_time(team: dict[str, Any], nome: str) -> str:
 
 
 def _estado_de(sigla: str) -> str:
+    estado_cbf = uf_cbf(sigla)
+    if estado_cbf:
+        return estado_cbf
+
     estados: dict[str, str] = {
         "FLA": "RJ",
         "PAL": "SP",
@@ -250,18 +255,11 @@ def _estado_de(sigla: str) -> str:
     return estados.get(sigla.upper(), "??")
 
 
-NOME_DISPLAY: dict[str, str] = {
-    "CA Mineiro": "Atlético Mineiro",
-    "Clube Atlético Mineiro": "Atlético Mineiro",
-    "Athletico Paranaense": "CA Paranaense",
-    "Coritiba SAF": "Coritiba FBC",
-    "Vasco da Gama Saf": "CR Vasco da Gama",
-    "Palmeiras": "SE Palmeiras",
-    "Flamengo": "CR Flamengo",
-    "Fluminense": "Fluminense FC",
-    "São Paulo": "São Paulo FC",
-    "Santos": "Santos FC",
-    "Grêmio": "Grêmio FBPA",
+NOMES_CBF_COM_CODIFICACAO_INVALIDA: dict[str, str] = {
+    "Atl�tico Mineiro": "Atlético Mineiro",
+    "Vit�ria": "Vitória",
+    "S�o Paulo": "São Paulo",
+    "Gr�mio": "Grêmio",
 }
 
 
@@ -300,7 +298,9 @@ def _extrair_array_next(html: str, chave: str, marcador_final: str) -> list[dict
 
 
 def _display_nome(nome: str) -> str:
-    return NOME_DISPLAY.get(nome, nome)
+    nome_limpo = NOMES_CBF_COM_CODIFICACAO_INVALIDA.get(nome, nome).strip()
+    sigla = _sigla_por_nome(nome_limpo)
+    return nome_popular_cbf(sigla, nome_limpo) if sigla else nome_limpo
 
 
 def _nome_clube_cbf(nome: str) -> str:
@@ -394,7 +394,7 @@ def buscar_artilharia_cbf(temporada: str | None = None, limite: int = 20) -> lis
 def _normalizar_linha_classificacao(item: dict[str, Any]) -> dict[str, Any]:
     team = item["team"]
     nome = team["name"]
-    nome_exibir = NOME_DISPLAY.get(nome, nome)
+    nome_exibir = _display_nome(nome)
     sigla = _sigla_do_time(team, nome)
     jogos = item["playedGames"]
     vitorias = item["won"]
@@ -465,7 +465,7 @@ def _registrar_estatisticas_time(classificacao: dict[str, Any], gols_pro: int, g
 
 def _criar_base_time(team: dict[str, Any], posicao_inicial: int = 999) -> dict[str, Any]:
     nome = team["name"]
-    nome_exibir = NOME_DISPLAY.get(nome, nome)
+    nome_exibir = _display_nome(nome)
     sigla = _sigla_do_time(team, nome)
 
     return {
@@ -560,7 +560,7 @@ def buscar_artilharia(temporada: str | None = None, limite: int = 20) -> list[di
         player = item["player"]
         team = item.get("team", {})
         team_name = team.get("name", "")
-        team_name_exibir = NOME_DISPLAY.get(team_name, team_name)
+        team_name_exibir = _display_nome(team_name)
         sigla = _sigla_do_time(team, team_name) if team_name else "???"
 
         posicao_raw = player.get("section") or player.get("position") or ""

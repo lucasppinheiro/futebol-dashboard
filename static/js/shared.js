@@ -1,5 +1,12 @@
 (function () {
     const root = document.documentElement;
+    const safeStorage = (() => {
+        try {
+            return window.localStorage;
+        } catch {
+            return null;
+        }
+    })();
 
     function getMediaQueryMatch(query) {
         if (typeof window.matchMedia !== 'function') return false;
@@ -147,11 +154,21 @@
 
         function setTheme(tema) {
             root.setAttribute('data-theme', tema);
-            localStorage.setItem('theme', tema);
+            try {
+                safeStorage?.setItem('theme', tema);
+            } catch {
+                // O tema continua aplicado mesmo quando o armazenamento está indisponível.
+            }
             atualizarCopiaTema(tema);
         }
 
-        const savedTheme = localStorage.getItem('theme');
+        const savedTheme = (() => {
+            try {
+                return safeStorage?.getItem('theme') || null;
+            } catch {
+                return null;
+            }
+        })();
         if (savedTheme) {
             setTheme(savedTheme);
         } else if (getMediaQueryMatch('(prefers-color-scheme: light)')) {
@@ -167,32 +184,13 @@
             });
         }
 
-        const prefersReducedMotion = getMediaQueryMatch('(prefers-reduced-motion: reduce)');
-
         document.querySelectorAll('[data-count]').forEach((element) => {
             const target = parseInt(element.dataset.count, 10);
             if (Number.isNaN(target)) return;
 
             const original = element.textContent || '';
             const suffix = original.replace(/^\s*[\d.+-]+\s*/, '').trim();
-
-            if (prefersReducedMotion) {
-                element.textContent = suffix ? `${target} ${suffix}` : `${target}`;
-                return;
-            }
-
-            const duration = 900;
-            const start = performance.now();
-
-            function step(now) {
-                const progress = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                const value = Math.round(target * eased);
-                element.textContent = suffix ? `${value} ${suffix}` : `${value}`;
-                if (progress < 1) requestAnimationFrame(step);
-            }
-
-            requestAnimationFrame(step);
+            element.textContent = suffix ? `${target} ${suffix}` : `${target}`;
         });
     }
 

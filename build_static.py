@@ -22,7 +22,11 @@ def _copiar_estaticos() -> None:
     destino = DIST_DIR / "static"
     if destino.exists():
         shutil.rmtree(destino)
-    shutil.copytree(STATIC_DIR, destino)
+    shutil.copytree(
+        STATIC_DIR,
+        destino,
+        ignore=shutil.ignore_patterns("header-prototypes.css", "header-prototypes.js"),
+    )
 
 
 def _escrever_arquivo(rel_path: str, conteudo: str) -> None:
@@ -63,9 +67,11 @@ def build(site_base_path: str | None = None) -> None:
 
         _copiar_estaticos()
         _escrever_arquivo(".nojekyll", "")
-        index_html = _render("/", "index.html", dados=dados)
+        atualizado_em_resumo = app_module.formatar_atualizacao_dados(dados)
+        index_html = _render("/", "index.html", dados=dados, atualizado_em=atualizado_em_resumo)
         _escrever_arquivo("index.html", index_html)
-        _escrever_arquivo("404.html", index_html)
+        pagina_404 = _render("/404.html", "404.html", dados=dados)
+        _escrever_arquivo("404.html", pagina_404)
 
         for time in dados["classificacao"]:
             artilheiros = [j for j in dados["artilharia"] if j["sigla"] == time["sigla"]]
