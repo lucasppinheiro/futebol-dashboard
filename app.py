@@ -116,6 +116,14 @@ def _token_football_data_disponivel() -> bool:
     return bool((os.environ.get("FOOTBALL_DATA_TOKEN") or "").strip())
 
 
+def _refresh_automatico_disponivel() -> bool:
+    if _refresh_automatico_horas() <= 0:
+        return False
+
+    fonte = (os.environ.get("DATA_SOURCE") or "cbf").strip().lower()
+    return fonte != "football-data" or _token_football_data_disponivel()
+
+
 def _dados_estao_desatualizados(mtime: float) -> bool:
     horas = _refresh_automatico_horas()
     if horas <= 0:
@@ -138,7 +146,7 @@ def _tentar_refresh_automatico() -> None:
     if app.config.get("TESTING"):
         return
 
-    if not _token_football_data_disponivel() or not _pode_tentar_refresh_automatico():
+    if not _refresh_automatico_disponivel() or not _pode_tentar_refresh_automatico():
         return
 
     if os.path.exists(DATA_PATH):
@@ -310,7 +318,7 @@ def api_health():
     except OSError:
         status["dados_atualizados_em"] = None
         status["dados_desatualizados"] = True
-    status["refresh_automatico"] = _token_football_data_disponivel() and _refresh_automatico_horas() > 0
+    status["refresh_automatico"] = _refresh_automatico_disponivel()
     status["temporada_padrao"] = temporada_brasileirao_atual()
     return jsonify(status)
 

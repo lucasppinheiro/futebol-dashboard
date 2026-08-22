@@ -11,9 +11,11 @@ from app import app as flask_app
 def _limpar_cache():
     app_module._dados_cache = None
     app_module._dados_mtime = 0.0
+    app_module._ultimo_refresh_automatico = 0.0
     yield
     app_module._dados_cache = None
     app_module._dados_mtime = 0.0
+    app_module._ultimo_refresh_automatico = 0.0
 
 
 @pytest.fixture
@@ -255,8 +257,9 @@ class TestAPIAtualizar:
 
 
 class TestAPIHealth:
-    def test_health_indica_refresh_automatico(self, client, monkeypatch):
-        monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "token_teste")
+    def test_health_indica_refresh_automatico_da_cbf_sem_token(self, client, monkeypatch):
+        monkeypatch.setenv("DATA_SOURCE", "cbf")
+        monkeypatch.delenv("FOOTBALL_DATA_TOKEN", raising=False)
         monkeypatch.setenv("DATA_AUTO_REFRESH_HOURS", "6")
 
         resp = client.get("/api/health")
@@ -265,3 +268,15 @@ class TestAPIHealth:
         data = resp.get_json()
         assert data["refresh_automatico"] is True
         assert "temporada_padrao" in data
+
+    def test_health_exige_token_apenas_para_football_data(self, client, monkeypatch):
+        monkeypatch.setenv("DATA_SOURCE", "football-data")
+        monkeypatch.delenv("FOOTBALL_DATA_TOKEN", raising=False)
+        monkeypatch.setenv("DATA_AUTO_REFRESH_HOURS", "6")
+
+        sem_token = client.get("/api/health").get_json()
+        assert sem_token["refresh_automatico"] is False
+
+        monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "token_teste")
+        com_token = client.get("/api/health").get_json()
+        assert com_token["refresh_automatico"] is True
