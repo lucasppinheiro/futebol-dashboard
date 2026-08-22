@@ -274,23 +274,6 @@
     },
     {
       "posicao": 17,
-      "time": "Mirassol",
-      "sigla": "MIR",
-      "estado": "SP",
-      "cor": "#FFD700",
-      "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 22,
-      "vitorias": 6,
-      "empates": 5,
-      "derrotas": 11,
-      "gols_pro": 25,
-      "gols_contra": 35,
-      "saldo": -10,
-      "pontos": 23,
-      "aproveitamento": 34.8
-    },
-    {
-      "posicao": 18,
       "time": "Remo",
       "sigla": "REM",
       "estado": "PA",
@@ -305,6 +288,23 @@
       "saldo": -10,
       "pontos": 23,
       "aproveitamento": 33.3
+    },
+    {
+      "posicao": 18,
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "estado": "SP",
+      "cor": "#FFD700",
+      "escudo": "static/img/escudos/normalizados/MIR.png",
+      "jogos": 22,
+      "vitorias": 6,
+      "empates": 5,
+      "derrotas": 11,
+      "gols_pro": 25,
+      "gols_contra": 35,
+      "saldo": -10,
+      "pontos": 23,
+      "aproveitamento": 34.8
     },
     {
       "posicao": 19,
@@ -346,144 +346,144 @@
       "jogador": "Kevin Viveros",
       "time": "Athletico Paranaense",
       "sigla": "CAP",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 14
     },
     {
       "jogador": "Pedro",
       "time": "Flamengo",
       "sigla": "FLA",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 14
     },
     {
-      "jogador": "Vinicius",
+      "jogador": "Carlos Vinícius",
       "time": "Grêmio",
       "sigla": "GRE",
-      "posicao": "Nao informado",
+      "posicao": "Centroavante",
       "gols": 10
     },
     {
       "jogador": "John Kennedy",
       "time": "Fluminense",
       "sigla": "FLU",
-      "posicao": "Nao informado",
+      "posicao": "Centroavante",
       "gols": 9
     },
     {
-      "jogador": "Breno",
+      "jogador": "Breno Lopes",
       "time": "Coritiba SAF",
       "sigla": "CFC",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 8
     },
     {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 8
     },
     {
-      "jogador": "Calleri",
+      "jogador": "Danilo dos Santos de Oliveira",
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "posicao": "Meia",
+      "gols": 7
+    },
+    {
+      "jogador": "Jonathan Calleri",
       "time": "São Paulo",
       "sigla": "SAO",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
+      "jogador": "Arthur Cabral",
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "posicao": "Centroavante",
       "gols": 7
     },
     {
       "jogador": "Luciano Juba",
       "time": "Bahia",
       "sigla": "BAH",
-      "posicao": "Nao informado",
+      "posicao": "Defensor",
       "gols": 7
     },
     {
-      "jogador": "Arthur",
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "posicao": "Nao informado",
-      "gols": 7
-    },
-    {
-      "jogador": "Danilo Santos",
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "posicao": "Nao informado",
-      "gols": 7
-    },
-    {
-      "jogador": "Kaio Jorge",
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "posicao": "Nao informado",
-      "gols": 6
-    },
-    {
-      "jogador": "Samuel Lino",
-      "time": "Flamengo",
-      "sigla": "FLA",
-      "posicao": "Nao informado",
-      "gols": 6
-    },
-    {
-      "jogador": "Carbonero",
-      "time": "Internacional",
-      "sigla": "INT",
-      "posicao": "Nao informado",
-      "gols": 6
-    },
-    {
-      "jogador": "Neymar Jr",
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "posicao": "Nao informado",
+      "jogador": "José Manuel López",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Atacante",
       "gols": 6
     },
     {
       "jogador": "Luciano",
       "time": "São Paulo",
       "sigla": "SAO",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 6
     },
     {
-      "jogador": "Lopez",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Nao informado",
+      "jogador": "Kaio Jorge",
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "posicao": "Centroavante",
+      "gols": 6
+    },
+    {
+      "jogador": "Neymar",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Atacante",
+      "gols": 6
+    },
+    {
+      "jogador": "Samuel Lino",
+      "time": "Flamengo",
+      "sigla": "FLA",
+      "posicao": "Ponta esquerda",
+      "gols": 6
+    },
+    {
+      "jogador": "Johan Carbonero",
+      "time": "Internacional",
+      "sigla": "INT",
+      "posicao": "Atacante",
       "gols": 6
     },
     {
       "jogador": "Isidro Pitta",
       "time": "Red Bull Bragantino",
       "sigla": "RBB",
-      "posicao": "Nao informado",
-      "gols": 5
+      "posicao": "Atacante",
+      "gols": 6
     },
     {
-      "jogador": "Jajá",
-      "time": "Remo",
-      "sigla": "REM",
-      "posicao": "Nao informado",
-      "gols": 5
-    },
-    {
-      "jogador": "Mauricio",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Nao informado",
+      "jogador": "Stiven Mendoza",
+      "time": "Athletico Paranaense",
+      "sigla": "CAP",
+      "posicao": "Ponta esquerda",
       "gols": 5
     },
     {
       "jogador": "Alef Manga",
       "time": "Remo",
       "sigla": "REM",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
+      "gols": 5
+    },
+    {
+      "jogador": "Mauricio",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Meia",
       "gols": 5
     }
   ],
-  "dados_atualizados_em": "2026-08-22T03:29:50.963725+00:00",
+  "dados_atualizados_em": "2026-08-22T03:57:30.012514+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
