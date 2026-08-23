@@ -7,15 +7,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "static/img/escudos/normalizados/PAL.png",
-      "jogos": 23,
-      "vitorias": 14,
+      "jogos": 24,
+      "vitorias": 15,
       "empates": 6,
       "derrotas": 3,
-      "gols_pro": 40,
-      "gols_contra": 19,
-      "saldo": 21,
-      "pontos": 48,
-      "aproveitamento": 69.6
+      "gols_pro": 44,
+      "gols_contra": 20,
+      "saldo": 24,
+      "pontos": 51,
+      "aproveitamento": 70.8
     },
     {
       "posicao": 2,
@@ -92,18 +92,35 @@
       "estado": "BA",
       "cor": "#004A99",
       "escudo": "static/img/escudos/normalizados/BAH.png",
-      "jogos": 23,
-      "vitorias": 8,
+      "jogos": 24,
+      "vitorias": 9,
       "empates": 10,
       "derrotas": 5,
-      "gols_pro": 32,
+      "gols_pro": 34,
       "gols_contra": 28,
-      "saldo": 4,
-      "pontos": 34,
-      "aproveitamento": 49.3
+      "saldo": 6,
+      "pontos": 37,
+      "aproveitamento": 51.4
     },
     {
       "posicao": 7,
+      "time": "Red Bull Bragantino",
+      "sigla": "RBB",
+      "estado": "SP",
+      "cor": "#E30613",
+      "escudo": "static/img/escudos/normalizados/RBB.png",
+      "jogos": 23,
+      "vitorias": 10,
+      "empates": 5,
+      "derrotas": 8,
+      "gols_pro": 28,
+      "gols_contra": 23,
+      "saldo": 5,
+      "pontos": 35,
+      "aproveitamento": 50.7
+    },
+    {
+      "posicao": 8,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -118,23 +135,6 @@
       "saldo": 3,
       "pontos": 33,
       "aproveitamento": 47.8
-    },
-    {
-      "posicao": 8,
-      "time": "Red Bull Bragantino",
-      "sigla": "RBB",
-      "estado": "SP",
-      "cor": "#E30613",
-      "escudo": "static/img/escudos/normalizados/RBB.png",
-      "jogos": 22,
-      "vitorias": 9,
-      "empates": 5,
-      "derrotas": 8,
-      "gols_pro": 27,
-      "gols_contra": 23,
-      "saldo": 4,
-      "pontos": 32,
-      "aproveitamento": 48.5
     },
     {
       "posicao": 9,
@@ -194,15 +194,15 @@
       "estado": "BA",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/VIT.png",
-      "jogos": 23,
+      "jogos": 24,
       "vitorias": 8,
       "empates": 5,
-      "derrotas": 10,
+      "derrotas": 11,
       "gols_pro": 23,
-      "gols_contra": 33,
-      "saldo": -10,
+      "gols_contra": 35,
+      "saldo": -12,
       "pontos": 29,
-      "aproveitamento": 42.0
+      "aproveitamento": 40.3
     },
     {
       "posicao": 13,
@@ -262,15 +262,15 @@
       "estado": "RS",
       "cor": "#0080C8",
       "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 22,
+      "jogos": 23,
       "vitorias": 6,
       "empates": 7,
-      "derrotas": 9,
+      "derrotas": 10,
       "gols_pro": 24,
-      "gols_contra": 30,
-      "saldo": -6,
+      "gols_contra": 31,
+      "saldo": -7,
       "pontos": 25,
-      "aproveitamento": 37.9
+      "aproveitamento": 36.2
     },
     {
       "posicao": 17,
@@ -313,15 +313,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/VAS.png",
-      "jogos": 22,
+      "jogos": 23,
       "vitorias": 5,
       "empates": 7,
-      "derrotas": 10,
-      "gols_pro": 23,
-      "gols_contra": 34,
-      "saldo": -11,
+      "derrotas": 11,
+      "gols_pro": 24,
+      "gols_contra": 38,
+      "saldo": -14,
       "pontos": 22,
-      "aproveitamento": 33.3
+      "aproveitamento": 31.9
     },
     {
       "posicao": 20,
@@ -371,6 +371,13 @@
       "gols": 9
     },
     {
+      "jogador": "José Manuel López",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Atacante",
+      "gols": 8
+    },
+    {
       "jogador": "Breno Lopes",
       "time": "Coritiba SAF",
       "sigla": "CFC",
@@ -383,13 +390,6 @@
       "sigla": "SAN",
       "posicao": "Atacante",
       "gols": 8
-    },
-    {
-      "jogador": "José Manuel López",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Atacante",
-      "gols": 7
     },
     {
       "jogador": "Danilo dos Santos de Oliveira",
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-08-23T20:40:21.939146+00:00",
+  "dados_atualizados_em": "2026-08-23T21:37:00.055884+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
@@ -492,7 +492,7 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Palmeiras",
-    "lider_pontos": 48,
+    "lider_pontos": 51,
     "artilheiro": "Pedro",
     "artilheiro_gols": 15
   }
