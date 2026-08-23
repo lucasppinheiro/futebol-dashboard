@@ -385,6 +385,13 @@
       "gols": 8
     },
     {
+      "jogador": "José Manuel López",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
       "jogador": "Danilo dos Santos de Oliveira",
       "time": "Botafogo",
       "sigla": "BOT",
@@ -413,17 +420,17 @@
       "gols": 7
     },
     {
-      "jogador": "José Manuel López",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Atacante",
-      "gols": 6
-    },
-    {
       "jogador": "Luciano",
       "time": "São Paulo",
       "sigla": "SAO",
       "posicao": "Atacante",
+      "gols": 6
+    },
+    {
+      "jogador": "Mauricio",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Meia",
       "gols": 6
     },
     {
@@ -474,16 +481,9 @@
       "sigla": "RBB",
       "posicao": "Atacante",
       "gols": 6
-    },
-    {
-      "jogador": "Stiven Mendoza",
-      "time": "Athletico Paranaense",
-      "sigla": "CAP",
-      "posicao": "Ponta esquerda",
-      "gols": 5
     }
   ],
-  "dados_atualizados_em": "2026-08-23T02:00:27.623841+00:00",
+  "dados_atualizados_em": "2026-08-23T20:40:21.939146+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
