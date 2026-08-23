@@ -211,15 +211,15 @@
       "estado": "SP",
       "cor": "#FF0000",
       "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 22,
+      "jogos": 23,
       "vitorias": 7,
       "empates": 6,
-      "derrotas": 9,
+      "derrotas": 10,
       "gols_pro": 27,
-      "gols_contra": 26,
-      "saldo": 1,
+      "gols_contra": 27,
+      "saldo": 0,
       "pontos": 27,
-      "aproveitamento": 40.9
+      "aproveitamento": 39.1
     },
     {
       "posicao": 14,
@@ -228,15 +228,15 @@
       "estado": "SP",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/SAN.png",
-      "jogos": 22,
+      "jogos": 23,
       "vitorias": 6,
-      "empates": 7,
+      "empates": 8,
       "derrotas": 9,
-      "gols_pro": 32,
-      "gols_contra": 35,
+      "gols_pro": 33,
+      "gols_contra": 36,
       "saldo": -3,
-      "pontos": 25,
-      "aproveitamento": 37.9
+      "pontos": 26,
+      "aproveitamento": 37.7
     },
     {
       "posicao": 15,
@@ -279,14 +279,14 @@
       "estado": "SP",
       "cor": "#FFD700",
       "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 22,
+      "jogos": 23,
       "vitorias": 6,
-      "empates": 5,
+      "empates": 6,
       "derrotas": 11,
-      "gols_pro": 25,
-      "gols_contra": 35,
+      "gols_pro": 26,
+      "gols_contra": 36,
       "saldo": -10,
-      "pontos": 23,
+      "pontos": 24,
       "aproveitamento": 34.8
     },
     {
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "static/img/escudos/normalizados/CHA.png",
-      "jogos": 22,
-      "vitorias": 1,
+      "jogos": 23,
+      "vitorias": 2,
       "empates": 8,
       "derrotas": 13,
-      "gols_pro": 23,
+      "gols_pro": 24,
       "gols_contra": 46,
-      "saldo": -23,
-      "pontos": 11,
-      "aproveitamento": 16.7
+      "saldo": -22,
+      "pontos": 14,
+      "aproveitamento": 20.3
     }
   ],
   "artilharia": [
@@ -441,6 +441,13 @@
       "gols": 6
     },
     {
+      "jogador": "Pedro Rocha",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 6
+    },
+    {
       "jogador": "Kaio Jorge",
       "time": "Cruzeiro",
       "sigla": "CRU",
@@ -474,16 +481,9 @@
       "sigla": "REM",
       "posicao": "Atacante",
       "gols": 6
-    },
-    {
-      "jogador": "Isidro Pitta",
-      "time": "Red Bull Bragantino",
-      "sigla": "RBB",
-      "posicao": "Atacante",
-      "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-08-23T21:37:00.055884+00:00",
+  "dados_atualizados_em": "2026-08-23T23:36:34.910162+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
