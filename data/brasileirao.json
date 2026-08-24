@@ -121,6 +121,23 @@
     },
     {
       "posicao": 8,
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "estado": "PR",
+      "cor": "#006633",
+      "escudo": "static/img/escudos/normalizados/CFC.png",
+      "jogos": 24,
+      "vitorias": 9,
+      "empates": 7,
+      "derrotas": 8,
+      "gols_pro": 30,
+      "gols_contra": 31,
+      "saldo": -1,
+      "pontos": 34,
+      "aproveitamento": 47.2
+    },
+    {
+      "posicao": 9,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -137,38 +154,21 @@
       "aproveitamento": 47.8
     },
     {
-      "posicao": 9,
+      "posicao": 10,
       "time": "Corinthians",
       "sigla": "COR",
       "estado": "SP",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/COR.png",
-      "jogos": 23,
+      "jogos": 24,
       "vitorias": 8,
       "empates": 8,
-      "derrotas": 7,
-      "gols_pro": 25,
-      "gols_contra": 22,
-      "saldo": 3,
-      "pontos": 32,
-      "aproveitamento": 46.4
-    },
-    {
-      "posicao": 10,
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "estado": "PR",
-      "cor": "#006633",
-      "escudo": "static/img/escudos/normalizados/CFC.png",
-      "jogos": 23,
-      "vitorias": 8,
-      "empates": 7,
       "derrotas": 8,
-      "gols_pro": 28,
-      "gols_contra": 30,
-      "saldo": -2,
-      "pontos": 31,
-      "aproveitamento": 44.9
+      "gols_pro": 26,
+      "gols_contra": 24,
+      "saldo": 2,
+      "pontos": 32,
+      "aproveitamento": 44.4
     },
     {
       "posicao": 11,
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-08-23T23:36:34.910162+00:00",
+  "dados_atualizados_em": "2026-08-24T01:58:35.452591+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
