@@ -343,18 +343,18 @@
   ],
   "artilharia": [
     {
+      "jogador": "Kevin Viveros",
+      "time": "Athletico Paranaense",
+      "sigla": "CAP",
+      "posicao": "Atacante",
+      "gols": 15
+    },
+    {
       "jogador": "Pedro",
       "time": "Flamengo",
       "sigla": "FLA",
       "posicao": "Atacante",
       "gols": 15
-    },
-    {
-      "jogador": "Kevin Viveros",
-      "time": "Athletico Paranaense",
-      "sigla": "CAP",
-      "posicao": "Atacante",
-      "gols": 14
     },
     {
       "jogador": "Carlos Vinícius",
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-08-24T01:58:35.452591+00:00",
+  "dados_atualizados_em": "2026-08-24T23:36:59.732959+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
@@ -493,7 +493,7 @@
     "campeonato_finalizado": false,
     "lider": "Palmeiras",
     "lider_pontos": 51,
-    "artilheiro": "Pedro",
+    "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 15
   }
 }
