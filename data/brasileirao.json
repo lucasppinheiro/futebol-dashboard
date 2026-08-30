@@ -41,15 +41,15 @@
       "estado": "PR",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/CAP.png",
-      "jogos": 24,
+      "jogos": 25,
       "vitorias": 13,
-      "empates": 5,
+      "empates": 6,
       "derrotas": 6,
-      "gols_pro": 34,
-      "gols_contra": 22,
+      "gols_pro": 37,
+      "gols_contra": 25,
       "saldo": 12,
-      "pontos": 44,
-      "aproveitamento": 61.1
+      "pontos": 45,
+      "aproveitamento": 60.0
     },
     {
       "posicao": 4,
@@ -58,15 +58,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 24,
+      "jogos": 25,
       "vitorias": 11,
-      "empates": 8,
+      "empates": 9,
       "derrotas": 5,
-      "gols_pro": 36,
-      "gols_contra": 29,
+      "gols_pro": 39,
+      "gols_contra": 32,
       "saldo": 7,
-      "pontos": 41,
-      "aproveitamento": 56.9
+      "pontos": 42,
+      "aproveitamento": 56.0
     },
     {
       "posicao": 5,
@@ -347,7 +347,7 @@
       "time": "Athletico Paranaense",
       "sigla": "CAP",
       "posicao": "Atacante",
-      "gols": 16
+      "gols": 17
     },
     {
       "jogador": "Pedro",
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-08-30T06:41:55.532194+00:00",
+  "dados_atualizados_em": "2026-08-30T17:30:53.053691+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
@@ -494,6 +494,6 @@
     "lider": "Palmeiras",
     "lider_pontos": 51,
     "artilheiro": "Kevin Viveros",
-    "artilheiro_gols": 16
+    "artilheiro_gols": 17
   }
 }
