@@ -223,6 +223,23 @@
     },
     {
       "posicao": 14,
+      "time": "Grêmio",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "static/img/escudos/normalizados/GRE.png",
+      "jogos": 24,
+      "vitorias": 7,
+      "empates": 7,
+      "derrotas": 10,
+      "gols_pro": 27,
+      "gols_contra": 32,
+      "saldo": -5,
+      "pontos": 28,
+      "aproveitamento": 38.9
+    },
+    {
+      "posicao": 15,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
@@ -239,7 +256,7 @@
       "aproveitamento": 37.7
     },
     {
-      "posicao": 15,
+      "posicao": 16,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -254,23 +271,6 @@
       "saldo": -4,
       "pontos": 25,
       "aproveitamento": 34.7
-    },
-    {
-      "posicao": 16,
-      "time": "Grêmio",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 23,
-      "vitorias": 6,
-      "empates": 7,
-      "derrotas": 10,
-      "gols_pro": 24,
-      "gols_contra": 31,
-      "saldo": -7,
-      "pontos": 25,
-      "aproveitamento": 36.2
     },
     {
       "posicao": 17,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "static/img/escudos/normalizados/CHA.png",
-      "jogos": 23,
+      "jogos": 24,
       "vitorias": 2,
       "empates": 8,
-      "derrotas": 13,
-      "gols_pro": 24,
-      "gols_contra": 46,
-      "saldo": -22,
+      "derrotas": 14,
+      "gols_pro": 25,
+      "gols_contra": 49,
+      "saldo": -24,
       "pontos": 14,
-      "aproveitamento": 20.3
+      "aproveitamento": 19.4
     }
   ],
   "artilharia": [
@@ -427,18 +427,18 @@
       "gols": 7
     },
     {
+      "jogador": "Mauricio",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Meia",
+      "gols": 7
+    },
+    {
       "jogador": "Luciano Juba",
       "time": "Bahia",
       "sigla": "BAH",
       "posicao": "Defensor",
       "gols": 7
-    },
-    {
-      "jogador": "Mauricio",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Meia",
-      "gols": 6
     },
     {
       "jogador": "Matheus Pereira",
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-08-30T21:07:50.924405+00:00",
+  "dados_atualizados_em": "2026-08-30T23:31:15.274971+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
