@@ -75,15 +75,15 @@
       "estado": "MG",
       "cor": "#003DA5",
       "escudo": "static/img/escudos/normalizados/CRU.png",
-      "jogos": 24,
+      "jogos": 25,
       "vitorias": 11,
       "empates": 6,
-      "derrotas": 7,
-      "gols_pro": 34,
-      "gols_contra": 33,
-      "saldo": 1,
+      "derrotas": 8,
+      "gols_pro": 35,
+      "gols_contra": 36,
+      "saldo": -1,
       "pontos": 39,
-      "aproveitamento": 54.2
+      "aproveitamento": 52.0
     },
     {
       "posicao": 6,
@@ -126,15 +126,15 @@
       "estado": "SP",
       "cor": "#E30613",
       "escudo": "static/img/escudos/normalizados/RBB.png",
-      "jogos": 23,
+      "jogos": 24,
       "vitorias": 10,
       "empates": 5,
-      "derrotas": 8,
-      "gols_pro": 28,
-      "gols_contra": 23,
-      "saldo": 5,
+      "derrotas": 9,
+      "gols_pro": 29,
+      "gols_contra": 25,
+      "saldo": 4,
       "pontos": 35,
-      "aproveitamento": 50.7
+      "aproveitamento": 48.6
     },
     {
       "posicao": 9,
@@ -172,6 +172,23 @@
     },
     {
       "posicao": 11,
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "estado": "SP",
+      "cor": "#FF0000",
+      "escudo": "static/img/escudos/normalizados/SAO.png",
+      "jogos": 24,
+      "vitorias": 8,
+      "empates": 6,
+      "derrotas": 10,
+      "gols_pro": 29,
+      "gols_contra": 28,
+      "saldo": 1,
+      "pontos": 30,
+      "aproveitamento": 41.7
+    },
+    {
+      "posicao": 12,
       "time": "Botafogo",
       "sigla": "BOT",
       "estado": "RJ",
@@ -188,7 +205,7 @@
       "aproveitamento": 43.5
     },
     {
-      "posicao": 12,
+      "posicao": 13,
       "time": "Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -203,23 +220,6 @@
       "saldo": -13,
       "pontos": 29,
       "aproveitamento": 38.7
-    },
-    {
-      "posicao": 13,
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "estado": "SP",
-      "cor": "#FF0000",
-      "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 23,
-      "vitorias": 7,
-      "empates": 6,
-      "derrotas": 10,
-      "gols_pro": 27,
-      "gols_contra": 27,
-      "saldo": 0,
-      "pontos": 27,
-      "aproveitamento": 39.1
     },
     {
       "posicao": 14,
@@ -274,6 +274,23 @@
     },
     {
       "posicao": 17,
+      "time": "Vasco da Gama Saf",
+      "sigla": "VAS",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/VAS.png",
+      "jogos": 24,
+      "vitorias": 6,
+      "empates": 7,
+      "derrotas": 11,
+      "gols_pro": 27,
+      "gols_contra": 39,
+      "saldo": -12,
+      "pontos": 25,
+      "aproveitamento": 34.7
+    },
+    {
+      "posicao": 18,
       "time": "Mirassol",
       "sigla": "MIR",
       "estado": "SP",
@@ -290,7 +307,7 @@
       "aproveitamento": 34.8
     },
     {
-      "posicao": 18,
+      "posicao": 19,
       "time": "Remo",
       "sigla": "REM",
       "estado": "PA",
@@ -304,23 +321,6 @@
       "gols_contra": 39,
       "saldo": -11,
       "pontos": 23,
-      "aproveitamento": 31.9
-    },
-    {
-      "posicao": 19,
-      "time": "Vasco da Gama Saf",
-      "sigla": "VAS",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/VAS.png",
-      "jogos": 23,
-      "vitorias": 5,
-      "empates": 7,
-      "derrotas": 11,
-      "gols_pro": 24,
-      "gols_contra": 38,
-      "saldo": -14,
-      "pontos": 22,
       "aproveitamento": 31.9
     },
     {
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-08-30T00:21:49.003394+00:00",
+  "dados_atualizados_em": "2026-08-30T06:41:55.532194+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
