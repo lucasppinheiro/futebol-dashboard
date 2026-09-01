@@ -104,6 +104,23 @@
     },
     {
       "posicao": 7,
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "estado": "PR",
+      "cor": "#006633",
+      "escudo": "static/img/escudos/normalizados/CFC.png",
+      "jogos": 25,
+      "vitorias": 10,
+      "empates": 7,
+      "derrotas": 8,
+      "gols_pro": 33,
+      "gols_contra": 33,
+      "saldo": 0,
+      "pontos": 37,
+      "aproveitamento": 49.3
+    },
+    {
+      "posicao": 8,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -120,7 +137,7 @@
       "aproveitamento": 50.0
     },
     {
-      "posicao": 8,
+      "posicao": 9,
       "time": "Red Bull Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -135,23 +152,6 @@
       "saldo": 4,
       "pontos": 35,
       "aproveitamento": 48.6
-    },
-    {
-      "posicao": 9,
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "estado": "PR",
-      "cor": "#006633",
-      "escudo": "static/img/escudos/normalizados/CFC.png",
-      "jogos": 24,
-      "vitorias": 9,
-      "empates": 7,
-      "derrotas": 8,
-      "gols_pro": 30,
-      "gols_contra": 31,
-      "saldo": -1,
-      "pontos": 34,
-      "aproveitamento": 47.2
     },
     {
       "posicao": 10,
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "static/img/escudos/normalizados/REM.png",
-      "jogos": 24,
+      "jogos": 25,
       "vitorias": 5,
       "empates": 8,
-      "derrotas": 11,
-      "gols_pro": 28,
-      "gols_contra": 39,
-      "saldo": -11,
+      "derrotas": 12,
+      "gols_pro": 30,
+      "gols_contra": 42,
+      "saldo": -12,
       "pontos": 23,
-      "aproveitamento": 31.9
+      "aproveitamento": 30.7
     },
     {
       "posicao": 20,
@@ -434,6 +434,13 @@
       "gols": 7
     },
     {
+      "jogador": "Pedro Rocha",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
       "jogador": "Luciano Juba",
       "time": "Bahia",
       "sigla": "BAH",
@@ -444,13 +451,6 @@
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Atacante",
-      "gols": 6
-    },
-    {
-      "jogador": "Pedro Rocha",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
       "posicao": "Atacante",
       "gols": 6
     },
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-08-31T05:37:49.899292+00:00",
+  "dados_atualizados_em": "2026-09-01T05:11:59.948875+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
