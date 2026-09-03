@@ -24,15 +24,15 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/FLA.png",
-      "jogos": 24,
-      "vitorias": 14,
+      "jogos": 25,
+      "vitorias": 15,
       "empates": 6,
       "derrotas": 4,
-      "gols_pro": 48,
+      "gols_pro": 50,
       "gols_contra": 21,
-      "saldo": 27,
-      "pontos": 48,
-      "aproveitamento": 66.7
+      "saldo": 29,
+      "pontos": 51,
+      "aproveitamento": 68.0
     },
     {
       "posicao": 3,
@@ -279,15 +279,15 @@
       "estado": "SP",
       "cor": "#FFD700",
       "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 24,
+      "jogos": 25,
       "vitorias": 6,
       "empates": 7,
-      "derrotas": 11,
+      "derrotas": 12,
       "gols_pro": 27,
-      "gols_contra": 37,
-      "saldo": -10,
+      "gols_contra": 39,
+      "saldo": -12,
       "pontos": 25,
-      "aproveitamento": 34.7
+      "aproveitamento": 33.3
     },
     {
       "posicao": 18,
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-09-01T05:11:59.948875+00:00",
+  "dados_atualizados_em": "2026-09-03T01:07:27.551560+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
