@@ -126,15 +126,15 @@
       "estado": "MG",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 24,
+      "jogos": 25,
       "vitorias": 10,
       "empates": 6,
-      "derrotas": 8,
+      "derrotas": 9,
       "gols_pro": 32,
-      "gols_contra": 28,
-      "saldo": 4,
+      "gols_contra": 30,
+      "saldo": 2,
       "pontos": 36,
-      "aproveitamento": 50.0
+      "aproveitamento": 48.0
     },
     {
       "posicao": 9,
@@ -155,6 +155,23 @@
     },
     {
       "posicao": 10,
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "estado": "SP",
+      "cor": "#FF0000",
+      "escudo": "static/img/escudos/normalizados/SAO.png",
+      "jogos": 25,
+      "vitorias": 9,
+      "empates": 6,
+      "derrotas": 10,
+      "gols_pro": 31,
+      "gols_contra": 28,
+      "saldo": 3,
+      "pontos": 33,
+      "aproveitamento": 44.0
+    },
+    {
+      "posicao": 11,
       "time": "Corinthians",
       "sigla": "COR",
       "estado": "SP",
@@ -169,23 +186,6 @@
       "saldo": 1,
       "pontos": 32,
       "aproveitamento": 42.7
-    },
-    {
-      "posicao": 11,
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "estado": "SP",
-      "cor": "#FF0000",
-      "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 24,
-      "vitorias": 8,
-      "empates": 6,
-      "derrotas": 10,
-      "gols_pro": 29,
-      "gols_contra": 28,
-      "saldo": 1,
-      "pontos": 30,
-      "aproveitamento": 41.7
     },
     {
       "posicao": 12,
@@ -378,6 +378,13 @@
       "gols": 8
     },
     {
+      "jogador": "Luciano",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 8
+    },
+    {
       "jogador": "Breno Lopes",
       "time": "Coritiba SAF",
       "sigla": "CFC",
@@ -404,13 +411,6 @@
       "sigla": "FLA",
       "posicao": "Ponta esquerda",
       "gols": 8
-    },
-    {
-      "jogador": "Luciano",
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 7
     },
     {
       "jogador": "Danilo dos Santos de Oliveira",
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-09-05T21:15:58.881995+00:00",
+  "dados_atualizados_em": "2026-09-05T23:54:38.351088+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
