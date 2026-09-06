@@ -109,15 +109,15 @@
       "estado": "PR",
       "cor": "#006633",
       "escudo": "static/img/escudos/normalizados/CFC.png",
-      "jogos": 25,
+      "jogos": 26,
       "vitorias": 10,
       "empates": 7,
-      "derrotas": 8,
-      "gols_pro": 33,
-      "gols_contra": 33,
-      "saldo": 0,
+      "derrotas": 9,
+      "gols_pro": 34,
+      "gols_contra": 35,
+      "saldo": -1,
       "pontos": 37,
-      "aproveitamento": 49.3
+      "aproveitamento": 47.4
     },
     {
       "posicao": 8,
@@ -257,6 +257,23 @@
     },
     {
       "posicao": 16,
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "estado": "SP",
+      "cor": "#FFD700",
+      "escudo": "static/img/escudos/normalizados/MIR.png",
+      "jogos": 26,
+      "vitorias": 7,
+      "empates": 7,
+      "derrotas": 12,
+      "gols_pro": 29,
+      "gols_contra": 40,
+      "saldo": -11,
+      "pontos": 28,
+      "aproveitamento": 35.9
+    },
+    {
+      "posicao": 17,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -269,23 +286,6 @@
       "gols_pro": 26,
       "gols_contra": 31,
       "saldo": -5,
-      "pontos": 25,
-      "aproveitamento": 33.3
-    },
-    {
-      "posicao": 17,
-      "time": "Mirassol",
-      "sigla": "MIR",
-      "estado": "SP",
-      "cor": "#FFD700",
-      "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 25,
-      "vitorias": 6,
-      "empates": 7,
-      "derrotas": 12,
-      "gols_pro": 27,
-      "gols_contra": 39,
-      "saldo": -12,
       "pontos": 25,
       "aproveitamento": 33.3
     },
@@ -392,6 +392,13 @@
       "gols": 8
     },
     {
+      "jogador": "Pedro Rocha",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 8
+    },
+    {
       "jogador": "Luciano Juba",
       "time": "Bahia",
       "sigla": "BAH",
@@ -441,13 +448,6 @@
       "gols": 7
     },
     {
-      "jogador": "Pedro Rocha",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "posicao": "Atacante",
-      "gols": 7
-    },
-    {
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro",
       "sigla": "CRU",
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-09-06T04:41:49.881927+00:00",
+  "dados_atualizados_em": "2026-09-06T17:04:53.659174+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
