@@ -371,6 +371,13 @@
       "gols": 9
     },
     {
+      "jogador": "Gabriel Barbosa",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Atacante",
+      "gols": 9
+    },
+    {
       "jogador": "José Manuel López",
       "time": "Palmeiras",
       "sigla": "PAL",
@@ -403,13 +410,6 @@
       "time": "Bahia",
       "sigla": "BAH",
       "posicao": "Defensor",
-      "gols": 8
-    },
-    {
-      "jogador": "Gabriel Barbosa",
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "posicao": "Atacante",
       "gols": 8
     },
     {
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-09-06T17:04:53.659174+00:00",
+  "dados_atualizados_em": "2026-09-06T19:13:16.357699+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
