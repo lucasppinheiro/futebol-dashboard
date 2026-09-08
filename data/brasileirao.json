@@ -206,6 +206,23 @@
     },
     {
       "posicao": 13,
+      "time": "Vitória",
+      "sigla": "VIT",
+      "estado": "BA",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/normalizados/VIT.png",
+      "jogos": 26,
+      "vitorias": 9,
+      "empates": 5,
+      "derrotas": 12,
+      "gols_pro": 25,
+      "gols_contra": 37,
+      "saldo": -12,
+      "pontos": 32,
+      "aproveitamento": 41.0
+    },
+    {
+      "posicao": 14,
       "time": "Botafogo",
       "sigla": "BOT",
       "estado": "RJ",
@@ -222,38 +239,21 @@
       "aproveitamento": 41.3
     },
     {
-      "posicao": 14,
-      "time": "Vitória",
-      "sigla": "VIT",
-      "estado": "BA",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/normalizados/VIT.png",
-      "jogos": 25,
-      "vitorias": 8,
-      "empates": 5,
-      "derrotas": 12,
-      "gols_pro": 24,
-      "gols_contra": 37,
-      "saldo": -13,
-      "pontos": 29,
-      "aproveitamento": 38.7
-    },
-    {
       "posicao": 15,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
       "cor": "#0080C8",
       "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 24,
+      "jogos": 25,
       "vitorias": 7,
       "empates": 7,
-      "derrotas": 10,
+      "derrotas": 11,
       "gols_pro": 27,
-      "gols_contra": 32,
-      "saldo": -5,
+      "gols_contra": 33,
+      "saldo": -6,
       "pontos": 28,
-      "aproveitamento": 38.9
+      "aproveitamento": 37.3
     },
     {
       "posicao": 16,
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-09-07T04:44:40.286345+00:00",
+  "dados_atualizados_em": "2026-09-08T04:39:15.100968+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
