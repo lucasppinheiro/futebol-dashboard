@@ -41,15 +41,15 @@
       "estado": "PR",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/CAP.png",
-      "jogos": 26,
+      "jogos": 27,
       "vitorias": 13,
-      "empates": 6,
+      "empates": 7,
       "derrotas": 7,
-      "gols_pro": 38,
-      "gols_contra": 28,
+      "gols_pro": 41,
+      "gols_contra": 31,
       "saldo": 10,
-      "pontos": 45,
-      "aproveitamento": 57.7
+      "pontos": 46,
+      "aproveitamento": 56.8
     },
     {
       "posicao": 4,
@@ -109,15 +109,15 @@
       "estado": "PR",
       "cor": "#006633",
       "escudo": "static/img/escudos/normalizados/CFC.png",
-      "jogos": 26,
+      "jogos": 27,
       "vitorias": 10,
-      "empates": 7,
+      "empates": 8,
       "derrotas": 9,
-      "gols_pro": 34,
-      "gols_contra": 35,
+      "gols_pro": 37,
+      "gols_contra": 38,
       "saldo": -1,
-      "pontos": 37,
-      "aproveitamento": 47.4
+      "pontos": 38,
+      "aproveitamento": 46.9
     },
     {
       "posicao": 8,
@@ -347,7 +347,7 @@
       "time": "Athletico Paranaense",
       "sigla": "CAP",
       "posicao": "Atacante",
-      "gols": 17
+      "gols": 18
     },
     {
       "jogador": "Pedro",
@@ -483,17 +483,17 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-09-08T04:39:15.100968+00:00",
+  "dados_atualizados_em": "2026-09-12T05:49:01.882328+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
-    "rodada_atual": 26,
+    "rodada_atual": 27,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Flamengo",
     "lider_pontos": 54,
     "artilheiro": "Kevin Viveros",
-    "artilheiro_gols": 17
+    "artilheiro_gols": 18
   }
 }
