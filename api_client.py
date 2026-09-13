@@ -28,6 +28,7 @@ CBF_COMPETITION_URL = (
     "https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/{temporada}?documento=IMT"
 )
 CBF_SCORERS_URL = "https://www.cbf.com.br/api/cbf/artilheiros/42/1/{temporada}/{pagina}"
+GE_COMPETITION_URL = "https://ge.globo.com/futebol/brasileirao-serie-a/"
 
 STATUS_PARTIDA_MAPA: dict[str, str] = {
     "SCHEDULED": "agendada",
@@ -361,6 +362,50 @@ def buscar_classificacao_cbf(temporada: str | None = None) -> list[dict[str, Any
     if len(classificacao) != 20:
         raise ValueError("CBF retornou classificacao incompleta")
     return classificacao
+
+
+def extrair_classificacao_ge(html: str) -> list[dict[str, Any]]:
+    match = re.search(r"const classificacao\s*=\s*(\{.*?\});", html, flags=re.DOTALL)
+    if not match:
+        raise ValueError("ge nao publicou o payload da classificacao")
+    payload = json.loads(match.group(1))
+    linhas = payload.get("classificacao") if isinstance(payload, dict) else None
+    if not isinstance(linhas, list) or len(linhas) != 20:
+        raise ValueError("ge retornou classificacao incompleta")
+
+    classificacao: list[dict[str, Any]] = []
+    for linha in linhas:
+        nome = _display_nome(str(linha["nome_popular"]))
+        sigla = _normalizar_sigla_oficial(str(linha.get("sigla") or _sigla_de(nome)))
+        pontos = int(linha["pontos"])
+        jogos = int(linha["jogos"])
+        classificacao.append(
+            {
+                "posicao": int(linha["ordem"]),
+                "time": nome,
+                "sigla": sigla,
+                "estado": _estado_de(sigla),
+                "cor": _cor_padrao(sigla),
+                "escudo": escudo_do_time(sigla),
+                "jogos": jogos,
+                "vitorias": int(linha["vitorias"]),
+                "empates": int(linha["empates"]),
+                "derrotas": int(linha["derrotas"]),
+                "gols_pro": int(linha["gols_pro"]),
+                "gols_contra": int(linha["gols_contra"]),
+                "saldo": int(linha["saldo_gols"]),
+                "pontos": pontos,
+                "aproveitamento": round(pontos / (jogos * 3) * 100, 1) if jogos else 0.0,
+            }
+        )
+    return classificacao
+
+
+def buscar_classificacao_ge(temporada: str | None = None) -> list[dict[str, Any]]:
+    html = _fetch_public(GE_COMPETITION_URL)
+    if not isinstance(html, str):
+        raise ValueError("ge retornou payload de classificacao invalido")
+    return extrair_classificacao_ge(html)
 
 
 def extrair_rodada_atual_cbf(html: str) -> int:

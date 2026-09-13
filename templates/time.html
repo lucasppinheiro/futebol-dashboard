@@ -69,7 +69,7 @@
         </section>
     </main>
 
-    <footer class="edition-footer"><div class="edition-shell"><div><strong>Brasileirão Dashboard</strong><span>Série A {{ dados.info.temporada }}</span></div><p>Classificação e artilharia: {{ dados.fontes.classificacao }}. Partidas: {{ dados.fontes.partidas }}.</p><a href="{{ site_url() }}">Abrir dashboard completo <span aria-hidden="true">→</span></a></div></footer>
+    <footer class="edition-footer"><div class="edition-shell"><div><strong>Brasileirão Dashboard</strong><span>Série A {{ dados.info.temporada }}</span></div><p>Classificação: {{ dados.fontes.classificacao }}. Artilharia: {{ dados.fontes.artilharia }}. Partidas: {{ dados.fontes.partidas }}.</p><a href="{{ site_url() }}">Abrir dashboard completo <span aria-hidden="true">→</span></a></div></footer>
     <script>
         window.siteBasePath = {{ site_url() | tojson }};
         window.escudoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%2307523e'/%3E%3Cpath d='M48 18 71 31v20c0 15-10 25-23 31C35 76 25 66 25 51V31z' fill='%23ffd044'/%3E%3C/svg%3E";

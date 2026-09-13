@@ -22,6 +22,7 @@ from api_client import (
     buscar_artilharia_cbf,
     buscar_classificacao,
     buscar_classificacao_cbf,
+    buscar_classificacao_ge,
     buscar_classificacao_por_rodada,
     buscar_partidas,
     buscar_rodada_atual_cbf,
@@ -66,17 +67,41 @@ def _escrever_json_atomico(destino: str | Path, dados: object) -> None:
             temporario.unlink()
 
 
-def _buscar_dados(temporada: str) -> tuple[list[dict], list[dict], str]:
+def _buscar_dados(temporada: str) -> tuple[list[dict], list[dict], str, str]:
     fonte = os.environ.get("DATA_SOURCE", "cbf").strip().lower()
     if fonte == "football-data":
-        return buscar_classificacao(temporada), buscar_artilharia(temporada), "football-data.org"
+        return (
+            buscar_classificacao(temporada),
+            buscar_artilharia(temporada),
+            "football-data.org",
+            "football-data.org",
+        )
 
     try:
-        return buscar_classificacao_cbf(temporada), buscar_artilharia_cbf(temporada), "CBF"
+        classificacao = buscar_classificacao_cbf(temporada)
+        artilharia = buscar_artilharia_cbf(temporada)
+        fonte_classificacao = "CBF"
+        try:
+            classificacao_ge = buscar_classificacao_ge(temporada)
+            siglas_cbf = {time["sigla"] for time in classificacao}
+            siglas_ge = {time["sigla"] for time in classificacao_ge}
+            if siglas_ge == siglas_cbf and sum(time["jogos"] for time in classificacao_ge) > sum(
+                time["jogos"] for time in classificacao
+            ):
+                classificacao = classificacao_ge
+                fonte_classificacao = "ge"
+        except Exception as exc:
+            logger.warning("Nao foi possivel validar a classificacao no ge: %s", exc)
+        return classificacao, artilharia, fonte_classificacao, "CBF"
     except Exception as e:
         logger.warning("Falha ao buscar dados da CBF: %s", e)
         logger.info("Tentando fallback via football-data.org...")
-        return buscar_classificacao(temporada), buscar_artilharia(temporada), "football-data.org"
+        return (
+            buscar_classificacao(temporada),
+            buscar_artilharia(temporada),
+            "football-data.org",
+            "football-data.org",
+        )
 
 
 def _timestamp_atualizacao(dados_base: dict, destino: str | Path | None = None) -> str:
@@ -257,7 +282,7 @@ def atualizar(temporada: str | None = None, *, destino: str | Path | None = None
         logger.info("Descartando cache da temporada %s ao iniciar %s.", temporada_snapshot, temporada)
         snapshot = {}
     try:
-        classificacao, artilharia, fonte = _buscar_dados(temporada)
+        classificacao, artilharia, fonte_classificacao, fonte_artilharia = _buscar_dados(temporada)
     except Exception as e:
         logger.error("Erro ao buscar dados: %s", e)
         if caminho_destino.exists():
@@ -274,7 +299,7 @@ def atualizar(temporada: str | None = None, *, destino: str | Path | None = None
     if not artilharia:
         raise ValueError("API retornou artilharia vazia. Mantendo dados locais.")
 
-    rodada_cbf = _buscar_rodada_cbf(temporada, fonte)
+    rodada_cbf = _buscar_rodada_cbf(temporada, "CBF")
     siglas_validas = {str(time["sigla"]).upper() for time in classificacao}
     partidas, rodada_football_data, agenda_atualizada_em, agenda_desatualizada = _enriquecer_agenda(
         temporada, snapshot, siglas_validas
@@ -321,10 +346,10 @@ def atualizar(temporada: str | None = None, *, destino: str | Path | None = None
         "dados_desatualizados": False,
         "agenda_desatualizada": agenda_desatualizada,
         "historico_desatualizado": historico_desatualizado,
-        "fonte": fonte,
+        "fonte": fonte_classificacao,
         "fontes": {
-            "classificacao": fonte,
-            "artilharia": fonte,
+            "classificacao": fonte_classificacao,
+            "artilharia": fonte_artilharia,
             "partidas": fonte_partidas,
         },
         "info": dados_base["info"],
@@ -344,7 +369,7 @@ def atualizar(temporada: str | None = None, *, destino: str | Path | None = None
     _escrever_json_atomico(caminho_destino, dados)
 
     logger.info("Dados atualizados em: %s", caminho_destino)
-    logger.info("Fonte: %s", fonte)
+    logger.info("Fonte da classificacao: %s", fonte_classificacao)
     logger.info("%d times | %d artilheiros", len(classificacao), len(artilharia))
 
 

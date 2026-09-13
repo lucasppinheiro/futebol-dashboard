@@ -12,13 +12,13 @@ Dashboard do Campeonato Brasileiro Série A com classificação atual, rodadas, 
 
 - Produto web completo: coleta de dados, validação, build estático, publicação e interface responsiva.
 - Automação confiável: GitHub Actions atualiza os dados, roda testes e só publica informações versionadas quando a validação passa.
-- Cuidado com dados reais: a CBF é a fonte principal; football-data.org enriquece agenda e histórico sem bloquear classificação e artilharia.
+- Cuidado com dados reais: a CBF é a fonte principal; o ge valida o frescor da classificação e football-data.org enriquece agenda e histórico.
 - Engenharia de portfólio: rotas estáticas, páginas por clube, APIs JSON, sitemap, robots, página 404 e deploy na Vercel.
 
 ## Funcionalidades
 
 - Página contínua em tema claro com navegação por Tabela, Rodada, Artilharia, Gráficos e Comparador.
-- Classificação atual sempre identificada como dado da CBF; a rodada selecionada altera somente as partidas e permanece compartilhável pela URL.
+- Classificação atual identifica sua fonte real; o ge só substitui a CBF quando publica mais partidas concluídas. A rodada selecionada altera somente as partidas e permanece compartilhável pela URL.
 - Navegação entre as 38 rodadas para consultar calendário e resultados disponíveis.
 - Tabela de classificação com filtros por zona, busca, favoritos, ordenação e expansão mobile da campanha.
 - Artilharia em tabela compacta e quatro leituras não redundantes: ataque × defesa, casa × fora, forma recente e gols por rodada.
@@ -30,7 +30,8 @@ Dashboard do Campeonato Brasileiro Série A com classificação atual, rodadas, 
 ## Arquitetura
 
 ```text
-CBF oficial -------- classificação atual + artilharia + rodada
+CBF oficial -------- classificação principal + artilharia + rodada
+ge ----------------- validação de frescor da classificação
 football-data.org -- partidas + contingência da rodada
               \       /
              atualizar_dados.py
@@ -44,7 +45,7 @@ build_static.py
 dist/ -> Vercel
 ```
 
-O GitHub Actions roda a cada hora, tenta atualizar os dados pela CBF, valida o JSON, executa os testes e só então commita o dataset. A integração Git da Vercel publica `main` automaticamente quando há novo commit.
+O GitHub Actions roda a cada hora, busca os dados pela CBF, compara o frescor da classificação com o ge, valida o JSON, executa os testes e só então commita o dataset. A integração Git da Vercel publica `main` automaticamente quando há novo commit.
 
 ## Desenvolvimento local
 

@@ -75,6 +75,17 @@ class TestRotaWeb:
         assert b"Jogos da Rodada" in resp.data
         assert b"Dados atualizados em" in resp.data
 
+    def test_index_identifica_dinamicamente_a_fonte_da_classificacao(self, client):
+        dados = app_module.carregar_dados()
+        fonte_classificacao = dados["fontes"]["classificacao"]
+        fonte_artilharia = dados["fontes"]["artilharia"]
+        rodada = dados["info"]["rodada_atual"]
+        html = client.get("/").get_data(as_text=True)
+
+        assert "A classificação consolidada, com busca, filtros e ordenação." in html
+        assert f'id="standings-source">{fonte_classificacao} · rodada {rodada}' in html
+        assert f"Classificação: {fonte_classificacao}. Artilharia: {fonte_artilharia}." in html
+
     def test_index_usa_leitura_continua_sem_paineis_de_abas(self, client):
         html = client.get("/").get_data(as_text=True)
 

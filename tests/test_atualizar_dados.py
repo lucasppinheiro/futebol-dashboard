@@ -10,6 +10,11 @@ import atualizar_dados
 def desativar_agenda_remota_por_padrao(monkeypatch):
     monkeypatch.delenv("FOOTBALL_DATA_TOKEN", raising=False)
     monkeypatch.setattr(atualizar_dados, "buscar_rodada_atual_cbf", lambda _: None, raising=False)
+    monkeypatch.setattr(
+        atualizar_dados,
+        "buscar_classificacao_ge",
+        lambda _: (_ for _ in ()).throw(ConnectionError("validacao externa desativada no teste")),
+    )
 
 
 def test_atualizar_substitui_arquivo_atomicamente(monkeypatch, tmp_path):
@@ -168,6 +173,35 @@ def test_atualizar_usa_football_data_como_fallback(monkeypatch, tmp_path):
 
     dados = json.loads(output.read_text(encoding="utf-8"))
     assert dados["classificacao"][0]["sigla"] == "PAL"
+
+
+def test_buscar_dados_prefere_validacao_ge_quando_tem_mais_jogos(monkeypatch):
+    cbf = [{"sigla": "FLA", "jogos": 26}, {"sigla": "PAL", "jogos": 27}]
+    ge = [{"sigla": "FLA", "jogos": 27}, {"sigla": "PAL", "jogos": 27}]
+    artilharia = [{"jogador": "Pedro", "gols": 15}]
+    monkeypatch.setattr(atualizar_dados, "buscar_classificacao_cbf", lambda _: cbf)
+    monkeypatch.setattr(atualizar_dados, "buscar_classificacao_ge", lambda _: ge)
+    monkeypatch.setattr(atualizar_dados, "buscar_artilharia_cbf", lambda _: artilharia)
+
+    classificacao, goleadores, fonte_classificacao, fonte_artilharia = atualizar_dados._buscar_dados("2026")
+
+    assert classificacao == ge
+    assert goleadores == artilharia
+    assert fonte_classificacao == "ge"
+    assert fonte_artilharia == "CBF"
+
+
+def test_buscar_dados_mantem_cbf_quando_validacao_ge_nao_e_mais_recente(monkeypatch):
+    cbf = [{"sigla": "FLA", "jogos": 27}, {"sigla": "PAL", "jogos": 27}]
+    ge = [{"sigla": "FLA", "jogos": 26}, {"sigla": "PAL", "jogos": 27}]
+    monkeypatch.setattr(atualizar_dados, "buscar_classificacao_cbf", lambda _: cbf)
+    monkeypatch.setattr(atualizar_dados, "buscar_classificacao_ge", lambda _: ge)
+    monkeypatch.setattr(atualizar_dados, "buscar_artilharia_cbf", lambda _: [])
+
+    classificacao, _, fonte_classificacao, _ = atualizar_dados._buscar_dados("2026")
+
+    assert classificacao == cbf
+    assert fonte_classificacao == "CBF"
 
 
 def test_escrita_atomica_preserva_original_se_replace_falhar(monkeypatch, tmp_path):

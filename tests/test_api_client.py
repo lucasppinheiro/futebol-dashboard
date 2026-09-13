@@ -4,6 +4,28 @@ import urllib.error
 import pytest
 
 import api_client
+
+
+def test_extrair_classificacao_ge_combina_clubes_e_estatisticas():
+    linhas = ",".join(
+        "{"
+        f'"ordem":{posicao},"nome_popular":"Time {posicao}","sigla":"T{posicao:02}",'
+        f'"pontos":{60 - posicao},"jogos":27,"vitorias":10,"empates":5,"derrotas":12,'
+        f'"gols_pro":{40 - posicao},"gols_contra":20,"saldo_gols":{20 - posicao}'
+        "}"
+        for posicao in range(1, 21)
+    )
+    html = f'<script>const classificacao = {{"classificacao":[{linhas}]}};</script>'
+
+    classificacao = api_client.extrair_classificacao_ge(html)
+
+    assert classificacao[0]["time"] == "Time 1"
+    assert classificacao[0]["pontos"] == 59
+    assert classificacao[0]["jogos"] == 27
+    assert classificacao[0]["saldo"] == 19
+    assert classificacao[-1]["posicao"] == 20
+
+
 from temporada import temporada_brasileirao_atual
 
 
