@@ -469,21 +469,21 @@
       "gols": 7
     },
     {
+      "jogador": "Carlos Renê",
+      "time": "Vitória",
+      "sigla": "VIT",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
       "jogador": "Neymar",
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Atacante",
       "gols": 6
-    },
-    {
-      "jogador": "Jája Silva",
-      "time": "Remo",
-      "sigla": "REM",
-      "posicao": "Atacante",
-      "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-09-13T06:12:14.717348+00:00",
+  "dados_atualizados_em": "2026-09-13T19:28:29.323860+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
