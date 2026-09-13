@@ -449,3 +449,142 @@ def test_classificacao_dos_jogos_rejeita_placar_ausente():
 
     with pytest.raises(ValueError, match="placar"):
         api_client._classificacao_dos_jogos(standings, partidas)
+
+
+@pytest.mark.parametrize(
+    ("status_externo", "status_esperado"),
+    [
+        ("SCHEDULED", "agendada"),
+        ("TIMED", "agendada"),
+        ("IN_PLAY", "em_andamento"),
+        ("PAUSED", "intervalo"),
+        ("FINISHED", "encerrada"),
+        ("AWARDED", "encerrada"),
+        ("POSTPONED", "adiada"),
+        ("SUSPENDED", "suspensa"),
+        ("CANCELLED", "cancelada"),
+    ],
+)
+def test_normaliza_status_de_partida(status_externo, status_esperado):
+    assert api_client.normalizar_status_partida(status_externo) == status_esperado
+
+
+def test_normaliza_partida_football_data_para_contrato_publico():
+    partida = api_client.normalizar_partida_football_data(
+        {
+            "id": 987,
+            "matchday": 27,
+            "utcDate": "2026-09-12T22:30:00Z",
+            "status": "FINISHED",
+            "homeTeam": {"id": 1, "name": "Flamengo", "tla": "FLA"},
+            "awayTeam": {"id": 2, "name": "SE Palmeiras", "tla": "PAL"},
+            "score": {"fullTime": {"home": 2, "away": 1}},
+        }
+    )
+
+    assert partida == {
+        "id": 987,
+        "rodada": 27,
+        "inicio_em": "2026-09-12T22:30:00Z",
+        "status": "encerrada",
+        "mandante": "FLA",
+        "visitante": "PAL",
+        "placar": {"mandante": 2, "visitante": 1},
+    }
+
+
+def test_buscar_partidas_normaliza_e_ordena(monkeypatch):
+    partidas = [
+        {
+            "id": 2,
+            "matchday": 2,
+            "utcDate": "2026-05-02T20:00:00Z",
+            "status": "TIMED",
+            "homeTeam": {"name": "Palmeiras", "tla": "PAL"},
+            "awayTeam": {"name": "Flamengo", "tla": "FLA"},
+            "score": {"fullTime": {"home": None, "away": None}},
+        },
+        {
+            "id": 1,
+            "matchday": 1,
+            "utcDate": "2026-04-25T20:00:00Z",
+            "status": "FINISHED",
+            "homeTeam": {"name": "Flamengo", "tla": "FLA"},
+            "awayTeam": {"name": "Palmeiras", "tla": "PAL"},
+            "score": {"fullTime": {"home": 1, "away": 1}},
+        },
+    ]
+    monkeypatch.setattr(api_client, "_buscar_partidas", lambda _: partidas)
+
+    resultado = api_client.buscar_partidas("2026")
+
+    assert [partida["id"] for partida in resultado] == [1, 2]
+
+
+def test_extrai_rodada_atual_da_pagina_cbf():
+    html = '<script>self.__next_f.push([1,"\\"rodada_atual\\":27,\\"message\\":\\"\\""])</script>'
+
+    assert api_client.extrair_rodada_atual_cbf(html) == 27
+
+
+def test_extrai_rodada_atual_de_rotulo_visivel_cbf():
+    assert api_client.extrair_rodada_atual_cbf("<span>Rodada:</span><strong>18</strong>") == 18
+
+
+def test_extrai_rodada_selecionada_sem_confundir_lista_de_opcoes_cbf():
+    html = """
+        <select>
+            <option value="38">Rodada <!-- -->38</option>
+            <option value="27">Rodada <!-- -->27</option>
+            <option value="26" selected="">Rodada <!-- -->26</option>
+        </select>
+    """
+
+    assert api_client.extrair_rodada_atual_cbf(html) == 26
+
+
+def test_buscar_rodada_atual_football_data(monkeypatch):
+    monkeypatch.setattr(api_client, "_fetch", lambda _: {"currentSeason": {"currentMatchday": 27}})
+
+    assert api_client.buscar_rodada_atual_football_data("2026") == 27
+
+
+def test_buscar_classificacao_por_rodada_inclui_matchday_e_normaliza(monkeypatch):
+    chamadas = []
+
+    def fake_fetch(url):
+        chamadas.append(url)
+        return {
+            "standings": [
+                {
+                    "type": "TOTAL",
+                    "table": [
+                        {
+                            "position": 1,
+                            "team": {"id": 1, "name": "Palmeiras", "tla": "PAL", "crest": ""},
+                            "playedGames": 10,
+                            "won": 7,
+                            "draw": 2,
+                            "lost": 1,
+                            "goalsFor": 20,
+                            "goalsAgainst": 8,
+                            "points": 23,
+                        }
+                    ],
+                }
+            ]
+        }
+
+    monkeypatch.setattr(api_client, "_fetch", fake_fetch)
+
+    classificacao = api_client.buscar_classificacao_por_rodada("2026", 10)
+
+    assert chamadas == ["https://api.football-data.org/v4/competitions/BSA/standings?season=2026&matchday=10"]
+    assert classificacao[0]["sigla"] == "PAL"
+    assert classificacao[0]["pontos"] == 23
+
+
+@pytest.mark.parametrize("rodada", [0, 39, True, "10"])
+def test_buscar_classificacao_por_rodada_rejeita_rodada_invalida(rodada):
+    with pytest.raises(ValueError, match="rodada"):
+        api_client.buscar_classificacao_por_rodada("2026", rodada)

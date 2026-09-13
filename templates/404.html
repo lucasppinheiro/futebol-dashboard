@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light" data-visual="matchday">
+<html lang="pt-BR" data-theme="light" data-ui="brasileirao-dashboard">
 
 <head>
     <meta charset="UTF-8">
@@ -10,23 +10,18 @@
     <link rel="icon" href="{{ site_url('static/img/favicon.svg') }}" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset_url('static/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset_url('static/css/matchday.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="{{ asset_url('static/css/dashboard.css') }}">
 </head>
 
 <body class="not-found-page">
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
-    <main id="main-content" class="container not-found">
-        <span class="not-found-code">Erro 404</span>
-        <p class="not-found-season">Brasileirão {% if dados %}{{ dados.info.temporada }}{% endif %}</p>
-        <h1>Página não encontrada</h1>
-        <p class="not-found-copy">
-            O endereço que você tentou abrir não existe. Pode ser um link antigo ou a página de um clube que não está na Série A.
-        </p>
-        <a href="{{ site_url() }}" class="not-found-action">Voltar ao dashboard</a>
+    <main id="main-content" class="not-found">
+        <div class="edition-shell not-found-grid">
+            <div><span class="eyebrow">Erro 404 · Brasileirão {% if dados %}{{ dados.info.temporada }}{% endif %}</span><h1>Página não encontrada.</h1></div>
+            <div class="not-found-copy"><p>O endereço que você tentou abrir não existe. Pode ser um link antigo ou a página de um clube que não está na Série A.</p><a href="{{ site_url() }}" class="not-found-action">Voltar ao Dashboard <span aria-hidden="true">→</span></a></div>
+        </div>
     </main>
 </body>
 

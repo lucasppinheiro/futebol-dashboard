@@ -29,6 +29,18 @@ CBF_COMPETITION_URL = (
 )
 CBF_SCORERS_URL = "https://www.cbf.com.br/api/cbf/artilheiros/42/1/{temporada}/{pagina}"
 
+STATUS_PARTIDA_MAPA: dict[str, str] = {
+    "SCHEDULED": "agendada",
+    "TIMED": "agendada",
+    "IN_PLAY": "em_andamento",
+    "PAUSED": "intervalo",
+    "FINISHED": "encerrada",
+    "AWARDED": "encerrada",
+    "POSTPONED": "adiada",
+    "SUSPENDED": "suspensa",
+    "CANCELLED": "cancelada",
+}
+
 
 def _get_token() -> str:
     token = os.environ.get("FOOTBALL_DATA_TOKEN", "").strip()
@@ -351,6 +363,40 @@ def buscar_classificacao_cbf(temporada: str | None = None) -> list[dict[str, Any
     return classificacao
 
 
+def extrair_rodada_atual_cbf(html: str) -> int:
+    """Extrai a rodada publicada pela CBF do HTML/Next payload."""
+    texto = html.replace('\\"', '"')
+
+    for option in re.finditer(r"<option\b(?P<atributos>[^>]*)>", texto, flags=re.IGNORECASE):
+        atributos = option.group("atributos")
+        if not re.search(r"\bselected(?:\s*=\s*(?:['\"][^'\"]*['\"]|[^\s>]+))?", atributos, re.IGNORECASE):
+            continue
+        value = re.search(r"\bvalue\s*=\s*['\"](\d{1,2})['\"]", atributos, re.IGNORECASE)
+        if value and 1 <= int(value.group(1)) <= 38:
+            return int(value.group(1))
+
+    padroes = (
+        r'"(?:rodada_atual|rodadaAtual|numero_rodada|numeroRodada)"\s*:\s*(\d{1,2})',
+        r"Rodada\s*:?\s*(?:<(?!/?option\b|!--)[^>]+>\s*)*(\d{1,2})",
+    )
+    for padrao in padroes:
+        match = re.search(padrao, texto, flags=re.IGNORECASE)
+        if not match:
+            continue
+        rodada = int(match.group(1))
+        if 1 <= rodada <= 38:
+            return rodada
+    raise ValueError("Payload da CBF nao contem a rodada atual")
+
+
+def buscar_rodada_atual_cbf(temporada: str | None = None) -> int:
+    temporada = temporada or temporada_brasileirao_atual()
+    html = _fetch_public(CBF_COMPETITION_URL.format(temporada=temporada))
+    if not isinstance(html, str):
+        raise ValueError("CBF retornou payload de rodada invalido")
+    return extrair_rodada_atual_cbf(html)
+
+
 def _normalizar_artilheiro_cbf(item: dict[str, Any]) -> dict[str, Any]:
     clube = item.get("clube") or {}
     nome_clube = _nome_clube_cbf(str(clube.get("nome") or ""))
@@ -423,15 +469,18 @@ def _normalizar_linha_classificacao(item: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _buscar_standings(temporada: str) -> list[dict[str, Any]]:
+def _buscar_standings(temporada: str, rodada: int | None = None) -> list[dict[str, Any]]:
     url = f"{API_BASE}/competitions/{COMPETITION}/standings?season={temporada}"
+    if rodada is not None:
+        url += f"&matchday={rodada}"
     data = _fetch(url)
 
     standings = data.get("standings") or []
-    if not standings or not isinstance(standings[0].get("table"), list):
+    total = next((item for item in standings if item.get("type") == "TOTAL"), standings[0] if standings else None)
+    if not isinstance(total, dict) or not isinstance(total.get("table"), list):
         raise ValueError("API retornou standings vazio ou invalido")
 
-    return standings[0]["table"]
+    return total["table"]
 
 
 def _buscar_partidas(temporada: str) -> list[dict[str, Any]]:
@@ -441,6 +490,67 @@ def _buscar_partidas(temporada: str) -> list[dict[str, Any]]:
     if not isinstance(matches, list):
         raise ValueError("API retornou matches invalido")
     return matches
+
+
+def normalizar_status_partida(status: str) -> str:
+    try:
+        return STATUS_PARTIDA_MAPA[status.strip().upper()]
+    except (AttributeError, KeyError) as exc:
+        raise ValueError(f"Status de partida desconhecido: {status!r}") from exc
+
+
+def normalizar_partida_football_data(item: dict[str, Any]) -> dict[str, Any]:
+    home_team = item.get("homeTeam") or {}
+    away_team = item.get("awayTeam") or {}
+    home_name = str(home_team.get("name") or "").strip()
+    away_name = str(away_team.get("name") or "").strip()
+    if not home_name or not away_name:
+        raise ValueError("Partida possui clube ausente")
+
+    placar_externo = (item.get("score") or {}).get("fullTime") or {}
+    gols_mandante = placar_externo.get("home")
+    gols_visitante = placar_externo.get("away")
+    status = normalizar_status_partida(str(item.get("status") or ""))
+    if status == "encerrada" and (
+        not isinstance(gols_mandante, int)
+        or isinstance(gols_mandante, bool)
+        or not isinstance(gols_visitante, int)
+        or isinstance(gols_visitante, bool)
+    ):
+        raise ValueError("Partida encerrada possui placar ausente ou invalido")
+
+    return {
+        "id": int(item["id"]),
+        "rodada": int(item["matchday"]),
+        "inicio_em": str(item["utcDate"]),
+        "status": status,
+        "mandante": _sigla_do_time(home_team, home_name),
+        "visitante": _sigla_do_time(away_team, away_name),
+        "placar": {
+            "mandante": gols_mandante
+            if isinstance(gols_mandante, int) and not isinstance(gols_mandante, bool)
+            else None,
+            "visitante": gols_visitante
+            if isinstance(gols_visitante, int) and not isinstance(gols_visitante, bool)
+            else None,
+        },
+    }
+
+
+def buscar_partidas(temporada: str | None = None) -> list[dict[str, Any]]:
+    temporada = temporada or temporada_brasileirao_atual()
+    partidas = [normalizar_partida_football_data(item) for item in _buscar_partidas(temporada)]
+    partidas.sort(key=lambda partida: (partida["rodada"], partida["inicio_em"], partida["id"]))
+    return partidas
+
+
+def buscar_rodada_atual_football_data(temporada: str | None = None) -> int:
+    temporada = temporada or temporada_brasileirao_atual()
+    data = _fetch(f"{API_BASE}/competitions/{COMPETITION}?season={temporada}")
+    rodada = (data.get("currentSeason") or {}).get("currentMatchday")
+    if not isinstance(rodada, int) or isinstance(rodada, bool) or not 1 <= rodada <= 38:
+        raise ValueError("football-data.org retornou rodada atual invalida")
+    return rodada
 
 
 def _registrar_estatisticas_time(classificacao: dict[str, Any], gols_pro: int, gols_contra: int) -> None:
@@ -547,6 +657,17 @@ def _classificacao_dos_jogos(
 def buscar_classificacao(temporada: str | None = None) -> list[dict[str, Any]]:
     temporada = temporada or temporada_brasileirao_atual()
     tabela_standings = _buscar_standings(temporada)
+    return [_normalizar_linha_classificacao(item) for item in tabela_standings]
+
+
+def buscar_classificacao_por_rodada(
+    temporada: str | None = None,
+    rodada: int | None = None,
+) -> list[dict[str, Any]]:
+    if not isinstance(rodada, int) or isinstance(rodada, bool) or not 1 <= rodada <= 38:
+        raise ValueError("rodada deve ser um inteiro entre 1 e 38")
+    temporada = temporada or temporada_brasileirao_atual()
+    tabela_standings = _buscar_standings(temporada, rodada)
     return [_normalizar_linha_classificacao(item) for item in tabela_standings]
 
 

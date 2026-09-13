@@ -1,45 +1,49 @@
 {
-  "name": "futebol-dashboard",
-  "version": "1.0.0",
-  "description": "Interactive Brasileirao Serie A dashboard with Flask, automated data sync, tests, and Vercel deployment.",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "test": "jest --verbose",
-    "test:python": "python -m pytest tests -q",
-    "build": "python build_static.py",
-    "audit": "npm audit --audit-level=high",
-    "lint": "eslint static/js tests/js eslint.config.mjs",
-    "format:check": "prettier --check \"static/js/**/*.js\" \"tests/js/**/*.js\""
-  },
-  "jest": {
-    "testMatch": [
-      "<rootDir>/tests/js/**/*.test.js"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lucasppinheiro/futebol-dashboard.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/lucasppinheiro/futebol-dashboard/issues"
-  },
-  "homepage": "https://futebol-dashboard.vercel.app/",
-  "devDependencies": {
-    "@emnapi/core": "^1.11.1",
-    "@emnapi/runtime": "^1.11.1",
-    "@eslint/js": "^10.0.1",
-    "@jest/globals": "^30.4.1",
-    "eslint": "^10.7.0",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^17.7.0",
-    "jest": "^30.4.2",
-    "jsdom": "^26.1.0",
-    "prettier": "^3.9.5"
-  }
+    "name": "futebol-dashboard",
+    "version": "1.0.0",
+    "description": "Interactive Brasileirao Serie A dashboard with Flask, automated data sync, tests, and Vercel deployment.",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "test": "jest --verbose",
+        "test:python": "python -m pytest tests -q",
+        "build": "python build_static.py",
+        "audit": "npm audit --audit-level=high",
+        "test:e2e": "playwright test",
+        "lint": "eslint static/js tests/js tests/e2e playwright.config.js eslint.config.mjs",
+        "format:check": "prettier --check \"static/js/**/*.js\" \"tests/js/**/*.js\" \"tests/e2e/**/*.js\" \"playwright.config.js\""
+    },
+    "jest": {
+        "testMatch": [
+            "<rootDir>/tests/js/**/*.test.js"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lucasppinheiro/futebol-dashboard.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/lucasppinheiro/futebol-dashboard/issues"
+    },
+    "homepage": "https://futebol-dashboard.vercel.app/",
+    "devDependencies": {
+        "@axe-core/playwright": "^4.13.0",
+        "@emnapi/core": "^1.11.1",
+        "@emnapi/runtime": "^1.11.1",
+        "@eslint/js": "^10.0.1",
+        "@jest/globals": "^30.4.1",
+        "@playwright/test": "^1.63.0",
+        "eslint": "^10.7.0",
+        "eslint-config-prettier": "^10.1.8",
+        "globals": "^17.7.0",
+        "jest": "^30.4.2",
+        "jsdom": "^26.1.0",
+        "lighthouse": "^13.4.1",
+        "prettier": "^3.9.5"
+    }
 }

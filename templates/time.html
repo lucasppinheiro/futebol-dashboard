@@ -1,231 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light" data-visual="matchday">
-
+<html lang="pt-BR" data-theme="light" data-ui="brasileirao-dashboard">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ time.time }} | Brasileirão {{ dados.info.temporada }}</title>
-    <meta name="description" content="Página de detalhe do {{ time.time }} no Brasileirão {{ dados.info.temporada }}.">
-    <link rel="canonical" href="https://futebol-dashboard.vercel.app/time/{{ time.sigla }}/">
+    <title>{{ time.time }} | Brasileirão Dashboard</title>
+    <meta name="description" content="Posição, campanha, forma e artilheiros do {{ time.time }} no Brasileirão {{ dados.info.temporada }}.">
+    <link rel="canonical" href="{{ public_url('time/' ~ time.sigla ~ '/') }}">
     <meta property="og:title" content="{{ time.time }} | Brasileirão {{ dados.info.temporada }}">
-    <meta property="og:description" content="Campanha, desempenho e artilheiros do {{ time.time }} na Série A.">
+    <meta property="og:description" content="Campanha, confrontos e artilheiros do {{ time.time }} na Série A.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://futebol-dashboard.vercel.app/time/{{ time.sigla }}/">
-    <meta property="og:image" content="https://futebol-dashboard.vercel.app/static/img/og-brasileirao.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="{{ public_url('time/' ~ time.sigla ~ '/') }}">
+    <meta property="og:image" content="{{ public_url('static/img/og-brasileirao.png') }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ time.time }} | Brasileirão {{ dados.info.temporada }}">
-    <meta name="twitter:description" content="Campanha, desempenho e artilheiros do {{ time.time }} na Série A.">
-    <meta name="twitter:image" content="https://futebol-dashboard.vercel.app/static/img/og-brasileirao.png">
     <link rel="icon" href="{{ site_url('static/img/favicon.svg') }}" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset_url('static/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset_url('static/css/matchday.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="{{ asset_url('static/css/dashboard.css') }}">
 </head>
-
 <body>
-    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
-    <header class="hero hero-mini">
-        <div class="hero-orbit hero-orbit-a" aria-hidden="true"></div>
-        <div class="hero-orbit hero-orbit-b" aria-hidden="true"></div>
-        <div class="container hero-grid hero-grid-team">
-            <div class="hero-copy">
-                <a href="{{ site_url() }}" class="back-link">&larr; Voltar ao dashboard</a>
-                <span class="hero-kicker">{{ time.estado }} · {{ time.sigla }}</span>
-                <div class="hero-time-header">
-                    {% if time.escudo %}
-                    <img src="{{ site_url(time.escudo) }}" alt="Escudo de {{ time.time }}" class="hero-escudo">
-                    {% endif %}
-                    <div>
-                        <h1>{{ time.time }}</h1>
-                        <p class="hero-subtitle">Ficha do clube na Série A {{ dados.info.temporada }}, com foco em campanha, saldo e produção ofensiva.</p>
-                    </div>
-                </div>
-                <div class="hero-actions">
-                    <a href="{{ site_url('#classificacao') }}" class="hero-action primary">Voltar à tabela</a>
-                    <a href="#time-radar" class="hero-action secondary">Ver radar</a>
-                </div>
-                <ul class="hero-ticker hero-ticker-team" aria-label="Recortes do clube">
-                    <li class="hero-ticker-item"><strong>Pontos</strong>{{ time.pontos }}</li>
-                    <li class="hero-ticker-item"><strong>Saldo</strong>{% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}</li>
-                    <li class="hero-ticker-item"><strong>Gols pró</strong>{{ time.gols_pro }}</li>
-                </ul>
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo principal</a>
+    <header class="club-page-header">
+        <div class="edition-shell masthead">
+            <a class="edition-brand" href="{{ site_url() }}" aria-label="Brasileirão Série A — início"><span class="edition-brand-copy"><strong>Brasileirão <span>Série A</span></strong></span></a>
+            <div class="masthead-meta">
+                <a class="club-back-link" href="{{ site_url('#classificacao') }}">← Voltar à tabela</a>
             </div>
-
-            <aside class="hero-panel" aria-label="Resumo do clube">
-                <div class="hero-panel-head">
-                    <span class="panel-label">Resumo do clube</span>
-                    <strong>{{ time.posicao }}º lugar</strong>
-                </div>
-                <p class="hero-panel-copy">
-                    {{ time.time }} soma {{ time.pontos }} pontos, com {{ time.vitorias }} vitórias e
-                    {{ time.aproveitamento }}% de aproveitamento na temporada.
-                </p>
-                <div class="podium-list">
-                    <div class="podium-item">
-                        <span class="podium-rank">P</span>
-                        <div class="podium-team">
-                            <strong>Pontos</strong>
-                            <span>campanha acumulada</span>
-                        </div>
-                        <span class="podium-points" data-count="{{ time.pontos }}">{{ time.pontos }}</span>
-                    </div>
-                    <div class="podium-item">
-                        <span class="podium-rank">SG</span>
-                        <div class="podium-team">
-                            <strong>Saldo</strong>
-                            <span>gols pró vs. contra</span>
-                        </div>
-                        <span class="podium-points">{% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}</span>
-                    </div>
-                    <div class="podium-item">
-                        <span class="podium-rank">%</span>
-                        <div class="podium-team">
-                            <strong>Aproveitamento</strong>
-                            <span>eficiência na tabela</span>
-                        </div>
-                        <span class="podium-points" data-count="{{ time.aproveitamento }}">{{ time.aproveitamento }}%</span>
-                    </div>
-                </div>
-            </aside>
+        </div>
+        <div class="edition-shell club-hero">
+            <div class="club-title">
+                {% if time.escudo %}<img src="{{ asset_url(time.escudo) }}" alt="Escudo do {{ time.time }}" width="112" height="112">{% endif %}
+                <div><span class="eyebrow">{{ time.estado }} · {{ time.sigla }}</span><h1>{{ time.time }}</h1><p>Série A {{ dados.info.temporada }} · leitura atualizada em {{ atualizado_em }}</p></div>
+            </div>
+            <div class="club-position"><span>Posição atual</span><strong>{{ time.posicao }}º</strong><small>{{ time.pontos }} pontos em {{ time.jogos }} jogos</small></div>
         </div>
     </header>
 
-    <main id="main-content" class="container main-content">
-        <section class="overview-band" aria-label="Panorama do clube">
-            <div class="overview-grid detail-overview">
-                <article class="overview-card">
-                    <span class="overview-eyebrow">Vitórias</span>
-                    <strong class="overview-value" data-count="{{ time.vitorias }}">{{ time.vitorias }}</strong>
-                    <p class="overview-note">Jogos em que o clube converteu domínio em três pontos.</p>
-                </article>
-                <article class="overview-card">
-                    <span class="overview-eyebrow">Empates</span>
-                    <strong class="overview-value" data-count="{{ time.empates }}">{{ time.empates }}</strong>
-                    <p class="overview-note">Partidas equilibradas que ainda mantiveram pontuação.</p>
-                </article>
-                <article class="overview-card">
-                    <span class="overview-eyebrow">Derrotas</span>
-                    <strong class="overview-value" data-count="{{ time.derrotas }}">{{ time.derrotas }}</strong>
-                    <p class="overview-note">Jogos em que a equipe saiu em desvantagem.</p>
-                </article>
-                <article class="overview-card">
-                    <span class="overview-eyebrow">Jogos</span>
-                    <strong class="overview-value" data-count="{{ time.jogos }}">{{ time.jogos }}</strong>
-                    <p class="overview-note">Amostra total usada para medir consistência e rendimento.</p>
-                </article>
-            </div>
+    <main id="conteudo" class="edition-shell club-section">
+        <section class="club-overview" aria-label="Resumo da campanha">
+            <article class="club-stat"><span>Pontos</span><strong>{{ time.pontos }}</strong><small>{{ time.aproveitamento }}% de aproveitamento</small></article>
+            <article class="club-stat"><span>Vitórias</span><strong>{{ time.vitorias }}</strong><small>{{ time.empates }} empates</small></article>
+            <article class="club-stat"><span>Saldo</span><strong>{% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}</strong><small>{{ time.gols_pro }} pró · {{ time.gols_contra }} contra</small></article>
+            <article class="club-stat"><span>Forma</span><strong class="club-form-summary">{% if forma %}{{ forma | join('') }}{% else %}—{% endif %}</strong><small>Últimos cinco jogos</small></article>
         </section>
 
-        <div class="detail-grid" id="time-radar">
-            <article class="detail-card">
-                <div class="section-copy section-copy-compact">
-                    <span class="section-kicker">Campanha</span>
-                    <h2>Desempenho consolidado</h2>
-                    <p>Resumo rápido para leitura esportiva da temporada do clube.</p>
+        <div class="club-grid">
+            <section class="club-panel" aria-labelledby="agenda-clube-title">
+                <span class="eyebrow">Agenda recente</span><h2 id="agenda-clube-title">O momento do clube</h2>
+                <div class="fixture-pair">
+                    <article class="club-fixture"><span>Último jogo</span>{% if ultimo_jogo %}<h3>{{ ultimo_jogo.mandante_time.time }} {{ ultimo_jogo.placar.mandante }} × {{ ultimo_jogo.placar.visitante }} {{ ultimo_jogo.visitante_time.time }}</h3><p>Rodada {{ ultimo_jogo.rodada }} · {{ ultimo_jogo.data_curta }} · {{ ultimo_jogo.status_label }}</p>{% else %}<h3>A confirmar</h3><p>Sem resultado sincronizado para este clube.</p>{% endif %}</article>
+                    <article class="club-fixture"><span>Próximo jogo</span>{% if proximo_jogo %}<h3>{{ proximo_jogo.mandante_time.time }} × {{ proximo_jogo.visitante_time.time }}</h3><p>Rodada {{ proximo_jogo.rodada }} · {{ proximo_jogo.data_curta }}, {{ proximo_jogo.hora }} · {{ proximo_jogo.status_label }}</p>{% else %}<h3>A confirmar</h3><p>A agenda futura ainda não está disponível.</p>{% endif %}</article>
                 </div>
-                <div class="detail-stats">
-                    <div class="detail-stat">
-                        <span class="detail-num">{{ time.posicao }}º</span>
-                        <span class="detail-lbl">Posição</span>
-                    </div>
-                    <div class="detail-stat">
-                        <span class="detail-num">{{ time.pontos }}</span>
-                        <span class="detail-lbl">Pontos</span>
-                    </div>
-                    <div class="detail-stat">
-                        <span class="detail-num">{{ time.gols_pro }}</span>
-                        <span class="detail-lbl">Gols pró</span>
-                    </div>
-                    <div class="detail-stat">
-                        <span class="detail-num">{{ time.gols_contra }}</span>
-                        <span class="detail-lbl">Gols contra</span>
-                    </div>
-                </div>
-            </article>
+                <div class="form-block"><div><strong>Últimos cinco</strong><span>do mais recente ao mais antigo</span></div><div class="form-line" aria-label="Forma nos últimos cinco jogos">{% if forma %}{% for resultado in forma %}<span data-forma="{{ resultado }}" title="{{ 'Vitória' if resultado == 'V' else 'Empate' if resultado == 'E' else 'Derrota' }}">{{ resultado }}</span>{% endfor %}{% else %}<small>Resultados ainda não disponíveis.</small>{% endif %}</div></div>
+            </section>
 
-            <article class="detail-card">
-                <div class="section-copy section-copy-compact">
-                    <span class="section-kicker">Perfil</span>
-                    <h2>Radar de desempenho</h2>
-                    <p id="timeRadarSummary">Comparação normalizada da campanha do clube dentro da competição.</p>
-                </div>
-                <div class="chart-body chart-body-detail">
-                    <canvas id="chartRadarTime" role="img" aria-label="Radar de desempenho do {{ time.time }}" aria-describedby="timeRadarSummary timeRadarData"></canvas>
-                    <ul id="timeRadarData" class="visually-hidden">
-                        <li>{{ time.pontos }} pontos</li>
-                        <li>{{ time.vitorias }} vitórias</li>
-                        <li>{{ time.gols_pro }} gols pró</li>
-                        <li>{{ time.aproveitamento }}% de aproveitamento</li>
-                        <li>Saldo de {% if time.saldo > 0 %}+{% endif %}{{ time.saldo }} gols</li>
-                    </ul>
-                </div>
-            </article>
+            <section class="club-panel" aria-labelledby="benchmark-title">
+                <span class="eyebrow">Campanha relativa</span><h2 id="benchmark-title">Clube × média da liga</h2>
+                <div class="benchmark-legend"><span><i class="club-swatch"></i>{{ time.sigla }}</span><span><i class="league-swatch"></i>Média da liga</span></div>
+                <div class="benchmark-list">{% for item in benchmarks %}<article class="benchmark-row"><span>{{ item.rotulo }}</span><div class="benchmark-bars" role="img" aria-label="{{ item.rotulo }}: {{ time.time }} {{ item.valor }}, média da liga {{ item.media }}"><i class="benchmark-club" style="--benchmark: {{ item.largura }}%"></i><i class="benchmark-league" style="--benchmark: {{ item.media_largura }}%"></i></div><small><strong>{{ item.valor }}</strong> / {{ item.media }}</small></article>{% endfor %}</div>
+                {% if adversario_comparacao %}<a class="club-compare-link" href="{{ site_url() }}?time1={{ time.sigla }}&amp;time2={{ adversario_comparacao.sigla }}#comparador">Comparar {{ time.time }} com {{ adversario_comparacao.time }} <span aria-hidden="true">→</span></a>{% endif %}
+            </section>
         </div>
 
-        {% if artilheiros %}
-        <section class="detail-card detail-table-card" id="artilheiros-time">
-            <div class="section-copy section-copy-compact">
-                <span class="section-kicker">Produção ofensiva</span>
-                <h2>Artilheiros do {{ time.time }}</h2>
-                <p>Os jogadores que mais contribuíram com gols para a campanha do clube.</p>
-            </div>
-            <div class="table-wrapper">
-                {% set mostrar_posicao_artilharia = (artilheiros | rejectattr('posicao', 'equalto', 'Nao informado') | list | length) > 0 %}
-                <div class="table-card">
-                    <table class="data-table">
-                        <caption class="visually-hidden">Lista de artilheiros do {{ time.time }} na temporada.</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Jogador</th>
-                                {% if mostrar_posicao_artilharia %}
-                                <th scope="col">Posição</th>
-                                {% endif %}
-                                <th scope="col">Gols</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for j in artilheiros %}
-                            <tr>
-                                <td class="col-pos">
-                                    <span class="pos-badge {% if loop.index <= 3 %}top3{% endif %}">{{ loop.index }}</span>
-                                </td>
-                                <td><strong>{{ j.jogador }}</strong></td>
-                                {% if mostrar_posicao_artilharia %}
-                                <td><span class="scorer-position">{{ j.posicao }}</span></td>
-                                {% endif %}
-                                <td class="col-gols"><strong>{{ j.gols }}</strong></td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <section class="club-scorers club-panel" id="artilheiros-clube" aria-labelledby="artilheiros-clube-title">
+            <span class="eyebrow">Produção individual</span><h2 id="artilheiros-clube-title">Artilheiros do {{ time.time }}</h2>
+            {% if artilheiros %}<div class="club-table-scroll"><table><caption class="sr-only">Artilheiros do {{ time.time }} no Brasileirão {{ dados.info.temporada }}</caption><thead><tr><th scope="col">Posição</th><th scope="col">Jogador</th><th scope="col">Gols</th></tr></thead><tbody>{% for jogador in artilheiros %}<tr><td>{{ loop.index }}</td><td><strong>{{ jogador.jogador }}</strong></td><td class="club-goals">{{ jogador.gols }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<p class="club-empty">Ainda não há artilheiros sincronizados para este clube.</p>{% endif %}
         </section>
-        {% endif %}
     </main>
 
-    <footer class="footer">
-        <div class="container footer-content">
-            <p><strong>Brasileirão Dashboard {{ dados.info.temporada }}</strong> · <a href="{{ site_url() }}">Voltar ao painel principal</a></p>
-        </div>
-    </footer>
-
+    <footer class="edition-footer"><div class="edition-shell"><div><strong>Brasileirão Dashboard</strong><span>Série A {{ dados.info.temporada }}</span></div><p>Classificação e artilharia: {{ dados.fontes.classificacao }}. Partidas: {{ dados.fontes.partidas }}.</p><a href="{{ site_url() }}">Abrir dashboard completo <span aria-hidden="true">→</span></a></div></footer>
     <script>
         window.siteBasePath = {{ site_url() | tojson }};
-        window.escudoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%231a4331'/%3E%3Cpath d='M48 18 71 31v20c0 15-10 25-23 31C35 76 25 66 25 51V31z' fill='%236ebc83'/%3E%3Cpath d='m48 34 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z' fill='white'/%3E%3C/svg%3E";
-        const timeData = {{ time | tojson }};
-        const todosClassificacao = {{ dados.classificacao | tojson }};
+        window.escudoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%2307523e'/%3E%3Cpath d='M48 18 71 31v20c0 15-10 25-23 31C35 76 25 66 25 51V31z' fill='%23ffd044'/%3E%3C/svg%3E";
     </script>
-    <script src="{{ asset_url('static/js/main.js') }}"></script>
-    <script src="{{ asset_url('static/js/time.js') }}"></script>
+    <script src="{{ asset_url('static/js/dashboard.js') }}"></script>
 </body>
-
 </html>

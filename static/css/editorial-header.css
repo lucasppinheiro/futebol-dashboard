@@ -65,6 +65,15 @@
     background: #91d28c;
 }
 
+.editorial-v2-status.is-stale {
+    color: #ffe0a0;
+}
+
+.editorial-v2-status.is-stale i {
+    background: var(--editorial-yellow);
+    box-shadow: 0 0 0 4px rgba(255, 208, 68, 0.14);
+}
+
 .editorial-v2-main {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.85fr);
@@ -204,8 +213,10 @@
 
 .editorial-v2-crest {
     display: grid;
+    box-sizing: border-box;
     width: 38px;
     height: 38px;
+    overflow: hidden;
     place-items: center;
     border: 1px solid rgba(75, 123, 213, 0.68);
     border-radius: 50%;
@@ -213,8 +224,10 @@
 }
 
 .editorial-v2-crest img {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
 }
 
@@ -260,7 +273,7 @@
 @media (max-width: 720px) {
     .editorial-v2-inner {
         padding-top: 18px;
-        padding-bottom: 24px;
+        padding-bottom: 20px;
     }
 
     .editorial-v2-topline {
@@ -272,8 +285,8 @@
 
     .editorial-v2-main {
         grid-template-columns: 1fr;
-        gap: 28px;
-        padding-top: 24px;
+        gap: 22px;
+        padding-top: 20px;
     }
 
     .editorial-v2-production h1 {
@@ -281,7 +294,12 @@
     }
 
     .editorial-v2-copy p {
+        margin-top: 14px;
         font-size: 0.86rem;
+    }
+
+    .editorial-v2-scoreboard {
+        padding-top: 16px;
     }
 }
 
@@ -292,6 +310,8 @@
 
     .editorial-v2-metrics {
         grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 14px;
     }
 
     .editorial-v2-metric + .editorial-v2-metric {

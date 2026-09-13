@@ -3,7 +3,7 @@
 [![Data refresh](https://img.shields.io/github/actions/workflow/status/lucasppinheiro/futebol-dashboard/refresh-data.yml?label=data%20refresh)](https://github.com/lucasppinheiro/futebol-dashboard/actions)
 [![Live Demo](https://img.shields.io/badge/demo-Vercel-000000)](https://futebol-dashboard.vercel.app/)
 
-Dashboard editorial do Campeonato Brasileiro Série A com classificação, artilharia, gráficos, comparador de clubes e páginas individuais por time. O projeto combina dados oficiais da CBF, geração estática e uma interface inspirada em produtos jornalísticos esportivos.
+Dashboard do Campeonato Brasileiro Série A com classificação atual, rodadas, artilharia, gráficos, comparador de clubes e páginas individuais por time. O projeto combina dados oficiais da CBF, geração estática e uma interface esportiva minimalista.
 
 **[Abrir demonstração](https://futebol-dashboard.vercel.app/)**
 
@@ -17,25 +17,28 @@ Dashboard editorial do Campeonato Brasileiro Série A com classificação, artil
 
 - Produto web completo: coleta de dados, validação, build estático, publicação e interface responsiva.
 - Automação confiável: GitHub Actions atualiza os dados, roda testes e só publica informações versionadas quando a validação passa.
-- Cuidado com dados reais: a CBF é a fonte principal; football-data.org fica como fallback opcional.
+- Cuidado com dados reais: a CBF é a fonte principal; football-data.org enriquece agenda e histórico sem bloquear classificação e artilharia.
 - Engenharia de portfólio: rotas estáticas, páginas por clube, APIs JSON, sitemap, robots, página 404 e deploy na Vercel.
 
 ## Funcionalidades
 
-- Tabela de classificação com filtros por zona, busca por clube e faixas laterais para Libertadores, Pré-Libertadores, Sul-Americana e rebaixamento.
-- Artilharia em formato editorial, usando os dados disponíveis da fonte oficial.
-- Gráficos de gols, aproveitamento e ataque/defesa com Chart.js.
-- Comparador de clubes com escudos, métricas lado a lado e radar de desempenho.
-- Páginas individuais por time geradas estaticamente.
+- Página contínua em tema claro com navegação por Tabela, Rodada, Artilharia, Gráficos e Comparador.
+- Classificação atual sempre identificada como dado da CBF; a rodada selecionada altera somente as partidas e permanece compartilhável pela URL.
+- Navegação entre as 38 rodadas para consultar calendário e resultados disponíveis.
+- Tabela de classificação com filtros por zona, busca, favoritos, ordenação e expansão mobile da campanha.
+- Artilharia em tabela compacta e quatro leituras não redundantes: ataque × defesa, casa × fora, forma recente e gols por rodada.
+- Comparador de clubes com escudos, métricas lado a lado e seleção preservada na URL.
+- Páginas individuais por time com forma, confrontos, média da liga, artilheiros e atalho para comparação.
 - Vinte escudos oficiais preservados localmente, com versões transparentes e visualmente equilibradas.
-- Endpoints JSON em `dist/api/` para classificação, artilharia, clubes, estatísticas e saúde dos dados.
+- Endpoints JSON em `dist/api/` para classificação atual, classificações históricas, artilharia, partidas e saúde dos dados.
 
 ## Arquitetura
 
 ```text
-CBF oficial
-    |
-atualizar_dados.py
+CBF oficial -------- classificação atual + artilharia + rodada
+football-data.org -- partidas + contingência da rodada
+              \       /
+             atualizar_dados.py
     |
 validacao + escrita atomica
     |
@@ -80,13 +83,20 @@ npm ci
 python app.py
 ```
 
-A aplicação estará em [http://127.0.0.1:5000](http://127.0.0.1:5000). Para buscar dados novos pela CBF, execute `python atualizar_dados.py`. O `FOOTBALL_DATA_TOKEN` só é necessário se você definir `DATA_SOURCE=football-data`.
+A aplicação estará em [http://127.0.0.1:5000](http://127.0.0.1:5000). Para buscar dados oficiais novos pela CBF, execute `python atualizar_dados.py`. Quando `FOOTBALL_DATA_TOKEN` estiver configurado, o mesmo comando enriquece o snapshot com calendário e resultados da football-data.org, mesmo mantendo `DATA_SOURCE=cbf`. Casa × fora, forma recente e gols por rodada são calculados somente a partir dessas partidas encerradas; sem agenda válida, a interface informa que aguarda sincronização em vez de inventar valores. O comando `python gerar_dados.py` gera apenas um fixture sintético para desenvolvimento e nunca deve ser usado como atualização oficial.
+
+Durante o atendimento, as páginas e APIs leem e validam primeiro o snapshot local. Quando ele está desatualizado e a atualização automática está habilitada, a resposta usa esse snapshot e uma atualização daemon é iniciada em segundo plano; assim, a consulta não espera a fonte externa. Se o arquivo ainda não existir e a atualização automática estiver habilitada, a aplicação agenda a tentativa e responde `503` até que uma atualização consiga criá-lo. JSON ou schema inválidos continuam sendo reportados como erro explícito.
+
+O `POST /api/atualizar` permanece síncrono quando consegue reservar a atualização. Se já houver uma atualização automática ou manual em andamento, ele responde `409` com o código `ATUALIZACAO_EM_ANDAMENTO`. O cooldown começa ao reservar uma tentativa automática e também vale quando o worker não consegue iniciar. A coordenação e o cooldown valem somente para o processo atual, e o worker daemon pode ser encerrado junto com o servidor; a atualização periódica durável continua sendo responsabilidade do GitHub Actions.
 
 ## Qualidade e build
 
 ```bash
 npm run test:python
 npm test
+npm run test:e2e
+npm run lint
+npm run format:check
 npm run audit
 npm run build
 ```
@@ -116,7 +126,7 @@ O script exige exatamente os 20 arquivos JPG da temporada e gera novamente todos
 
 ## Dados e configuração
 
-As variáveis disponíveis estão documentadas em `.env.example`. A fonte padrão é `DATA_SOURCE=cbf`, sem token. Se usar o fallback da football-data.org, mantenha `FOOTBALL_DATA_TOKEN` apenas em **Settings > Secrets and variables > Actions**.
+As variáveis disponíveis estão documentadas em `.env.example`. A fonte padrão é `DATA_SOURCE=cbf`; classificação e artilharia continuam atualizando sem token. Para habilitar o calendário, mantenha `FOOTBALL_DATA_TOKEN` apenas no servidor e em **Settings > Secrets and variables > Actions** — nunca no HTML ou no JavaScript enviado ao navegador.
 
 Em execuções agendadas, uma falha temporária da fonte de dados não sobrescreve o dataset válido existente. Em execuções manuais (`workflow_dispatch`), o workflow falha para facilitar diagnóstico.
 

@@ -1050,23 +1050,21 @@ html[data-visual="matchday"] {
 
 [data-visual="matchday"] .scorer-podium-copy h3 {
     margin: 0;
-    overflow: hidden;
     color: var(--table-text);
     font-family: 'Libre Franklin', sans-serif;
     font-size: 0.88rem;
     line-height: 1.25;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 [data-visual="matchday"] .scorer-podium-copy span {
     display: block;
     margin-top: 3px;
-    overflow: hidden;
     color: var(--table-muted);
     font-size: 0.72rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 [data-visual="matchday"] .scorer-podium-goals {

@@ -18,6 +18,8 @@ build/
 .pytest_cache/
 htmlcov/
 .coverage
+test-results/
+playwright-report/
 
 # IDE / Editor
 .idea/

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from datetime import datetime
 from typing import Any
 
 
@@ -9,6 +10,15 @@ class DadosInvalidosError(ValueError):
 
 
 _COR_HEX_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
+_STATUS_PARTIDAS = {
+    "agendada",
+    "em_andamento",
+    "intervalo",
+    "encerrada",
+    "adiada",
+    "suspensa",
+    "cancelada",
+}
 
 
 def _validar_campos_obrigatorios(item: dict[str, Any], campos: tuple[str, ...], contexto: str) -> None:
@@ -155,6 +165,99 @@ def _validar_artilharia(artilharia: Any) -> list[dict[str, Any]]:
     return artilharia
 
 
+def _validar_classificacao_por_rodada(
+    historico: Any,
+    classificacao_atual: list[dict[str, Any]],
+    rodadas_total: int,
+) -> dict[str, list[dict[str, Any]]]:
+    if not isinstance(historico, dict):
+        raise DadosInvalidosError("classificacao_por_rodada deve ser objeto")
+
+    siglas_atuais = {time["sigla"].upper() for time in classificacao_atual}
+    for chave, classificacao in historico.items():
+        try:
+            rodada = int(chave)
+        except (TypeError, ValueError) as exc:
+            raise DadosInvalidosError(f"classificacao_por_rodada: rodada invalida '{chave}'") from exc
+        if isinstance(chave, bool) or str(rodada) != str(chave) or not 1 <= rodada <= rodadas_total:
+            raise DadosInvalidosError(f"classificacao_por_rodada: rodada deve estar entre 1 e {rodadas_total}")
+        try:
+            classificacao_validada = _validar_classificacao(classificacao)
+        except DadosInvalidosError as exc:
+            raise DadosInvalidosError(f"classificacao_por_rodada[{rodada}]: {exc}") from exc
+        siglas_historicas = {time["sigla"].upper() for time in classificacao_validada}
+        if siglas_historicas != siglas_atuais:
+            raise DadosInvalidosError(
+                f"classificacao_por_rodada[{rodada}] deve conter os mesmos clubes da classificacao atual"
+            )
+
+    return historico
+
+
+def _validar_partidas(
+    partidas: Any,
+    classificacao: list[dict[str, Any]],
+    rodadas_total: int,
+) -> list[dict[str, Any]]:
+    if not isinstance(partidas, list):
+        raise DadosInvalidosError("partidas deve ser uma lista")
+
+    siglas = {time["sigla"].upper() for time in classificacao}
+    ids: set[int] = set()
+    for indice, partida in enumerate(partidas, start=1):
+        contexto = f"partidas[{indice}]"
+        if not isinstance(partida, dict):
+            raise DadosInvalidosError(f"{contexto}: item deve ser objeto")
+        _validar_campos_obrigatorios(
+            partida,
+            ("id", "rodada", "inicio_em", "status", "mandante", "visitante", "placar"),
+            contexto,
+        )
+
+        partida_id = _validar_int_nao_negativo(partida, "id", contexto)
+        if partida_id in ids:
+            raise DadosInvalidosError(f"{contexto}: id duplicado '{partida_id}'")
+        ids.add(partida_id)
+
+        rodada = _validar_int_nao_negativo(partida, "rodada", contexto)
+        if rodada == 0 or rodada > rodadas_total:
+            raise DadosInvalidosError(f"{contexto}: rodada deve estar entre 1 e {rodadas_total}")
+
+        inicio_em = _validar_str_nao_vazia(partida, "inicio_em", contexto)
+        try:
+            instante = datetime.fromisoformat(inicio_em.replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise DadosInvalidosError(f"{contexto}: inicio_em deve ser ISO 8601") from exc
+        if instante.tzinfo is None:
+            raise DadosInvalidosError(f"{contexto}: inicio_em deve incluir fuso horario")
+
+        status = _validar_str_nao_vazia(partida, "status", contexto)
+        if status not in _STATUS_PARTIDAS:
+            raise DadosInvalidosError(f"{contexto}: status desconhecido '{status}'")
+
+        for campo in ("mandante", "visitante"):
+            sigla = _validar_str_nao_vazia(partida, campo, contexto).upper()
+            if sigla not in siglas:
+                raise DadosInvalidosError(f"{contexto}: sigla de {campo} nao existe na classificacao")
+
+        placar = partida.get("placar")
+        if not isinstance(placar, dict):
+            raise DadosInvalidosError(f"{contexto}: placar deve ser objeto")
+        for campo in ("mandante", "visitante"):
+            valor = placar.get(campo)
+            if valor is not None and (not isinstance(valor, int) or isinstance(valor, bool) or valor < 0):
+                raise DadosInvalidosError(f"{contexto}: placar de {campo} deve ser inteiro nao negativo ou nulo")
+        if status == "encerrada" and (
+            not isinstance(placar.get("mandante"), int)
+            or isinstance(placar.get("mandante"), bool)
+            or not isinstance(placar.get("visitante"), int)
+            or isinstance(placar.get("visitante"), bool)
+        ):
+            raise DadosInvalidosError(f"{contexto}: partida encerrada exige placar")
+
+    return partidas
+
+
 def _validar_info(info: Any, classificacao: list[dict[str, Any]], artilharia: list[dict[str, Any]]) -> dict[str, Any]:
     if not isinstance(info, dict):
         raise DadosInvalidosError("info deve ser objeto")
@@ -190,6 +293,20 @@ def _validar_info(info: Any, classificacao: list[dict[str, Any]], artilharia: li
     if info["campeonato_finalizado"] and rodada_atual != rodadas_total:
         raise DadosInvalidosError("info.campeonato_finalizado exige rodada_atual igual a rodadas_total")
 
+    if "rodada_confirmada" in info and not isinstance(info["rodada_confirmada"], bool):
+        raise DadosInvalidosError("info.rodada_confirmada deve ser booleano")
+
+    jogos_minimos = info.get("jogos_minimos")
+    jogos_maximos = info.get("jogos_maximos")
+    if jogos_minimos is not None:
+        if not isinstance(jogos_minimos, int) or isinstance(jogos_minimos, bool) or jogos_minimos < 0:
+            raise DadosInvalidosError("info.jogos_minimos deve ser inteiro nao negativo")
+    if jogos_maximos is not None:
+        if not isinstance(jogos_maximos, int) or isinstance(jogos_maximos, bool) or jogos_maximos < 0:
+            raise DadosInvalidosError("info.jogos_maximos deve ser inteiro nao negativo")
+    if jogos_minimos is not None and jogos_maximos is not None and jogos_minimos > jogos_maximos:
+        raise DadosInvalidosError("info.jogos_minimos nao pode ser maior que jogos_maximos")
+
     lider = classificacao[0]
     artilheiro_top = artilharia[0]
     if info["times_total"] != len(classificacao):
@@ -212,6 +329,41 @@ def validar_dados_dashboard(dados: Any) -> dict[str, Any]:
 
     classificacao = _validar_classificacao(dados["classificacao"])
     artilharia = _validar_artilharia(dados["artilharia"])
-    _validar_info(dados["info"], classificacao, artilharia)
+    siglas_classificacao = {time["sigla"].upper() for time in classificacao}
+    for indice, jogador in enumerate(artilharia, start=1):
+        if jogador["sigla"].upper() not in siglas_classificacao:
+            raise DadosInvalidosError(f"artilharia[{indice}]: sigla nao existe na classificacao")
+    info = _validar_info(dados["info"], classificacao, artilharia)
+    if "partidas" in dados:
+        _validar_partidas(dados["partidas"], classificacao, info["rodadas_total"])
+    if "classificacao_por_rodada" in dados:
+        _validar_classificacao_por_rodada(
+            dados["classificacao_por_rodada"],
+            classificacao,
+            info["rodadas_total"],
+        )
+
+    for campo in ("fonte", "dados_atualizados_em", "dados_verificados_em", "historico_atualizado_em"):
+        if campo in dados and (not isinstance(dados[campo], str) or not dados[campo].strip()):
+            raise DadosInvalidosError(f"campo '{campo}' deve ser texto nao vazio")
+
+    dados_desatualizados = dados.get("dados_desatualizados")
+    if dados_desatualizados is not None and not isinstance(dados_desatualizados, bool):
+        raise DadosInvalidosError("campo 'dados_desatualizados' deve ser booleano")
+
+    agenda_desatualizada = dados.get("agenda_desatualizada")
+    if agenda_desatualizada is not None and not isinstance(agenda_desatualizada, bool):
+        raise DadosInvalidosError("campo 'agenda_desatualizada' deve ser booleano")
+
+    historico_desatualizado = dados.get("historico_desatualizado")
+    if historico_desatualizado is not None and not isinstance(historico_desatualizado, bool):
+        raise DadosInvalidosError("campo 'historico_desatualizado' deve ser booleano")
+
+    fontes = dados.get("fontes")
+    if fontes is not None:
+        if not isinstance(fontes, dict):
+            raise DadosInvalidosError("fontes deve ser objeto")
+        for campo in ("classificacao", "artilharia", "partidas"):
+            _validar_str_nao_vazia(fontes, campo, "fontes")
 
     return dados

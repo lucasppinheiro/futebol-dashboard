@@ -1,10 +1,20 @@
 {% set lider = dados.classificacao[0] %}
-{% set progresso_rodada = ((dados.info.rodada_atual / dados.info.rodadas_total) * 100) | round(1) %}
+{% set rodadas_total = dados.info.rodadas_total | int %}
+{% set rodada_atual = dados.info.rodada_atual | int %}
+{% set rodada_confirmada = dados.info.get('rodada_confirmada', true) %}
+{% set rodada_exibida = [rodada_atual, 0] | max %}
+{% set rodada_exibida = [rodada_exibida, rodadas_total] | min if rodadas_total > 0 else 0 %}
+{% set progresso_rodada = ((rodada_exibida / rodadas_total) * 100) | round(1) if rodadas_total > 0 else 0 %}
+{% set temporada_finalizada = dados.info.get('campeonato_finalizado', false) %}
+{% set dados_desatualizados = dados_status.desatualizados if dados_status is defined else false %}
 <header class="hero editorial-v2-production">
     <div class="container editorial-v2-inner">
         <div class="editorial-v2-topline">
             <span class="editorial-v2-season">Série A <b aria-hidden="true">·</b> Temporada {{ dados.info.temporada }}</span>
-            <span class="editorial-v2-status"><i aria-hidden="true"></i> Dados atualizados em {{ atualizado_em }}</span>
+            <span class="editorial-v2-status{% if dados_desatualizados %} is-stale{% else %} is-fresh{% endif %}">
+                <i aria-hidden="true"></i>
+                Dados atualizados em {{ atualizado_em }}{% if dados_desatualizados %} · dados desatualizados{% endif %}
+            </span>
         </div>
 
         <div class="editorial-v2-main">
@@ -14,20 +24,20 @@
                 <p>Classificação, zonas, saldo e artilharia em uma leitura limpa, direta e atualizada a cada rodada.</p>
             </div>
 
-            <aside class="editorial-v2-scoreboard" aria-label="Resumo da rodada">
+            <aside class="editorial-v2-scoreboard" aria-label="Resumo da temporada">
                 <div class="editorial-v2-round-heading">
                     <div>
-                        <span>Rodada atual</span>
-                        <strong>{{ dados.info.rodada_atual }} <small>de {{ dados.info.rodadas_total }}</small></strong>
+                        <span>{{ 'Rodada final' if temporada_finalizada else 'Rodada atual' }}</span>
+                        <strong>{{ rodada_exibida }}/{{ rodadas_total }}</strong>
                     </div>
-                    <span class="editorial-v2-live">Em disputa</span>
+                    <span class="editorial-v2-live">{{ 'Encerrado' if temporada_finalizada else 'Em disputa' }}</span>
                 </div>
                 <div class="editorial-v2-progress" role="progressbar"
                     aria-label="Progresso da temporada"
                     aria-valuemin="0"
-                    aria-valuemax="{{ dados.info.rodadas_total }}"
-                    aria-valuenow="{{ dados.info.rodada_atual }}"
-                    aria-valuetext="Rodada {{ dados.info.rodada_atual }} de {{ dados.info.rodadas_total }}">
+                    aria-valuemax="{{ rodadas_total if rodadas_total > 0 else 1 }}"
+                    aria-valuenow="{{ rodada_exibida }}"
+                    aria-valuetext="{{ 'Temporada encerrada' if temporada_finalizada else 'Rodada ' ~ rodada_exibida ~ ' de ' ~ rodadas_total }}">
                     <span style="width: {{ progresso_rodada }}%"></span>
                 </div>
                 <div class="editorial-v2-metrics">

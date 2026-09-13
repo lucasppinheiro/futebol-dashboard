@@ -372,6 +372,7 @@ function inicializarGraficos() {
     if (!configureDefaults()) return false;
     if (typeof dadosClassificacao === 'undefined' || typeof dadosArtilharia === 'undefined') return false;
     if (!Array.isArray(dadosClassificacao) || !Array.isArray(dadosArtilharia)) return false;
+    if (dadosClassificacao.length === 0 || dadosArtilharia.length === 0) return false;
 
     criarGraficoPontos(dadosClassificacao);
     criarGraficoArtilheiros(dadosArtilharia);

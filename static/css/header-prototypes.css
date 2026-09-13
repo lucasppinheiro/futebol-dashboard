@@ -648,6 +648,35 @@ body.prototype-page::after {
     background: #eef1ee;
 }
 
+body.prototype-editorial-v2-page {
+    --editorial-v2-cream: #fffaf0;
+    --editorial-v2-green-deep: #07523e;
+    --editorial-v2-mint: #c9ded2;
+    --editorial-v2-yellow: #ffd044;
+}
+
+.prototype-editorial-v2-page .prototype-live-toolbar {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    background: var(--editorial-v2-green-deep);
+}
+
+.prototype-editorial-v2-page .prototype-live-toolbar h1 {
+    color: var(--editorial-v2-cream);
+}
+
+.prototype-editorial-v2-page .prototype-live-toolbar p {
+    color: var(--editorial-v2-mint);
+}
+
+.prototype-editorial-v2-page .prototype-eyebrow {
+    color: var(--editorial-v2-yellow);
+}
+
+.prototype-editorial-v2-page .prototype-back {
+    border-color: rgba(255, 255, 255, 0.22);
+    color: var(--editorial-v2-cream);
+}
+
 .prototype-live-toolbar-inner {
     display: flex;
     align-items: flex-end;

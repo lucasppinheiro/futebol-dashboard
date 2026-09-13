@@ -45,8 +45,42 @@ document.addEventListener('DOMContentLoaded', () => {
         if (img.complete && img.naturalWidth === 0) aplicarFallbackEscudo(img);
     });
 
-    function setChartsStatus(message) {
-        if (chartsStatus) chartsStatus.textContent = message;
+    function setChartsStatus(message, state = '') {
+        if (!chartsStatus) return;
+
+        chartsStatus.textContent = message || '';
+        chartsStatus.hidden = !message;
+        chartsStatus.classList.remove('charts-state-loading', 'charts-state-error');
+        if (state) chartsStatus.classList.add(`charts-state-${state}`);
+        if (chartsSection) {
+            chartsSection.classList.toggle('charts-unavailable', state === 'error');
+            chartsSection.classList.toggle('charts-ready', !message);
+        }
+    }
+
+    function isSafeImageUrl(value) {
+        if (typeof value !== 'string' || !value.trim()) return false;
+        const candidate = value.trim();
+        if (candidate.startsWith('//')) return false;
+        if (/^data:image\/(?:png|gif|jpe?g|webp|avif);/i.test(candidate)) return true;
+
+        try {
+            const url = new URL(candidate, document.baseURI);
+            return url.protocol === 'http:' || url.protocol === 'https:';
+        } catch {
+            return false;
+        }
+    }
+
+    function appendSafeImage(container, source, className, alt = '') {
+        if (!isSafeImageUrl(source)) return null;
+
+        const image = document.createElement('img');
+        image.src = source;
+        image.alt = alt;
+        image.className = className;
+        container.appendChild(image);
+        return image;
     }
 
     function annotateResponsiveTables() {
@@ -63,20 +97,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function ensureChartsInitialized(targetId) {
-        if (targetId !== 'graficos' || !chartsSection || !window.dashboardCharts) return;
+    function getChartsUnavailableMessage() {
+        const semDados =
+            typeof dadosClassificacao !== 'undefined' &&
+            typeof dadosArtilharia !== 'undefined' &&
+            Array.isArray(dadosClassificacao) &&
+            Array.isArray(dadosArtilharia) &&
+            (!dadosClassificacao.length || !dadosArtilharia.length);
 
-        if (window.dashboardCharts.isInitialized()) {
+        return semDados
+            ? 'Ainda não há dados suficientes para exibir os gráficos. Consulte a classificação e a artilharia.'
+            : 'Os gráficos interativos estão indisponíveis. Consulte os resumos textuais desta seção.';
+    }
+
+    function ensureChartsInitialized(targetId) {
+        if (targetId !== 'graficos' || !chartsSection) return;
+
+        if (window.dashboardCharts?.isInitialized()) {
             chartsSection.setAttribute('aria-busy', 'false');
+            setChartsStatus('');
             return;
         }
 
         chartsSection.setAttribute('aria-busy', 'true');
-        setChartsStatus('Carregando gráficos.');
+        setChartsStatus('Carregando gráficos.', 'loading');
 
-        const ok = window.dashboardCharts.init();
+        if (!window.dashboardCharts || typeof window.dashboardCharts.init !== 'function') {
+            chartsSection.setAttribute('aria-busy', 'false');
+            setChartsStatus(getChartsUnavailableMessage(), 'error');
+            return;
+        }
+
+        let ok;
+        try {
+            ok = window.dashboardCharts.init();
+        } catch {
+            ok = false;
+        }
         chartsSection.setAttribute('aria-busy', 'false');
-        setChartsStatus(ok ? 'Gráficos carregados.' : 'Não foi possível carregar os gráficos.');
+        setChartsStatus(ok ? '' : getChartsUnavailableMessage(), ok ? '' : 'error');
     }
 
     function ativarSecao(targetId, options = {}) {
@@ -407,12 +466,21 @@ document.addEventListener('DOMContentLoaded', () => {
             cmpBtn.disabled = invalido;
         }
 
+        function fecharPicker(picker) {
+            picker.classList.remove('open');
+            const button = picker.querySelector('.cmp-picker-button');
+            if (button) button.setAttribute('aria-expanded', 'false');
+            const listbox = picker.querySelector('[role="listbox"]');
+            if (listbox) {
+                listbox.hidden = true;
+                listbox.removeAttribute('aria-activedescendant');
+            }
+        }
+
         function fecharPickers(excecao = null) {
             document.querySelectorAll('.cmp-picker.open').forEach((picker) => {
                 if (picker === excecao) return;
-                picker.classList.remove('open');
-                const button = picker.querySelector('.cmp-picker-button');
-                if (button) button.setAttribute('aria-expanded', 'false');
+                fecharPicker(picker);
             });
         }
 
@@ -442,11 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const escudo = selectedOption.querySelector('img');
-            if (escudo) {
-                const escudoAtual = escudo.cloneNode(true);
-                escudoAtual.className = 'cmp-picker-current-escudo';
-                button.appendChild(escudoAtual);
-            }
+            if (escudo) appendSafeImage(button, escudo.getAttribute('src'), 'cmp-picker-current-escudo');
 
             const nome = document.createElement('span');
             nome.id = currentId;
@@ -464,23 +528,43 @@ document.addEventListener('DOMContentLoaded', () => {
             const select = document.getElementById(picker.dataset.select);
             const button = picker.querySelector('.cmp-picker-button');
             const options = Array.from(picker.querySelectorAll('.cmp-picker-option'));
+            const listbox = picker.querySelector('[role="listbox"]');
             if (!select || !button || !options.length) return;
+
+            if (listbox) {
+                if (!listbox.id) listbox.id = `${select.id}-listbox`;
+                button.setAttribute('aria-controls', listbox.id);
+                listbox.hidden = true;
+                listbox.tabIndex = -1;
+            }
+
+            options.forEach((option, index) => {
+                if (!option.id) option.id = `${select.id}-option-${option.dataset.value || index}`;
+                option.tabIndex = -1;
+            });
 
             const abrirPicker = () => {
                 const jaAberto = picker.classList.contains('open');
                 fecharPickers(picker);
                 picker.classList.toggle('open', !jaAberto);
                 button.setAttribute('aria-expanded', String(!jaAberto));
+                if (listbox) listbox.hidden = jaAberto;
             };
 
             const focarOption = (option) => {
                 picker.classList.add('open');
                 button.setAttribute('aria-expanded', 'true');
+                if (listbox) listbox.hidden = false;
                 option.focus();
             };
 
             button.addEventListener('click', abrirPicker);
             button.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    event.preventDefault();
+                    fecharPickers();
+                    return;
+                }
                 if (!['ArrowDown', 'Enter', ' '].includes(event.key)) return;
                 event.preventDefault();
                 const selectedOption = options.find((option) => option.dataset.value === select.value);
@@ -491,6 +575,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 option.addEventListener('click', () => {
                     selecionarPickerOption(select, option);
                     button.focus();
+                });
+
+                option.addEventListener('focus', () => {
+                    if (listbox) listbox.setAttribute('aria-activedescendant', option.id);
                 });
 
                 option.addEventListener('keydown', (event) => {
@@ -526,6 +614,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         options[options.length - 1].focus();
                     }
                 });
+            });
+
+            picker.addEventListener('focusout', (event) => {
+                if (event.relatedTarget && picker.contains(event.relatedTarget)) return;
+                window.setTimeout(() => {
+                    if (!picker.contains(document.activeElement)) fecharPicker(picker);
+                }, 0);
             });
 
             select.addEventListener('change', () => atualizarVisualPicker(select));
@@ -569,7 +664,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const s2 = cmpSelect2.value;
 
             if (!s1 || !s2 || s1 === s2) {
-                cmpResult.innerHTML = '<p class="cmp-aviso">Selecione dois times diferentes.</p>';
+                const aviso = document.createElement('p');
+                aviso.className = 'cmp-aviso';
+                aviso.textContent = 'Selecione dois times diferentes.';
+                cmpResult.replaceChildren(aviso);
                 if (chartComparador) {
                     chartComparador.destroy();
                     chartComparador = null;
@@ -601,22 +699,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Aproveitamento', k: 'aproveitamento' }
             ];
 
-            let html = `
-                <div class="cmp-summary">
-                    <div class="cmp-summary-team">
-                        ${t1.escudo ? `<img src="${t1.escudo}" alt="" class="cmp-summary-escudo">` : ''}
-                        <strong>${t1.time}</strong>
-                        <span>${t1.posicao}º lugar · ${t1.pontos} pontos</span>
-                    </div>
-                    <div class="cmp-summary-divider">vs</div>
-                    <div class="cmp-summary-team">
-                        ${t2.escudo ? `<img src="${t2.escudo}" alt="" class="cmp-summary-escudo">` : ''}
-                        <strong>${t2.time}</strong>
-                        <span>${t2.posicao}º lugar · ${t2.pontos} pontos</span>
-                    </div>
-                </div>
-                <div class="cmp-grid">
-            `;
+            const createElement = (tag, className = '', text = '') => {
+                const element = document.createElement(tag);
+                if (className) element.className = className;
+                if (text) element.textContent = text;
+                return element;
+            };
+
+            const summary = createElement('div', 'cmp-summary');
+            const createSummaryTeam = (time) => {
+                const team = createElement('div', 'cmp-summary-team');
+                appendSafeImage(team, time.escudo, 'cmp-summary-escudo');
+                team.appendChild(createElement('strong', '', time.time));
+                team.appendChild(createElement('span', '', `${time.posicao}º lugar · ${time.pontos} pontos`));
+                return team;
+            };
+
+            summary.appendChild(createSummaryTeam(t1));
+            summary.appendChild(createElement('div', 'cmp-summary-divider', 'vs'));
+            summary.appendChild(createSummaryTeam(t2));
+
+            const grid = createElement('div', 'cmp-grid');
 
             campos.forEach((campo) => {
                 const v1 = t1[campo.k];
@@ -625,41 +728,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 const better2 = campo.inv ? v2 < v1 : v2 > v1;
                 const suffix = campo.k === 'aproveitamento' ? '%' : '';
 
-                html += `
-                    <div class="cmp-val ${better1 ? 'cmp-win' : ''}">${v1}${suffix}</div>
-                    <div class="cmp-label">${campo.label}</div>
-                    <div class="cmp-val ${better2 ? 'cmp-win' : ''}">${v2}${suffix}</div>
-                `;
+                grid.appendChild(createElement('div', `cmp-val ${better1 ? 'cmp-win' : ''}`, `${v1}${suffix}`));
+                grid.appendChild(createElement('div', 'cmp-label', campo.label));
+                grid.appendChild(createElement('div', `cmp-val ${better2 ? 'cmp-win' : ''}`, `${v2}${suffix}`));
             });
 
-            html += `
-                </div>
-                <div class="cmp-radar-card">
-                    <div class="cmp-radar-header">
-                        <div>
-                            <h3>Perfil de desempenho</h3>
-                            <p>Escala normalizada da Série A para comparar força geral, produção ofensiva e consistência.</p>
-                        </div>
-                        <div class="cmp-radar-legend" aria-label="Legenda do radar">
-                            <span>
-                                <span class="cmp-radar-key cmp-radar-key-a" aria-hidden="true"></span>
-                                ${t1.escudo ? `<img src="${t1.escudo}" alt="" class="cmp-radar-escudo">` : ''}
-                                ${t1.time}
-                            </span>
-                            <span>
-                                <span class="cmp-radar-key cmp-radar-key-b" aria-hidden="true"></span>
-                                ${t2.escudo ? `<img src="${t2.escudo}" alt="" class="cmp-radar-escudo">` : ''}
-                                ${t2.time}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="chart-body chart-body-detail">
-                        <canvas id="chartRadarCmp" aria-label="Radar comparativo entre os clubes selecionados"></canvas>
-                    </div>
-                </div>
-            `;
+            const radarCard = createElement('div', 'cmp-radar-card');
+            const radarHeader = createElement('div', 'cmp-radar-header');
+            const radarIntro = createElement('div');
+            radarIntro.appendChild(createElement('h3', '', 'Perfil de desempenho'));
+            radarIntro.appendChild(
+                createElement(
+                    'p',
+                    '',
+                    'Escala normalizada da Série A para comparar força geral, produção ofensiva e consistência.'
+                )
+            );
 
-            cmpResult.innerHTML = html;
+            const radarLegend = createElement('div', 'cmp-radar-legend');
+            radarLegend.setAttribute('aria-label', 'Legenda do radar');
+            const createLegendItem = (time, keyClass) => {
+                const item = createElement('span');
+                const key = createElement('span', `cmp-radar-key ${keyClass}`);
+                key.setAttribute('aria-hidden', 'true');
+                item.appendChild(key);
+                appendSafeImage(item, time.escudo, 'cmp-radar-escudo');
+                item.appendChild(document.createTextNode(time.time || ''));
+                return item;
+            };
+            radarLegend.appendChild(createLegendItem(t1, 'cmp-radar-key-a'));
+            radarLegend.appendChild(createLegendItem(t2, 'cmp-radar-key-b'));
+            radarHeader.appendChild(radarIntro);
+            radarHeader.appendChild(radarLegend);
+
+            const chartBody = createElement('div', 'chart-body chart-body-detail');
+            chartBody.setAttribute('aria-busy', 'true');
+            const radarCanvas = createElement('canvas');
+            radarCanvas.id = 'chartRadarCmp';
+            radarCanvas.setAttribute('role', 'img');
+            radarCanvas.setAttribute('aria-label', 'Radar comparativo entre os clubes selecionados');
+            chartBody.appendChild(radarCanvas);
+            const radarStatus = createElement(
+                'p',
+                'charts-state charts-state-error',
+                'O radar comparativo está indisponível no momento.'
+            );
+            radarStatus.id = 'cmp-radar-status';
+            radarStatus.setAttribute('role', 'status');
+            radarStatus.setAttribute('aria-live', 'polite');
+            radarStatus.textContent = 'Carregando radar comparativo.';
+            radarStatus.classList.remove('charts-state-error');
+            radarStatus.classList.add('charts-state-loading');
+            radarStatus.hidden = false;
+            chartBody.appendChild(radarStatus);
+
+            radarCard.appendChild(radarHeader);
+            radarCard.appendChild(chartBody);
+            cmpResult.replaceChildren(summary, grid, radarCard);
 
             if (typeof Chart !== 'undefined') {
                 const radarEl = document.getElementById('chartRadarCmp');
@@ -675,62 +800,80 @@ document.addEventListener('DOMContentLoaded', () => {
                 const colorA = theme.primary;
                 const colorB = theme.secondary;
 
-                chartComparador = new Chart(radarEl.getContext('2d'), {
-                    type: 'radar',
-                    data: {
-                        labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
-                        datasets: [
-                            {
-                                label: t1.time,
-                                data: [
-                                    normalizarRadar(t1.pontos, pontosSerie),
-                                    normalizarRadar(t1.vitorias, vitoriasSerie),
-                                    normalizarRadar(t1.gols_pro, golsProSerie),
-                                    normalizarRadar(t1.aproveitamento, aproveitamentoSerie),
-                                    normalizarRadar(t1.saldo, saldoSerie)
-                                ],
-                                borderColor: colorA,
-                                backgroundColor: hexToRgba(colorA, 0.16),
-                                borderWidth: 2,
-                                pointRadius: 2,
-                                pointHoverRadius: 4
-                            },
-                            {
-                                label: t2.time,
-                                data: [
-                                    normalizarRadar(t2.pontos, pontosSerie),
-                                    normalizarRadar(t2.vitorias, vitoriasSerie),
-                                    normalizarRadar(t2.gols_pro, golsProSerie),
-                                    normalizarRadar(t2.aproveitamento, aproveitamentoSerie),
-                                    normalizarRadar(t2.saldo, saldoSerie)
-                                ],
-                                borderColor: colorB,
-                                backgroundColor: hexToRgba(colorB, 0.12),
-                                borderWidth: 2,
-                                pointRadius: 2,
-                                pointHoverRadius: 4
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            r: {
-                                beginAtZero: true,
-                                max: 100,
-                                grid: { color: theme.grid },
-                                pointLabels: { color: theme.label },
-                                ticks: { display: false }
-                            }
+                try {
+                    chartComparador = new Chart(radarEl.getContext('2d'), {
+                        type: 'radar',
+                        data: {
+                            labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
+                            datasets: [
+                                {
+                                    label: t1.time,
+                                    data: [
+                                        normalizarRadar(t1.pontos, pontosSerie),
+                                        normalizarRadar(t1.vitorias, vitoriasSerie),
+                                        normalizarRadar(t1.gols_pro, golsProSerie),
+                                        normalizarRadar(t1.aproveitamento, aproveitamentoSerie),
+                                        normalizarRadar(t1.saldo, saldoSerie)
+                                    ],
+                                    borderColor: colorA,
+                                    backgroundColor: hexToRgba(colorA, 0.16),
+                                    borderWidth: 2,
+                                    pointRadius: 2,
+                                    pointHoverRadius: 4
+                                },
+                                {
+                                    label: t2.time,
+                                    data: [
+                                        normalizarRadar(t2.pontos, pontosSerie),
+                                        normalizarRadar(t2.vitorias, vitoriasSerie),
+                                        normalizarRadar(t2.gols_pro, golsProSerie),
+                                        normalizarRadar(t2.aproveitamento, aproveitamentoSerie),
+                                        normalizarRadar(t2.saldo, saldoSerie)
+                                    ],
+                                    borderColor: colorB,
+                                    backgroundColor: hexToRgba(colorB, 0.12),
+                                    borderWidth: 2,
+                                    pointRadius: 2,
+                                    pointHoverRadius: 4
+                                }
+                            ]
                         },
-                        plugins: {
-                            legend: {
-                                display: false
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                r: {
+                                    beginAtZero: true,
+                                    max: 100,
+                                    grid: { color: theme.grid },
+                                    pointLabels: { color: theme.label },
+                                    ticks: { display: false }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                    chartBody.setAttribute('aria-busy', 'false');
+                    radarStatus.hidden = true;
+                } catch {
+                    chartBody.setAttribute('aria-busy', 'false');
+                    chartBody.classList.add('charts-unavailable');
+                    radarStatus.textContent = 'O radar comparativo está indisponível no momento.';
+                    radarStatus.classList.remove('charts-state-loading');
+                    radarStatus.classList.add('charts-state-error');
+                    radarStatus.hidden = false;
+                }
+            } else {
+                chartBody.setAttribute('aria-busy', 'false');
+                chartBody.classList.add('charts-unavailable');
+                radarStatus.textContent = 'O radar comparativo está indisponível no momento.';
+                radarStatus.classList.remove('charts-state-loading');
+                radarStatus.classList.add('charts-state-error');
+                radarStatus.hidden = false;
             }
         });
     }

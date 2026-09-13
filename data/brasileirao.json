@@ -483,6 +483,13 @@
       "gols": 6
     }
   ],
+  "partidas": [],
+  "fontes": {
+    "classificacao": "CBF",
+    "artilharia": "CBF",
+    "partidas": "football-data.org"
+  },
+  "agenda_desatualizada": true,
   "dados_atualizados_em": "2026-09-13T22:25:38.884633+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",

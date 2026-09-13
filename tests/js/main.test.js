@@ -37,7 +37,9 @@ function criarDOM(setupWindow) {
             </tbody></table>
         </section>
         <section id="artilharia" class="section" role="tabpanel"></section>
-        <section id="graficos" class="section" role="tabpanel"></section>
+        <section id="graficos" class="section" role="tabpanel">
+            <p id="charts-status" class="charts-state" role="status" aria-live="polite" hidden></p>
+        </section>
     </body>
     </html>`;
 
@@ -192,6 +194,175 @@ describe('Atalho do comparador', () => {
         expect(dom.window.document.getElementById('cmp-result').textContent).toContain('Palmeiras');
         expect(dom.window.document.getElementById('cmp-result').textContent).toContain('Flamengo');
 
+        dom.window.close();
+    });
+
+    test('exibe estado visivel quando os graficos nao estao disponiveis', async () => {
+        const dom = criarDOM();
+        await new Promise((resolve) => setTimeout(resolve, 0));
+        const tabGraficos = dom.window.document.getElementById('tab-graficos');
+        const status = dom.window.document.getElementById('charts-status');
+
+        tabGraficos.click();
+
+        expect(status.hidden).toBe(false);
+        expect(status.textContent).toContain('indisponíveis');
+        expect(dom.window.document.getElementById('graficos').getAttribute('aria-busy')).toBe('false');
+        dom.window.close();
+    });
+
+    test('preserva texto de clube e ignora escudo com protocolo inseguro', () => {
+        const dom = new JSDOM(
+            `<!DOCTYPE html><html><body>
+                <select id="cmp-time1"><option value=""></option><option value="BAD">A</option></select>
+                <select id="cmp-time2"><option value=""></option><option value="SAFE">B</option></select>
+                <button id="cmp-btn" disabled>Comparar</button>
+                <button id="cmp-quick-leaders">Comparar líder e vice-líder</button>
+                <div id="cmp-result"></div>
+            </body></html>`,
+            { runScripts: 'dangerously', pretendToBeVisual: true, url: 'http://localhost/' }
+        );
+        dom.window.dadosClassificacao = [
+            {
+                sigla: 'BAD',
+                time: '<img src=x onerror=window.__injetado=true>',
+                posicao: 1,
+                pontos: 48,
+                vitorias: 14,
+                empates: 6,
+                derrotas: 2,
+                gols_pro: 38,
+                gols_contra: 16,
+                saldo: 22,
+                aproveitamento: 72.7,
+                escudo: 'javascript:window.__injetado=true'
+            },
+            {
+                sigla: 'SAFE',
+                time: 'Flamengo',
+                posicao: 2,
+                pontos: 42,
+                vitorias: 12,
+                empates: 6,
+                derrotas: 3,
+                gols_pro: 39,
+                gols_contra: 18,
+                saldo: 21,
+                aproveitamento: 66.7,
+                escudo: ''
+            }
+        ];
+        dom.window.eval(mainJs);
+        dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
+
+        dom.window.document.getElementById('cmp-quick-leaders').click();
+
+        const result = dom.window.document.getElementById('cmp-result');
+        expect(result.textContent).toContain('<img src=x onerror=window.__injetado=true>');
+        expect(result.querySelector('img')).toBeNull();
+        expect(dom.window.__injetado).toBeUndefined();
+        dom.window.close();
+    });
+
+    test('associa o picker customizado ao listbox e alterna hidden com foco', () => {
+        const dom = new JSDOM(
+            `<!DOCTYPE html><html><body>
+                <select id="cmp-time1"><option value=""></option><option value="PAL">Palmeiras</option></select>
+                <select id="cmp-time2"><option value=""></option><option value="FLA">Flamengo</option></select>
+                <button id="cmp-btn" disabled>Comparar</button>
+                <div class="cmp-picker" data-select="cmp-time1">
+                    <button type="button" class="cmp-picker-button" aria-haspopup="listbox" aria-expanded="false">
+                        <span id="cmp-time1-current">Selecione</span>
+                    </button>
+                    <div id="cmp-time1-listbox" class="cmp-picker-list" role="listbox">
+                        <button id="cmp-time1-option-PAL" type="button" class="cmp-picker-option" role="option" data-value="PAL" aria-selected="false">Palmeiras</button>
+                    </div>
+                </div>
+                <div class="cmp-picker" data-select="cmp-time2">
+                    <button type="button" class="cmp-picker-button" aria-haspopup="listbox" aria-expanded="false">
+                        <span id="cmp-time2-current">Selecione</span>
+                    </button>
+                    <div id="cmp-time2-listbox" class="cmp-picker-list" role="listbox">
+                        <button id="cmp-time2-option-FLA" type="button" class="cmp-picker-option" role="option" data-value="FLA" aria-selected="false">Flamengo</button>
+                    </div>
+                </div>
+                <div id="cmp-result"></div>
+            </body></html>`,
+            { runScripts: 'dangerously', pretendToBeVisual: true, url: 'http://localhost/' }
+        );
+        dom.window.eval(mainJs);
+        dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
+
+        const picker = dom.window.document.querySelector('.cmp-picker');
+        const button = picker.querySelector('.cmp-picker-button');
+        const listbox = picker.querySelector('[role="listbox"]');
+        const option = picker.querySelector('[role="option"]');
+
+        expect(button.getAttribute('aria-controls')).toBe('cmp-time1-listbox');
+        expect(listbox.hidden).toBe(true);
+        expect(listbox.tabIndex).toBe(-1);
+        expect(listbox.getAttribute('tabindex')).toBe('-1');
+        button.click();
+        expect(listbox.hidden).toBe(false);
+        expect(button.getAttribute('aria-expanded')).toBe('true');
+
+        option.dispatchEvent(new dom.window.Event('focus'));
+        expect(listbox.getAttribute('aria-activedescendant')).toBe('cmp-time1-option-PAL');
+
+        option.dispatchEvent(new dom.window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+        expect(listbox.hidden).toBe(true);
+        expect(button.getAttribute('aria-expanded')).toBe('false');
+        dom.window.close();
+    });
+
+    test('mantem o segundo picker aberto quando o primeiro perde foco antes do clique', async () => {
+        const dom = new JSDOM(
+            `<!DOCTYPE html><html><body>
+                <select id="cmp-time1"><option value=""></option><option value="PAL">Palmeiras</option></select>
+                <select id="cmp-time2"><option value=""></option><option value="FLA">Flamengo</option></select>
+                <button id="cmp-btn" disabled>Comparar</button>
+                <div class="cmp-picker" data-select="cmp-time1">
+                    <button type="button" class="cmp-picker-button" aria-haspopup="listbox" aria-expanded="false">Time 1</button>
+                    <div id="cmp-time1-listbox" class="cmp-picker-list" role="listbox">
+                        <button id="cmp-time1-option-PAL" type="button" class="cmp-picker-option" role="option" data-value="PAL">Palmeiras</button>
+                    </div>
+                </div>
+                <div class="cmp-picker" data-select="cmp-time2">
+                    <button type="button" class="cmp-picker-button" aria-haspopup="listbox" aria-expanded="false">Time 2</button>
+                    <div id="cmp-time2-listbox" class="cmp-picker-list" role="listbox">
+                        <button id="cmp-time2-option-FLA" type="button" class="cmp-picker-option" role="option" data-value="FLA">Flamengo</button>
+                    </div>
+                </div>
+                <div id="cmp-result"></div>
+            </body></html>`,
+            { runScripts: 'dangerously', pretendToBeVisual: true, url: 'http://localhost/' }
+        );
+        const ready = new Promise((resolve) => {
+            dom.window.document.addEventListener('DOMContentLoaded', resolve, { once: true });
+        });
+        dom.window.eval(mainJs);
+        await ready;
+
+        const pickers = dom.window.document.querySelectorAll('.cmp-picker');
+        const picker1 = pickers[0];
+        const picker2 = pickers[1];
+        const option1 = picker1.querySelector('[role="option"]');
+        const button2 = picker2.querySelector('.cmp-picker-button');
+        const listbox1 = picker1.querySelector('[role="listbox"]');
+        const listbox2 = picker2.querySelector('[role="listbox"]');
+
+        picker1.querySelector('.cmp-picker-button').click();
+        option1.focus();
+        button2.focus();
+        button2.click();
+
+        await new Promise((resolve) => dom.window.setTimeout(resolve, 0));
+
+        expect(picker1.classList.contains('open')).toBe(false);
+        expect(listbox1.hidden).toBe(true);
+        expect(picker2.classList.contains('open')).toBe(true);
+        expect(button2.getAttribute('aria-expanded')).toBe('true');
+        expect(listbox2.hidden).toBe(false);
         dom.window.close();
     });
 });

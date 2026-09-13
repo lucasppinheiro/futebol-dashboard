@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 import pytest
 
 from dados_schema import DadosInvalidosError, validar_dados_dashboard
@@ -40,6 +42,53 @@ class TestValidacaoCompleta:
     def test_rejeita_bloco_ausente(self, dados_validos):
         del dados_validos["artilharia"]
         with pytest.raises(DadosInvalidosError, match="artilharia"):
+            validar_dados_dashboard(dados_validos)
+
+
+class TestPartidas:
+    def _adicionar_partida(self, dados_validos, **overrides):
+        mandante, visitante = dados_validos["classificacao"][:2]
+        partida = {
+            "id": 987,
+            "rodada": 27,
+            "inicio_em": "2026-09-12T22:30:00+00:00",
+            "status": "encerrada",
+            "mandante": mandante["sigla"],
+            "visitante": visitante["sigla"],
+            "placar": {"mandante": 2, "visitante": 1},
+        }
+        partida.update(overrides)
+        dados_validos["partidas"] = [partida]
+        return partida
+
+    def test_aceita_partida_normalizada(self, dados_validos):
+        self._adicionar_partida(dados_validos)
+
+        assert validar_dados_dashboard(dados_validos) is dados_validos
+
+    def test_rejeita_placar_ausente_em_partida_encerrada(self, dados_validos):
+        self._adicionar_partida(dados_validos, placar={"mandante": None, "visitante": 1})
+
+        with pytest.raises(DadosInvalidosError, match="partida encerrada exige placar"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_sigla_que_nao_existe_na_classificacao(self, dados_validos):
+        self._adicionar_partida(dados_validos, visitante="XYZ")
+
+        with pytest.raises(DadosInvalidosError, match="sigla.*classificacao"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_ids_duplicados(self, dados_validos):
+        partida = self._adicionar_partida(dados_validos)
+        dados_validos["partidas"].append(dict(partida))
+
+        with pytest.raises(DadosInvalidosError, match="id duplicado"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_status_desconhecido(self, dados_validos):
+        self._adicionar_partida(dados_validos, status="UNKNOWN")
+
+        with pytest.raises(DadosInvalidosError, match="status"):
             validar_dados_dashboard(dados_validos)
 
 
@@ -124,6 +173,35 @@ class TestClassificacao:
             validar_dados_dashboard(dados_validos)
 
 
+class TestClassificacaoPorRodada:
+    def test_aceita_historico_indexado_por_rodada(self, dados_validos):
+        dados_validos["classificacao_por_rodada"] = {"10": deepcopy(dados_validos["classificacao"])}
+        dados_validos["historico_desatualizado"] = False
+        dados_validos["historico_atualizado_em"] = "2026-09-12T22:30:00+00:00"
+
+        assert validar_dados_dashboard(dados_validos) is dados_validos
+
+    def test_rejeita_chave_de_rodada_fora_do_campeonato(self, dados_validos):
+        dados_validos["classificacao_por_rodada"] = {"0": deepcopy(dados_validos["classificacao"])}
+
+        with pytest.raises(DadosInvalidosError, match="classificacao_por_rodada.*rodada"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_historico_com_conjunto_de_clubes_diferente(self, dados_validos):
+        historico = deepcopy(dados_validos["classificacao"])
+        historico.pop()
+        dados_validos["classificacao_por_rodada"] = {"10": historico}
+
+        with pytest.raises(DadosInvalidosError, match="mesmos clubes"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_estado_de_defasagem_nao_booleano(self, dados_validos):
+        dados_validos["historico_desatualizado"] = "nao"
+
+        with pytest.raises(DadosInvalidosError, match="historico_desatualizado"):
+            validar_dados_dashboard(dados_validos)
+
+
 class TestArtilharia:
     def test_rejeita_lista_vazia(self, dados_validos):
         dados_validos["artilharia"] = []
@@ -146,6 +224,12 @@ class TestArtilharia:
             dados_validos["artilharia"][0],
         )
         with pytest.raises(DadosInvalidosError, match="ordenada por gols decrescente"):
+            validar_dados_dashboard(dados_validos)
+
+    def test_rejeita_sigla_que_nao_existe_na_classificacao(self, dados_validos):
+        dados_validos["artilharia"][0]["sigla"] = "XYZ"
+
+        with pytest.raises(DadosInvalidosError, match="sigla.*classificacao"):
             validar_dados_dashboard(dados_validos)
 
 

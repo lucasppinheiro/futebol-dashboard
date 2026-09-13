@@ -1,6 +1,6 @@
 import json
 
-from gerar_dados import gerar_artilharia, gerar_classificacao, gerar_dados
+from gerar_dados import gerar_artilharia, gerar_classificacao, gerar_dados, montar_info
 
 
 class TestGerarClassificacao:
@@ -51,3 +51,20 @@ class TestGerarDados:
         assert "info" in dados
         assert dados["info"]["lider"] == dados["classificacao"][0]["time"]
         assert dados["info"]["artilheiro"] == dados["artilharia"][0]["jogador"]
+        assert dados["fonte"] == "fixture"
+        assert "dados_verificados_em" in dados
+
+
+def test_montar_info_preserva_rodada_do_campeonato_separada_dos_jogos():
+    classificacao = [
+        {"time": "Palmeiras", "jogos": 24, "pontos": 48},
+        {"time": "Flamengo", "jogos": 26, "pontos": 54},
+    ]
+    artilharia = [{"jogador": "Atacante", "gols": 10}]
+
+    info = montar_info(classificacao, artilharia, "2026", rodada_atual=27)
+
+    assert info["rodada_atual"] == 27
+    assert info["rodada_confirmada"] is False
+    assert info["jogos_minimos"] == 24
+    assert info["jogos_maximos"] == 26

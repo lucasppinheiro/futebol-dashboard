@@ -1,460 +1,84 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light" data-visual="matchday">
-
+<html lang="pt-BR" data-theme="light" data-ui="brasileirao-dashboard">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brasileirão {{ dados.info.temporada }} | Tabela da Série A</title>
-    <meta name="description"
-        content="Dashboard interativo do Campeonato Brasileiro Série A {{ dados.info.temporada }} com classificação, artilharia, comparativos e gráficos.">
-    <link rel="canonical" href="https://futebol-dashboard.vercel.app/">
-    <meta property="og:title" content="Brasileirão {{ dados.info.temporada }} | Tabela da Série A">
-    <meta property="og:description" content="Classificação, artilharia e comparativos da Série A em um dashboard responsivo.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://futebol-dashboard.vercel.app/">
-    <meta property="og:image" content="https://futebol-dashboard.vercel.app/static/img/og-brasileirao.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Brasileirão {{ dados.info.temporada }} | Tabela da Série A">
-    <meta name="twitter:description" content="Classificação, artilharia e comparativos da Série A em um dashboard responsivo.">
-    <meta name="twitter:image" content="https://futebol-dashboard.vercel.app/static/img/og-brasileirao.png">
+    <title>Brasileirão Dashboard · Série A {{ dados.info.temporada }}</title>
+    <meta name="description" content="Classificação, rodadas, artilharia e comparações do Campeonato Brasileiro Série A {{ dados.info.temporada }}.">
+    <link rel="canonical" href="{{ public_url() }}">
+    <meta property="og:title" content="Brasileirão Dashboard · Série A {{ dados.info.temporada }}">
+    <meta property="og:description" content="O Campeonato Brasileiro, rodada a rodada, em uma visão simples e interativa.">
+    <meta property="og:type" content="website"><meta property="og:url" content="{{ public_url() }}">
+    <meta property="og:image" content="{{ public_url('static/img/og-brasileirao.png') }}"><meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="{{ site_url('static/img/favicon.svg') }}" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600;700;800&family=Source+Serif+4:wght@700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset_url('static/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset_url('static/css/matchday.css') }}">
-    <link rel="stylesheet" href="{{ asset_url('static/css/editorial-header.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="{{ asset_url('static/css/dashboard.css') }}">
 </head>
-
 <body>
-    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
-    {% include 'partials/header-editorial-v2-production.html' %}
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo principal</a>
+    <header class="site-header"><div class="edition-shell header-row">
+        <a class="edition-brand" href="{{ site_url() }}" aria-label="Brasileirão Série A — início"><span class="edition-brand-copy"><strong>Brasileirão <span>Série A</span></strong></span></a>
+        <nav class="header-nav" aria-label="Navegação principal"><a class="edition-nav-link is-active" href="#classificacao">Tabela</a><a class="edition-nav-link" href="#rodada">Rodada</a><a class="edition-nav-link" href="#artilharia">Artilharia</a><a class="edition-nav-link" href="#desempenho">Gráficos</a><a class="edition-nav-link" href="#comparador">Comparador</a></nav>
+    </div></header>
 
-    <nav class="nav-tabs" id="navbar" aria-label="Seções do dashboard">
-        <div class="container nav-inner">
-            <div class="nav-pills" role="tablist">
-                <button class="tab-btn active" data-section="classificacao" role="tab" aria-selected="true"
-                    aria-controls="classificacao" id="tab-classificacao">
-                    <span class="tab-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
-                            <rect x="4" y="5" width="16" height="14" rx="2" />
-                            <path d="M8 9h8M8 13h8M8 17h5" />
-                        </svg>
-                    </span>
-                    Classificação
-                </button>
-                <button class="tab-btn" data-section="artilharia" role="tab" aria-selected="false"
-                    aria-controls="artilharia" id="tab-artilharia">
-                    <span class="tab-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="8" />
-                            <path d="m12 7 2.6 1.9-1 3.1h-3.2l-1-3.1z" />
-                            <path d="m9.4 15-1.7 2.1" />
-                            <path d="m14.6 15 1.7 2.1" />
-                            <path d="m7.8 9.5-2.3-.6" />
-                            <path d="m18.5 8.9-2.3.6" />
-                        </svg>
-                    </span>
-                    Artilharia
-                </button>
-                <button class="tab-btn" data-section="graficos" role="tab" aria-selected="false"
-                    aria-controls="graficos" id="tab-graficos">
-                    <span class="tab-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M5 19V10" />
-                            <path d="M12 19V5" />
-                            <path d="M19 19v-7" />
-                        </svg>
-                    </span>
-                    Gráficos
-                </button>
-                <button class="tab-btn" data-section="comparador" role="tab" aria-selected="false"
-                    aria-controls="comparador" id="tab-comparador">
-                    <span class="tab-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M7 7h10" />
-                            <path d="M7 17h10" />
-                            <path d="M9 5L7 7l2 2" />
-                            <path d="M15 15l2 2-2 2" />
-                        </svg>
-                    </span>
-                    Comparador
-                </button>
+    <main id="conteudo">
+        <section class="edition-section standings-edition" id="classificacao"><div class="edition-shell">
+            <div class="section-heading section-heading-row"><div><span class="eyebrow">Brasileirão {{ dados.info.temporada }}</span><h1 id="standings-heading">Classificação atual</h1><p>A tabela oficial da CBF, com busca, filtros e ordenação.</p></div><div class="section-meta"><span class="section-source" id="standings-source">CBF · rodada {{ dados.info.rodada_atual }}</span><span class="classification-update{% if dados_status.desatualizados %} is-stale{% endif %}"><i aria-hidden="true"></i>Dados atualizados em {{ atualizado_em }}</span></div></div>
+            <div class="table-toolbar"><label class="search-control" for="search-classificacao"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg><input type="search" id="search-classificacao" placeholder="Buscar clube" autocomplete="off"></label><span id="classificacao-count" aria-live="polite">{{ classificacao_inicial | length }} clubes exibidos</span></div>
+            <div class="zone-filters" role="group" aria-label="Filtrar clubes por zona"><button class="filter-btn is-active" data-zona="todas" aria-pressed="true">Todas</button><button class="filter-btn" data-zona="libertadores" aria-pressed="false">G4</button><button class="filter-btn" data-zona="pre-libertadores" aria-pressed="false">Pré-Lib</button><button class="filter-btn" data-zona="sulamericana" aria-pressed="false">Sula</button><button class="filter-btn" data-zona="rebaixamento" aria-pressed="false">Z4</button><button class="filter-btn" data-zona="favoritos" aria-pressed="false">Favoritos</button></div>
+            <div class="zone-legend" aria-label="Significado das cores das posições">
+                <span><i class="zone-legend-mark zone-libertadores" aria-hidden="true"></i>Libertadores</span>
+                <span><i class="zone-legend-mark zone-pre-libertadores" aria-hidden="true"></i>Pré-Libertadores</span>
+                <span><i class="zone-legend-mark zone-sulamericana" aria-hidden="true"></i>Sul-Americana</span>
+                <span><i class="zone-legend-mark zone-rebaixamento" aria-hidden="true"></i>Rebaixamento</span>
             </div>
-        </div>
-    </nav>
+            <div class="table-scroll" id="standings-table-wrap"><table class="standings-table" id="tabela-classificacao"><caption class="sr-only">Classificação atual do Campeonato Brasileiro Série A</caption><thead><tr><th class="col-pos" scope="col" data-sort="posicao" tabindex="0"><abbr title="Posição">#</abbr></th><th class="col-team" scope="col" data-sort="time" tabindex="0">Clube</th><th class="col-points" scope="col" data-sort="pontos" tabindex="0"><abbr title="Pontos">P</abbr></th><th scope="col" data-sort="jogos" tabindex="0"><abbr title="Jogos">J</abbr></th><th class="col-secondary" scope="col" data-sort="vitorias" tabindex="0"><abbr title="Vitórias">V</abbr></th><th class="col-secondary" scope="col" data-sort="empates" tabindex="0"><abbr title="Empates">E</abbr></th><th class="col-secondary" scope="col" data-sort="derrotas" tabindex="0"><abbr title="Derrotas">D</abbr></th><th class="col-secondary" scope="col" data-sort="gols_pro" tabindex="0"><abbr title="Gols pró">GP</abbr></th><th class="col-secondary" scope="col" data-sort="gols_contra" tabindex="0"><abbr title="Gols contra">GC</abbr></th><th scope="col" data-sort="saldo" tabindex="0"><abbr title="Saldo de gols">SG</abbr></th></tr></thead><tbody>
+                {% for clube in classificacao_inicial %}
+                {% set zona = 'libertadores' if clube.posicao <= 4 else 'pre-libertadores' if clube.posicao == 5 else 'sulamericana' if clube.posicao <= 11 else 'rebaixamento' if clube.posicao >= 17 else 'neutra' %}
+                {% set eh_melhor_ataque = clube.sigla in destaques_classificacao.melhores_ataques %}
+                {% set eh_melhor_defesa = clube.sigla in destaques_classificacao.melhores_defesas %}
+                <tr data-time="{{ clube.time }}" data-sigla="{{ clube.sigla }}" data-zona="{{ zona }}" data-posicao="{{ clube.posicao }}" data-pontos="{{ clube.pontos }}" data-jogos="{{ clube.jogos }}" data-vitorias="{{ clube.vitorias }}" data-empates="{{ clube.empates }}" data-derrotas="{{ clube.derrotas }}" data-gols_pro="{{ clube.gols_pro }}" data-gols_contra="{{ clube.gols_contra }}" data-saldo="{{ clube.saldo }}">
+                    <td class="col-pos"><span class="rank-mark">{{ clube.posicao }}</span></td>
+                    <td class="col-team">
+                        <button class="favorite-toggle" type="button" data-favorite="{{ clube.sigla }}" aria-label="Favoritar {{ clube.time }}" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"></path></svg></button>
+                        <a href="{{ site_url('time/' ~ clube.sigla ~ '/') }}" class="club-cell"><img src="{{ asset_url(clube.escudo) }}" alt="" width="32" height="32" loading="lazy"><span><strong>{{ clube.time }}</strong><small>{{ clube.sigla }} · {{ clube.estado }}</small></span></a>
+                        <button class="row-expand" type="button" aria-expanded="false" aria-label="Ver campanha de {{ clube.time }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg></button>
+                        <div class="mobile-campaign" hidden><span><b>{{ clube.vitorias }}</b> Vitórias</span><span><b>{{ clube.empates }}</b> Empates</span><span><b>{{ clube.derrotas }}</b> Derrotas</span><span><b>{{ clube.gols_pro }}</b> Gols pró{% if eh_melhor_ataque %}<em class="mobile-record-label">Melhor ataque</em>{% endif %}</span><span><b>{{ clube.gols_contra }}</b> Gols contra{% if eh_melhor_defesa %}<em class="mobile-record-label">Melhor defesa</em>{% endif %}</span><span><b>{{ clube.aproveitamento }}%</b> Aproveitamento</span></div>
+                    </td>
+                    <td class="col-points"><strong>{{ clube.pontos }}</strong></td><td>{{ clube.jogos }}</td><td class="col-secondary">{{ clube.vitorias }}</td><td class="col-secondary">{{ clube.empates }}</td><td class="col-secondary">{{ clube.derrotas }}</td>
+                    <td class="col-secondary{% if eh_melhor_ataque %} is-record{% endif %}"><span class="metric-value">{{ clube.gols_pro }}</span>{% if eh_melhor_ataque %}<small class="metric-record-label">Melhor ataque</small>{% endif %}</td>
+                    <td class="col-secondary{% if eh_melhor_defesa %} is-record{% endif %}"><span class="metric-value">{{ clube.gols_contra }}</span>{% if eh_melhor_defesa %}<small class="metric-record-label">Melhor defesa</small>{% endif %}</td>
+                    <td class="col-saldo">{% if clube.saldo > 0 %}+{% endif %}{{ clube.saldo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody></table></div>
+            <p class="table-empty" id="classificacao-empty" hidden>Nenhum clube corresponde aos filtros atuais.</p>
+        </div></section>
 
-    <main id="main-content" class="container main-content">
-        <section id="classificacao" class="section active" role="tabpanel" aria-labelledby="tab-classificacao">
-            <div class="section-header">
-                <span class="section-index" aria-hidden="true">01</span>
-                <div class="section-copy">
-                    <span class="section-kicker">Panorama Geral</span>
-                    <h2>Tabela de classificação</h2>
-                    <p>Busque clubes, filtre por faixas da tabela e ordene as colunas para construir sua leitura da rodada.</p>
-                </div>
-                <span class="section-tag">
-                    {{ 'Resultado final' if dados.info.get('campeonato_finalizado') else 'Rodada ' + (dados.info.rodada_atual | string) + '/' + (dados.info.rodadas_total | string) }}
-                </span>
-            </div>
+        <section class="edition-section matchday-edition" id="rodada" data-round-controller data-current-round="{{ rodada_inicial }}" data-total-rounds="{{ dados.info.rodadas_total }}"><div class="edition-shell"><div class="section-heading round-section-heading"><div><span class="eyebrow">Rodada</span><h2 id="round-heading">Jogos da Rodada {{ rodada_inicial }}</h2><p>Resultados e próximos confrontos; a classificação acima permanece sempre atual.</p></div><div class="round-controls" aria-label="Escolher rodada do campeonato"><button class="round-arrow" id="round-prev" type="button" aria-label="Rodada anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><div class="round-picker"><button class="round-trigger" id="round-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="round-listbox"><span id="round-trigger-label">Rodada {{ rodada_inicial }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg></button><div class="round-listbox" id="round-listbox" role="listbox" aria-label="Escolher rodada" hidden>{% for numero in range(1, dados.info.rodadas_total + 1) %}<button class="round-option" type="button" role="option" data-round="{{ numero }}" aria-selected="{{ 'true' if numero == rodada_inicial else 'false' }}"><span>{{ '%02d' | format(numero) }}</span> Rodada {{ numero }}</button>{% endfor %}</div></div><button class="round-arrow" id="round-next" type="button" aria-label="Próxima rodada"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div></div><div class="season-progress" role="progressbar" aria-label="Progresso da temporada" aria-valuemin="1" aria-valuemax="{{ dados.info.rodadas_total }}" aria-valuenow="{{ rodada_inicial }}"><span id="season-progress-bar" style="--season-progress: {{ ((rodada_inicial / dados.info.rodadas_total) * 100) | round(1) }}%"></span></div><div class="round-meta"><span id="round-count">{{ partidas_rodada | length }} {{ 'confronto' if partidas_rodada | length == 1 else 'confrontos' }}</span><span>{% if dados.agenda_desatualizada %}Agenda aguardando sincronização{% else %}Horário de Brasília{% endif %}</span></div><div class="match-track" id="round-track" role="list">{% for partida in partidas_rodada %}<article class="match-card status-{{ partida.status }}" role="listitem" data-match-id="{{ partida.id }}"><header><span>{{ partida.data_curta }} · {{ partida.hora }}</span><strong>{{ partida.status_label }}</strong></header><a class="match-team" href="{{ site_url('time/' ~ partida.mandante ~ '/') }}"><span>{{ partida.mandante_time.time }}</span>{% if partida.mandante_time.escudo %}<img src="{{ asset_url(partida.mandante_time.escudo) }}" alt="" width="30" height="30">{% endif %}<b>{{ partida.placar.mandante if partida.placar.mandante is not none else '—' }}</b></a><a class="match-team" href="{{ site_url('time/' ~ partida.visitante ~ '/') }}"><span>{{ partida.visitante_time.time }}</span>{% if partida.visitante_time.escudo %}<img src="{{ asset_url(partida.visitante_time.escudo) }}" alt="" width="30" height="30">{% endif %}<b>{{ partida.placar.visitante if partida.placar.visitante is not none else '—' }}</b></a></article>{% endfor %}</div><div class="data-empty" id="round-empty"{% if partidas_rodada %} hidden{% endif %}><strong>Jogos ainda não disponíveis para esta rodada</strong><p>A agenda aparecerá assim que a sincronização gratuita for concluída.</p></div><p class="sr-only" id="round-announcement" aria-live="polite"></p></div></section>
 
-            <div class="panel-shell">
-                <div class="table-controls">
-                    <label class="search-wrap" for="search-classificacao">
-                        <span class="search-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <circle cx="11" cy="11" r="6"></circle>
-                                <path d="m20 20-3.5-3.5"></path>
-                            </svg>
-                        </span>
-                        <input type="search" id="search-classificacao" class="search-input"
-                            placeholder="Buscar time ou sigla..." aria-label="Buscar clube na classificação">
-                    </label>
-                    <div class="table-meta">
-                        <span id="classificacao-count" class="table-count" aria-live="polite">{{ dados.classificacao|length }} clubes exibidos</span>
-                        <span class="table-hint">Clique nos títulos para ordenar</span>
-                    </div>
-                    <div class="filter-group" role="group" aria-label="Filtrar clubes por zona">
-                        <button class="filter-btn active" data-zona="todas" aria-pressed="true">Todas</button>
-                        <button class="filter-btn" data-zona="libertadores" aria-pressed="false">Libertadores</button>
-                        <button class="filter-btn" data-zona="pre-libertadores" aria-pressed="false">Pré-Lib</button>
-                        <button class="filter-btn" data-zona="sulamericana" aria-pressed="false">Sula</button>
-                        <button class="filter-btn" data-zona="rebaixamento" aria-pressed="false">Rebaixamento</button>
-                        <button class="filter-btn" data-zona="favoritos" aria-pressed="false">Favoritos</button>
-                    </div>
-                    <div class="classification-legend" aria-label="Zonas de classificação">
-                        <span><span class="dot lib"></span> Libertadores direta (G4)</span>
-                        <span><span class="dot prelib"></span> Pré-Libertadores</span>
-                        <span><span class="dot sula"></span> Sul-Americana</span>
-                        <span><span class="dot reb"></span> Rebaixamento</span>
-                    </div>
-                </div>
+        <section class="edition-section scorers-edition" id="artilharia"><div class="edition-shell"><div class="section-heading section-heading-row"><div><span class="eyebrow">Artilharia</span><h2>Quem mais marcou</h2><p>Lista completa de goleadores da temporada.</p></div><span class="section-source">{{ dados.fontes.artilharia }}</span></div><div class="table-scroll scorers-table-wrap"><table class="scorers-table"><caption class="sr-only">Artilharia do Campeonato Brasileiro Série A {{ dados.info.temporada }}</caption><thead><tr><th scope="col">Posição</th><th scope="col">Jogador</th><th scope="col">Clube</th><th scope="col">Gols</th></tr></thead><tbody>{% for jogador in dados.artilharia %}{% set clube = times_por_sigla.get(jogador.sigla) %}<tr{% if loop.index <= 3 %} class="is-top-three"{% endif %}><td><span class="scorer-rank-badge">{{ loop.index }}</span></td><td><strong>{{ jogador.jogador }}</strong></td><td>{% if clube %}<a class="scorer-club" href="{{ site_url('time/' ~ clube.sigla ~ '/') }}"><img src="{{ asset_url(clube.escudo) }}" alt="" width="28" height="28" loading="lazy"><span>{{ clube.time }}<small>{{ clube.sigla }}</small></span></a>{% else %}{{ jogador.time }}{% endif %}</td><td class="scorer-goals"><strong>{{ jogador.gols }}</strong><span>gols</span></td></tr>{% endfor %}</tbody></table></div></div></section>
 
-                <div class="table-wrapper">
-                    <div class="table-card">
-                        <table class="data-table" id="tabela-classificacao">
-                            <caption class="visually-hidden">Tabela completa de classificação do Campeonato Brasileiro Série A {{ dados.info.temporada }}.</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="col-pos" data-sort="posicao">#</th>
-                                    <th scope="col" class="col-time" data-sort="time">Time</th>
-                                    <th scope="col" data-sort="pontos">P</th>
-                                    <th scope="col" data-sort="jogos">J</th>
-                                    <th scope="col" data-sort="vitorias">V</th>
-                                    <th scope="col" data-sort="empates">E</th>
-                                    <th scope="col" data-sort="derrotas">D</th>
-                                    <th scope="col" data-sort="gols_pro">GP</th>
-                                    <th scope="col" data-sort="gols_contra">GC</th>
-                                    <th scope="col" data-sort="saldo">SG</th>
-                                    <th scope="col" data-sort="aproveitamento">%</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for time in dados.classificacao %}
-                                <tr class="table-row
-                                {% if time.posicao <= 4 %}zona-libertadores
-                                {% elif time.posicao == 5 %}zona-pre-libertadores
-                                {% elif time.posicao >= 6 and time.posicao <= 11 %}zona-sulamericana
-                                {% elif time.posicao >= 17 %}zona-rebaixamento
-                                {% endif %}" data-time="{{ time.time }}" data-sigla="{{ time.sigla }}"
-                                    data-zona="{% if time.posicao <= 4 %}libertadores{% elif time.posicao == 5 %}pre-libertadores{% elif time.posicao >= 6 and time.posicao <= 11 %}sulamericana{% elif time.posicao >= 17 %}rebaixamento{% else %}neutro{% endif %}"
-                                    data-posicao="{{ time.posicao }}" data-pontos="{{ time.pontos }}"
-                                    data-jogos="{{ time.jogos }}" data-vitorias="{{ time.vitorias }}"
-                                    data-empates="{{ time.empates }}" data-derrotas="{{ time.derrotas }}"
-                                    data-gols_pro="{{ time.gols_pro }}" data-gols_contra="{{ time.gols_contra }}"
-                                    data-saldo="{{ time.saldo }}" data-aproveitamento="{{ time.aproveitamento }}">
-                                    <td class="col-pos">
-                                        <span class="pos-badge
-                                        {% if time.posicao <= 4 %}lib
-                                        {% elif time.posicao == 5 %}prelib
-                                        {% elif time.posicao >= 6 and time.posicao <= 11 %}sula
-                                        {% elif time.posicao >= 17 %}reb
-                                        {% endif %}">{{ time.posicao }}</span>
-                                    </td>
-                                    <td class="col-time">
-                                        {% if time.escudo %}
-                                        <img src="{{ site_url(time.escudo) }}" alt="Escudo de {{ time.time }}" class="time-escudo" loading="lazy">
-                                        {% else %}
-                                        <span class="time-cor" style="background: {{ time.cor }}" aria-hidden="true"></span>
-                                        {% endif %}
-                                        <div class="time-info">
-                                            <a href="{{ site_url('time/' ~ time.sigla ~ '/') }}" class="time-link"><strong>{{ time.time }}</strong></a>
-                                            <small>{{ time.estado }}</small>
-                                        </div>
-                                    </td>
-                                    <td class="col-pontos"><strong>{{ time.pontos }}</strong></td>
-                                    <td>{{ time.jogos }}</td>
-                                    <td class="col-v">{{ time.vitorias }}</td>
-                                    <td>{{ time.empates }}</td>
-                                    <td class="col-d">{{ time.derrotas }}</td>
-                                    <td>{{ time.gols_pro }}</td>
-                                    <td>{{ time.gols_contra }}</td>
-                                    <td class="col-saldo {% if time.saldo > 0 %}positivo{% elif time.saldo < 0 %}negativo{% endif %}">
-                                        {% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}
-                                    </td>
-                                    <td>{{ time.aproveitamento }}%</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <section class="edition-section performance-edition" id="desempenho" aria-labelledby="performance-title"><div class="edition-shell"><div class="section-heading section-heading-row"><div><span class="eyebrow">Desempenho</span><h2 id="performance-title">Quatro leituras do campeonato</h2><p>Recortes complementares à tabela, sem repetir o ranking de artilheiros.</p></div><span class="section-source">{% if leituras_campeonato.desatualizado %}Partidas · atualização pendente{% else %}{{ leituras_campeonato.partidas_encerradas }} partidas encerradas{% endif %}</span></div><div class="charts-layout"><article class="chart-figure chart-figure-wide"><header><h3>Ataque × defesa</h3><p id="attack-defense-summary">Produção ofensiva e gols sofridos por jogo para comparar clubes com campanhas de tamanhos diferentes.</p></header><div class="chart-canvas"><canvas id="chart-attack-defense" role="img" aria-label="Mapa dos clubes por gols marcados e sofridos por jogo" aria-describedby="attack-defense-summary attack-defense-data"></canvas></div><ul class="sr-only" id="attack-defense-data">{% for clube in classificacao_inicial %}<li>{{ clube.time }}: {{ (clube.gols_pro / clube.jogos) | round(2) if clube.jogos else 0 }} gols marcados e {{ (clube.gols_contra / clube.jogos) | round(2) if clube.jogos else 0 }} sofridos por jogo.</li>{% endfor %}</ul></article><article class="chart-figure"><header><h3>Casa × fora</h3><p id="home-away-summary">Aproveitamento de pontos como mandante e visitante.</p></header><div class="chart-canvas chart-canvas-tall{% if not leituras_campeonato.mandos %} is-empty{% endif %}"><canvas id="chart-home-away" role="img" aria-label="Aproveitamento dos clubes em casa e fora" aria-describedby="home-away-summary home-away-data"></canvas>{% if not leituras_campeonato.mandos %}<div class="chart-empty">Aguardando a primeira sincronização das partidas.</div>{% endif %}</div><ul class="sr-only" id="home-away-data">{% for clube in leituras_campeonato.mandos %}<li>{{ clube.time }}: {{ clube.aproveitamento_casa if clube.aproveitamento_casa is not none else 'sem jogos' }}% em casa e {{ clube.aproveitamento_fora if clube.aproveitamento_fora is not none else 'sem jogos' }}% fora.</li>{% endfor %}</ul></article><article class="chart-figure"><header><h3>Forma recente</h3><p id="recent-form-summary">Pontos conquistados nos últimos cinco jogos encerrados.</p></header><div class="chart-canvas chart-canvas-tall{% if not leituras_campeonato.forma %} is-empty{% endif %}"><canvas id="chart-recent-form" role="img" aria-label="Pontos dos clubes nos últimos cinco jogos" aria-describedby="recent-form-summary recent-form-data"></canvas>{% if not leituras_campeonato.forma %}<div class="chart-empty">Aguardando a primeira sincronização das partidas.</div>{% endif %}</div><ul class="sr-only" id="recent-form-data">{% for clube in leituras_campeonato.forma %}<li>{{ clube.time }}: {{ clube.pontos }} pontos em {{ clube.jogos }} jogos; sequência {{ clube.resultados | join(', ') }}.</li>{% endfor %}</ul></article><article class="chart-figure chart-figure-wide"><header><h3>Gols por rodada</h3><p id="goals-round-summary">Total de gols por rodada; pontos amarelos indicam uma rodada ainda incompleta.</p></header><div class="chart-canvas{% if not leituras_campeonato.gols_por_rodada %} is-empty{% endif %}"><canvas id="chart-goals-round" role="img" aria-label="Evolução do total de gols por rodada" aria-describedby="goals-round-summary goals-round-data"></canvas>{% if not leituras_campeonato.gols_por_rodada %}<div class="chart-empty">Aguardando a primeira sincronização das partidas.</div>{% endif %}</div><ul class="sr-only" id="goals-round-data">{% for rodada in leituras_campeonato.gols_por_rodada %}<li>Rodada {{ rodada.rodada }}: {{ rodada.gols }} gols em {{ rodada.jogos }} jogos{% if not rodada.completa %}, parcial{% endif %}.</li>{% endfor %}</ul></article></div><p class="chart-status" id="charts-status" role="status" aria-live="polite" hidden></p></div></section>
 
-                <p id="classificacao-empty" class="table-empty" hidden>Nenhum clube corresponde aos filtros atuais.</p>
-            </div>
-        </section>
-
-        <section id="artilharia" class="section" role="tabpanel" aria-labelledby="tab-artilharia">
-            <div class="section-header">
-                <span class="section-index" aria-hidden="true">02</span>
-                <div class="section-copy">
-                    <span class="section-kicker">Ataque em foco</span>
-                    <h2>Artilharia da Série A</h2>
-                    <p>O ranking abaixo destaca os jogadores com maior poder de decisão na temporada.</p>
-                </div>
-                <span class="section-tag">Top 20</span>
-            </div>
-            <div class="panel-shell">
-                <div class="scorer-podium" aria-label="Três maiores artilheiros da competição">
-                    {% for jogador in dados.artilharia[:3] %}
-                    {% set clube_artilheiro = dados.classificacao | selectattr('sigla', 'equalto', jogador.sigla) | first %}
-                    <article class="scorer-podium-item">
-                        <span class="scorer-podium-rank">{{ loop.index }}<span class="visually-hidden">º lugar</span></span>
-                        {% if clube_artilheiro and clube_artilheiro.escudo %}
-                        <img src="{{ asset_url(clube_artilheiro.escudo) }}" alt="" class="scorer-podium-crest"
-                            width="30" height="30" loading="lazy">
-                        {% endif %}
-                        <div class="scorer-podium-copy">
-                            <h3>{{ jogador.jogador }}</h3>
-                            <span>{{ jogador.time }}</span>
-                        </div>
-                        <span class="scorer-podium-goals"><strong>{{ jogador.gols }}</strong> gols</span>
-                    </article>
-                    {% endfor %}
-                </div>
-                {% set mostrar_posicao_artilharia = (dados.artilharia | rejectattr('posicao', 'equalto', 'Nao informado') | list | length) > 0 %}
-                <div class="table-wrapper">
-                    <div class="table-card">
-                        <table class="data-table">
-                            <caption class="visually-hidden">Lista dos principais artilheiros do Brasileirão {{ dados.info.temporada }}.</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Jogador</th>
-                                    <th scope="col">Time</th>
-                                    {% if mostrar_posicao_artilharia %}
-                                    <th scope="col">Posição</th>
-                                    {% endif %}
-                                    <th scope="col">Gols</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for j in dados.artilharia %}
-                                <tr>
-                                    <td class="col-pos">
-                                        <span class="pos-badge {% if loop.index <= 3 %}top3{% endif %}">{{ loop.index }}</span>
-                                    </td>
-                                    <td><strong>{{ j.jogador }}</strong></td>
-                                    <td>
-                                        {% set clube = (dados.classificacao | selectattr('sigla', 'equalto', j.sigla) | list | first) %}
-                                        <span class="scorer-team">
-                                            {% if clube and clube.escudo %}
-                                            <img src="{{ site_url(clube.escudo) }}" alt="Escudo de {{ j.time }}" class="scorer-escudo" loading="lazy">
-                                            {% endif %}
-                                            <span>{{ j.time }}</span>
-                                        </span>
-                                    </td>
-                                    {% if mostrar_posicao_artilharia %}
-                                    <td><span class="scorer-position">{{ j.posicao }}</span></td>
-                                    {% endif %}
-                                    <td class="col-gols"><strong>{{ j.gols }}</strong></td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="graficos" class="section" role="tabpanel" aria-labelledby="tab-graficos" aria-busy="true">
-            {% set melhor_aproveitamento = dados.classificacao | sort(attribute='aproveitamento', reverse=true) | first %}
-            {% set melhor_ataque = dados.classificacao | sort(attribute='gols_pro', reverse=true) | first %}
-            {% set melhor_defesa = dados.classificacao | sort(attribute='gols_contra') | first %}
-            <div class="section-header">
-                <span class="section-index" aria-hidden="true">03</span>
-                <div class="section-copy">
-                    <span class="section-kicker">Desempenho</span>
-                    <h2>Radiografia da competição</h2>
-                    <p>Um recorte visual da liderança, artilharia, eficiência e equilíbrio entre ataque e defesa.</p>
-                </div>
-                <span class="section-tag">4 leituras</span>
-            </div>
-
-            <p id="charts-status" class="visually-hidden" aria-live="polite"></p>
-
-            <div class="charts-grid">
-                <article class="chart-card chart-card-primary">
-                    <div class="chart-header">
-                        <h3>Corrida pelo topo</h3>
-                        <p id="chartPontosSummary">{{ dados.classificacao[0].time }} lidera com {{ dados.classificacao[0].pontos }} pontos; as barras mostram os dez primeiros colocados.</p>
-                    </div>
-                    <div class="chart-body">
-                        <canvas id="chartPontos" role="img" aria-label="Gráfico de barras com pontuação dos dez primeiros clubes" aria-describedby="chartPontosSummary chartPontosData"></canvas>
-                        <ul id="chartPontosData" class="visually-hidden">
-                            {% for time in dados.classificacao[:10] %}<li>{{ time.time }}: {{ time.pontos }} pontos</li>{% endfor %}
-                        </ul>
-                    </div>
-                </article>
-                <article class="chart-card">
-                    <div class="chart-header">
-                        <h3>Gols em destaque</h3>
-                        <p id="chartArtilheirosSummary">{{ dados.artilharia[0].jogador }} lidera a artilharia com {{ dados.artilharia[0].gols }} gols.</p>
-                    </div>
-                    <div class="chart-body">
-                        <canvas id="chartArtilheiros" role="img" aria-label="Gráfico de barras com os dez maiores artilheiros" aria-describedby="chartArtilheirosSummary chartArtilheirosData"></canvas>
-                        <ul id="chartArtilheirosData" class="visually-hidden">
-                            {% for jogador in dados.artilharia[:10] %}<li>{{ jogador.jogador }}, {{ jogador.time }}: {{ jogador.gols }} gols</li>{% endfor %}
-                        </ul>
-                    </div>
-                </article>
-                <article class="chart-card">
-                    <div class="chart-header">
-                        <h3>Eficiência dos clubes</h3>
-                        <p id="chartAproveitamentoSummary">{{ melhor_aproveitamento.time }} tem o melhor aproveitamento, com {{ melhor_aproveitamento.aproveitamento }}%.</p>
-                    </div>
-                    <div class="chart-body">
-                        <canvas id="chartAproveitamento" role="img" aria-label="Gráfico de barras com os dez melhores aproveitamentos" aria-describedby="chartAproveitamentoSummary chartAproveitamentoData"></canvas>
-                        <ul id="chartAproveitamentoData" class="visually-hidden">
-                            {% for time in dados.classificacao | sort(attribute='aproveitamento', reverse=true) %}{% if loop.index <= 10 %}<li>{{ time.time }}: {{ time.aproveitamento }}%</li>{% endif %}{% endfor %}
-                        </ul>
-                    </div>
-                </article>
-                <article class="chart-card">
-                    <div class="chart-header">
-                        <h3>Ataque e defesa</h3>
-                        <p id="chartGolsComparativoSummary">{{ melhor_ataque.time }} tem o melhor ataque; {{ melhor_defesa.time }} sofreu menos gols.</p>
-                    </div>
-                    <div class="chart-body">
-                        <canvas id="chartGolsComparativo" role="img" aria-label="Gráfico comparativo de gols pró e contra dos oito primeiros clubes" aria-describedby="chartGolsComparativoSummary chartGolsComparativoData"></canvas>
-                        <ul id="chartGolsComparativoData" class="visually-hidden">
-                            {% for time in dados.classificacao[:8] %}<li>{{ time.time }}: {{ time.gols_pro }} gols pró e {{ time.gols_contra }} gols contra</li>{% endfor %}
-                        </ul>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="comparador" class="section" role="tabpanel" aria-labelledby="tab-comparador">
-            <div class="section-header">
-                <span class="section-index" aria-hidden="true">04</span>
-                <div class="section-copy">
-                    <span class="section-kicker">Frente a frente</span>
-                    <h2>Comparador de clubes</h2>
-                    <p>Escolha dois times para ler vantagem por métrica e visualizar o confronto em radar.</p>
-                </div>
-                <span class="section-tag">Matchup</span>
-            </div>
-
-            <div class="cmp-layout">
-                <div class="cmp-panel">
-                    <div class="cmp-controls">
-                        <div class="cmp-field">
-                            <span id="cmp-time1-label">Primeiro time</span>
-                            <select id="cmp-time1" class="cmp-select cmp-select-native" aria-hidden="true" tabindex="-1">
-                                <option value="">Selecione o 1º time</option>
-                                {% for time in dados.classificacao %}
-                                <option value="{{ time.sigla }}">{{ time.time }}</option>
-                                {% endfor %}
-                            </select>
-                            <div class="cmp-picker" data-select="cmp-time1">
-                                <button type="button" class="cmp-picker-button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="cmp-time1-label cmp-time1-current">
-                                    <span class="cmp-picker-placeholder" id="cmp-time1-current">Selecione o 1º time</span>
-                                </button>
-                                <div class="cmp-picker-list" role="listbox" aria-labelledby="cmp-time1-label">
-                                    {% for time in dados.classificacao %}
-                                    <button type="button" class="cmp-picker-option" role="option" data-value="{{ time.sigla }}" aria-selected="false">
-                                        {% if time.escudo %}
-                                        <img src="{{ site_url(time.escudo) }}" alt="" class="cmp-picker-escudo" loading="lazy">
-                                        {% endif %}
-                                        <span>{{ time.time }}</span>
-                                    </button>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cmp-field">
-                            <span id="cmp-time2-label">Segundo time</span>
-                            <select id="cmp-time2" class="cmp-select cmp-select-native" aria-hidden="true" tabindex="-1">
-                                <option value="">Selecione o 2º time</option>
-                                {% for time in dados.classificacao %}
-                                <option value="{{ time.sigla }}">{{ time.time }}</option>
-                                {% endfor %}
-                            </select>
-                            <div class="cmp-picker" data-select="cmp-time2">
-                                <button type="button" class="cmp-picker-button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="cmp-time2-label cmp-time2-current">
-                                    <span class="cmp-picker-placeholder" id="cmp-time2-current">Selecione o 2º time</span>
-                                </button>
-                                <div class="cmp-picker-list" role="listbox" aria-labelledby="cmp-time2-label">
-                                    {% for time in dados.classificacao %}
-                                    <button type="button" class="cmp-picker-option" role="option" data-value="{{ time.sigla }}" aria-selected="false">
-                                        {% if time.escudo %}
-                                        <img src="{{ site_url(time.escudo) }}" alt="" class="cmp-picker-escudo" loading="lazy">
-                                        {% endif %}
-                                        <span>{{ time.time }}</span>
-                                    </button>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        <button id="cmp-btn" class="cmp-button">Comparar</button>
-                    </div>
-                    <div id="cmp-result" class="cmp-result" aria-live="polite">
-                        <div class="cmp-empty-state">
-                            <p class="cmp-empty">Selecione dois times diferentes para gerar o comparativo.</p>
-                            <button type="button" id="cmp-quick-leaders" class="cmp-quick-button">Comparar líder e vice-líder</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="edition-section compare-edition" id="comparador"><div class="edition-shell compare-layout"><div class="compare-intro"><span class="eyebrow">Comparador</span><h2>Clubes lado a lado</h2><p>Compare as campanhas na classificação atual.</p><button type="button" class="text-button" id="cmp-quick-leaders">Comparar líder e vice-líder <span aria-hidden="true">→</span></button></div><div class="compare-workbench"><div class="compare-controls"><label for="cmp-time1"><span>Primeiro clube</span><select id="cmp-time1"><option value="">Selecione</option>{% for clube in dados.classificacao %}<option value="{{ clube.sigla }}">{{ clube.time }}</option>{% endfor %}</select></label><span class="compare-versus" aria-hidden="true">×</span><label for="cmp-time2"><span>Segundo clube</span><select id="cmp-time2"><option value="">Selecione</option>{% for clube in dados.classificacao %}<option value="{{ clube.sigla }}">{{ clube.time }}</option>{% endfor %}</select></label><button class="compare-button" id="cmp-btn" type="button" disabled>Comparar campanhas</button></div><div class="compare-result" id="cmp-result" aria-live="polite"><p>Escolha dois clubes diferentes ou use o confronto sugerido.</p></div></div></div></section>
     </main>
 
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <span class="footer-kicker">Brasileirão {{ dados.info.temporada }}</span>
-                <strong>Projeto de Lucas Pinheiro</strong>
-            </div>
-            <div class="footer-meta">
-                <span>Dados oficiais da CBF, atualizados automaticamente.</span>
-                <span>Classificação, artilharia e comparativos da Série A.</span>
-            </div>
-        </div>
-    </footer>
-
+    <footer class="edition-footer"><div class="edition-shell"><div><strong>Brasileirão Dashboard</strong><span>Série A {{ dados.info.temporada }}</span></div><p>Classificação e artilharia: {{ dados.fontes.classificacao }}. Partidas e gráficos: {{ dados.fontes.partidas }}.</p><a href="#conteudo">Voltar ao início <span aria-hidden="true">↑</span></a></div></footer>
     <script>
         window.siteBasePath = {{ site_url() | tojson }};
-        window.escudoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%231a4331'/%3E%3Cpath d='M48 18 71 31v20c0 15-10 25-23 31C35 76 25 66 25 51V31z' fill='%236ebc83'/%3E%3Cpath d='m48 34 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z' fill='white'/%3E%3C/svg%3E";
-
-        const normalizarUrlEscudo = (escudo) => {
-            if (!escudo || /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(escudo)) return escudo;
-            return `${window.siteBasePath}${escudo.replace(/^\/+/, '')}`;
-        };
-
-        const dadosClassificacao = {{ dados.classificacao | tojson }}.map((time) => ({
-            ...time,
-            escudo: normalizarUrlEscudo(time.escudo)
-        }));
-        const dadosArtilharia = {{ dados.artilharia | tojson }};
+        window.dadosClassificacao = {{ classificacao_inicial | tojson }};
+        window.dadosClassificacaoAtual = {{ dados.classificacao | tojson }};
+        window.classificacoesPorRodada = {{ dados.classificacao_por_rodada | tojson }};
+        window.dadosArtilharia = {{ dados.artilharia | tojson }};
+        window.dadosPartidas = {{ dados.partidas | tojson }};
+        window.dadosGraficos = {{ leituras_campeonato | tojson }};
+        window.chartJsUrl = "https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js";
+        window.escudoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%2307523e'/%3E%3Cpath d='M48 18 71 31v20c0 15-10 25-23 31C35 76 25 66 25 51V31z' fill='%23ffd044'/%3E%3C/svg%3E";
+        window.dashboardConfig = { rodadaAtual: {{ dados.info.rodada_atual }}, rodadaInicial: {{ rodada_inicial }}, rodadasTotal: {{ dados.info.rodadas_total }} };
     </script>
-    <script src="{{ asset_url('static/js/charts.js') }}"></script>
-    <script src="{{ asset_url('static/js/main.js') }}"></script>
+    <script src="{{ asset_url('static/js/dashboard-charts.js') }}" defer></script><script src="{{ asset_url('static/js/dashboard.js') }}" defer></script>
 </body>
-
 </html>

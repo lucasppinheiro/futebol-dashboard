@@ -16,11 +16,14 @@ function criarDOM(opcoes = {}) {
         comCanvas = true,
         comChart = true,
         comTimeData = true,
+        comClassificacao = true,
         timeData = todosClassificacao[0],
         classificacao = todosClassificacao
     } = opcoes;
 
-    const canvasHtml = comCanvas ? '<canvas id="chartRadarTime"></canvas>' : '';
+    const canvasHtml = comCanvas
+        ? '<section id="time-radar-section" aria-busy="true"><canvas id="chartRadarTime"></canvas><p id="time-radar-status" class="charts-state" role="status" aria-live="polite" hidden></p></section>'
+        : '';
     const dom = new JSDOM(`<!DOCTYPE html><html><body>${canvasHtml}</body></html>`, {
         runScripts: 'dangerously',
         pretendToBeVisual: true,
@@ -35,6 +38,8 @@ function criarDOM(opcoes = {}) {
 
     if (comTimeData) {
         dom.window.eval(`var timeData = ${JSON.stringify(timeData)};`);
+    }
+    if (comClassificacao) {
         dom.window.eval(`var todosClassificacao = ${JSON.stringify(classificacao)};`);
     }
 
@@ -68,6 +73,11 @@ describe('Radar da pagina do time', () => {
         const dom = await criarDOMPronto();
         const instancias = dom.window.Chart._instances || [];
         expect(instancias).toHaveLength(1);
+        expect(dom.window.document.getElementById('time-radar-section').classList.contains('charts-unavailable')).toBe(
+            false
+        );
+        expect(dom.window.document.getElementById('time-radar-status').hidden).toBe(true);
+        expect(dom.window.document.getElementById('time-radar-section').getAttribute('aria-busy')).toBe('false');
 
         const dataset = instancias[0].config.data.datasets[0];
         // Flamengo lidera todas as series do fixture
@@ -121,11 +131,12 @@ describe('Radar da pagina do time', () => {
         dom.window.close();
     });
 
-    test('sem Chart definido nao quebra', () => {
-        expect(() => {
-            const dom = criarDOM({ comChart: false });
-            dom.window.close();
-        }).not.toThrow();
+    test('sem Chart definido nao quebra', async () => {
+        const dom = await criarDOMPronto({ comChart: false });
+        expect(dom.window.document.getElementById('time-radar-status').hidden).toBe(false);
+        expect(dom.window.document.getElementById('time-radar-status').textContent).toContain('indisponível');
+        expect(dom.window.document.getElementById('time-radar-section').getAttribute('aria-busy')).toBe('false');
+        expect(() => dom.window.close()).not.toThrow();
     });
 
     test('sem timeData definido nao quebra', () => {
@@ -133,5 +144,14 @@ describe('Radar da pagina do time', () => {
             const dom = criarDOM({ comTimeData: false });
             dom.window.close();
         }).not.toThrow();
+    });
+
+    test('sem classificacao global definida mostra indisponibilidade', async () => {
+        const dom = await criarDOMPronto({ comClassificacao: false });
+        expect(dom.window.Chart._instances || []).toHaveLength(0);
+        expect(dom.window.document.getElementById('time-radar-status').hidden).toBe(false);
+        expect(dom.window.document.getElementById('time-radar-status').textContent).toContain('Não foi possível');
+        expect(dom.window.document.getElementById('time-radar-section').getAttribute('aria-busy')).toBe('false');
+        dom.window.close();
     });
 });

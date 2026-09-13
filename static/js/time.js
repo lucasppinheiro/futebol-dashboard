@@ -1,8 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof Chart === 'undefined' || typeof timeData === 'undefined') return;
-
+    const radarSection = document.getElementById('time-radar-section');
+    const status = document.getElementById('time-radar-status');
     const el = document.getElementById('chartRadarTime');
-    if (!el) return;
+
+    const setStatus = (message, state) => {
+        if (!status) return;
+        const resolvedState = state || (message ? 'error' : '');
+        status.textContent = message || '';
+        status.hidden = !message;
+        status.classList.remove('charts-state-loading', 'charts-state-error');
+        if (resolvedState) status.classList.add(`charts-state-${resolvedState}`);
+        radarSection.classList.toggle('charts-unavailable', Boolean(message) && resolvedState === 'error');
+        radarSection.classList.toggle('charts-ready', !message);
+    };
+
+    if (!radarSection) return;
+    radarSection.setAttribute('aria-busy', 'true');
+
+    if (typeof Chart === 'undefined') {
+        radarSection.setAttribute('aria-busy', 'false');
+        setStatus('O radar interativo está indisponível no momento. Consulte os indicadores de desempenho da página.');
+        return;
+    }
+
+    if (
+        typeof timeData === 'undefined' ||
+        !el ||
+        typeof todosClassificacao === 'undefined' ||
+        !Array.isArray(todosClassificacao) ||
+        todosClassificacao.length === 0
+    ) {
+        radarSection.setAttribute('aria-busy', 'false');
+        setStatus('Não foi possível carregar os dados do radar. Consulte os indicadores de desempenho da página.');
+        return;
+    }
 
     function getCssVar(name, fallback) {
         const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -57,41 +88,51 @@ document.addEventListener('DOMContentLoaded', () => {
     Chart.defaults.color = theme.label;
     Chart.defaults.font.family = "'Outfit', sans-serif";
 
-    const chart = new Chart(el.getContext('2d'), {
-        type: 'radar',
-        data: {
-            labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
-            datasets: [
-                {
-                    label: timeData.time,
-                    data: [
-                        normalizarRadar(timeData.pontos, pontosSerie),
-                        normalizarRadar(timeData.vitorias, vitoriasSerie),
-                        normalizarRadar(timeData.gols_pro, golsProSerie),
-                        normalizarRadar(timeData.aproveitamento, aproveitamentoSerie),
-                        normalizarRadar(timeData.saldo, saldoSerie)
-                    ],
-                    borderColor: accent,
-                    backgroundColor: hexToRgba(accent, 0.18),
-                    pointRadius: 4
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                r: {
-                    beginAtZero: true,
-                    max: 100,
-                    grid: { color: theme.grid },
-                    pointLabels: { color: theme.label },
-                    ticks: { display: false }
-                }
+    let chart;
+    try {
+        chart = new Chart(el.getContext('2d'), {
+            type: 'radar',
+            data: {
+                labels: ['Pontos', 'Vitórias', 'Gols pró', 'Aproveitamento', 'Saldo'],
+                datasets: [
+                    {
+                        label: timeData.time,
+                        data: [
+                            normalizarRadar(timeData.pontos, pontosSerie),
+                            normalizarRadar(timeData.vitorias, vitoriasSerie),
+                            normalizarRadar(timeData.gols_pro, golsProSerie),
+                            normalizarRadar(timeData.aproveitamento, aproveitamentoSerie),
+                            normalizarRadar(timeData.saldo, saldoSerie)
+                        ],
+                        borderColor: accent,
+                        backgroundColor: hexToRgba(accent, 0.18),
+                        pointRadius: 4
+                    }
+                ]
             },
-            plugins: { legend: { display: false } }
-        }
-    });
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: theme.grid },
+                        pointLabels: { color: theme.label },
+                        ticks: { display: false }
+                    }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    } catch {
+        radarSection.setAttribute('aria-busy', 'false');
+        setStatus('O radar interativo está indisponível no momento. Consulte os indicadores de desempenho da página.');
+        return;
+    }
+
+    radarSection.setAttribute('aria-busy', 'false');
+    setStatus('');
 
     const observer = new MutationObserver(() => {
         const nextTheme = getTheme();

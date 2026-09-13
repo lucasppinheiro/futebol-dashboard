@@ -22,11 +22,11 @@ export default [
         }
     },
     {
-        files: ['tests/js/**/*.js'],
+        files: ['tests/js/**/*.js', 'tests/e2e/**/*.js', 'playwright.config.js'],
         languageOptions: {
             ecmaVersion: 2022,
             sourceType: 'commonjs',
-            globals: { ...globals.node, ...globals.jest }
+            globals: { ...globals.node, ...globals.browser, ...globals.jest }
         }
     }
 ];
