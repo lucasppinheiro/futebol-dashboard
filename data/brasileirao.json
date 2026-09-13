@@ -2,6 +2,23 @@
   "classificacao": [
     {
       "posicao": 1,
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "estado": "SP",
+      "cor": "#006437",
+      "escudo": "static/img/escudos/normalizados/PAL.png",
+      "jogos": 27,
+      "vitorias": 16,
+      "empates": 8,
+      "derrotas": 3,
+      "gols_pro": 47,
+      "gols_contra": 21,
+      "saldo": 26,
+      "pontos": 56,
+      "aproveitamento": 69.1
+    },
+    {
+      "posicao": 2,
       "time": "Flamengo",
       "sigla": "FLA",
       "estado": "RJ",
@@ -16,23 +33,6 @@
       "saldo": 30,
       "pontos": 54,
       "aproveitamento": 69.2
-    },
-    {
-      "posicao": 2,
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "estado": "SP",
-      "cor": "#006437",
-      "escudo": "static/img/escudos/normalizados/PAL.png",
-      "jogos": 26,
-      "vitorias": 15,
-      "empates": 8,
-      "derrotas": 3,
-      "gols_pro": 45,
-      "gols_contra": 21,
-      "saldo": 24,
-      "pontos": 53,
-      "aproveitamento": 67.9
     },
     {
       "posicao": 3,
@@ -160,15 +160,15 @@
       "estado": "SP",
       "cor": "#FF0000",
       "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 25,
+      "jogos": 26,
       "vitorias": 9,
       "empates": 6,
-      "derrotas": 10,
+      "derrotas": 11,
       "gols_pro": 31,
-      "gols_contra": 28,
-      "saldo": 3,
+      "gols_contra": 30,
+      "saldo": 1,
       "pontos": 33,
-      "aproveitamento": 44.0
+      "aproveitamento": 42.3
     },
     {
       "posicao": 11,
@@ -483,7 +483,7 @@
       "gols": 6
     }
   ],
-  "dados_atualizados_em": "2026-09-12T22:19:20.526042+00:00",
+  "dados_atualizados_em": "2026-09-13T01:02:08.962273+00:00",
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
@@ -491,8 +491,8 @@
     "rodada_atual": 27,
     "times_total": 20,
     "campeonato_finalizado": false,
-    "lider": "Flamengo",
-    "lider_pontos": 54,
+    "lider": "Palmeiras",
+    "lider_pontos": 56,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   }
