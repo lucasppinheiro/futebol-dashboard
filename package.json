@@ -12,7 +12,8 @@
         "audit": "npm audit --audit-level=high",
         "test:e2e": "playwright test",
         "lint": "eslint static/js tests/js tests/e2e playwright.config.js eslint.config.mjs",
-        "format:check": "prettier --check \"static/js/**/*.js\" \"tests/js/**/*.js\" \"tests/e2e/**/*.js\" \"playwright.config.js\""
+        "format:check": "ruff format --check . && npm run format:check:js",
+        "format:check:js": "prettier --check \"static/js/**/*.js\" \"tests/js/**/*.js\" \"tests/e2e/**/*.js\" \"playwright.config.js\""
     },
     "jest": {
         "testMatch": [

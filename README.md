@@ -1,17 +1,12 @@
 # Brasileirão Dashboard
 
 [![Data refresh](https://img.shields.io/github/actions/workflow/status/lucasppinheiro/futebol-dashboard/refresh-data.yml?label=data%20refresh)](https://github.com/lucasppinheiro/futebol-dashboard/actions)
+[![CI](https://img.shields.io/github/actions/workflow/status/lucasppinheiro/futebol-dashboard/ci.yml?label=CI)](https://github.com/lucasppinheiro/futebol-dashboard/actions/workflows/ci.yml)
 [![Live Demo](https://img.shields.io/badge/demo-Vercel-000000)](https://futebol-dashboard.vercel.app/)
 
 Dashboard do Campeonato Brasileiro Série A com classificação atual, rodadas, artilharia, gráficos, comparador de clubes e páginas individuais por time. O projeto combina dados oficiais da CBF, geração estática e uma interface esportiva minimalista.
 
 **[Abrir demonstração](https://futebol-dashboard.vercel.app/)**
-
-## Preview
-
-![Classificação do Brasileirão Dashboard](docs/preview-classificacao-2026.png)
-
-![Gráficos do Brasileirão Dashboard](docs/preview-graficos-2026.png)
 
 ## O que o projeto demonstra
 
@@ -78,8 +73,9 @@ cp .env.example .env
 Instale e execute:
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt --group dev
 npm ci
+npx playwright install chromium
 python app.py
 ```
 
@@ -92,6 +88,7 @@ O `POST /api/atualizar` permanece síncrono quando consegue reservar a atualiza�
 ## Qualidade e build
 
 ```bash
+ruff check .
 npm run test:python
 npm test
 npm run test:e2e
@@ -100,6 +97,8 @@ npm run format:check
 npm run audit
 npm run build
 ```
+
+`npm run format:check` verifica tanto a formatação Python com Ruff quanto JavaScript com Prettier, igual ao job de lint do CI.
 
 Para gerar exatamente o conteúdo servido pela Vercel:
 

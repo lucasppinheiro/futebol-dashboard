@@ -32,7 +32,6 @@ jobs:
           pip install -r requirements.txt --group dev
           npm ci
       - run: ruff check .
-      - run: ruff format --check .
       - run: npm run lint
       - run: npm run format:check
 

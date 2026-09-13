@@ -637,9 +637,7 @@ def _destaques_classificacao(classificacao: list[dict[str, Any]]) -> dict[str, A
     gols_contra = min(clube["gols_contra"] for clube in classificacao)
     return {
         "melhores_ataques": {clube["sigla"] for clube in classificacao if clube["gols_pro"] == gols_pro},
-        "melhores_defesas": {
-            clube["sigla"] for clube in classificacao if clube["gols_contra"] == gols_contra
-        },
+        "melhores_defesas": {clube["sigla"] for clube in classificacao if clube["gols_contra"] == gols_contra},
     }
 
 
