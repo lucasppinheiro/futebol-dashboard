@@ -4,6 +4,7 @@ import urllib.error
 import pytest
 
 import api_client
+from temporada import temporada_brasileirao_atual
 
 
 def test_extrair_classificacao_ge_combina_clubes_e_estatisticas():
@@ -24,9 +25,6 @@ def test_extrair_classificacao_ge_combina_clubes_e_estatisticas():
     assert classificacao[0]["jogos"] == 27
     assert classificacao[0]["saldo"] == 19
     assert classificacao[-1]["posicao"] == 20
-
-
-from temporada import temporada_brasileirao_atual
 
 
 def _payload_next(chave, dados, marcador="message"):
