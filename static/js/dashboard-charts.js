@@ -103,59 +103,6 @@
         });
     }
 
-    function createHomeAway(canvas, mandos, colors) {
-        return new Chart(canvas.getContext('2d'), {
-            type: 'bar',
-            data: {
-                labels: mandos.map((item) => item.sigla),
-                datasets: [
-                    {
-                        label: 'Casa',
-                        data: mandos.map((item) => item.aproveitamento_casa),
-                        backgroundColor: colors.pitch,
-                        borderWidth: 0,
-                        barThickness: 8
-                    },
-                    {
-                        label: 'Fora',
-                        data: mandos.map((item) => item.aproveitamento_fora),
-                        backgroundColor: colors.link,
-                        borderWidth: 0,
-                        barThickness: 8
-                    }
-                ]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                animation: { duration: animationDuration() },
-                scales: {
-                    x: {
-                        ...axis(colors),
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: { ...axis(colors).ticks, callback: (value) => `${value}%` }
-                    },
-                    y: axis(colors, { grid: false })
-                },
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { color: colors.ink, boxWidth: 10, boxHeight: 10, usePointStyle: true }
-                    },
-                    tooltip: {
-                        ...tooltipOptions(colors),
-                        callbacks: {
-                            title: (items) => mandos[items[0]?.dataIndex]?.time || '',
-                            label: (item) => `${item.dataset.label}: ${Number(item.raw).toFixed(1)}% de aproveitamento`
-                        }
-                    }
-                }
-            }
-        });
-    }
-
     function createRecentForm(canvas, forma, colors) {
         return new Chart(canvas.getContext('2d'), {
             type: 'bar',
@@ -281,15 +228,11 @@
         Chart.defaults.font.family = "'Inter', sans-serif";
 
         const attack = document.getElementById('chart-attack-defense');
-        const homeAway = document.getElementById('chart-home-away');
         const recentForm = document.getElementById('chart-recent-form');
         const goalsRound = document.getElementById('chart-goals-round');
         if (attack && Array.isArray(classificacao) && classificacao.length) {
             attackChart = createAttackDefense(attack, classificacao, colors);
             instances.push(attackChart);
-        }
-        if (homeAway && Array.isArray(graficos.mandos) && graficos.mandos.length) {
-            instances.push(createHomeAway(homeAway, graficos.mandos, colors));
         }
         if (recentForm && Array.isArray(graficos.forma) && graficos.forma.length) {
             instances.push(createRecentForm(recentForm, graficos.forma, colors));

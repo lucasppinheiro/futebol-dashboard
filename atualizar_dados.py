@@ -25,6 +25,7 @@ from api_client import (
     buscar_classificacao_ge,
     buscar_classificacao_por_rodada,
     buscar_partidas,
+    buscar_partidas_ge,
     buscar_rodada_atual_cbf,
     buscar_rodada_atual_football_data,
 )
@@ -180,12 +181,31 @@ def _enriquecer_agenda(
     temporada: str,
     snapshot: dict,
     siglas_validas: set[str],
-) -> tuple[list[dict], int | None, str | None, bool]:
+) -> tuple[list[dict], int | None, str | None, bool, str | None]:
     partidas_salvas = snapshot.get("partidas") if isinstance(snapshot.get("partidas"), list) else []
     agenda_atualizada_em = snapshot.get("agenda_atualizada_em")
     token_disponivel = bool((os.environ.get("FOOTBALL_DATA_TOKEN") or "").strip())
+
+    def tentar_ge() -> tuple[list[dict], int | None, str | None, bool, str | None]:
+        try:
+            partidas_ge = buscar_partidas_ge(temporada)
+            siglas_ge = {
+                str(sigla).upper()
+                for partida in partidas_ge
+                for sigla in (partida.get("mandante"), partida.get("visitante"))
+            }
+            desconhecidas_ge = siglas_ge - siglas_validas
+            if desconhecidas_ge:
+                raise ValueError(f"Agenda do ge contem siglas desconhecidas: {', '.join(sorted(desconhecidas_ge))}")
+            rodadas_encerradas = [partida["rodada"] for partida in partidas_ge if partida["status"] == "encerrada"]
+            rodada_ge = max(rodadas_encerradas, default=None)
+            return partidas_ge, rodada_ge, datetime.now(timezone.utc).isoformat(), False, "ge"
+        except Exception as exc:
+            logger.warning("Falha ao atualizar agenda pelo ge: %s", exc)
+            return partidas_salvas, None, agenda_atualizada_em, True, None
+
     if not token_disponivel:
-        return partidas_salvas, None, agenda_atualizada_em, True
+        return tentar_ge()
 
     rodada_football_data: int | None = None
     try:
@@ -198,14 +218,14 @@ def _enriquecer_agenda(
             raise ValueError(f"Agenda contem siglas desconhecidas: {', '.join(sorted(desconhecidas))}")
     except Exception as exc:
         logger.warning("Falha ao atualizar agenda pelo football-data.org: %s", exc)
-        return partidas_salvas, None, agenda_atualizada_em, True
+        return tentar_ge()
 
     try:
         rodada_football_data = buscar_rodada_atual_football_data(temporada)
     except Exception as exc:
         logger.warning("Falha ao consultar currentMatchday no football-data.org: %s", exc)
 
-    return partidas, rodada_football_data, datetime.now(timezone.utc).isoformat(), False
+    return partidas, rodada_football_data, datetime.now(timezone.utc).isoformat(), False, "football-data.org"
 
 
 def _limite_historico_por_atualizacao() -> int:
@@ -301,7 +321,7 @@ def atualizar(temporada: str | None = None, *, destino: str | Path | None = None
 
     rodada_cbf = _buscar_rodada_cbf(temporada, "CBF")
     siglas_validas = {str(time["sigla"]).upper() for time in classificacao}
-    partidas, rodada_football_data, agenda_atualizada_em, agenda_desatualizada = _enriquecer_agenda(
+    partidas, rodada_football_data, agenda_atualizada_em, agenda_desatualizada, fonte_agenda = _enriquecer_agenda(
         temporada, snapshot, siglas_validas
     )
     rodada_salva = (snapshot.get("info") or {}).get("rodada_atual")
@@ -331,11 +351,7 @@ def atualizar(temporada: str | None = None, *, destino: str | Path | None = None
             rodada_confirmada=rodada_confirmada,
         ),
     }
-    fonte_partidas = (
-        "football-data.org"
-        if not agenda_desatualizada
-        else ((snapshot.get("fontes") or {}).get("partidas") or "Não disponível")
-    )
+    fonte_partidas = fonte_agenda or ((snapshot.get("fontes") or {}).get("partidas") or "Não disponível")
     dados = {
         "classificacao": dados_base["classificacao"],
         "classificacao_por_rodada": dados_base["classificacao_por_rodada"],

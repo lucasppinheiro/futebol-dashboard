@@ -105,7 +105,7 @@ class TestRotaWeb:
         assert html.index('id="classificacao"') < html.index("data-round-controller")
         assert 'class="scorers-table"' in html
         assert 'class="scorer-podium"' not in html
-        for titulo in ("Ataque × defesa", "Casa × fora", "Forma recente", "Gols por rodada"):
+        for titulo in ("Ataque × defesa", "Mandante × visitante", "Forma recente", "Gols por rodada"):
             assert titulo in html
         assert "Corrida pelos gols" not in html
 
@@ -142,6 +142,21 @@ class TestRotaWeb:
         css = Path("static/css/dashboard.css").read_text(encoding="utf-8")
 
         assert "--zone-sula: #d99700;" in css
+
+    def test_graficos_usam_grade_editorial_sem_caixas_uniformes(self):
+        css = Path("static/css/dashboard.css").read_text(encoding="utf-8")
+
+        assert ".chart-figure-wide { grid-column: span 7; }" in css
+        assert ".chart-figure:not(.chart-figure-wide) { grid-column: span 5; }" in css
+        assert "border: 1px solid var(--line); background: var(--chart-surface);" not in css
+
+    def test_destaques_esportivos_usam_verde_em_vez_do_azul_de_navegacao(self):
+        css = Path("static/css/dashboard.css").read_text(encoding="utf-8")
+
+        assert "--positive: #087a55;" in css
+        assert ".compare-metric b.is-best { color: var(--positive); }" in css
+        assert ".standings-table td.is-record .metric-value { color: var(--positive);" in css
+        assert "background: var(--green-soft); color: var(--positive);" in css
 
     def test_destaques_exibem_empates_de_metricas_sem_repetir_o_lider(self):
         classificacao = [
@@ -212,8 +227,12 @@ class TestRotaWeb:
         assert leituras["disponivel"] is True
         assert mandos["FLA"]["aproveitamento_casa"] == 100.0
         assert mandos["FLA"]["aproveitamento_fora"] == 33.3
+        assert mandos["FLA"]["aproveitamento_total"] == 66.7
         assert mandos["PAL"]["aproveitamento_casa"] == 33.3
         assert mandos["PAL"]["aproveitamento_fora"] == 0.0
+        assert mandos["PAL"]["aproveitamento_total"] == 16.7
+        assert [item["sigla"] for item in leituras["melhores_casa"]] == ["FLA", "PAL"]
+        assert [item["sigla"] for item in leituras["melhores_fora"]] == ["FLA", "PAL"]
         assert formas["FLA"]["pontos"] == 4
         assert formas["FLA"]["resultados"] == ["V", "E"]
         assert leituras["gols_por_rodada"] == [
@@ -230,8 +249,19 @@ class TestRotaWeb:
         assert leituras["disponivel"] is False
         assert leituras["desatualizado"] is True
         assert leituras["mandos"] == []
+        assert leituras["melhores_casa"] == []
+        assert leituras["melhores_fora"] == []
         assert leituras["forma"] == []
         assert leituras["gols_por_rodada"] == []
+
+    def test_grafico_mandante_visitante_exibe_rankings_top_cinco(self, client):
+        resp = client.get("/")
+
+        assert resp.status_code == 200
+        assert b"Top 5 como mandante" in resp.data
+        assert b"Top 5 como visitante" in resp.data
+        assert b"cinco melhores de cada recorte" in resp.data
+        assert b"resultados j\xc3\xa1 disputados" in resp.data
 
     def test_prototipos_header_retorna_200(self, client):
         resp = client.get("/prototipos/header/")
@@ -416,7 +446,12 @@ class TestAPIArtilharia:
 
 
 class TestAPIPartidas:
-    def test_retorna_lista_vazia_para_snapshot_legado(self, client):
+    def test_retorna_lista_vazia_para_snapshot_legado(self, client, monkeypatch, tmp_path, dados_json_validos):
+        dados_json_validos.pop("partidas", None)
+        arquivo = tmp_path / "snapshot_legado.json"
+        arquivo.write_text(json.dumps(dados_json_validos, ensure_ascii=False), encoding="utf-8")
+        monkeypatch.setattr(app_module, "DATA_PATH", str(arquivo))
+
         resp = client.get("/api/partidas")
 
         assert resp.status_code == 200

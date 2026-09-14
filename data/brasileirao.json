@@ -257,23 +257,6 @@
     },
     {
       "posicao": 16,
-      "time": "Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "static/img/escudos/normalizados/INT.png",
-      "jogos": 27,
-      "vitorias": 6,
-      "empates": 10,
-      "derrotas": 11,
-      "gols_pro": 30,
-      "gols_contra": 35,
-      "saldo": -5,
-      "pontos": 28,
-      "aproveitamento": 34.6
-    },
-    {
-      "posicao": 17,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
@@ -290,7 +273,7 @@
       "aproveitamento": 35.9
     },
     {
-      "posicao": 18,
+      "posicao": 17,
       "time": "Vasco da Gama Saf",
       "sigla": "VAS",
       "estado": "RJ",
@@ -305,6 +288,23 @@
       "saldo": -12,
       "pontos": 28,
       "aproveitamento": 35.9
+    },
+    {
+      "posicao": 18,
+      "time": "Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "static/img/escudos/normalizados/INT.png",
+      "jogos": 27,
+      "vitorias": 6,
+      "empates": 10,
+      "derrotas": 11,
+      "gols_pro": 30,
+      "gols_contra": 35,
+      "saldo": -5,
+      "pontos": 28,
+      "aproveitamento": 34.6
     },
     {
       "posicao": 19,
@@ -342,348 +342,6 @@
     }
   ],
   "classificacao_por_rodada": {
-    "27": [
-      {
-        "posicao": 1,
-        "time": "Flamengo",
-        "sigla": "FLA",
-        "estado": "RJ",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/FLA.png",
-        "jogos": 27,
-        "vitorias": 17,
-        "empates": 6,
-        "derrotas": 4,
-        "gols_pro": 53,
-        "gols_contra": 22,
-        "saldo": 31,
-        "pontos": 57,
-        "aproveitamento": 70.4
-      },
-      {
-        "posicao": 2,
-        "time": "Palmeiras",
-        "sigla": "PAL",
-        "estado": "SP",
-        "cor": "#006437",
-        "escudo": "static/img/escudos/normalizados/PAL.png",
-        "jogos": 27,
-        "vitorias": 16,
-        "empates": 8,
-        "derrotas": 3,
-        "gols_pro": 47,
-        "gols_contra": 21,
-        "saldo": 26,
-        "pontos": 56,
-        "aproveitamento": 69.1
-      },
-      {
-        "posicao": 3,
-        "time": "Athletico Paranaense",
-        "sigla": "CAP",
-        "estado": "PR",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/CAP.png",
-        "jogos": 27,
-        "vitorias": 13,
-        "empates": 7,
-        "derrotas": 7,
-        "gols_pro": 41,
-        "gols_contra": 31,
-        "saldo": 10,
-        "pontos": 46,
-        "aproveitamento": 56.8
-      },
-      {
-        "posicao": 4,
-        "time": "Fluminense",
-        "sigla": "FLU",
-        "estado": "RJ",
-        "cor": "#7B0023",
-        "escudo": "static/img/escudos/normalizados/FLU.png",
-        "jogos": 27,
-        "vitorias": 12,
-        "empates": 9,
-        "derrotas": 6,
-        "gols_pro": 41,
-        "gols_contra": 35,
-        "saldo": 6,
-        "pontos": 45,
-        "aproveitamento": 55.6
-      },
-      {
-        "posicao": 5,
-        "time": "Bahia",
-        "sigla": "BAH",
-        "estado": "BA",
-        "cor": "#004A99",
-        "escudo": "static/img/escudos/normalizados/BAH.png",
-        "jogos": 26,
-        "vitorias": 11,
-        "empates": 10,
-        "derrotas": 5,
-        "gols_pro": 40,
-        "gols_contra": 32,
-        "saldo": 8,
-        "pontos": 43,
-        "aproveitamento": 55.1
-      },
-      {
-        "posicao": 6,
-        "time": "Cruzeiro",
-        "sigla": "CRU",
-        "estado": "MG",
-        "cor": "#003DA5",
-        "escudo": "static/img/escudos/normalizados/CRU.png",
-        "jogos": 27,
-        "vitorias": 12,
-        "empates": 6,
-        "derrotas": 9,
-        "gols_pro": 39,
-        "gols_contra": 39,
-        "saldo": 0,
-        "pontos": 42,
-        "aproveitamento": 51.9
-      },
-      {
-        "posicao": 7,
-        "time": "Atlético Mineiro",
-        "sigla": "CAM",
-        "estado": "MG",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 26,
-        "vitorias": 11,
-        "empates": 6,
-        "derrotas": 9,
-        "gols_pro": 35,
-        "gols_contra": 31,
-        "saldo": 4,
-        "pontos": 39,
-        "aproveitamento": 50.0
-      },
-      {
-        "posicao": 8,
-        "time": "Coritiba SAF",
-        "sigla": "CFC",
-        "estado": "PR",
-        "cor": "#006633",
-        "escudo": "static/img/escudos/normalizados/CFC.png",
-        "jogos": 27,
-        "vitorias": 10,
-        "empates": 8,
-        "derrotas": 9,
-        "gols_pro": 37,
-        "gols_contra": 38,
-        "saldo": -1,
-        "pontos": 38,
-        "aproveitamento": 46.9
-      },
-      {
-        "posicao": 9,
-        "time": "Red Bull Bragantino",
-        "sigla": "RBB",
-        "estado": "SP",
-        "cor": "#E30613",
-        "escudo": "static/img/escudos/normalizados/RBB.png",
-        "jogos": 26,
-        "vitorias": 10,
-        "empates": 6,
-        "derrotas": 10,
-        "gols_pro": 32,
-        "gols_contra": 29,
-        "saldo": 3,
-        "pontos": 36,
-        "aproveitamento": 46.2
-      },
-      {
-        "posicao": 10,
-        "time": "Santos FC",
-        "sigla": "SAN",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/SAN.png",
-        "jogos": 26,
-        "vitorias": 9,
-        "empates": 8,
-        "derrotas": 9,
-        "gols_pro": 39,
-        "gols_contra": 39,
-        "saldo": 0,
-        "pontos": 35,
-        "aproveitamento": 44.9
-      },
-      {
-        "posicao": 11,
-        "time": "São Paulo",
-        "sigla": "SAO",
-        "estado": "SP",
-        "cor": "#FF0000",
-        "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 26,
-        "vitorias": 9,
-        "empates": 6,
-        "derrotas": 11,
-        "gols_pro": 31,
-        "gols_contra": 30,
-        "saldo": 1,
-        "pontos": 33,
-        "aproveitamento": 42.3
-      },
-      {
-        "posicao": 12,
-        "time": "Vitória",
-        "sigla": "VIT",
-        "estado": "BA",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/VIT.png",
-        "jogos": 27,
-        "vitorias": 9,
-        "empates": 6,
-        "derrotas": 12,
-        "gols_pro": 27,
-        "gols_contra": 39,
-        "saldo": -12,
-        "pontos": 33,
-        "aproveitamento": 40.7
-      },
-      {
-        "posicao": 13,
-        "time": "Corinthians",
-        "sigla": "COR",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/COR.png",
-        "jogos": 27,
-        "vitorias": 8,
-        "empates": 8,
-        "derrotas": 11,
-        "gols_pro": 28,
-        "gols_contra": 29,
-        "saldo": -1,
-        "pontos": 32,
-        "aproveitamento": 39.5
-      },
-      {
-        "posicao": 14,
-        "time": "Botafogo",
-        "sigla": "BOT",
-        "estado": "RJ",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/BOT.png",
-        "jogos": 26,
-        "vitorias": 8,
-        "empates": 8,
-        "derrotas": 10,
-        "gols_pro": 38,
-        "gols_contra": 41,
-        "saldo": -3,
-        "pontos": 32,
-        "aproveitamento": 41.0
-      },
-      {
-        "posicao": 15,
-        "time": "Mirassol",
-        "sigla": "MIR",
-        "estado": "SP",
-        "cor": "#FFD700",
-        "escudo": "static/img/escudos/normalizados/MIR.png",
-        "jogos": 27,
-        "vitorias": 7,
-        "empates": 8,
-        "derrotas": 12,
-        "gols_pro": 31,
-        "gols_contra": 42,
-        "saldo": -11,
-        "pontos": 29,
-        "aproveitamento": 35.8
-      },
-      {
-        "posicao": 16,
-        "time": "Internacional",
-        "sigla": "INT",
-        "estado": "RS",
-        "cor": "#E30613",
-        "escudo": "static/img/escudos/normalizados/INT.png",
-        "jogos": 27,
-        "vitorias": 6,
-        "empates": 10,
-        "derrotas": 11,
-        "gols_pro": 30,
-        "gols_contra": 35,
-        "saldo": -5,
-        "pontos": 28,
-        "aproveitamento": 34.6
-      },
-      {
-        "posicao": 17,
-        "time": "Grêmio",
-        "sigla": "GRE",
-        "estado": "RS",
-        "cor": "#0080C8",
-        "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 26,
-        "vitorias": 7,
-        "empates": 7,
-        "derrotas": 12,
-        "gols_pro": 28,
-        "gols_contra": 35,
-        "saldo": -7,
-        "pontos": 28,
-        "aproveitamento": 35.9
-      },
-      {
-        "posicao": 18,
-        "time": "Vasco da Gama Saf",
-        "sigla": "VAS",
-        "estado": "RJ",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/VAS.png",
-        "jogos": 26,
-        "vitorias": 7,
-        "empates": 7,
-        "derrotas": 12,
-        "gols_pro": 29,
-        "gols_contra": 41,
-        "saldo": -12,
-        "pontos": 28,
-        "aproveitamento": 35.9
-      },
-      {
-        "posicao": 19,
-        "time": "Remo",
-        "sigla": "REM",
-        "estado": "PA",
-        "cor": "#00008B",
-        "escudo": "static/img/escudos/normalizados/REM.png",
-        "jogos": 26,
-        "vitorias": 5,
-        "empates": 8,
-        "derrotas": 13,
-        "gols_pro": 30,
-        "gols_contra": 43,
-        "saldo": -13,
-        "pontos": 23,
-        "aproveitamento": 29.5
-      },
-      {
-        "posicao": 20,
-        "time": "Chapecoense",
-        "sigla": "CHA",
-        "estado": "SC",
-        "cor": "#008000",
-        "escudo": "static/img/escudos/normalizados/CHA.png",
-        "jogos": 26,
-        "vitorias": 3,
-        "empates": 8,
-        "derrotas": 15,
-        "gols_pro": 28,
-        "gols_contra": 52,
-        "saldo": -24,
-        "pontos": 17,
-        "aproveitamento": 21.8
-      }
-    ],
     "1": [
       {
         "posicao": 1,
@@ -3419,6 +3077,348 @@
         "pontos": 4,
         "aproveitamento": 16.7
       }
+    ],
+    "27": [
+      {
+        "posicao": 1,
+        "time": "Flamengo",
+        "sigla": "FLA",
+        "estado": "RJ",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/FLA.png",
+        "jogos": 27,
+        "vitorias": 17,
+        "empates": 6,
+        "derrotas": 4,
+        "gols_pro": 53,
+        "gols_contra": 22,
+        "saldo": 31,
+        "pontos": 57,
+        "aproveitamento": 70.4
+      },
+      {
+        "posicao": 2,
+        "time": "Palmeiras",
+        "sigla": "PAL",
+        "estado": "SP",
+        "cor": "#006437",
+        "escudo": "static/img/escudos/normalizados/PAL.png",
+        "jogos": 27,
+        "vitorias": 16,
+        "empates": 8,
+        "derrotas": 3,
+        "gols_pro": 47,
+        "gols_contra": 21,
+        "saldo": 26,
+        "pontos": 56,
+        "aproveitamento": 69.1
+      },
+      {
+        "posicao": 3,
+        "time": "Athletico Paranaense",
+        "sigla": "CAP",
+        "estado": "PR",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/CAP.png",
+        "jogos": 27,
+        "vitorias": 13,
+        "empates": 7,
+        "derrotas": 7,
+        "gols_pro": 41,
+        "gols_contra": 31,
+        "saldo": 10,
+        "pontos": 46,
+        "aproveitamento": 56.8
+      },
+      {
+        "posicao": 4,
+        "time": "Fluminense",
+        "sigla": "FLU",
+        "estado": "RJ",
+        "cor": "#7B0023",
+        "escudo": "static/img/escudos/normalizados/FLU.png",
+        "jogos": 27,
+        "vitorias": 12,
+        "empates": 9,
+        "derrotas": 6,
+        "gols_pro": 41,
+        "gols_contra": 35,
+        "saldo": 6,
+        "pontos": 45,
+        "aproveitamento": 55.6
+      },
+      {
+        "posicao": 5,
+        "time": "Bahia",
+        "sigla": "BAH",
+        "estado": "BA",
+        "cor": "#004A99",
+        "escudo": "static/img/escudos/normalizados/BAH.png",
+        "jogos": 26,
+        "vitorias": 11,
+        "empates": 10,
+        "derrotas": 5,
+        "gols_pro": 40,
+        "gols_contra": 32,
+        "saldo": 8,
+        "pontos": 43,
+        "aproveitamento": 55.1
+      },
+      {
+        "posicao": 6,
+        "time": "Cruzeiro",
+        "sigla": "CRU",
+        "estado": "MG",
+        "cor": "#003DA5",
+        "escudo": "static/img/escudos/normalizados/CRU.png",
+        "jogos": 27,
+        "vitorias": 12,
+        "empates": 6,
+        "derrotas": 9,
+        "gols_pro": 39,
+        "gols_contra": 39,
+        "saldo": 0,
+        "pontos": 42,
+        "aproveitamento": 51.9
+      },
+      {
+        "posicao": 7,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 26,
+        "vitorias": 11,
+        "empates": 6,
+        "derrotas": 9,
+        "gols_pro": 35,
+        "gols_contra": 31,
+        "saldo": 4,
+        "pontos": 39,
+        "aproveitamento": 50.0
+      },
+      {
+        "posicao": 8,
+        "time": "Coritiba SAF",
+        "sigla": "CFC",
+        "estado": "PR",
+        "cor": "#006633",
+        "escudo": "static/img/escudos/normalizados/CFC.png",
+        "jogos": 27,
+        "vitorias": 10,
+        "empates": 8,
+        "derrotas": 9,
+        "gols_pro": 37,
+        "gols_contra": 38,
+        "saldo": -1,
+        "pontos": 38,
+        "aproveitamento": 46.9
+      },
+      {
+        "posicao": 9,
+        "time": "Red Bull Bragantino",
+        "sigla": "RBB",
+        "estado": "SP",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/RBB.png",
+        "jogos": 26,
+        "vitorias": 10,
+        "empates": 6,
+        "derrotas": 10,
+        "gols_pro": 32,
+        "gols_contra": 29,
+        "saldo": 3,
+        "pontos": 36,
+        "aproveitamento": 46.2
+      },
+      {
+        "posicao": 10,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 26,
+        "vitorias": 9,
+        "empates": 8,
+        "derrotas": 9,
+        "gols_pro": 39,
+        "gols_contra": 39,
+        "saldo": 0,
+        "pontos": 35,
+        "aproveitamento": 44.9
+      },
+      {
+        "posicao": 11,
+        "time": "São Paulo",
+        "sigla": "SAO",
+        "estado": "SP",
+        "cor": "#FF0000",
+        "escudo": "static/img/escudos/normalizados/SAO.png",
+        "jogos": 26,
+        "vitorias": 9,
+        "empates": 6,
+        "derrotas": 11,
+        "gols_pro": 31,
+        "gols_contra": 30,
+        "saldo": 1,
+        "pontos": 33,
+        "aproveitamento": 42.3
+      },
+      {
+        "posicao": 12,
+        "time": "Vitória",
+        "sigla": "VIT",
+        "estado": "BA",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/VIT.png",
+        "jogos": 27,
+        "vitorias": 9,
+        "empates": 6,
+        "derrotas": 12,
+        "gols_pro": 27,
+        "gols_contra": 39,
+        "saldo": -12,
+        "pontos": 33,
+        "aproveitamento": 40.7
+      },
+      {
+        "posicao": 13,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 27,
+        "vitorias": 8,
+        "empates": 8,
+        "derrotas": 11,
+        "gols_pro": 28,
+        "gols_contra": 29,
+        "saldo": -1,
+        "pontos": 32,
+        "aproveitamento": 39.5
+      },
+      {
+        "posicao": 14,
+        "time": "Botafogo",
+        "sigla": "BOT",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/BOT.png",
+        "jogos": 26,
+        "vitorias": 8,
+        "empates": 8,
+        "derrotas": 10,
+        "gols_pro": 38,
+        "gols_contra": 41,
+        "saldo": -3,
+        "pontos": 32,
+        "aproveitamento": 41.0
+      },
+      {
+        "posicao": 15,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 27,
+        "vitorias": 7,
+        "empates": 8,
+        "derrotas": 12,
+        "gols_pro": 31,
+        "gols_contra": 42,
+        "saldo": -11,
+        "pontos": 29,
+        "aproveitamento": 35.8
+      },
+      {
+        "posicao": 16,
+        "time": "Grêmio",
+        "sigla": "GRE",
+        "estado": "RS",
+        "cor": "#0080C8",
+        "escudo": "static/img/escudos/normalizados/GRE.png",
+        "jogos": 26,
+        "vitorias": 7,
+        "empates": 7,
+        "derrotas": 12,
+        "gols_pro": 28,
+        "gols_contra": 35,
+        "saldo": -7,
+        "pontos": 28,
+        "aproveitamento": 35.9
+      },
+      {
+        "posicao": 17,
+        "time": "Vasco da Gama Saf",
+        "sigla": "VAS",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/VAS.png",
+        "jogos": 26,
+        "vitorias": 7,
+        "empates": 7,
+        "derrotas": 12,
+        "gols_pro": 29,
+        "gols_contra": 41,
+        "saldo": -12,
+        "pontos": 28,
+        "aproveitamento": 35.9
+      },
+      {
+        "posicao": 18,
+        "time": "Internacional",
+        "sigla": "INT",
+        "estado": "RS",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/INT.png",
+        "jogos": 27,
+        "vitorias": 6,
+        "empates": 10,
+        "derrotas": 11,
+        "gols_pro": 30,
+        "gols_contra": 35,
+        "saldo": -5,
+        "pontos": 28,
+        "aproveitamento": 34.6
+      },
+      {
+        "posicao": 19,
+        "time": "Remo",
+        "sigla": "REM",
+        "estado": "PA",
+        "cor": "#00008B",
+        "escudo": "static/img/escudos/normalizados/REM.png",
+        "jogos": 26,
+        "vitorias": 5,
+        "empates": 8,
+        "derrotas": 13,
+        "gols_pro": 30,
+        "gols_contra": 43,
+        "saldo": -13,
+        "pontos": 23,
+        "aproveitamento": 29.5
+      },
+      {
+        "posicao": 20,
+        "time": "Chapecoense",
+        "sigla": "CHA",
+        "estado": "SC",
+        "cor": "#008000",
+        "escudo": "static/img/escudos/normalizados/CHA.png",
+        "jogos": 26,
+        "vitorias": 3,
+        "empates": 8,
+        "derrotas": 15,
+        "gols_pro": 28,
+        "gols_contra": 52,
+        "saldo": -24,
+        "pontos": 17,
+        "aproveitamento": 21.8
+      }
     ]
   },
   "artilharia": [
@@ -3426,161 +3426,4686 @@
       "jogador": "Kevin Viveros",
       "time": "Athletico Paranaense",
       "sigla": "CAP",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 18
     },
     {
       "jogador": "Pedro",
       "time": "Flamengo",
       "sigla": "FLA",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 15
     },
     {
-      "jogador": "Carlos Vinícius",
+      "jogador": "Vinicius",
       "time": "Grêmio",
       "sigla": "GRE",
-      "posicao": "Centroavante",
+      "posicao": "Nao informado",
       "gols": 10
     },
     {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 10
-    },
-    {
-      "jogador": "John Kennedy",
-      "time": "Fluminense",
-      "sigla": "FLU",
-      "posicao": "Centroavante",
-      "gols": 9
     },
     {
       "jogador": "Samuel Lino",
       "time": "Flamengo",
       "sigla": "FLA",
-      "posicao": "Ponta esquerda",
+      "posicao": "Nao informado",
       "gols": 9
     },
     {
-      "jogador": "José Manuel López",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Atacante",
+      "jogador": "John Kennedy",
+      "time": "Fluminense",
+      "sigla": "FLU",
+      "posicao": "Nao informado",
+      "gols": 9
+    },
+    {
+      "jogador": "Pedro Rocha",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Nao informado",
       "gols": 8
     },
     {
-      "jogador": "Luciano",
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "posicao": "Atacante",
+      "jogador": "Breno",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Nao informado",
       "gols": 8
     },
     {
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Atacante",
-      "gols": 8
-    },
-    {
-      "jogador": "Breno Lopes",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "posicao": "Atacante",
-      "gols": 8
-    },
-    {
-      "jogador": "Pedro Rocha",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 8
     },
     {
       "jogador": "Luciano Juba",
       "time": "Bahia",
       "sigla": "BAH",
-      "posicao": "Defensor",
+      "posicao": "Nao informado",
       "gols": 8
     },
     {
-      "jogador": "Danilo dos Santos de Oliveira",
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "posicao": "Meia",
-      "gols": 7
-    },
-    {
-      "jogador": "Jonathan Calleri",
+      "jogador": "Luciano",
       "time": "São Paulo",
       "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 7
+      "posicao": "Nao informado",
+      "gols": 8
     },
     {
-      "jogador": "Arthur Cabral",
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "posicao": "Centroavante",
-      "gols": 7
+      "jogador": "Lopez",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Nao informado",
+      "gols": 8
+    },
+    {
+      "jogador": "Rene",
+      "time": "Vitória",
+      "sigla": "VIT",
+      "posicao": "Nao informado",
+      "gols": 8
     },
     {
       "jogador": "Mauricio",
       "time": "Palmeiras",
       "sigla": "PAL",
-      "posicao": "Meia",
+      "posicao": "Nao informado",
+      "gols": 7
+    },
+    {
+      "jogador": "Calleri",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Nao informado",
+      "gols": 7
+    },
+    {
+      "jogador": "Arthur",
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "posicao": "Nao informado",
+      "gols": 7
+    },
+    {
+      "jogador": "Danilo Santos",
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "posicao": "Nao informado",
       "gols": 7
     },
     {
       "jogador": "Kaio Jorge",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Centroavante",
+      "posicao": "Nao informado",
       "gols": 7
     },
     {
-      "jogador": "Johan Carbonero",
+      "jogador": "Carbonero",
       "time": "Internacional",
       "sigla": "INT",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 7
     },
     {
-      "jogador": "Carlos Renê",
-      "time": "Vitória",
-      "sigla": "VIT",
-      "posicao": "Atacante",
-      "gols": 7
-    },
-    {
-      "jogador": "Neymar",
+      "jogador": "Neymar Jr",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 6
     }
   ],
-  "partidas": [],
-  "dados_atualizados_em": "2026-09-14T19:23:31.337519+00:00",
-  "dados_verificados_em": "2026-09-14T19:23:31.337546+00:00",
+  "partidas": [
+    {
+      "id": 346240,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346241,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346242,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346243,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346235,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346238,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346244,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 4,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346237,
+      "rodada": 1,
+      "inicio_em": "2026-01-29T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346239,
+      "rodada": 1,
+      "inicio_em": "2026-01-29T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346236,
+      "rodada": 1,
+      "inicio_em": "2026-01-30T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 4,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346255,
+      "rodada": 2,
+      "inicio_em": "2026-02-04T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346259,
+      "rodada": 2,
+      "inicio_em": "2026-02-04T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346257,
+      "rodada": 2,
+      "inicio_em": "2026-02-04T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346264,
+      "rodada": 2,
+      "inicio_em": "2026-02-04T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346258,
+      "rodada": 2,
+      "inicio_em": "2026-02-05T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 5,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346261,
+      "rodada": 2,
+      "inicio_em": "2026-02-05T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 5,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346263,
+      "rodada": 2,
+      "inicio_em": "2026-02-05T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346256,
+      "rodada": 2,
+      "inicio_em": "2026-02-05T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346260,
+      "rodada": 2,
+      "inicio_em": "2026-02-06T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346262,
+      "rodada": 2,
+      "inicio_em": "2026-02-19T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346299,
+      "rodada": 3,
+      "inicio_em": "2026-02-11T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346295,
+      "rodada": 3,
+      "inicio_em": "2026-02-11T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346300,
+      "rodada": 3,
+      "inicio_em": "2026-02-11T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 3,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346296,
+      "rodada": 3,
+      "inicio_em": "2026-02-11T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 3,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346292,
+      "rodada": 3,
+      "inicio_em": "2026-02-12T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346293,
+      "rodada": 3,
+      "inicio_em": "2026-02-12T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346298,
+      "rodada": 3,
+      "inicio_em": "2026-02-12T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346291,
+      "rodada": 3,
+      "inicio_em": "2026-02-12T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346294,
+      "rodada": 3,
+      "inicio_em": "2026-02-12T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346297,
+      "rodada": 3,
+      "inicio_em": "2026-02-13T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 1,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346343,
+      "rodada": 4,
+      "inicio_em": "2026-02-25T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346350,
+      "rodada": 4,
+      "inicio_em": "2026-02-25T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346348,
+      "rodada": 4,
+      "inicio_em": "2026-02-25T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346345,
+      "rodada": 4,
+      "inicio_em": "2026-02-25T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346341,
+      "rodada": 4,
+      "inicio_em": "2026-02-26T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346347,
+      "rodada": 4,
+      "inicio_em": "2026-02-26T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346339,
+      "rodada": 4,
+      "inicio_em": "2026-02-26T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346349,
+      "rodada": 4,
+      "inicio_em": "2026-07-17T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346337,
+      "rodada": 4,
+      "inicio_em": "2026-07-23T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346335,
+      "rodada": 4,
+      "inicio_em": "2026-09-02T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346405,
+      "rodada": 5,
+      "inicio_em": "2026-03-11T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346406,
+      "rodada": 5,
+      "inicio_em": "2026-03-11T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346409,
+      "rodada": 5,
+      "inicio_em": "2026-03-11T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346401,
+      "rodada": 5,
+      "inicio_em": "2026-03-12T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346404,
+      "rodada": 5,
+      "inicio_em": "2026-03-12T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 0,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346410,
+      "rodada": 5,
+      "inicio_em": "2026-03-12T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 0,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346402,
+      "rodada": 5,
+      "inicio_em": "2026-03-12T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346403,
+      "rodada": 5,
+      "inicio_em": "2026-03-12T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346407,
+      "rodada": 5,
+      "inicio_em": "2026-03-13T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346408,
+      "rodada": 5,
+      "inicio_em": "2026-03-29T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 4,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346483,
+      "rodada": 6,
+      "inicio_em": "2026-03-14T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346476,
+      "rodada": 6,
+      "inicio_em": "2026-03-14T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 0,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346475,
+      "rodada": 6,
+      "inicio_em": "2026-03-15T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346477,
+      "rodada": 6,
+      "inicio_em": "2026-03-15T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346481,
+      "rodada": 6,
+      "inicio_em": "2026-03-15T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346478,
+      "rodada": 6,
+      "inicio_em": "2026-03-15T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346482,
+      "rodada": 6,
+      "inicio_em": "2026-03-15T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346479,
+      "rodada": 6,
+      "inicio_em": "2026-03-15T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346480,
+      "rodada": 6,
+      "inicio_em": "2026-03-15T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 3,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346484,
+      "rodada": 6,
+      "inicio_em": "2026-03-16T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346564,
+      "rodada": 7,
+      "inicio_em": "2026-03-18T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346573,
+      "rodada": 7,
+      "inicio_em": "2026-03-18T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346572,
+      "rodada": 7,
+      "inicio_em": "2026-03-18T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346566,
+      "rodada": 7,
+      "inicio_em": "2026-03-18T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346570,
+      "rodada": 7,
+      "inicio_em": "2026-03-18T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346560,
+      "rodada": 7,
+      "inicio_em": "2026-03-19T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346562,
+      "rodada": 7,
+      "inicio_em": "2026-03-19T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346571,
+      "rodada": 7,
+      "inicio_em": "2026-03-19T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346558,
+      "rodada": 7,
+      "inicio_em": "2026-03-19T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346574,
+      "rodada": 7,
+      "inicio_em": "2026-03-20T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346589,
+      "rodada": 8,
+      "inicio_em": "2026-03-21T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346585,
+      "rodada": 8,
+      "inicio_em": "2026-03-21T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346587,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346586,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346590,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346592,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346594,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 4,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346591,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346593,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346588,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346596,
+      "rodada": 9,
+      "inicio_em": "2026-04-01T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346601,
+      "rodada": 9,
+      "inicio_em": "2026-04-01T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346600,
+      "rodada": 9,
+      "inicio_em": "2026-04-01T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346603,
+      "rodada": 9,
+      "inicio_em": "2026-04-01T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346602,
+      "rodada": 9,
+      "inicio_em": "2026-04-01T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346595,
+      "rodada": 9,
+      "inicio_em": "2026-04-02T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346597,
+      "rodada": 9,
+      "inicio_em": "2026-04-02T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346604,
+      "rodada": 9,
+      "inicio_em": "2026-04-02T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 0,
+        "visitante": 4
+      }
+    },
+    {
+      "id": 346598,
+      "rodada": 9,
+      "inicio_em": "2026-04-03T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346599,
+      "rodada": 9,
+      "inicio_em": "2026-04-03T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346607,
+      "rodada": 10,
+      "inicio_em": "2026-04-04T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 4,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346612,
+      "rodada": 10,
+      "inicio_em": "2026-04-04T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346606,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346614,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346605,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T20:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346610,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T20:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346608,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346613,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346609,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346611,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346329,
+      "rodada": 11,
+      "inicio_em": "2026-04-11T19:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346330,
+      "rodada": 11,
+      "inicio_em": "2026-04-11T19:30:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346325,
+      "rodada": 11,
+      "inicio_em": "2026-04-11T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346323,
+      "rodada": 11,
+      "inicio_em": "2026-04-11T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346327,
+      "rodada": 11,
+      "inicio_em": "2026-04-11T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346328,
+      "rodada": 11,
+      "inicio_em": "2026-04-12T14:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346322,
+      "rodada": 11,
+      "inicio_em": "2026-04-12T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346321,
+      "rodada": 11,
+      "inicio_em": "2026-04-12T21:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346324,
+      "rodada": 11,
+      "inicio_em": "2026-04-12T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346326,
+      "rodada": 11,
+      "inicio_em": "2026-04-12T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346352,
+      "rodada": 12,
+      "inicio_em": "2026-04-18T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346360,
+      "rodada": 12,
+      "inicio_em": "2026-04-18T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 4
+      }
+    },
+    {
+      "id": 346359,
+      "rodada": 12,
+      "inicio_em": "2026-04-18T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346356,
+      "rodada": 12,
+      "inicio_em": "2026-04-18T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346357,
+      "rodada": 12,
+      "inicio_em": "2026-04-19T14:00:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346353,
+      "rodada": 12,
+      "inicio_em": "2026-04-19T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346358,
+      "rodada": 12,
+      "inicio_em": "2026-04-19T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346354,
+      "rodada": 12,
+      "inicio_em": "2026-04-19T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346355,
+      "rodada": 12,
+      "inicio_em": "2026-04-19T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 4,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346351,
+      "rodada": 12,
+      "inicio_em": "2026-04-19T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346376,
+      "rodada": 13,
+      "inicio_em": "2026-04-25T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346389,
+      "rodada": 13,
+      "inicio_em": "2026-04-25T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346390,
+      "rodada": 13,
+      "inicio_em": "2026-04-25T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346378,
+      "rodada": 13,
+      "inicio_em": "2026-04-26T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346380,
+      "rodada": 13,
+      "inicio_em": "2026-04-26T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346386,
+      "rodada": 13,
+      "inicio_em": "2026-04-26T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346382,
+      "rodada": 13,
+      "inicio_em": "2026-04-26T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346388,
+      "rodada": 13,
+      "inicio_em": "2026-04-26T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346374,
+      "rodada": 13,
+      "inicio_em": "2026-04-26T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346384,
+      "rodada": 13,
+      "inicio_em": "2026-04-26T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 0,
+        "visitante": 4
+      }
+    },
+    {
+      "id": 346412,
+      "rodada": 14,
+      "inicio_em": "2026-05-02T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346414,
+      "rodada": 14,
+      "inicio_em": "2026-05-02T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346419,
+      "rodada": 14,
+      "inicio_em": "2026-05-02T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 4,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346418,
+      "rodada": 14,
+      "inicio_em": "2026-05-02T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346416,
+      "rodada": 14,
+      "inicio_em": "2026-05-03T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346411,
+      "rodada": 14,
+      "inicio_em": "2026-05-03T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346413,
+      "rodada": 14,
+      "inicio_em": "2026-05-03T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346417,
+      "rodada": 14,
+      "inicio_em": "2026-05-03T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346420,
+      "rodada": 14,
+      "inicio_em": "2026-05-03T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346415,
+      "rodada": 14,
+      "inicio_em": "2026-05-03T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346432,
+      "rodada": 15,
+      "inicio_em": "2026-05-09T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346425,
+      "rodada": 15,
+      "inicio_em": "2026-05-09T21:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346433,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346430,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346434,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346427,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346428,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346429,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346431,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346426,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346460,
+      "rodada": 16,
+      "inicio_em": "2026-05-16T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346461,
+      "rodada": 16,
+      "inicio_em": "2026-05-16T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 4,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346455,
+      "rodada": 16,
+      "inicio_em": "2026-05-16T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346458,
+      "rodada": 16,
+      "inicio_em": "2026-05-17T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346457,
+      "rodada": 16,
+      "inicio_em": "2026-05-17T14:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 0,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346456,
+      "rodada": 16,
+      "inicio_em": "2026-05-17T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346463,
+      "rodada": 16,
+      "inicio_em": "2026-05-17T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346459,
+      "rodada": 16,
+      "inicio_em": "2026-05-17T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346464,
+      "rodada": 16,
+      "inicio_em": "2026-05-17T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346462,
+      "rodada": 16,
+      "inicio_em": "2026-05-17T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346487,
+      "rodada": 17,
+      "inicio_em": "2026-05-23T20:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346493,
+      "rodada": 17,
+      "inicio_em": "2026-05-23T20:00:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346489,
+      "rodada": 17,
+      "inicio_em": "2026-05-23T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346491,
+      "rodada": 17,
+      "inicio_em": "2026-05-23T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346485,
+      "rodada": 17,
+      "inicio_em": "2026-05-24T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 0,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346490,
+      "rodada": 17,
+      "inicio_em": "2026-05-24T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346494,
+      "rodada": 17,
+      "inicio_em": "2026-05-24T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346488,
+      "rodada": 17,
+      "inicio_em": "2026-05-24T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346486,
+      "rodada": 17,
+      "inicio_em": "2026-05-24T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 0,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346492,
+      "rodada": 17,
+      "inicio_em": "2026-05-25T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346505,
+      "rodada": 18,
+      "inicio_em": "2026-05-30T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346512,
+      "rodada": 18,
+      "inicio_em": "2026-05-30T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346511,
+      "rodada": 18,
+      "inicio_em": "2026-05-30T20:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346513,
+      "rodada": 18,
+      "inicio_em": "2026-05-30T20:30:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346507,
+      "rodada": 18,
+      "inicio_em": "2026-05-30T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346509,
+      "rodada": 18,
+      "inicio_em": "2026-05-31T14:00:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346506,
+      "rodada": 18,
+      "inicio_em": "2026-05-31T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346508,
+      "rodada": 18,
+      "inicio_em": "2026-05-31T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346510,
+      "rodada": 18,
+      "inicio_em": "2026-05-31T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346514,
+      "rodada": 18,
+      "inicio_em": "2026-05-31T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346536,
+      "rodada": 19,
+      "inicio_em": "2026-07-16T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346543,
+      "rodada": 19,
+      "inicio_em": "2026-07-16T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346535,
+      "rodada": 19,
+      "inicio_em": "2026-07-17T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346539,
+      "rodada": 19,
+      "inicio_em": "2026-07-17T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346540,
+      "rodada": 19,
+      "inicio_em": "2026-07-21T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346542,
+      "rodada": 19,
+      "inicio_em": "2026-07-22T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 1,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346537,
+      "rodada": 19,
+      "inicio_em": "2026-07-23T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346541,
+      "rodada": 19,
+      "inicio_em": "2026-07-23T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346544,
+      "rodada": 19,
+      "inicio_em": "2026-07-23T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 0,
+        "visitante": 4
+      }
+    },
+    {
+      "id": 346538,
+      "rodada": 19,
+      "inicio_em": "2026-07-23T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346268,
+      "rodada": 20,
+      "inicio_em": "2026-07-25T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346423,
+      "rodada": 20,
+      "inicio_em": "2026-07-25T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346422,
+      "rodada": 20,
+      "inicio_em": "2026-07-25T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346266,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346269,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346265,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346267,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346421,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346270,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346424,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346285,
+      "rodada": 21,
+      "inicio_em": "2026-07-29T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346287,
+      "rodada": 21,
+      "inicio_em": "2026-07-29T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346281,
+      "rodada": 21,
+      "inicio_em": "2026-07-30T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346289,
+      "rodada": 21,
+      "inicio_em": "2026-07-30T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 0,
+        "visitante": 4
+      }
+    },
+    {
+      "id": 346284,
+      "rodada": 21,
+      "inicio_em": "2026-07-30T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346288,
+      "rodada": 21,
+      "inicio_em": "2026-07-31T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346282,
+      "rodada": 21,
+      "inicio_em": "2026-09-16T22:30:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346317,
+      "rodada": 22,
+      "inicio_em": "2026-08-08T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346320,
+      "rodada": 22,
+      "inicio_em": "2026-08-08T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346318,
+      "rodada": 22,
+      "inicio_em": "2026-08-08T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346312,
+      "rodada": 22,
+      "inicio_em": "2026-08-09T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346316,
+      "rodada": 22,
+      "inicio_em": "2026-08-09T14:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346314,
+      "rodada": 22,
+      "inicio_em": "2026-08-09T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346319,
+      "rodada": 22,
+      "inicio_em": "2026-08-09T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346313,
+      "rodada": 22,
+      "inicio_em": "2026-08-09T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 0,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346315,
+      "rodada": 22,
+      "inicio_em": "2026-08-09T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 0,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346311,
+      "rodada": 22,
+      "inicio_em": "2026-08-09T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346331,
+      "rodada": 23,
+      "inicio_em": "2026-08-15T19:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346342,
+      "rodada": 23,
+      "inicio_em": "2026-08-15T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346333,
+      "rodada": 23,
+      "inicio_em": "2026-08-16T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346346,
+      "rodada": 23,
+      "inicio_em": "2026-08-16T14:00:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 3,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346332,
+      "rodada": 23,
+      "inicio_em": "2026-08-16T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 0,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346338,
+      "rodada": 23,
+      "inicio_em": "2026-08-16T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346336,
+      "rodada": 23,
+      "inicio_em": "2026-08-16T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 5
+      }
+    },
+    {
+      "id": 346344,
+      "rodada": 23,
+      "inicio_em": "2026-08-16T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346334,
+      "rodada": 23,
+      "inicio_em": "2026-08-16T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346340,
+      "rodada": 23,
+      "inicio_em": "2026-08-17T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346371,
+      "rodada": 24,
+      "inicio_em": "2026-08-22T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346381,
+      "rodada": 24,
+      "inicio_em": "2026-08-22T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346379,
+      "rodada": 24,
+      "inicio_em": "2026-08-22T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346375,
+      "rodada": 24,
+      "inicio_em": "2026-08-23T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 4,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346377,
+      "rodada": 24,
+      "inicio_em": "2026-08-23T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346385,
+      "rodada": 24,
+      "inicio_em": "2026-08-23T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 0,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346373,
+      "rodada": 24,
+      "inicio_em": "2026-08-23T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346387,
+      "rodada": 24,
+      "inicio_em": "2026-08-23T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346383,
+      "rodada": 24,
+      "inicio_em": "2026-08-23T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346372,
+      "rodada": 24,
+      "inicio_em": "2026-08-24T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 2,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346450,
+      "rodada": 25,
+      "inicio_em": "2026-08-29T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346447,
+      "rodada": 25,
+      "inicio_em": "2026-08-29T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346446,
+      "rodada": 25,
+      "inicio_em": "2026-08-30T00:20:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346452,
+      "rodada": 25,
+      "inicio_em": "2026-08-30T14:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAP",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 3,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346445,
+      "rodada": 25,
+      "inicio_em": "2026-08-30T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346448,
+      "rodada": 25,
+      "inicio_em": "2026-08-30T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346449,
+      "rodada": 25,
+      "inicio_em": "2026-08-30T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346451,
+      "rodada": 25,
+      "inicio_em": "2026-08-30T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346453,
+      "rodada": 25,
+      "inicio_em": "2026-08-30T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "BAH",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346454,
+      "rodada": 25,
+      "inicio_em": "2026-08-31T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": 2,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346499,
+      "rodada": 26,
+      "inicio_em": "2026-09-05T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 2,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346497,
+      "rodada": 26,
+      "inicio_em": "2026-09-05T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346495,
+      "rodada": 26,
+      "inicio_em": "2026-09-06T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346502,
+      "rodada": 26,
+      "inicio_em": "2026-09-06T14:00:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346500,
+      "rodada": 26,
+      "inicio_em": "2026-09-06T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346501,
+      "rodada": 26,
+      "inicio_em": "2026-09-06T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 2,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346504,
+      "rodada": 26,
+      "inicio_em": "2026-09-06T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "REM",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346496,
+      "rodada": 26,
+      "inicio_em": "2026-09-06T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346498,
+      "rodada": 26,
+      "inicio_em": "2026-09-06T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346503,
+      "rodada": 26,
+      "inicio_em": "2026-09-07T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346522,
+      "rodada": 27,
+      "inicio_em": "2026-09-12T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "CFC",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 3,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 346520,
+      "rodada": 27,
+      "inicio_em": "2026-09-12T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CAM",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346521,
+      "rodada": 27,
+      "inicio_em": "2026-09-12T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346524,
+      "rodada": 27,
+      "inicio_em": "2026-09-12T20:00:00Z",
+      "status": "encerrada",
+      "mandante": "CHA",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346518,
+      "rodada": 27,
+      "inicio_em": "2026-09-12T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 346516,
+      "rodada": 27,
+      "inicio_em": "2026-09-12T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346517,
+      "rodada": 27,
+      "inicio_em": "2026-09-13T00:00:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346519,
+      "rodada": 27,
+      "inicio_em": "2026-09-13T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 346515,
+      "rodada": 27,
+      "inicio_em": "2026-09-13T20:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 346523,
+      "rodada": 27,
+      "inicio_em": "2026-09-14T23:00:00Z",
+      "status": "agendada",
+      "mandante": "BAH",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346550,
+      "rodada": 28,
+      "inicio_em": "2026-09-19T19:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346549,
+      "rodada": 28,
+      "inicio_em": "2026-09-19T20:00:00Z",
+      "status": "agendada",
+      "mandante": "MIR",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346554,
+      "rodada": 28,
+      "inicio_em": "2026-09-19T21:30:00Z",
+      "status": "agendada",
+      "mandante": "REM",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346546,
+      "rodada": 28,
+      "inicio_em": "2026-09-19T23:30:00Z",
+      "status": "agendada",
+      "mandante": "VAS",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346547,
+      "rodada": 28,
+      "inicio_em": "2026-09-20T00:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346551,
+      "rodada": 28,
+      "inicio_em": "2026-09-20T14:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346548,
+      "rodada": 28,
+      "inicio_em": "2026-09-20T19:00:00Z",
+      "status": "agendada",
+      "mandante": "COR",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346553,
+      "rodada": 28,
+      "inicio_em": "2026-09-20T19:00:00Z",
+      "status": "agendada",
+      "mandante": "VIT",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346545,
+      "rodada": 28,
+      "inicio_em": "2026-09-20T21:30:00Z",
+      "status": "agendada",
+      "mandante": "FLA",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346552,
+      "rodada": 28,
+      "inicio_em": "2026-09-20T22:30:00Z",
+      "status": "agendada",
+      "mandante": "CAP",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346579,
+      "rodada": 29,
+      "inicio_em": "2026-10-07T22:30:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346581,
+      "rodada": 29,
+      "inicio_em": "2026-10-07T22:30:00Z",
+      "status": "agendada",
+      "mandante": "INT",
+      "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346584,
+      "rodada": 29,
+      "inicio_em": "2026-10-07T22:30:00Z",
+      "status": "agendada",
+      "mandante": "REM",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346583,
+      "rodada": 29,
+      "inicio_em": "2026-10-07T23:00:00Z",
+      "status": "agendada",
+      "mandante": "VIT",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346576,
+      "rodada": 29,
+      "inicio_em": "2026-10-07T23:30:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346580,
+      "rodada": 29,
+      "inicio_em": "2026-10-08T00:30:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346577,
+      "rodada": 29,
+      "inicio_em": "2026-10-08T22:30:00Z",
+      "status": "agendada",
+      "mandante": "SAN",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346582,
+      "rodada": 29,
+      "inicio_em": "2026-10-08T23:00:00Z",
+      "status": "agendada",
+      "mandante": "CAP",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346575,
+      "rodada": 29,
+      "inicio_em": "2026-10-09T00:30:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346578,
+      "rodada": 29,
+      "inicio_em": "2026-10-09T00:30:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346556,
+      "rodada": 30,
+      "inicio_em": "2026-10-10T20:00:00Z",
+      "status": "agendada",
+      "mandante": "VAS",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346557,
+      "rodada": 30,
+      "inicio_em": "2026-10-11T00:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346563,
+      "rodada": 30,
+      "inicio_em": "2026-10-11T19:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346555,
+      "rodada": 30,
+      "inicio_em": "2026-10-11T20:30:00Z",
+      "status": "agendada",
+      "mandante": "FLA",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346559,
+      "rodada": 30,
+      "inicio_em": "2026-10-11T20:30:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346565,
+      "rodada": 30,
+      "inicio_em": "2026-10-11T20:30:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346567,
+      "rodada": 30,
+      "inicio_em": "2026-10-11T22:30:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346568,
+      "rodada": 30,
+      "inicio_em": "2026-10-11T22:30:00Z",
+      "status": "agendada",
+      "mandante": "BAH",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346569,
+      "rodada": 30,
+      "inicio_em": "2026-10-12T22:30:00Z",
+      "status": "agendada",
+      "mandante": "CHA",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346561,
+      "rodada": 30,
+      "inicio_em": "2026-10-13T00:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346525,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346526,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346527,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346528,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "COR",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346529,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "MIR",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346530,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346531,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346532,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CAP",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346533,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "BAH",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346534,
+      "rodada": 31,
+      "inicio_em": "2026-10-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "REM",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346465,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "FLA",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346466,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "VAS",
+      "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346467,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "SAN",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346468,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346469,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "MIR",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346470,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346471,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "INT",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346472,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346473,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "VIT",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346474,
+      "rodada": 32,
+      "inicio_em": "2026-10-25T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CHA",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346435,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346436,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "VAS",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346437,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "SAN",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346438,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "COR",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346439,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346440,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346441,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346442,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346443,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "BAH",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346444,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T15:00:00Z",
+      "status": "agendada",
+      "mandante": "REM",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346391,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "FLA",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346392,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346393,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346394,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346395,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346396,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346397,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "INT",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346398,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CAP",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346399,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "VIT",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346400,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CHA",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346361,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "FLA",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346362,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "VAS",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346363,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346364,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "COR",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346365,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "MIR",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346366,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346367,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346368,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346369,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "VIT",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346370,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T15:00:00Z",
+      "status": "agendada",
+      "mandante": "REM",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346301,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346302,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346303,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "SAN",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346304,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346305,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346306,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346307,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "INT",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346308,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CAP",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346309,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "BAH",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346310,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CHA",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346271,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346272,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346273,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346274,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "COR",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346275,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "MIR",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346276,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346277,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "INT",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346278,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346279,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "VIT",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346280,
+      "rodada": 37,
+      "inicio_em": "2026-11-29T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CHA",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346245,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "FLA",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346246,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "VAS",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346247,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "SAN",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346248,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346249,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346250,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346251,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346252,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "CAP",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346253,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "BAH",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 346254,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T15:00:00Z",
+      "status": "agendada",
+      "mandante": "REM",
+      "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    }
+  ],
+  "dados_atualizados_em": "2026-09-14T21:42:27.174484+00:00",
+  "dados_verificados_em": "2026-09-14T21:42:27.174484+00:00",
   "dados_desatualizados": false,
-  "agenda_desatualizada": true,
+  "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "football-data.org",
+  "fonte": "CBF",
   "fontes": {
-    "classificacao": "football-data.org",
-    "artilharia": "football-data.org",
-    "partidas": "football-data.org"
+    "classificacao": "CBF",
+    "artilharia": "CBF",
+    "partidas": "ge"
   },
   "info": {
     "campeonato": "Brasileirao Serie A",
     "temporada": "2026",
     "rodadas_total": 38,
     "rodada_atual": 27,
-    "rodada_confirmada": false,
+    "rodada_confirmada": true,
     "jogos_minimos": 26,
     "jogos_maximos": 27,
     "times_total": 20,
@@ -3590,5 +8115,5 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "historico_atualizado_em": "2026-09-14T19:23:31.336893+00:00"
+  "agenda_atualizada_em": "2026-09-14T21:42:27.172015+00:00"
 }

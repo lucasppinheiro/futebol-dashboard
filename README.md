@@ -12,7 +12,7 @@ Dashboard do Campeonato Brasileiro Série A com classificação atual, rodadas, 
 
 - Produto web completo: coleta de dados, validação, build estático, publicação e interface responsiva.
 - Automação confiável: GitHub Actions atualiza os dados, roda testes e só publica informações versionadas quando a validação passa.
-- Cuidado com dados reais: a CBF é a fonte principal; o ge valida o frescor da classificação e football-data.org enriquece agenda e histórico.
+- Cuidado com dados reais: a CBF é a fonte principal; o ge valida o frescor da classificação e mantém a agenda disponível quando football-data.org não está configurado.
 - Engenharia de portfólio: rotas estáticas, páginas por clube, APIs JSON, sitemap, robots, página 404 e deploy na Vercel.
 
 ## Funcionalidades
@@ -31,8 +31,8 @@ Dashboard do Campeonato Brasileiro Série A com classificação atual, rodadas, 
 
 ```text
 CBF oficial -------- classificação principal + artilharia + rodada
-ge ----------------- validação de frescor da classificação
-football-data.org -- partidas + contingência da rodada
+ge ----------------- validação de frescor + contingência das partidas
+football-data.org -- partidas + histórico por rodada
               \       /
              atualizar_dados.py
     |
@@ -80,7 +80,7 @@ npx playwright install chromium
 python app.py
 ```
 
-A aplicação estará em [http://127.0.0.1:5000](http://127.0.0.1:5000). Para buscar dados oficiais novos pela CBF, execute `python atualizar_dados.py`. Quando `FOOTBALL_DATA_TOKEN` estiver configurado, o mesmo comando enriquece o snapshot com calendário e resultados da football-data.org, mesmo mantendo `DATA_SOURCE=cbf`. Casa × fora, forma recente e gols por rodada são calculados somente a partir dessas partidas encerradas; sem agenda válida, a interface informa que aguarda sincronização em vez de inventar valores. O comando `python gerar_dados.py` gera apenas um fixture sintético para desenvolvimento e nunca deve ser usado como atualização oficial.
+A aplicação estará em [http://127.0.0.1:5000](http://127.0.0.1:5000). Para buscar dados novos, execute `python atualizar_dados.py`. O calendário usa football-data.org quando `FOOTBALL_DATA_TOKEN` está configurado e recorre às rodadas públicas do ge quando o token não existe ou a API falha. Casa × fora, forma recente e gols por rodada são calculados somente a partir de partidas encerradas; a interface nunca inventa valores. O comando `python gerar_dados.py` gera apenas um fixture sintético para desenvolvimento e nunca deve ser usado como atualização oficial.
 
 Durante o atendimento, as páginas e APIs leem e validam primeiro o snapshot local. Quando ele está desatualizado e a atualização automática está habilitada, a resposta usa esse snapshot e uma atualização daemon é iniciada em segundo plano; assim, a consulta não espera a fonte externa. Se o arquivo ainda não existir e a atualização automática estiver habilitada, a aplicação agenda a tentativa e responde `503` até que uma atualização consiga criá-lo. JSON ou schema inválidos continuam sendo reportados como erro explícito.
 
@@ -126,7 +126,7 @@ O script exige exatamente os 20 arquivos JPG da temporada e gera novamente todos
 
 ## Dados e configuração
 
-As variáveis disponíveis estão documentadas em `.env.example`. A fonte padrão é `DATA_SOURCE=cbf`; classificação e artilharia continuam atualizando sem token. Para habilitar o calendário, mantenha `FOOTBALL_DATA_TOKEN` apenas no servidor e em **Settings > Secrets and variables > Actions** — nunca no HTML ou no JavaScript enviado ao navegador.
+As variáveis disponíveis estão documentadas em `.env.example`. A fonte padrão é `DATA_SOURCE=cbf`; classificação, artilharia, calendário e gráficos continuam atualizando sem token. Para usar football-data.org como fonte preferencial do calendário e habilitar o histórico de classificação por rodada, mantenha `FOOTBALL_DATA_TOKEN` apenas no servidor e em **Settings > Secrets and variables > Actions** — nunca no HTML ou no JavaScript enviado ao navegador.
 
 Em execuções agendadas, uma falha temporária da fonte de dados não sobrescreve o dataset válido existente. Em execuções manuais (`workflow_dispatch`), o workflow falha para facilitar diagnóstico.
 

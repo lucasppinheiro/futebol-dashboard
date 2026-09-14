@@ -8,7 +8,7 @@ function criarDOM({ comPartidas = true } = {}) {
     const dom = new JSDOM(
         `<!DOCTYPE html><html><body>
             <canvas id="chart-attack-defense"></canvas>
-            <canvas id="chart-home-away"></canvas>
+            <div id="chart-home-away"></div>
             <canvas id="chart-recent-form"></canvas>
             <canvas id="chart-goals-round"></canvas>
         </body></html>`,
@@ -46,7 +46,7 @@ function criarDOM({ comPartidas = true } = {}) {
     return dom;
 }
 
-test('cria quatro leituras sem repetir a tabela de artilharia', () => {
+test('cria os tres graficos em canvas sem duplicar a leitura casa e fora do HTML', () => {
     const dom = criarDOM();
 
     dom.window.eval(chartsJs);
@@ -54,14 +54,12 @@ test('cria quatro leituras sem repetir a tabela de artilharia', () => {
 
     expect(dom.window.Chart.instances.map((config) => config.canvasId)).toEqual([
         'chart-attack-defense',
-        'chart-home-away',
         'chart-recent-form',
         'chart-goals-round'
     ]);
-    expect(dom.window.Chart.instances.map((config) => config.type)).toEqual(['scatter', 'bar', 'bar', 'line']);
-    expect(dom.window.Chart.instances[1].data.datasets.map((dataset) => dataset.label)).toEqual(['Casa', 'Fora']);
-    expect(dom.window.Chart.instances[2].data.datasets[0].data).toEqual([13, 10]);
-    expect(dom.window.Chart.instances[3].data.labels).toEqual(['R1', 'R2']);
+    expect(dom.window.Chart.instances.map((config) => config.type)).toEqual(['scatter', 'bar', 'line']);
+    expect(dom.window.Chart.instances[1].data.datasets[0].data).toEqual([13, 10]);
+    expect(dom.window.Chart.instances[2].data.labels).toEqual(['R1', 'R2']);
     expect(dom.window.Chart.instances.some((config) => config.canvasId === 'chart-scorers')).toBe(false);
     expect(dom.window.Chart.defaults.font.family).toBe("'Inter', sans-serif");
     expect(dom.window.Chart.instances[0].options.scales.x.ticks.font.family).toBe("'Inter', sans-serif");
@@ -86,6 +84,6 @@ test('ignora atualização de classificação vazia sem remover gráficos já re
     dom.window.brasileiraoCharts.init();
 
     expect(dom.window.brasileiraoCharts.updateClassificacao([])).toBe(false);
-    expect(dom.window.Chart.instances).toHaveLength(4);
+    expect(dom.window.Chart.instances).toHaveLength(3);
     dom.window.close();
 });

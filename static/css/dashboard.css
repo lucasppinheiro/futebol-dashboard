@@ -8,6 +8,7 @@
     --green: #07523e;
     --green-bright: #0b684d;
     --green-soft: #eaf3ef;
+    --positive: #087a55;
     --blue: #2459b8;
     --blue-soft: #edf3ff;
     --yellow: #ffd044;
@@ -138,9 +139,9 @@ tr[data-zona="rebaixamento"] .rank-mark { border-color: var(--zone-reb); }
 .club-cell small { color: var(--ink-muted); font-size: 0.54rem; }
 .club-cell:hover strong { color: var(--blue); }
 .metric-value { display: block; font-variant-numeric: tabular-nums; }
-.metric-record-label { display: block; margin-top: 1px; color: var(--blue); font-size: 0.43rem; font-weight: 650; letter-spacing: 0.03em; line-height: 1.15; text-transform: uppercase; }
+.metric-record-label { display: block; margin-top: 1px; color: var(--positive); font-size: 0.43rem; font-weight: 650; letter-spacing: 0.03em; line-height: 1.15; text-transform: uppercase; }
 .standings-table td.is-record { padding-block: 5px; }
-.standings-table td.is-record .metric-value { color: var(--blue); font-weight: 700; }
+.standings-table td.is-record .metric-value { color: var(--positive); font-weight: 700; }
 .row-expand, .mobile-campaign { display: none; }
 .table-empty { margin: 12px 0 0; color: var(--danger); font-size: 0.72rem; }
 
@@ -169,7 +170,7 @@ tr[data-zona="rebaixamento"] .rank-mark { border-color: var(--zone-reb); }
 .scorers-table th:last-child, .scorers-table td:last-child { width: 100px; text-align: right; }
 .scorers-table tbody tr:hover { background: #fafcfa; }
 .scorer-rank-badge { display: inline-grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; color: var(--ink-soft); font-family: "Inter", sans-serif; font-size: 0.64rem; font-variant-numeric: tabular-nums; }
-.scorers-table .is-top-three .scorer-rank-badge { background: var(--blue-soft); color: var(--blue); font-weight: 700; }
+.scorers-table .is-top-three .scorer-rank-badge { background: var(--green-soft); color: var(--positive); font-weight: 700; }
 .scorers-table td > strong { font-size: 0.77rem; }
 .scorer-club { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .scorer-club img { width: 28px; height: 28px; }
@@ -181,15 +182,32 @@ tr[data-zona="rebaixamento"] .rank-mark { border-color: var(--zone-reb); }
 
 /* Gráficos */
 .performance-edition { background: var(--surface); }
-.charts-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.chart-figure { min-width: 0; padding: 20px; border: 1px solid var(--line); background: var(--chart-surface); }
-.chart-figure h3 { margin: 0 0 3px; font-size: 1.3rem; }
-.chart-figure header p { min-height: 36px; margin-bottom: 12px; color: var(--ink-soft); font-size: 0.69rem; }
-.chart-canvas { position: relative; height: 390px; }
+.charts-layout { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 34px 28px; }
+.chart-figure { min-width: 0; padding-top: 18px; border-top: 1px solid var(--line); }
+.chart-figure-wide { grid-column: span 7; }
+.chart-figure:not(.chart-figure-wide) { grid-column: span 5; }
+.chart-figure h3 { margin: 0 0 3px; font-size: 1.08rem; }
+.chart-figure header p { min-height: 34px; margin-bottom: 8px; color: var(--ink-soft); font-size: 0.67rem; }
+.chart-canvas { position: relative; height: 310px; }
+.chart-figure:nth-child(2) .chart-canvas, .chart-figure:nth-child(3) .chart-canvas { height: 340px; }
 .chart-canvas canvas { max-width: 100%; }
 .chart-canvas.is-empty canvas { visibility: hidden; }
 .chart-empty { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; background: var(--surface-soft); color: var(--ink-muted); font-size: 0.72rem; text-align: center; }
+.chart-empty-static { position: static; min-height: 240px; margin-top: 8px; }
 .chart-status { margin: 14px 0 0; padding: 12px; border: 1px solid var(--danger); color: var(--danger); }
+.venue-leaders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 12px; }
+.venue-leader-group { min-width: 0; }
+.venue-leader-group h4 { margin: 0 0 10px; color: var(--green); font-size: 0.64rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.venue-leader-away h4 { color: var(--blue); }
+.venue-leader-group ol { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.venue-leader-group li { display: grid; grid-template-columns: 16px 30px minmax(36px, 1fr) 43px; gap: 6px; align-items: center; }
+.venue-rank { color: var(--ink-muted); font-size: 0.5rem; text-align: right; }
+.venue-leader-group li > b { overflow: hidden; font-size: 0.56rem; text-overflow: ellipsis; white-space: nowrap; }
+.venue-leader-group li > strong { color: var(--ink-soft); font-size: 0.55rem; font-variant-numeric: tabular-nums; text-align: right; }
+.venue-mini-track { height: 6px; overflow: hidden; background: var(--line-soft); }
+.venue-mini-track i { display: block; width: var(--venue-value); height: 100%; background: var(--green); }
+.venue-leader-away .venue-mini-track i { background: var(--blue); }
+.venue-chart-note { margin: 9px 0 0; color: var(--ink-muted); font-size: 0.54rem; text-align: center; }
 
 /* Comparador */
 .compare-edition { background: var(--paper); }
@@ -217,7 +235,7 @@ tr[data-zona="rebaixamento"] .rank-mark { border-color: var(--zone-reb); }
 .compare-metric { display: grid; min-height: 46px; grid-template-columns: 1fr 1.4fr 1fr; align-items: center; border-bottom: 1px solid var(--line-soft); text-align: center; }
 .compare-metric span { color: var(--ink-muted); font-family: "Inter", sans-serif; font-size: 0.53rem; text-transform: uppercase; }
 .compare-metric b { font-size: 0.82rem; }
-.compare-metric b.is-best { color: var(--blue); }
+.compare-metric b.is-best { color: var(--positive); }
 
 /* Rodapé */
 .edition-footer { padding-block: 26px; border-top: 1px solid var(--line); background: var(--surface); }
@@ -298,7 +316,12 @@ tr[data-zona="rebaixamento"] .rank-mark { border-color: var(--zone-reb); }
 @media (max-width: 980px) {
     .header-nav { gap: 18px; }
     .club-hero { align-items: start; flex-direction: column; }
-    .charts-layout, .compare-layout, .club-grid { grid-template-columns: 1fr; }
+    .compare-layout, .club-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 840px) {
+    .charts-layout { grid-template-columns: 1fr; gap: 28px; }
+    .chart-figure-wide, .chart-figure:not(.chart-figure-wide) { grid-column: auto; }
 }
 
 @media (max-width: 720px) {
@@ -335,15 +358,16 @@ tr[data-zona="rebaixamento"] .rank-mark { border-color: var(--zone-reb); }
     .mobile-campaign:not([hidden]) { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; padding: 10px 0 5px 36px; }
     .mobile-campaign span { display: grid; color: var(--ink-muted); font-size: 0.54rem; }
     .mobile-campaign b { color: var(--ink); font-size: 0.66rem; }
-    .mobile-record-label { margin-top: 2px; color: var(--blue); font-size: 0.48rem; font-style: normal; font-weight: 650; text-transform: uppercase; }
+    .mobile-record-label { margin-top: 2px; color: var(--positive); font-size: 0.48rem; font-style: normal; font-weight: 650; text-transform: uppercase; }
     .match-track { grid-auto-columns: minmax(150px, 45vw); }
     .scorers-table th, .scorers-table td { padding-inline: 8px; }
     .scorers-table th:first-child, .scorers-table td:first-child { width: 54px; }
     .scorers-table th:last-child, .scorers-table td:last-child { width: 62px; }
     .scorer-club span { max-width: 94px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .scorer-goals span { display: none; }
-    .chart-figure { padding: 15px; }
-    .chart-canvas { height: 320px; }
+    .chart-figure { padding-top: 16px; }
+    .chart-canvas, .chart-figure:nth-child(2) .chart-canvas, .chart-figure:nth-child(3) .chart-canvas { height: 290px; }
+    .venue-leaders { grid-template-columns: 1fr; gap: 18px; }
     .compare-controls { grid-template-columns: 1fr; }
     .compare-versus { width: 100%; height: 20px; }
     .edition-footer .edition-shell { grid-template-columns: 1fr; text-align: left; }

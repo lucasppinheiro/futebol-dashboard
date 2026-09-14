@@ -515,6 +515,71 @@ def test_normaliza_partida_football_data_para_contrato_publico():
     }
 
 
+def test_extrai_configuracao_e_normaliza_partida_ge():
+    html = """
+      <script>
+        const contentResource = { tUUID: "abc-123", esporte: "futebol" }
+        const fase = {"slug":"fase-unica-campeonato-brasileiro-2026"};
+      </script>
+    """
+    assert api_client.extrair_configuracao_ge(html) == (
+        "abc-123",
+        "fase-unica-campeonato-brasileiro-2026",
+    )
+
+    partida = api_client.normalizar_partida_ge(
+        {
+            "id": 10,
+            "data_realizacao": "2026-09-13T17:30",
+            "jogo_ja_comecou": True,
+            "placar_oficial_mandante": 2,
+            "placar_oficial_visitante": 1,
+            "equipes": {
+                "mandante": {"nome_popular": "Flamengo", "sigla": "FLA"},
+                "visitante": {"nome_popular": "Corinthians", "sigla": "COR"},
+            },
+            "transmissao": {"broadcast": {"id": "ENCERRADA"}},
+        },
+        27,
+    )
+
+    assert partida == {
+        "id": 10,
+        "rodada": 27,
+        "inicio_em": "2026-09-13T20:30:00Z",
+        "status": "encerrada",
+        "mandante": "FLA",
+        "visitante": "COR",
+        "placar": {"mandante": 2, "visitante": 1},
+    }
+
+
+def test_buscar_partidas_ge_ignora_confronto_ainda_sem_data(monkeypatch):
+    html = 'tUUID: "abc"; const fase = {"slug":"fase-2026"};'
+    agendada = {
+        "id": 1,
+        "data_realizacao": "2026-01-28T19:00",
+        "jogo_ja_comecou": False,
+        "placar_oficial_mandante": None,
+        "placar_oficial_visitante": None,
+        "equipes": {
+            "mandante": {"nome_popular": "Flamengo", "sigla": "FLA"},
+            "visitante": {"nome_popular": "Palmeiras", "sigla": "PAL"},
+        },
+        "transmissao": {"broadcast": {"id": "PRE_DIA"}},
+    }
+    sem_data = {**agendada, "id": 2, "data_realizacao": None}
+
+    def fake_fetch(url):
+        if url == api_client.GE_COMPETITION_URL:
+            return html
+        return [agendada, sem_data] if "/rodada/1/" in url else []
+
+    monkeypatch.setattr(api_client, "_fetch_public", fake_fetch)
+
+    assert [partida["id"] for partida in api_client.buscar_partidas_ge("2026")] == [1]
+
+
 def test_buscar_partidas_normaliza_e_ordena(monkeypatch):
     partidas = [
         {

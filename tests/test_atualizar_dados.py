@@ -15,6 +15,11 @@ def desativar_agenda_remota_por_padrao(monkeypatch):
         "buscar_classificacao_ge",
         lambda _: (_ for _ in ()).throw(ConnectionError("validacao externa desativada no teste")),
     )
+    monkeypatch.setattr(
+        atualizar_dados,
+        "buscar_partidas_ge",
+        lambda _: (_ for _ in ()).throw(ConnectionError("agenda ge desativada no teste")),
+    )
 
 
 def test_atualizar_substitui_arquivo_atomicamente(monkeypatch, tmp_path):
@@ -358,7 +363,7 @@ def test_enriquecimento_descarta_agenda_com_clube_fora_da_classificacao(monkeypa
         lambda _: [{**agenda_salva[0], "visitante": "XYZ"}],
     )
 
-    partidas, rodada, atualizado_em, desatualizada = atualizar_dados._enriquecer_agenda(
+    partidas, rodada, atualizado_em, desatualizada, _ = atualizar_dados._enriquecer_agenda(
         "2026",
         {"partidas": agenda_salva, "agenda_atualizada_em": "2026-09-10T10:00:00+00:00"},
         {"PAL", "FLA"},
@@ -389,7 +394,7 @@ def test_enriquecimento_preserva_agenda_se_football_data_estiver_indisponivel(mo
         lambda _: (_ for _ in ()).throw(ConnectionError("servico indisponivel")),
     )
 
-    partidas, rodada, atualizado_em, desatualizada = atualizar_dados._enriquecer_agenda(
+    partidas, rodada, atualizado_em, desatualizada, _ = atualizar_dados._enriquecer_agenda(
         "2026",
         {"partidas": agenda_salva, "agenda_atualizada_em": "2026-09-10T10:00:00+00:00"},
         {"PAL", "FLA"},
@@ -399,6 +404,32 @@ def test_enriquecimento_preserva_agenda_se_football_data_estiver_indisponivel(mo
     assert rodada is None
     assert atualizado_em == "2026-09-10T10:00:00+00:00"
     assert desatualizada is True
+
+
+def test_enriquecimento_sem_token_usa_agenda_publica_do_ge(monkeypatch):
+    partidas = [
+        {
+            "id": 10,
+            "rodada": 27,
+            "inicio_em": "2026-09-13T20:30:00Z",
+            "status": "encerrada",
+            "mandante": "FLA",
+            "visitante": "COR",
+            "placar": {"mandante": 2, "visitante": 1},
+        }
+    ]
+    monkeypatch.delenv("FOOTBALL_DATA_TOKEN", raising=False)
+    monkeypatch.setattr(atualizar_dados, "buscar_partidas_ge", lambda _: partidas)
+
+    resultado, rodada, atualizado_em, desatualizada, fonte = atualizar_dados._enriquecer_agenda(
+        "2026", {}, {"FLA", "COR"}
+    )
+
+    assert resultado == partidas
+    assert rodada == 27
+    assert atualizado_em
+    assert desatualizada is False
+    assert fonte == "ge"
 
 
 def test_enriquecimento_historico_busca_apenas_rodadas_ausentes_em_lote(monkeypatch):

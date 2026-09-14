@@ -524,6 +524,10 @@ def _calcular_leituras_campeonato(dados: dict[str, Any]) -> dict[str, Any]:
                     **resumo,
                     "aproveitamento_casa": percentual(resumo["pontos_casa"], resumo["jogos_casa"]),
                     "aproveitamento_fora": percentual(resumo["pontos_fora"], resumo["jogos_fora"]),
+                    "aproveitamento_total": percentual(
+                        resumo["pontos_casa"] + resumo["pontos_fora"],
+                        resumo["jogos_casa"] + resumo["jogos_fora"],
+                    ),
                 }
             )
         ultimos = resultados[sigla][-5:]
@@ -541,10 +545,24 @@ def _calcular_leituras_campeonato(dados: dict[str, Any]) -> dict[str, Any]:
 
     leitura_mandos.sort(
         key=lambda item: (
-            -max(item["aproveitamento_casa"] or 0, item["aproveitamento_fora"] or 0),
+            -(item["aproveitamento_total"] or 0),
             ordem[item["sigla"]],
         )
     )
+    melhores_casa = sorted(
+        leitura_mandos,
+        key=lambda item: (
+            -(item["aproveitamento_casa"] if item["aproveitamento_casa"] is not None else -1),
+            ordem[item["sigla"]],
+        ),
+    )[:5]
+    melhores_fora = sorted(
+        leitura_mandos,
+        key=lambda item: (
+            -(item["aproveitamento_fora"] if item["aproveitamento_fora"] is not None else -1),
+            ordem[item["sigla"]],
+        ),
+    )[:5]
     leitura_forma.sort(key=lambda item: (-item["pontos"], -item["jogos"], ordem[item["sigla"]]))
     gols_por_rodada = [
         {
@@ -566,6 +584,8 @@ def _calcular_leituras_campeonato(dados: dict[str, Any]) -> dict[str, Any]:
         "consistente_com_classificacao": consistente,
         "partidas_encerradas": len(encerradas),
         "mandos": leitura_mandos,
+        "melhores_casa": melhores_casa,
+        "melhores_fora": melhores_fora,
         "forma": leitura_forma,
         "gols_por_rodada": gols_por_rodada,
     }

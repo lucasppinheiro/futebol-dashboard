@@ -11,6 +11,8 @@ import re
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from club_assets import escudo_do_time
@@ -29,6 +31,7 @@ CBF_COMPETITION_URL = (
 )
 CBF_SCORERS_URL = "https://www.cbf.com.br/api/cbf/artilheiros/42/1/{temporada}/{pagina}"
 GE_COMPETITION_URL = "https://ge.globo.com/futebol/brasileirao-serie-a/"
+GE_ROUND_URL = "https://api.globoesporte.globo.com/tabela/{uuid}/fase/{fase}/rodada/{rodada}/jogos/"
 
 STATUS_PARTIDA_MAPA: dict[str, str] = {
     "SCHEDULED": "agendada",
@@ -406,6 +409,83 @@ def buscar_classificacao_ge(temporada: str | None = None) -> list[dict[str, Any]
     if not isinstance(html, str):
         raise ValueError("ge retornou payload de classificacao invalido")
     return extrair_classificacao_ge(html)
+
+
+def extrair_configuracao_ge(html: str) -> tuple[str, str]:
+    uuid = re.search(r'tUUID:\s*"([^"]+)"', html)
+    fase = re.search(r"const fase\s*=\s*(\{.*?\});", html, flags=re.DOTALL)
+    if not uuid or not fase:
+        raise ValueError("ge nao publicou a configuracao das rodadas")
+    payload_fase = json.loads(fase.group(1))
+    slug = payload_fase.get("slug") if isinstance(payload_fase, dict) else None
+    if not isinstance(slug, str) or not slug:
+        raise ValueError("ge nao publicou a fase da competicao")
+    return uuid.group(1), slug
+
+
+def normalizar_partida_ge(item: dict[str, Any], rodada: int) -> dict[str, Any]:
+    equipes = item.get("equipes") or {}
+    mandante = equipes.get("mandante") or {}
+    visitante = equipes.get("visitante") or {}
+    nome_mandante = str(mandante.get("nome_popular") or "")
+    nome_visitante = str(visitante.get("nome_popular") or "")
+    if not nome_mandante or not nome_visitante:
+        raise ValueError("Partida do ge possui clube ausente")
+
+    broadcast = ((item.get("transmissao") or {}).get("broadcast") or {}).get("id")
+    status_externo = str(broadcast or "").upper()
+    status_mapa = {
+        "ENCERRADA": "encerrada",
+        "EM_ANDAMENTO": "em_andamento",
+        "INTERVALO": "intervalo",
+        "ADIADA": "adiada",
+        "SUSPENSA": "suspensa",
+        "CANCELADA": "cancelada",
+    }
+    status = status_mapa.get(status_externo)
+    if status is None:
+        status = "em_andamento" if item.get("jogo_ja_comecou") else "agendada"
+
+    gols_mandante = item.get("placar_oficial_mandante")
+    gols_visitante = item.get("placar_oficial_visitante")
+    if status != "encerrada":
+        gols_mandante = gols_mandante if isinstance(gols_mandante, int) else None
+        gols_visitante = gols_visitante if isinstance(gols_visitante, int) else None
+    elif not isinstance(gols_mandante, int) or not isinstance(gols_visitante, int):
+        raise ValueError("Partida encerrada do ge possui placar ausente ou invalido")
+
+    inicio_local = datetime.fromisoformat(str(item["data_realizacao"])).replace(tzinfo=timezone(-timedelta(hours=3)))
+    inicio_utc = inicio_local.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+    return {
+        "id": int(item["id"]),
+        "rodada": rodada,
+        "inicio_em": inicio_utc,
+        "status": status,
+        "mandante": _normalizar_sigla_oficial(str(mandante.get("sigla") or _sigla_de(nome_mandante))),
+        "visitante": _normalizar_sigla_oficial(str(visitante.get("sigla") or _sigla_de(nome_visitante))),
+        "placar": {"mandante": gols_mandante, "visitante": gols_visitante},
+    }
+
+
+def buscar_partidas_ge(temporada: str | None = None) -> list[dict[str, Any]]:
+    temporada = temporada or temporada_brasileirao_atual()
+    html = _fetch_public(GE_COMPETITION_URL)
+    if not isinstance(html, str):
+        raise ValueError("ge retornou pagina da competicao invalida")
+    uuid, fase = extrair_configuracao_ge(html)
+
+    def buscar_rodada(rodada: int) -> list[dict[str, Any]]:
+        url = GE_ROUND_URL.format(uuid=uuid, fase=fase, rodada=rodada)
+        payload = _fetch_public(url)
+        if not isinstance(payload, list):
+            raise ValueError(f"ge retornou rodada {rodada} invalida")
+        return [normalizar_partida_ge(item, rodada) for item in payload if item.get("data_realizacao")]
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        rodadas = executor.map(buscar_rodada, range(1, 39))
+        partidas = [partida for rodada in rodadas for partida in rodada]
+    partidas.sort(key=lambda partida: (partida["rodada"], partida["inicio_em"], partida["id"]))
+    return partidas
 
 
 def extrair_rodada_atual_cbf(html: str) -> int:
