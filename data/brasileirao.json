@@ -257,6 +257,23 @@
     },
     {
       "posicao": 16,
+      "time": "Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "static/img/escudos/normalizados/INT.png",
+      "jogos": 27,
+      "vitorias": 6,
+      "empates": 10,
+      "derrotas": 11,
+      "gols_pro": 30,
+      "gols_contra": 35,
+      "saldo": -5,
+      "pontos": 28,
+      "aproveitamento": 34.6
+    },
+    {
+      "posicao": 17,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
@@ -273,7 +290,7 @@
       "aproveitamento": 35.9
     },
     {
-      "posicao": 17,
+      "posicao": 18,
       "time": "Vasco da Gama Saf",
       "sigla": "VAS",
       "estado": "RJ",
@@ -288,23 +305,6 @@
       "saldo": -12,
       "pontos": 28,
       "aproveitamento": 35.9
-    },
-    {
-      "posicao": 18,
-      "time": "Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "static/img/escudos/normalizados/INT.png",
-      "jogos": 27,
-      "vitorias": 6,
-      "empates": 10,
-      "derrotas": 11,
-      "gols_pro": 30,
-      "gols_contra": 35,
-      "saldo": -5,
-      "pontos": 28,
-      "aproveitamento": 34.6
     },
     {
       "posicao": 19,
@@ -3336,6 +3336,23 @@
       },
       {
         "posicao": 16,
+        "time": "Internacional",
+        "sigla": "INT",
+        "estado": "RS",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/INT.png",
+        "jogos": 27,
+        "vitorias": 6,
+        "empates": 10,
+        "derrotas": 11,
+        "gols_pro": 30,
+        "gols_contra": 35,
+        "saldo": -5,
+        "pontos": 28,
+        "aproveitamento": 34.6
+      },
+      {
+        "posicao": 17,
         "time": "Grêmio",
         "sigla": "GRE",
         "estado": "RS",
@@ -3352,7 +3369,7 @@
         "aproveitamento": 35.9
       },
       {
-        "posicao": 17,
+        "posicao": 18,
         "time": "Vasco da Gama Saf",
         "sigla": "VAS",
         "estado": "RJ",
@@ -3367,23 +3384,6 @@
         "saldo": -12,
         "pontos": 28,
         "aproveitamento": 35.9
-      },
-      {
-        "posicao": 18,
-        "time": "Internacional",
-        "sigla": "INT",
-        "estado": "RS",
-        "cor": "#E30613",
-        "escudo": "static/img/escudos/normalizados/INT.png",
-        "jogos": 27,
-        "vitorias": 6,
-        "empates": 10,
-        "derrotas": 11,
-        "gols_pro": 30,
-        "gols_contra": 35,
-        "saldo": -5,
-        "pontos": 28,
-        "aproveitamento": 34.6
       },
       {
         "posicao": 19,
@@ -3419,6 +3419,1374 @@
         "pontos": 17,
         "aproveitamento": 21.8
       }
+    ],
+    "9": [
+      {
+        "posicao": 1,
+        "time": "Palmeiras",
+        "sigla": "PAL",
+        "estado": "SP",
+        "cor": "#006437",
+        "escudo": "static/img/escudos/normalizados/PAL.png",
+        "jogos": 9,
+        "vitorias": 7,
+        "empates": 1,
+        "derrotas": 1,
+        "gols_pro": 19,
+        "gols_contra": 9,
+        "saldo": 10,
+        "pontos": 22,
+        "aproveitamento": 81.5
+      },
+      {
+        "posicao": 2,
+        "time": "Bahia",
+        "sigla": "BAH",
+        "estado": "BA",
+        "cor": "#004A99",
+        "escudo": "static/img/escudos/normalizados/BAH.png",
+        "jogos": 9,
+        "vitorias": 6,
+        "empates": 2,
+        "derrotas": 1,
+        "gols_pro": 14,
+        "gols_contra": 7,
+        "saldo": 7,
+        "pontos": 20,
+        "aproveitamento": 74.1
+      },
+      {
+        "posicao": 3,
+        "time": "Fluminense",
+        "sigla": "FLU",
+        "estado": "RJ",
+        "cor": "#7B0023",
+        "escudo": "static/img/escudos/normalizados/FLU.png",
+        "jogos": 9,
+        "vitorias": 6,
+        "empates": 1,
+        "derrotas": 2,
+        "gols_pro": 16,
+        "gols_contra": 10,
+        "saldo": 6,
+        "pontos": 19,
+        "aproveitamento": 70.4
+      },
+      {
+        "posicao": 4,
+        "time": "Flamengo",
+        "sigla": "FLA",
+        "estado": "RJ",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/FLA.png",
+        "jogos": 9,
+        "vitorias": 5,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 15,
+        "gols_contra": 8,
+        "saldo": 7,
+        "pontos": 17,
+        "aproveitamento": 63.0
+      },
+      {
+        "posicao": 5,
+        "time": "São Paulo",
+        "sigla": "SAO",
+        "estado": "SP",
+        "cor": "#FF0000",
+        "escudo": "static/img/escudos/normalizados/SAO.png",
+        "jogos": 9,
+        "vitorias": 5,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 11,
+        "gols_contra": 6,
+        "saldo": 5,
+        "pontos": 17,
+        "aproveitamento": 63.0
+      },
+      {
+        "posicao": 6,
+        "time": "Athletico Paranaense",
+        "sigla": "CAP",
+        "estado": "PR",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/CAP.png",
+        "jogos": 9,
+        "vitorias": 5,
+        "empates": 1,
+        "derrotas": 3,
+        "gols_pro": 14,
+        "gols_contra": 11,
+        "saldo": 3,
+        "pontos": 16,
+        "aproveitamento": 59.3
+      },
+      {
+        "posicao": 7,
+        "time": "Coritiba SAF",
+        "sigla": "CFC",
+        "estado": "PR",
+        "cor": "#006633",
+        "escudo": "static/img/escudos/normalizados/CFC.png",
+        "jogos": 9,
+        "vitorias": 4,
+        "empates": 2,
+        "derrotas": 3,
+        "gols_pro": 10,
+        "gols_contra": 9,
+        "saldo": 1,
+        "pontos": 14,
+        "aproveitamento": 51.9
+      },
+      {
+        "posicao": 8,
+        "time": "Vasco da Gama Saf",
+        "sigla": "VAS",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/VAS.png",
+        "jogos": 9,
+        "vitorias": 3,
+        "empates": 3,
+        "derrotas": 3,
+        "gols_pro": 14,
+        "gols_contra": 14,
+        "saldo": 0,
+        "pontos": 12,
+        "aproveitamento": 44.4
+      },
+      {
+        "posicao": 9,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 9,
+        "vitorias": 3,
+        "empates": 2,
+        "derrotas": 4,
+        "gols_pro": 12,
+        "gols_contra": 11,
+        "saldo": 1,
+        "pontos": 11,
+        "aproveitamento": 40.7
+      },
+      {
+        "posicao": 10,
+        "time": "Grêmio",
+        "sigla": "GRE",
+        "estado": "RS",
+        "cor": "#0080C8",
+        "escudo": "static/img/escudos/normalizados/GRE.png",
+        "jogos": 9,
+        "vitorias": 3,
+        "empates": 2,
+        "derrotas": 4,
+        "gols_pro": 14,
+        "gols_contra": 14,
+        "saldo": 0,
+        "pontos": 11,
+        "aproveitamento": 40.7
+      },
+      {
+        "posicao": 11,
+        "time": "Red Bull Bragantino",
+        "sigla": "RBB",
+        "estado": "SP",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/RBB.png",
+        "jogos": 9,
+        "vitorias": 3,
+        "empates": 2,
+        "derrotas": 4,
+        "gols_pro": 9,
+        "gols_contra": 10,
+        "saldo": -1,
+        "pontos": 11,
+        "aproveitamento": 40.7
+      },
+      {
+        "posicao": 12,
+        "time": "Vitória",
+        "sigla": "VIT",
+        "estado": "BA",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/VIT.png",
+        "jogos": 9,
+        "vitorias": 3,
+        "empates": 2,
+        "derrotas": 4,
+        "gols_pro": 8,
+        "gols_contra": 13,
+        "saldo": -5,
+        "pontos": 11,
+        "aproveitamento": 40.7
+      },
+      {
+        "posicao": 13,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 9,
+        "vitorias": 2,
+        "empates": 4,
+        "derrotas": 3,
+        "gols_pro": 12,
+        "gols_contra": 13,
+        "saldo": -1,
+        "pontos": 10,
+        "aproveitamento": 37.0
+      },
+      {
+        "posicao": 14,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 9,
+        "vitorias": 2,
+        "empates": 4,
+        "derrotas": 3,
+        "gols_pro": 8,
+        "gols_contra": 10,
+        "saldo": -2,
+        "pontos": 10,
+        "aproveitamento": 37.0
+      },
+      {
+        "posicao": 15,
+        "time": "Botafogo",
+        "sigla": "BOT",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/BOT.png",
+        "jogos": 9,
+        "vitorias": 3,
+        "empates": 1,
+        "derrotas": 5,
+        "gols_pro": 14,
+        "gols_contra": 18,
+        "saldo": -4,
+        "pontos": 10,
+        "aproveitamento": 37.0
+      },
+      {
+        "posicao": 16,
+        "time": "Internacional",
+        "sigla": "INT",
+        "estado": "RS",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/INT.png",
+        "jogos": 9,
+        "vitorias": 2,
+        "empates": 3,
+        "derrotas": 4,
+        "gols_pro": 8,
+        "gols_contra": 10,
+        "saldo": -2,
+        "pontos": 9,
+        "aproveitamento": 33.3
+      },
+      {
+        "posicao": 17,
+        "time": "Cruzeiro",
+        "sigla": "CRU",
+        "estado": "MG",
+        "cor": "#003DA5",
+        "escudo": "static/img/escudos/normalizados/CRU.png",
+        "jogos": 9,
+        "vitorias": 1,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 11,
+        "gols_contra": 16,
+        "saldo": -5,
+        "pontos": 7,
+        "aproveitamento": 25.9
+      },
+      {
+        "posicao": 18,
+        "time": "Chapecoense",
+        "sigla": "CHA",
+        "estado": "SC",
+        "cor": "#008000",
+        "escudo": "static/img/escudos/normalizados/CHA.png",
+        "jogos": 9,
+        "vitorias": 1,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 9,
+        "gols_contra": 17,
+        "saldo": -8,
+        "pontos": 7,
+        "aproveitamento": 25.9
+      },
+      {
+        "posicao": 19,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 9,
+        "vitorias": 1,
+        "empates": 3,
+        "derrotas": 5,
+        "gols_pro": 10,
+        "gols_contra": 15,
+        "saldo": -5,
+        "pontos": 6,
+        "aproveitamento": 22.2
+      },
+      {
+        "posicao": 20,
+        "time": "Remo",
+        "sigla": "REM",
+        "estado": "PA",
+        "cor": "#00008B",
+        "escudo": "static/img/escudos/normalizados/REM.png",
+        "jogos": 9,
+        "vitorias": 1,
+        "empates": 3,
+        "derrotas": 5,
+        "gols_pro": 10,
+        "gols_contra": 17,
+        "saldo": -7,
+        "pontos": 6,
+        "aproveitamento": 22.2
+      }
+    ],
+    "10": [
+      {
+        "posicao": 1,
+        "time": "Palmeiras",
+        "sigla": "PAL",
+        "estado": "SP",
+        "cor": "#006437",
+        "escudo": "static/img/escudos/normalizados/PAL.png",
+        "jogos": 10,
+        "vitorias": 8,
+        "empates": 1,
+        "derrotas": 1,
+        "gols_pro": 21,
+        "gols_contra": 10,
+        "saldo": 11,
+        "pontos": 25,
+        "aproveitamento": 83.3
+      },
+      {
+        "posicao": 2,
+        "time": "Flamengo",
+        "sigla": "FLA",
+        "estado": "RJ",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/FLA.png",
+        "jogos": 10,
+        "vitorias": 6,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 18,
+        "gols_contra": 9,
+        "saldo": 9,
+        "pontos": 20,
+        "aproveitamento": 66.7
+      },
+      {
+        "posicao": 3,
+        "time": "São Paulo",
+        "sigla": "SAO",
+        "estado": "SP",
+        "cor": "#FF0000",
+        "escudo": "static/img/escudos/normalizados/SAO.png",
+        "jogos": 10,
+        "vitorias": 6,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 15,
+        "gols_contra": 7,
+        "saldo": 8,
+        "pontos": 20,
+        "aproveitamento": 66.7
+      },
+      {
+        "posicao": 4,
+        "time": "Fluminense",
+        "sigla": "FLU",
+        "estado": "RJ",
+        "cor": "#7B0023",
+        "escudo": "static/img/escudos/normalizados/FLU.png",
+        "jogos": 10,
+        "vitorias": 6,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 17,
+        "gols_contra": 11,
+        "saldo": 6,
+        "pontos": 20,
+        "aproveitamento": 66.7
+      },
+      {
+        "posicao": 5,
+        "time": "Bahia",
+        "sigla": "BAH",
+        "estado": "BA",
+        "cor": "#004A99",
+        "escudo": "static/img/escudos/normalizados/BAH.png",
+        "jogos": 10,
+        "vitorias": 6,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 15,
+        "gols_contra": 9,
+        "saldo": 6,
+        "pontos": 20,
+        "aproveitamento": 66.7
+      },
+      {
+        "posicao": 6,
+        "time": "Athletico Paranaense",
+        "sigla": "CAP",
+        "estado": "PR",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/CAP.png",
+        "jogos": 10,
+        "vitorias": 5,
+        "empates": 1,
+        "derrotas": 4,
+        "gols_pro": 15,
+        "gols_contra": 13,
+        "saldo": 2,
+        "pontos": 16,
+        "aproveitamento": 53.3
+      },
+      {
+        "posicao": 7,
+        "time": "Coritiba SAF",
+        "sigla": "CFC",
+        "estado": "PR",
+        "cor": "#006633",
+        "escudo": "static/img/escudos/normalizados/CFC.png",
+        "jogos": 10,
+        "vitorias": 4,
+        "empates": 3,
+        "derrotas": 3,
+        "gols_pro": 11,
+        "gols_contra": 10,
+        "saldo": 1,
+        "pontos": 15,
+        "aproveitamento": 50.0
+      },
+      {
+        "posicao": 8,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 10,
+        "vitorias": 4,
+        "empates": 2,
+        "derrotas": 4,
+        "gols_pro": 14,
+        "gols_contra": 12,
+        "saldo": 2,
+        "pontos": 14,
+        "aproveitamento": 46.7
+      },
+      {
+        "posicao": 9,
+        "time": "Red Bull Bragantino",
+        "sigla": "RBB",
+        "estado": "SP",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/RBB.png",
+        "jogos": 10,
+        "vitorias": 4,
+        "empates": 2,
+        "derrotas": 4,
+        "gols_pro": 10,
+        "gols_contra": 10,
+        "saldo": 0,
+        "pontos": 14,
+        "aproveitamento": 46.7
+      },
+      {
+        "posicao": 10,
+        "time": "Botafogo",
+        "sigla": "BOT",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/BOT.png",
+        "jogos": 10,
+        "vitorias": 4,
+        "empates": 1,
+        "derrotas": 5,
+        "gols_pro": 16,
+        "gols_contra": 19,
+        "saldo": -3,
+        "pontos": 13,
+        "aproveitamento": 43.3
+      },
+      {
+        "posicao": 11,
+        "time": "Grêmio",
+        "sigla": "GRE",
+        "estado": "RS",
+        "cor": "#0080C8",
+        "escudo": "static/img/escudos/normalizados/GRE.png",
+        "jogos": 10,
+        "vitorias": 3,
+        "empates": 3,
+        "derrotas": 4,
+        "gols_pro": 14,
+        "gols_contra": 14,
+        "saldo": 0,
+        "pontos": 12,
+        "aproveitamento": 40.0
+      },
+      {
+        "posicao": 12,
+        "time": "Vasco da Gama Saf",
+        "sigla": "VAS",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/VAS.png",
+        "jogos": 10,
+        "vitorias": 3,
+        "empates": 3,
+        "derrotas": 4,
+        "gols_pro": 15,
+        "gols_contra": 16,
+        "saldo": -1,
+        "pontos": 12,
+        "aproveitamento": 40.0
+      },
+      {
+        "posicao": 13,
+        "time": "Internacional",
+        "sigla": "INT",
+        "estado": "RS",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/INT.png",
+        "jogos": 10,
+        "vitorias": 3,
+        "empates": 3,
+        "derrotas": 4,
+        "gols_pro": 9,
+        "gols_contra": 10,
+        "saldo": -1,
+        "pontos": 12,
+        "aproveitamento": 40.0
+      },
+      {
+        "posicao": 14,
+        "time": "Vitória",
+        "sigla": "VIT",
+        "estado": "BA",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/VIT.png",
+        "jogos": 10,
+        "vitorias": 3,
+        "empates": 3,
+        "derrotas": 4,
+        "gols_pro": 9,
+        "gols_contra": 14,
+        "saldo": -5,
+        "pontos": 12,
+        "aproveitamento": 40.0
+      },
+      {
+        "posicao": 15,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 10,
+        "vitorias": 2,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 13,
+        "gols_contra": 16,
+        "saldo": -3,
+        "pontos": 10,
+        "aproveitamento": 33.3
+      },
+      {
+        "posicao": 16,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 10,
+        "vitorias": 2,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 8,
+        "gols_contra": 11,
+        "saldo": -3,
+        "pontos": 10,
+        "aproveitamento": 33.3
+      },
+      {
+        "posicao": 17,
+        "time": "Chapecoense",
+        "sigla": "CHA",
+        "estado": "SC",
+        "cor": "#008000",
+        "escudo": "static/img/escudos/normalizados/CHA.png",
+        "jogos": 10,
+        "vitorias": 1,
+        "empates": 5,
+        "derrotas": 4,
+        "gols_pro": 10,
+        "gols_contra": 18,
+        "saldo": -8,
+        "pontos": 8,
+        "aproveitamento": 26.7
+      },
+      {
+        "posicao": 18,
+        "time": "Remo",
+        "sigla": "REM",
+        "estado": "PA",
+        "cor": "#00008B",
+        "escudo": "static/img/escudos/normalizados/REM.png",
+        "jogos": 10,
+        "vitorias": 1,
+        "empates": 4,
+        "derrotas": 5,
+        "gols_pro": 10,
+        "gols_contra": 17,
+        "saldo": -7,
+        "pontos": 7,
+        "aproveitamento": 23.3
+      },
+      {
+        "posicao": 19,
+        "time": "Cruzeiro",
+        "sigla": "CRU",
+        "estado": "MG",
+        "cor": "#003DA5",
+        "escudo": "static/img/escudos/normalizados/CRU.png",
+        "jogos": 10,
+        "vitorias": 1,
+        "empates": 4,
+        "derrotas": 5,
+        "gols_pro": 12,
+        "gols_contra": 20,
+        "saldo": -8,
+        "pontos": 7,
+        "aproveitamento": 23.3
+      },
+      {
+        "posicao": 20,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 10,
+        "vitorias": 1,
+        "empates": 3,
+        "derrotas": 6,
+        "gols_pro": 10,
+        "gols_contra": 16,
+        "saldo": -6,
+        "pontos": 6,
+        "aproveitamento": 20.0
+      }
+    ],
+    "11": [
+      {
+        "posicao": 1,
+        "time": "Palmeiras",
+        "sigla": "PAL",
+        "estado": "SP",
+        "cor": "#006437",
+        "escudo": "static/img/escudos/normalizados/PAL.png",
+        "jogos": 11,
+        "vitorias": 8,
+        "empates": 2,
+        "derrotas": 1,
+        "gols_pro": 21,
+        "gols_contra": 10,
+        "saldo": 11,
+        "pontos": 26,
+        "aproveitamento": 78.8
+      },
+      {
+        "posicao": 2,
+        "time": "Flamengo",
+        "sigla": "FLA",
+        "estado": "RJ",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/FLA.png",
+        "jogos": 11,
+        "vitorias": 7,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 20,
+        "gols_contra": 10,
+        "saldo": 10,
+        "pontos": 23,
+        "aproveitamento": 69.7
+      },
+      {
+        "posicao": 3,
+        "time": "Bahia",
+        "sigla": "BAH",
+        "estado": "BA",
+        "cor": "#004A99",
+        "escudo": "static/img/escudos/normalizados/BAH.png",
+        "jogos": 11,
+        "vitorias": 7,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 17,
+        "gols_contra": 10,
+        "saldo": 7,
+        "pontos": 23,
+        "aproveitamento": 69.7
+      },
+      {
+        "posicao": 4,
+        "time": "São Paulo",
+        "sigla": "SAO",
+        "estado": "SP",
+        "cor": "#FF0000",
+        "escudo": "static/img/escudos/normalizados/SAO.png",
+        "jogos": 11,
+        "vitorias": 6,
+        "empates": 2,
+        "derrotas": 3,
+        "gols_pro": 15,
+        "gols_contra": 9,
+        "saldo": 6,
+        "pontos": 20,
+        "aproveitamento": 60.6
+      },
+      {
+        "posicao": 5,
+        "time": "Fluminense",
+        "sigla": "FLU",
+        "estado": "RJ",
+        "cor": "#7B0023",
+        "escudo": "static/img/escudos/normalizados/FLU.png",
+        "jogos": 11,
+        "vitorias": 6,
+        "empates": 2,
+        "derrotas": 3,
+        "gols_pro": 18,
+        "gols_contra": 13,
+        "saldo": 5,
+        "pontos": 20,
+        "aproveitamento": 60.6
+      },
+      {
+        "posicao": 6,
+        "time": "Athletico Paranaense",
+        "sigla": "CAP",
+        "estado": "PR",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/CAP.png",
+        "jogos": 11,
+        "vitorias": 6,
+        "empates": 1,
+        "derrotas": 4,
+        "gols_pro": 17,
+        "gols_contra": 13,
+        "saldo": 4,
+        "pontos": 19,
+        "aproveitamento": 57.6
+      },
+      {
+        "posicao": 7,
+        "time": "Coritiba SAF",
+        "sigla": "CFC",
+        "estado": "PR",
+        "cor": "#006633",
+        "escudo": "static/img/escudos/normalizados/CFC.png",
+        "jogos": 11,
+        "vitorias": 4,
+        "empates": 4,
+        "derrotas": 3,
+        "gols_pro": 13,
+        "gols_contra": 12,
+        "saldo": 1,
+        "pontos": 16,
+        "aproveitamento": 48.5
+      },
+      {
+        "posicao": 8,
+        "time": "Vitória",
+        "sigla": "VIT",
+        "estado": "BA",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/VIT.png",
+        "jogos": 11,
+        "vitorias": 4,
+        "empates": 3,
+        "derrotas": 4,
+        "gols_pro": 11,
+        "gols_contra": 14,
+        "saldo": -3,
+        "pontos": 15,
+        "aproveitamento": 45.5
+      },
+      {
+        "posicao": 9,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 11,
+        "vitorias": 4,
+        "empates": 2,
+        "derrotas": 5,
+        "gols_pro": 14,
+        "gols_contra": 13,
+        "saldo": 1,
+        "pontos": 14,
+        "aproveitamento": 42.4
+      },
+      {
+        "posicao": 10,
+        "time": "Red Bull Bragantino",
+        "sigla": "RBB",
+        "estado": "SP",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/RBB.png",
+        "jogos": 11,
+        "vitorias": 4,
+        "empates": 2,
+        "derrotas": 5,
+        "gols_pro": 11,
+        "gols_contra": 12,
+        "saldo": -1,
+        "pontos": 14,
+        "aproveitamento": 42.4
+      },
+      {
+        "posicao": 11,
+        "time": "Botafogo",
+        "sigla": "BOT",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/BOT.png",
+        "jogos": 11,
+        "vitorias": 4,
+        "empates": 2,
+        "derrotas": 5,
+        "gols_pro": 18,
+        "gols_contra": 21,
+        "saldo": -3,
+        "pontos": 14,
+        "aproveitamento": 42.4
+      },
+      {
+        "posicao": 12,
+        "time": "Grêmio",
+        "sigla": "GRE",
+        "estado": "RS",
+        "cor": "#0080C8",
+        "escudo": "static/img/escudos/normalizados/GRE.png",
+        "jogos": 11,
+        "vitorias": 3,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 14,
+        "gols_contra": 14,
+        "saldo": 0,
+        "pontos": 13,
+        "aproveitamento": 39.4
+      },
+      {
+        "posicao": 13,
+        "time": "Vasco da Gama Saf",
+        "sigla": "VAS",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/VAS.png",
+        "jogos": 11,
+        "vitorias": 3,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 16,
+        "gols_contra": 17,
+        "saldo": -1,
+        "pontos": 13,
+        "aproveitamento": 39.4
+      },
+      {
+        "posicao": 14,
+        "time": "Internacional",
+        "sigla": "INT",
+        "estado": "RS",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/INT.png",
+        "jogos": 11,
+        "vitorias": 3,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 9,
+        "gols_contra": 10,
+        "saldo": -1,
+        "pontos": 13,
+        "aproveitamento": 39.4
+      },
+      {
+        "posicao": 15,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 11,
+        "vitorias": 3,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 14,
+        "gols_contra": 16,
+        "saldo": -2,
+        "pontos": 13,
+        "aproveitamento": 39.4
+      },
+      {
+        "posicao": 16,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 11,
+        "vitorias": 2,
+        "empates": 5,
+        "derrotas": 4,
+        "gols_pro": 8,
+        "gols_contra": 11,
+        "saldo": -3,
+        "pontos": 11,
+        "aproveitamento": 33.3
+      },
+      {
+        "posicao": 17,
+        "time": "Cruzeiro",
+        "sigla": "CRU",
+        "estado": "MG",
+        "cor": "#003DA5",
+        "escudo": "static/img/escudos/normalizados/CRU.png",
+        "jogos": 11,
+        "vitorias": 2,
+        "empates": 4,
+        "derrotas": 5,
+        "gols_pro": 14,
+        "gols_contra": 21,
+        "saldo": -7,
+        "pontos": 10,
+        "aproveitamento": 30.3
+      },
+      {
+        "posicao": 18,
+        "time": "Remo",
+        "sigla": "REM",
+        "estado": "PA",
+        "cor": "#00008B",
+        "escudo": "static/img/escudos/normalizados/REM.png",
+        "jogos": 11,
+        "vitorias": 1,
+        "empates": 5,
+        "derrotas": 5,
+        "gols_pro": 11,
+        "gols_contra": 18,
+        "saldo": -7,
+        "pontos": 8,
+        "aproveitamento": 24.2
+      },
+      {
+        "posicao": 19,
+        "time": "Chapecoense",
+        "sigla": "CHA",
+        "estado": "SC",
+        "cor": "#008000",
+        "escudo": "static/img/escudos/normalizados/CHA.png",
+        "jogos": 11,
+        "vitorias": 1,
+        "empates": 5,
+        "derrotas": 5,
+        "gols_pro": 10,
+        "gols_contra": 20,
+        "saldo": -10,
+        "pontos": 8,
+        "aproveitamento": 24.2
+      },
+      {
+        "posicao": 20,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 11,
+        "vitorias": 1,
+        "empates": 3,
+        "derrotas": 7,
+        "gols_pro": 11,
+        "gols_contra": 18,
+        "saldo": -7,
+        "pontos": 6,
+        "aproveitamento": 18.2
+      }
+    ],
+    "12": [
+      {
+        "posicao": 1,
+        "time": "Palmeiras",
+        "sigla": "PAL",
+        "estado": "SP",
+        "cor": "#006437",
+        "escudo": "static/img/escudos/normalizados/PAL.png",
+        "jogos": 12,
+        "vitorias": 9,
+        "empates": 2,
+        "derrotas": 1,
+        "gols_pro": 22,
+        "gols_contra": 10,
+        "saldo": 12,
+        "pontos": 29,
+        "aproveitamento": 80.6
+      },
+      {
+        "posicao": 2,
+        "time": "Flamengo",
+        "sigla": "FLA",
+        "estado": "RJ",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/FLA.png",
+        "jogos": 12,
+        "vitorias": 8,
+        "empates": 2,
+        "derrotas": 2,
+        "gols_pro": 22,
+        "gols_contra": 10,
+        "saldo": 12,
+        "pontos": 26,
+        "aproveitamento": 72.2
+      },
+      {
+        "posicao": 3,
+        "time": "Fluminense",
+        "sigla": "FLU",
+        "estado": "RJ",
+        "cor": "#7B0023",
+        "escudo": "static/img/escudos/normalizados/FLU.png",
+        "jogos": 12,
+        "vitorias": 7,
+        "empates": 2,
+        "derrotas": 3,
+        "gols_pro": 21,
+        "gols_contra": 15,
+        "saldo": 6,
+        "pontos": 23,
+        "aproveitamento": 63.9
+      },
+      {
+        "posicao": 4,
+        "time": "Bahia",
+        "sigla": "BAH",
+        "estado": "BA",
+        "cor": "#004A99",
+        "escudo": "static/img/escudos/normalizados/BAH.png",
+        "jogos": 12,
+        "vitorias": 7,
+        "empates": 2,
+        "derrotas": 3,
+        "gols_pro": 17,
+        "gols_contra": 12,
+        "saldo": 5,
+        "pontos": 23,
+        "aproveitamento": 63.9
+      },
+      {
+        "posicao": 5,
+        "time": "São Paulo",
+        "sigla": "SAO",
+        "estado": "SP",
+        "cor": "#FF0000",
+        "escudo": "static/img/escudos/normalizados/SAO.png",
+        "jogos": 12,
+        "vitorias": 6,
+        "empates": 2,
+        "derrotas": 4,
+        "gols_pro": 16,
+        "gols_contra": 11,
+        "saldo": 5,
+        "pontos": 20,
+        "aproveitamento": 55.6
+      },
+      {
+        "posicao": 6,
+        "time": "Athletico Paranaense",
+        "sigla": "CAP",
+        "estado": "PR",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/CAP.png",
+        "jogos": 12,
+        "vitorias": 6,
+        "empates": 1,
+        "derrotas": 5,
+        "gols_pro": 17,
+        "gols_contra": 14,
+        "saldo": 3,
+        "pontos": 19,
+        "aproveitamento": 52.8
+      },
+      {
+        "posicao": 7,
+        "time": "Coritiba SAF",
+        "sigla": "CFC",
+        "estado": "PR",
+        "cor": "#006633",
+        "escudo": "static/img/escudos/normalizados/CFC.png",
+        "jogos": 12,
+        "vitorias": 5,
+        "empates": 4,
+        "derrotas": 3,
+        "gols_pro": 15,
+        "gols_contra": 12,
+        "saldo": 3,
+        "pontos": 19,
+        "aproveitamento": 52.8
+      },
+      {
+        "posicao": 8,
+        "time": "Red Bull Bragantino",
+        "sigla": "RBB",
+        "estado": "SP",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/RBB.png",
+        "jogos": 12,
+        "vitorias": 5,
+        "empates": 2,
+        "derrotas": 5,
+        "gols_pro": 15,
+        "gols_contra": 14,
+        "saldo": 1,
+        "pontos": 17,
+        "aproveitamento": 47.2
+      },
+      {
+        "posicao": 9,
+        "time": "Botafogo",
+        "sigla": "BOT",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/BOT.png",
+        "jogos": 12,
+        "vitorias": 5,
+        "empates": 2,
+        "derrotas": 5,
+        "gols_pro": 22,
+        "gols_contra": 22,
+        "saldo": 0,
+        "pontos": 17,
+        "aproveitamento": 47.2
+      },
+      {
+        "posicao": 10,
+        "time": "Vasco da Gama Saf",
+        "sigla": "VAS",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/VAS.png",
+        "jogos": 12,
+        "vitorias": 4,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 18,
+        "gols_contra": 18,
+        "saldo": 0,
+        "pontos": 16,
+        "aproveitamento": 44.4
+      },
+      {
+        "posicao": 11,
+        "time": "Vitória",
+        "sigla": "VIT",
+        "estado": "BA",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/VIT.png",
+        "jogos": 12,
+        "vitorias": 4,
+        "empates": 4,
+        "derrotas": 4,
+        "gols_pro": 11,
+        "gols_contra": 14,
+        "saldo": -3,
+        "pontos": 16,
+        "aproveitamento": 44.4
+      },
+      {
+        "posicao": 12,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 12,
+        "vitorias": 4,
+        "empates": 2,
+        "derrotas": 6,
+        "gols_pro": 14,
+        "gols_contra": 15,
+        "saldo": -1,
+        "pontos": 14,
+        "aproveitamento": 38.9
+      },
+      {
+        "posicao": 13,
+        "time": "Grêmio",
+        "sigla": "GRE",
+        "estado": "RS",
+        "cor": "#0080C8",
+        "escudo": "static/img/escudos/normalizados/GRE.png",
+        "jogos": 12,
+        "vitorias": 3,
+        "empates": 4,
+        "derrotas": 5,
+        "gols_pro": 14,
+        "gols_contra": 16,
+        "saldo": -2,
+        "pontos": 13,
+        "aproveitamento": 36.1
+      },
+      {
+        "posicao": 14,
+        "time": "Internacional",
+        "sigla": "INT",
+        "estado": "RS",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/INT.png",
+        "jogos": 12,
+        "vitorias": 3,
+        "empates": 4,
+        "derrotas": 5,
+        "gols_pro": 10,
+        "gols_contra": 12,
+        "saldo": -2,
+        "pontos": 13,
+        "aproveitamento": 36.1
+      },
+      {
+        "posicao": 15,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 12,
+        "vitorias": 3,
+        "empates": 4,
+        "derrotas": 5,
+        "gols_pro": 16,
+        "gols_contra": 19,
+        "saldo": -3,
+        "pontos": 13,
+        "aproveitamento": 36.1
+      },
+      {
+        "posicao": 16,
+        "time": "Cruzeiro",
+        "sigla": "CRU",
+        "estado": "MG",
+        "cor": "#003DA5",
+        "escudo": "static/img/escudos/normalizados/CRU.png",
+        "jogos": 12,
+        "vitorias": 3,
+        "empates": 4,
+        "derrotas": 5,
+        "gols_pro": 16,
+        "gols_contra": 21,
+        "saldo": -5,
+        "pontos": 13,
+        "aproveitamento": 36.1
+      },
+      {
+        "posicao": 17,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 12,
+        "vitorias": 2,
+        "empates": 6,
+        "derrotas": 4,
+        "gols_pro": 8,
+        "gols_contra": 11,
+        "saldo": -3,
+        "pontos": 12,
+        "aproveitamento": 33.3
+      },
+      {
+        "posicao": 18,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 12,
+        "vitorias": 2,
+        "empates": 3,
+        "derrotas": 7,
+        "gols_pro": 13,
+        "gols_contra": 19,
+        "saldo": -6,
+        "pontos": 9,
+        "aproveitamento": 25.0
+      },
+      {
+        "posicao": 19,
+        "time": "Remo",
+        "sigla": "REM",
+        "estado": "PA",
+        "cor": "#00008B",
+        "escudo": "static/img/escudos/normalizados/REM.png",
+        "jogos": 12,
+        "vitorias": 1,
+        "empates": 5,
+        "derrotas": 6,
+        "gols_pro": 13,
+        "gols_contra": 22,
+        "saldo": -9,
+        "pontos": 8,
+        "aproveitamento": 22.2
+      },
+      {
+        "posicao": 20,
+        "time": "Chapecoense",
+        "sigla": "CHA",
+        "estado": "SC",
+        "cor": "#008000",
+        "escudo": "static/img/escudos/normalizados/CHA.png",
+        "jogos": 12,
+        "vitorias": 1,
+        "empates": 5,
+        "derrotas": 6,
+        "gols_pro": 11,
+        "gols_contra": 24,
+        "saldo": -13,
+        "pontos": 8,
+        "aproveitamento": 22.2
+      }
     ]
   },
   "artilharia": [
@@ -3426,146 +4794,146 @@
       "jogador": "Kevin Viveros",
       "time": "Athletico Paranaense",
       "sigla": "CAP",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 18
     },
     {
       "jogador": "Pedro",
       "time": "Flamengo",
       "sigla": "FLA",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 15
     },
     {
-      "jogador": "Vinicius",
+      "jogador": "Carlos Vinícius",
       "time": "Grêmio",
       "sigla": "GRE",
-      "posicao": "Nao informado",
+      "posicao": "Centroavante",
       "gols": 10
     },
     {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 10
-    },
-    {
-      "jogador": "Samuel Lino",
-      "time": "Flamengo",
-      "sigla": "FLA",
-      "posicao": "Nao informado",
-      "gols": 9
     },
     {
       "jogador": "John Kennedy",
       "time": "Fluminense",
       "sigla": "FLU",
-      "posicao": "Nao informado",
+      "posicao": "Centroavante",
       "gols": 9
     },
     {
-      "jogador": "Pedro Rocha",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "posicao": "Nao informado",
-      "gols": 8
+      "jogador": "Samuel Lino",
+      "time": "Flamengo",
+      "sigla": "FLA",
+      "posicao": "Ponta esquerda",
+      "gols": 9
     },
     {
-      "jogador": "Breno",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "posicao": "Nao informado",
-      "gols": 8
-    },
-    {
-      "jogador": "Matheus Pereira",
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "posicao": "Nao informado",
-      "gols": 8
-    },
-    {
-      "jogador": "Luciano Juba",
-      "time": "Bahia",
-      "sigla": "BAH",
-      "posicao": "Nao informado",
+      "jogador": "José Manuel López",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Atacante",
       "gols": 8
     },
     {
       "jogador": "Luciano",
       "time": "São Paulo",
       "sigla": "SAO",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 8
     },
     {
-      "jogador": "Lopez",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Nao informado",
+      "jogador": "Matheus Pereira",
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "posicao": "Atacante",
       "gols": 8
     },
     {
-      "jogador": "Rene",
-      "time": "Vitória",
-      "sigla": "VIT",
-      "posicao": "Nao informado",
+      "jogador": "Breno Lopes",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Atacante",
       "gols": 8
+    },
+    {
+      "jogador": "Pedro Rocha",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 8
+    },
+    {
+      "jogador": "Luciano Juba",
+      "time": "Bahia",
+      "sigla": "BAH",
+      "posicao": "Defensor",
+      "gols": 8
+    },
+    {
+      "jogador": "Danilo dos Santos de Oliveira",
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "posicao": "Meia",
+      "gols": 7
+    },
+    {
+      "jogador": "Jonathan Calleri",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
+      "jogador": "Arthur Cabral",
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "posicao": "Centroavante",
+      "gols": 7
     },
     {
       "jogador": "Mauricio",
       "time": "Palmeiras",
       "sigla": "PAL",
-      "posicao": "Nao informado",
-      "gols": 7
-    },
-    {
-      "jogador": "Calleri",
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "posicao": "Nao informado",
-      "gols": 7
-    },
-    {
-      "jogador": "Arthur",
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "posicao": "Nao informado",
-      "gols": 7
-    },
-    {
-      "jogador": "Danilo Santos",
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "posicao": "Nao informado",
+      "posicao": "Meia",
       "gols": 7
     },
     {
       "jogador": "Kaio Jorge",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Nao informado",
+      "posicao": "Centroavante",
       "gols": 7
     },
     {
-      "jogador": "Carbonero",
+      "jogador": "Johan Carbonero",
       "time": "Internacional",
       "sigla": "INT",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 7
     },
     {
-      "jogador": "Neymar Jr",
+      "jogador": "Carlos Renê",
+      "time": "Vitória",
+      "sigla": "VIT",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
+      "jogador": "Neymar",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 6
     }
   ],
   "partidas": [
     {
-      "id": 346240,
+      "id": 554740,
       "rodada": 1,
       "inicio_em": "2026-01-28T22:00:00Z",
       "status": "encerrada",
@@ -3577,19 +4945,7 @@
       }
     },
     {
-      "id": 346241,
-      "rodada": 1,
-      "inicio_em": "2026-01-28T22:00:00Z",
-      "status": "encerrada",
-      "mandante": "INT",
-      "visitante": "CAP",
-      "placar": {
-        "mandante": 0,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346242,
+      "id": 554744,
       "rodada": 1,
       "inicio_em": "2026-01-28T22:00:00Z",
       "status": "encerrada",
@@ -3601,7 +4957,19 @@
       }
     },
     {
-      "id": 346243,
+      "id": 554746,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554749,
       "rodada": 1,
       "inicio_em": "2026-01-28T22:00:00Z",
       "status": "encerrada",
@@ -3613,7 +4981,7 @@
       }
     },
     {
-      "id": 346235,
+      "id": 554745,
       "rodada": 1,
       "inicio_em": "2026-01-28T22:30:00Z",
       "status": "encerrada",
@@ -3625,19 +4993,7 @@
       }
     },
     {
-      "id": 346238,
-      "rodada": 1,
-      "inicio_em": "2026-01-28T23:00:00Z",
-      "status": "encerrada",
-      "mandante": "COR",
-      "visitante": "BAH",
-      "placar": {
-        "mandante": 1,
-        "visitante": 2
-      }
-    },
-    {
-      "id": 346244,
+      "id": 554742,
       "rodada": 1,
       "inicio_em": "2026-01-28T23:00:00Z",
       "status": "encerrada",
@@ -3649,7 +5005,19 @@
       }
     },
     {
-      "id": 346237,
+      "id": 554743,
+      "rodada": 1,
+      "inicio_em": "2026-01-28T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 554748,
       "rodada": 1,
       "inicio_em": "2026-01-29T00:30:00Z",
       "status": "encerrada",
@@ -3661,7 +5029,7 @@
       }
     },
     {
-      "id": 346239,
+      "id": 554747,
       "rodada": 1,
       "inicio_em": "2026-01-29T23:00:00Z",
       "status": "encerrada",
@@ -3673,7 +5041,7 @@
       }
     },
     {
-      "id": 346236,
+      "id": 554741,
       "rodada": 1,
       "inicio_em": "2026-01-30T00:30:00Z",
       "status": "encerrada",
@@ -3685,19 +5053,7 @@
       }
     },
     {
-      "id": 346255,
-      "rodada": 2,
-      "inicio_em": "2026-02-04T22:00:00Z",
-      "status": "encerrada",
-      "mandante": "FLA",
-      "visitante": "INT",
-      "placar": {
-        "mandante": 1,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346259,
+      "id": 554752,
       "rodada": 2,
       "inicio_em": "2026-02-04T22:00:00Z",
       "status": "encerrada",
@@ -3709,19 +5065,19 @@
       }
     },
     {
-      "id": 346257,
+      "id": 554754,
       "rodada": 2,
-      "inicio_em": "2026-02-04T23:00:00Z",
+      "inicio_em": "2026-02-04T22:00:00Z",
       "status": "encerrada",
-      "mandante": "SAN",
-      "visitante": "SAO",
+      "mandante": "FLA",
+      "visitante": "INT",
       "placar": {
         "mandante": 1,
         "visitante": 1
       }
     },
     {
-      "id": 346264,
+      "id": 554757,
       "rodada": 2,
       "inicio_em": "2026-02-04T23:00:00Z",
       "status": "encerrada",
@@ -3733,19 +5089,19 @@
       }
     },
     {
-      "id": 346258,
+      "id": 554758,
       "rodada": 2,
-      "inicio_em": "2026-02-05T00:30:00Z",
+      "inicio_em": "2026-02-04T23:00:00Z",
       "status": "encerrada",
-      "mandante": "PAL",
-      "visitante": "VIT",
+      "mandante": "SAN",
+      "visitante": "SAO",
       "placar": {
-        "mandante": 5,
+        "mandante": 1,
         "visitante": 1
       }
     },
     {
-      "id": 346261,
+      "id": 554755,
       "rodada": 2,
       "inicio_em": "2026-02-05T00:30:00Z",
       "status": "encerrada",
@@ -3757,7 +5113,19 @@
       }
     },
     {
-      "id": 346263,
+      "id": 554756,
+      "rodada": 2,
+      "inicio_em": "2026-02-05T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 5,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554751,
       "rodada": 2,
       "inicio_em": "2026-02-05T22:00:00Z",
       "status": "encerrada",
@@ -3769,7 +5137,7 @@
       }
     },
     {
-      "id": 346256,
+      "id": 554759,
       "rodada": 2,
       "inicio_em": "2026-02-05T23:00:00Z",
       "status": "encerrada",
@@ -3781,7 +5149,7 @@
       }
     },
     {
-      "id": 346260,
+      "id": 554753,
       "rodada": 2,
       "inicio_em": "2026-02-06T00:30:00Z",
       "status": "encerrada",
@@ -3793,7 +5161,7 @@
       }
     },
     {
-      "id": 346262,
+      "id": 554750,
       "rodada": 2,
       "inicio_em": "2026-02-19T22:30:00Z",
       "status": "encerrada",
@@ -3805,7 +5173,7 @@
       }
     },
     {
-      "id": 346299,
+      "id": 554769,
       "rodada": 3,
       "inicio_em": "2026-02-11T00:30:00Z",
       "status": "encerrada",
@@ -3817,19 +5185,7 @@
       }
     },
     {
-      "id": 346295,
-      "rodada": 3,
-      "inicio_em": "2026-02-11T22:00:00Z",
-      "status": "encerrada",
-      "mandante": "MIR",
-      "visitante": "CRU",
-      "placar": {
-        "mandante": 2,
-        "visitante": 2
-      }
-    },
-    {
-      "id": 346300,
+      "id": 554762,
       "rodada": 3,
       "inicio_em": "2026-02-11T22:00:00Z",
       "status": "encerrada",
@@ -3841,7 +5197,19 @@
       }
     },
     {
-      "id": 346296,
+      "id": 554766,
+      "rodada": 3,
+      "inicio_em": "2026-02-11T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 554761,
       "rodada": 3,
       "inicio_em": "2026-02-11T23:00:00Z",
       "status": "encerrada",
@@ -3853,19 +5221,7 @@
       }
     },
     {
-      "id": 346292,
-      "rodada": 3,
-      "inicio_em": "2026-02-12T00:30:00Z",
-      "status": "encerrada",
-      "mandante": "VAS",
-      "visitante": "BAH",
-      "placar": {
-        "mandante": 0,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346293,
+      "id": 554767,
       "rodada": 3,
       "inicio_em": "2026-02-12T00:30:00Z",
       "status": "encerrada",
@@ -3877,7 +5233,19 @@
       }
     },
     {
-      "id": 346298,
+      "id": 554768,
+      "rodada": 3,
+      "inicio_em": "2026-02-12T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554760,
       "rodada": 3,
       "inicio_em": "2026-02-12T22:00:00Z",
       "status": "encerrada",
@@ -3889,7 +5257,7 @@
       }
     },
     {
-      "id": 346291,
+      "id": 554764,
       "rodada": 3,
       "inicio_em": "2026-02-12T22:30:00Z",
       "status": "encerrada",
@@ -3901,7 +5269,7 @@
       }
     },
     {
-      "id": 346294,
+      "id": 554763,
       "rodada": 3,
       "inicio_em": "2026-02-12T23:00:00Z",
       "status": "encerrada",
@@ -3913,7 +5281,7 @@
       }
     },
     {
-      "id": 346297,
+      "id": 554765,
       "rodada": 3,
       "inicio_em": "2026-02-13T00:30:00Z",
       "status": "encerrada",
@@ -3925,7 +5293,7 @@
       }
     },
     {
-      "id": 346343,
+      "id": 554772,
       "rodada": 4,
       "inicio_em": "2026-02-25T22:00:00Z",
       "status": "encerrada",
@@ -3937,7 +5305,7 @@
       }
     },
     {
-      "id": 346350,
+      "id": 554778,
       "rodada": 4,
       "inicio_em": "2026-02-25T22:00:00Z",
       "status": "encerrada",
@@ -3949,7 +5317,7 @@
       }
     },
     {
-      "id": 346348,
+      "id": 554773,
       "rodada": 4,
       "inicio_em": "2026-02-25T22:30:00Z",
       "status": "encerrada",
@@ -3961,7 +5329,7 @@
       }
     },
     {
-      "id": 346345,
+      "id": 554774,
       "rodada": 4,
       "inicio_em": "2026-02-25T23:00:00Z",
       "status": "encerrada",
@@ -3973,19 +5341,7 @@
       }
     },
     {
-      "id": 346341,
-      "rodada": 4,
-      "inicio_em": "2026-02-26T00:30:00Z",
-      "status": "encerrada",
-      "mandante": "PAL",
-      "visitante": "FLU",
-      "placar": {
-        "mandante": 2,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346347,
+      "id": 554776,
       "rodada": 4,
       "inicio_em": "2026-02-26T00:30:00Z",
       "status": "encerrada",
@@ -3997,7 +5353,19 @@
       }
     },
     {
-      "id": 346339,
+      "id": 554777,
+      "rodada": 4,
+      "inicio_em": "2026-02-26T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554779,
       "rodada": 4,
       "inicio_em": "2026-02-26T22:00:00Z",
       "status": "encerrada",
@@ -4009,7 +5377,7 @@
       }
     },
     {
-      "id": 346349,
+      "id": 554770,
       "rodada": 4,
       "inicio_em": "2026-07-17T22:30:00Z",
       "status": "encerrada",
@@ -4021,7 +5389,7 @@
       }
     },
     {
-      "id": 346337,
+      "id": 554771,
       "rodada": 4,
       "inicio_em": "2026-07-23T22:30:00Z",
       "status": "encerrada",
@@ -4033,7 +5401,7 @@
       }
     },
     {
-      "id": 346335,
+      "id": 554775,
       "rodada": 4,
       "inicio_em": "2026-09-02T22:30:00Z",
       "status": "encerrada",
@@ -4045,7 +5413,7 @@
       }
     },
     {
-      "id": 346405,
+      "id": 554786,
       "rodada": 5,
       "inicio_em": "2026-03-11T00:30:00Z",
       "status": "encerrada",
@@ -4057,7 +5425,7 @@
       }
     },
     {
-      "id": 346406,
+      "id": 554781,
       "rodada": 5,
       "inicio_em": "2026-03-11T22:00:00Z",
       "status": "encerrada",
@@ -4069,7 +5437,7 @@
       }
     },
     {
-      "id": 346409,
+      "id": 554782,
       "rodada": 5,
       "inicio_em": "2026-03-11T23:00:00Z",
       "status": "encerrada",
@@ -4081,19 +5449,7 @@
       }
     },
     {
-      "id": 346401,
-      "rodada": 5,
-      "inicio_em": "2026-03-12T00:30:00Z",
-      "status": "encerrada",
-      "mandante": "FLA",
-      "visitante": "CRU",
-      "placar": {
-        "mandante": 2,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346404,
+      "id": 554783,
       "rodada": 5,
       "inicio_em": "2026-03-12T00:30:00Z",
       "status": "encerrada",
@@ -4105,7 +5461,19 @@
       }
     },
     {
-      "id": 346410,
+      "id": 554784,
+      "rodada": 5,
+      "inicio_em": "2026-03-12T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLA",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554787,
       "rodada": 5,
       "inicio_em": "2026-03-12T22:00:00Z",
       "status": "encerrada",
@@ -4117,7 +5485,7 @@
       }
     },
     {
-      "id": 346402,
+      "id": 554789,
       "rodada": 5,
       "inicio_em": "2026-03-12T22:30:00Z",
       "status": "encerrada",
@@ -4129,7 +5497,7 @@
       }
     },
     {
-      "id": 346403,
+      "id": 554788,
       "rodada": 5,
       "inicio_em": "2026-03-12T23:00:00Z",
       "status": "encerrada",
@@ -4141,7 +5509,7 @@
       }
     },
     {
-      "id": 346407,
+      "id": 554785,
       "rodada": 5,
       "inicio_em": "2026-03-13T00:30:00Z",
       "status": "encerrada",
@@ -4153,7 +5521,7 @@
       }
     },
     {
-      "id": 346408,
+      "id": 554780,
       "rodada": 5,
       "inicio_em": "2026-03-29T22:30:00Z",
       "status": "encerrada",
@@ -4165,7 +5533,7 @@
       }
     },
     {
-      "id": 346483,
+      "id": 554799,
       "rodada": 6,
       "inicio_em": "2026-03-14T21:30:00Z",
       "status": "encerrada",
@@ -4177,7 +5545,7 @@
       }
     },
     {
-      "id": 346476,
+      "id": 554790,
       "rodada": 6,
       "inicio_em": "2026-03-14T23:30:00Z",
       "status": "encerrada",
@@ -4189,7 +5557,7 @@
       }
     },
     {
-      "id": 346475,
+      "id": 554795,
       "rodada": 6,
       "inicio_em": "2026-03-15T19:00:00Z",
       "status": "encerrada",
@@ -4201,19 +5569,7 @@
       }
     },
     {
-      "id": 346477,
-      "rodada": 6,
-      "inicio_em": "2026-03-15T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "SAN",
-      "visitante": "COR",
-      "placar": {
-        "mandante": 1,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346481,
+      "id": 554796,
       "rodada": 6,
       "inicio_em": "2026-03-15T19:00:00Z",
       "status": "encerrada",
@@ -4225,19 +5581,19 @@
       }
     },
     {
-      "id": 346478,
+      "id": 554798,
       "rodada": 6,
-      "inicio_em": "2026-03-15T21:30:00Z",
+      "inicio_em": "2026-03-15T19:00:00Z",
       "status": "encerrada",
-      "mandante": "PAL",
-      "visitante": "MIR",
+      "mandante": "SAN",
+      "visitante": "COR",
       "placar": {
         "mandante": 1,
-        "visitante": 0
+        "visitante": 1
       }
     },
     {
-      "id": 346482,
+      "id": 554793,
       "rodada": 6,
       "inicio_em": "2026-03-15T21:30:00Z",
       "status": "encerrada",
@@ -4249,7 +5605,19 @@
       }
     },
     {
-      "id": 346479,
+      "id": 554797,
+      "rodada": 6,
+      "inicio_em": "2026-03-15T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554791,
       "rodada": 6,
       "inicio_em": "2026-03-15T23:30:00Z",
       "status": "encerrada",
@@ -4261,7 +5629,7 @@
       }
     },
     {
-      "id": 346480,
+      "id": 554794,
       "rodada": 6,
       "inicio_em": "2026-03-15T23:30:00Z",
       "status": "encerrada",
@@ -4273,7 +5641,7 @@
       }
     },
     {
-      "id": 346484,
+      "id": 554792,
       "rodada": 6,
       "inicio_em": "2026-03-16T23:00:00Z",
       "status": "encerrada",
@@ -4285,19 +5653,7 @@
       }
     },
     {
-      "id": 346564,
-      "rodada": 7,
-      "inicio_em": "2026-03-18T22:00:00Z",
-      "status": "encerrada",
-      "mandante": "PAL",
-      "visitante": "BOT",
-      "placar": {
-        "mandante": 2,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346573,
+      "id": 554802,
       "rodada": 7,
       "inicio_em": "2026-03-18T22:00:00Z",
       "status": "encerrada",
@@ -4309,7 +5665,19 @@
       }
     },
     {
-      "id": 346572,
+      "id": 554807,
+      "rodada": 7,
+      "inicio_em": "2026-03-18T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554800,
       "rodada": 7,
       "inicio_em": "2026-03-18T22:30:00Z",
       "status": "encerrada",
@@ -4321,19 +5689,7 @@
       }
     },
     {
-      "id": 346566,
-      "rodada": 7,
-      "inicio_em": "2026-03-18T23:00:00Z",
-      "status": "encerrada",
-      "mandante": "MIR",
-      "visitante": "CFC",
-      "placar": {
-        "mandante": 0,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346570,
+      "id": 554801,
       "rodada": 7,
       "inicio_em": "2026-03-18T23:00:00Z",
       "status": "encerrada",
@@ -4345,19 +5701,19 @@
       }
     },
     {
-      "id": 346560,
+      "id": 554806,
       "rodada": 7,
-      "inicio_em": "2026-03-19T00:30:00Z",
+      "inicio_em": "2026-03-18T23:00:00Z",
       "status": "encerrada",
-      "mandante": "VAS",
-      "visitante": "FLU",
+      "mandante": "MIR",
+      "visitante": "CFC",
       "placar": {
-        "mandante": 3,
-        "visitante": 2
+        "mandante": 0,
+        "visitante": 1
       }
     },
     {
-      "id": 346562,
+      "id": 554808,
       "rodada": 7,
       "inicio_em": "2026-03-19T00:30:00Z",
       "status": "encerrada",
@@ -4369,7 +5725,19 @@
       }
     },
     {
-      "id": 346571,
+      "id": 554809,
+      "rodada": 7,
+      "inicio_em": "2026-03-19T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 3,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 554805,
       "rodada": 7,
       "inicio_em": "2026-03-19T22:00:00Z",
       "status": "encerrada",
@@ -4381,7 +5749,7 @@
       }
     },
     {
-      "id": 346558,
+      "id": 554804,
       "rodada": 7,
       "inicio_em": "2026-03-19T23:00:00Z",
       "status": "encerrada",
@@ -4393,7 +5761,7 @@
       }
     },
     {
-      "id": 346574,
+      "id": 554803,
       "rodada": 7,
       "inicio_em": "2026-03-20T00:30:00Z",
       "status": "encerrada",
@@ -4405,7 +5773,7 @@
       }
     },
     {
-      "id": 346589,
+      "id": 554811,
       "rodada": 8,
       "inicio_em": "2026-03-21T19:00:00Z",
       "status": "encerrada",
@@ -4417,7 +5785,7 @@
       }
     },
     {
-      "id": 346585,
+      "id": 554814,
       "rodada": 8,
       "inicio_em": "2026-03-21T21:30:00Z",
       "status": "encerrada",
@@ -4429,7 +5797,7 @@
       }
     },
     {
-      "id": 346587,
+      "id": 554817,
       "rodada": 8,
       "inicio_em": "2026-03-22T00:00:00Z",
       "status": "encerrada",
@@ -4441,31 +5809,7 @@
       }
     },
     {
-      "id": 346586,
-      "rodada": 8,
-      "inicio_em": "2026-03-22T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "VAS",
-      "visitante": "GRE",
-      "placar": {
-        "mandante": 2,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346590,
-      "rodada": 8,
-      "inicio_em": "2026-03-22T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "CRU",
-      "visitante": "SAN",
-      "placar": {
-        "mandante": 0,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346592,
+      "id": 554810,
       "rodada": 8,
       "inicio_em": "2026-03-22T19:00:00Z",
       "status": "encerrada",
@@ -4477,7 +5821,19 @@
       }
     },
     {
-      "id": 346594,
+      "id": 554813,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 0,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554816,
       "rodada": 8,
       "inicio_em": "2026-03-22T19:00:00Z",
       "status": "encerrada",
@@ -4489,7 +5845,19 @@
       }
     },
     {
-      "id": 346591,
+      "id": 554818,
+      "rodada": 8,
+      "inicio_em": "2026-03-22T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554815,
       "rodada": 8,
       "inicio_em": "2026-03-22T21:30:00Z",
       "status": "encerrada",
@@ -4501,7 +5869,7 @@
       }
     },
     {
-      "id": 346593,
+      "id": 554819,
       "rodada": 8,
       "inicio_em": "2026-03-22T21:30:00Z",
       "status": "encerrada",
@@ -4513,7 +5881,7 @@
       }
     },
     {
-      "id": 346588,
+      "id": 554812,
       "rodada": 8,
       "inicio_em": "2026-03-22T23:30:00Z",
       "status": "encerrada",
@@ -4525,7 +5893,7 @@
       }
     },
     {
-      "id": 346596,
+      "id": 554821,
       "rodada": 9,
       "inicio_em": "2026-04-01T22:30:00Z",
       "status": "encerrada",
@@ -4537,7 +5905,7 @@
       }
     },
     {
-      "id": 346601,
+      "id": 554827,
       "rodada": 9,
       "inicio_em": "2026-04-01T22:30:00Z",
       "status": "encerrada",
@@ -4549,19 +5917,7 @@
       }
     },
     {
-      "id": 346600,
-      "rodada": 9,
-      "inicio_em": "2026-04-01T23:00:00Z",
-      "status": "encerrada",
-      "mandante": "CRU",
-      "visitante": "VIT",
-      "placar": {
-        "mandante": 3,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346603,
+      "id": 554820,
       "rodada": 9,
       "inicio_em": "2026-04-01T23:00:00Z",
       "status": "encerrada",
@@ -4573,7 +5929,19 @@
       }
     },
     {
-      "id": 346602,
+      "id": 554825,
+      "rodada": 9,
+      "inicio_em": "2026-04-01T23:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": 3,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554824,
       "rodada": 9,
       "inicio_em": "2026-04-01T23:30:00Z",
       "status": "encerrada",
@@ -4585,7 +5953,7 @@
       }
     },
     {
-      "id": 346595,
+      "id": 554826,
       "rodada": 9,
       "inicio_em": "2026-04-02T00:30:00Z",
       "status": "encerrada",
@@ -4597,19 +5965,7 @@
       }
     },
     {
-      "id": 346597,
-      "rodada": 9,
-      "inicio_em": "2026-04-02T22:00:00Z",
-      "status": "encerrada",
-      "mandante": "SAN",
-      "visitante": "REM",
-      "placar": {
-        "mandante": 2,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346604,
+      "id": 554823,
       "rodada": 9,
       "inicio_em": "2026-04-02T22:00:00Z",
       "status": "encerrada",
@@ -4621,19 +5977,19 @@
       }
     },
     {
-      "id": 346598,
+      "id": 554829,
       "rodada": 9,
-      "inicio_em": "2026-04-03T00:30:00Z",
+      "inicio_em": "2026-04-02T22:00:00Z",
       "status": "encerrada",
-      "mandante": "PAL",
-      "visitante": "GRE",
+      "mandante": "SAN",
+      "visitante": "REM",
       "placar": {
         "mandante": 2,
-        "visitante": 1
+        "visitante": 0
       }
     },
     {
-      "id": 346599,
+      "id": 554822,
       "rodada": 9,
       "inicio_em": "2026-04-03T00:30:00Z",
       "status": "encerrada",
@@ -4645,7 +6001,19 @@
       }
     },
     {
-      "id": 346607,
+      "id": 554828,
+      "rodada": 9,
+      "inicio_em": "2026-04-03T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554838,
       "rodada": 10,
       "inicio_em": "2026-04-04T21:30:00Z",
       "status": "encerrada",
@@ -4657,7 +6025,7 @@
       }
     },
     {
-      "id": 346612,
+      "id": 554834,
       "rodada": 10,
       "inicio_em": "2026-04-04T23:30:00Z",
       "status": "encerrada",
@@ -4669,7 +6037,7 @@
       }
     },
     {
-      "id": 346606,
+      "id": 554839,
       "rodada": 10,
       "inicio_em": "2026-04-05T00:00:00Z",
       "status": "encerrada",
@@ -4681,7 +6049,7 @@
       }
     },
     {
-      "id": 346614,
+      "id": 554832,
       "rodada": 10,
       "inicio_em": "2026-04-05T19:00:00Z",
       "status": "encerrada",
@@ -4693,19 +6061,7 @@
       }
     },
     {
-      "id": 346605,
-      "rodada": 10,
-      "inicio_em": "2026-04-05T20:30:00Z",
-      "status": "encerrada",
-      "mandante": "FLA",
-      "visitante": "SAN",
-      "placar": {
-        "mandante": 3,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346610,
+      "id": 554830,
       "rodada": 10,
       "inicio_em": "2026-04-05T20:30:00Z",
       "status": "encerrada",
@@ -4717,19 +6073,19 @@
       }
     },
     {
-      "id": 346608,
+      "id": 554835,
       "rodada": 10,
-      "inicio_em": "2026-04-05T22:30:00Z",
+      "inicio_em": "2026-04-05T20:30:00Z",
       "status": "encerrada",
-      "mandante": "COR",
-      "visitante": "INT",
+      "mandante": "FLA",
+      "visitante": "SAN",
       "placar": {
-        "mandante": 0,
+        "mandante": 3,
         "visitante": 1
       }
     },
     {
-      "id": 346613,
+      "id": 554831,
       "rodada": 10,
       "inicio_em": "2026-04-05T22:30:00Z",
       "status": "encerrada",
@@ -4741,7 +6097,19 @@
       }
     },
     {
-      "id": 346609,
+      "id": 554833,
+      "rodada": 10,
+      "inicio_em": "2026-04-05T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "COR",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554837,
       "rodada": 10,
       "inicio_em": "2026-04-05T23:00:00Z",
       "status": "encerrada",
@@ -4753,7 +6121,7 @@
       }
     },
     {
-      "id": 346611,
+      "id": 554836,
       "rodada": 10,
       "inicio_em": "2026-04-05T23:30:00Z",
       "status": "encerrada",
@@ -4765,19 +6133,7 @@
       }
     },
     {
-      "id": 346329,
-      "rodada": 11,
-      "inicio_em": "2026-04-11T19:30:00Z",
-      "status": "encerrada",
-      "mandante": "VIT",
-      "visitante": "SAO",
-      "placar": {
-        "mandante": 2,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346330,
+      "id": 554847,
       "rodada": 11,
       "inicio_em": "2026-04-11T19:30:00Z",
       "status": "encerrada",
@@ -4789,7 +6145,19 @@
       }
     },
     {
-      "id": 346325,
+      "id": 554849,
+      "rodada": 11,
+      "inicio_em": "2026-04-11T19:30:00Z",
+      "status": "encerrada",
+      "mandante": "VIT",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554846,
       "rodada": 11,
       "inicio_em": "2026-04-11T21:30:00Z",
       "status": "encerrada",
@@ -4801,7 +6169,7 @@
       }
     },
     {
-      "id": 346323,
+      "id": 554848,
       "rodada": 11,
       "inicio_em": "2026-04-11T23:00:00Z",
       "status": "encerrada",
@@ -4813,7 +6181,7 @@
       }
     },
     {
-      "id": 346327,
+      "id": 554845,
       "rodada": 11,
       "inicio_em": "2026-04-11T23:30:00Z",
       "status": "encerrada",
@@ -4825,7 +6193,7 @@
       }
     },
     {
-      "id": 346328,
+      "id": 554840,
       "rodada": 11,
       "inicio_em": "2026-04-12T14:00:00Z",
       "status": "encerrada",
@@ -4837,7 +6205,7 @@
       }
     },
     {
-      "id": 346322,
+      "id": 554841,
       "rodada": 11,
       "inicio_em": "2026-04-12T19:00:00Z",
       "status": "encerrada",
@@ -4849,7 +6217,7 @@
       }
     },
     {
-      "id": 346321,
+      "id": 554844,
       "rodada": 11,
       "inicio_em": "2026-04-12T21:00:00Z",
       "status": "encerrada",
@@ -4861,7 +6229,7 @@
       }
     },
     {
-      "id": 346324,
+      "id": 554842,
       "rodada": 11,
       "inicio_em": "2026-04-12T21:30:00Z",
       "status": "encerrada",
@@ -4873,7 +6241,7 @@
       }
     },
     {
-      "id": 346326,
+      "id": 554843,
       "rodada": 11,
       "inicio_em": "2026-04-12T21:30:00Z",
       "status": "encerrada",
@@ -4885,19 +6253,7 @@
       }
     },
     {
-      "id": 346352,
-      "rodada": 12,
-      "inicio_em": "2026-04-18T21:30:00Z",
-      "status": "encerrada",
-      "mandante": "VAS",
-      "visitante": "SAO",
-      "placar": {
-        "mandante": 2,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346360,
+      "id": 554851,
       "rodada": 12,
       "inicio_em": "2026-04-18T21:30:00Z",
       "status": "encerrada",
@@ -4909,7 +6265,19 @@
       }
     },
     {
-      "id": 346359,
+      "id": 554858,
+      "rodada": 12,
+      "inicio_em": "2026-04-18T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554859,
       "rodada": 12,
       "inicio_em": "2026-04-18T23:00:00Z",
       "status": "encerrada",
@@ -4921,7 +6289,7 @@
       }
     },
     {
-      "id": 346356,
+      "id": 554853,
       "rodada": 12,
       "inicio_em": "2026-04-18T23:30:00Z",
       "status": "encerrada",
@@ -4933,7 +6301,7 @@
       }
     },
     {
-      "id": 346357,
+      "id": 554855,
       "rodada": 12,
       "inicio_em": "2026-04-19T14:00:00Z",
       "status": "encerrada",
@@ -4945,19 +6313,7 @@
       }
     },
     {
-      "id": 346353,
-      "rodada": 12,
-      "inicio_em": "2026-04-19T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "SAN",
-      "visitante": "FLU",
-      "placar": {
-        "mandante": 2,
-        "visitante": 3
-      }
-    },
-    {
-      "id": 346358,
+      "id": 554852,
       "rodada": 12,
       "inicio_em": "2026-04-19T19:00:00Z",
       "status": "encerrada",
@@ -4969,19 +6325,19 @@
       }
     },
     {
-      "id": 346354,
+      "id": 554857,
       "rodada": 12,
-      "inicio_em": "2026-04-19T21:30:00Z",
+      "inicio_em": "2026-04-19T19:00:00Z",
       "status": "encerrada",
-      "mandante": "PAL",
-      "visitante": "CAP",
+      "mandante": "SAN",
+      "visitante": "FLU",
       "placar": {
-        "mandante": 1,
-        "visitante": 0
+        "mandante": 2,
+        "visitante": 3
       }
     },
     {
-      "id": 346355,
+      "id": 554850,
       "rodada": 12,
       "inicio_em": "2026-04-19T21:30:00Z",
       "status": "encerrada",
@@ -4993,7 +6349,19 @@
       }
     },
     {
-      "id": 346351,
+      "id": 554856,
+      "rodada": 12,
+      "inicio_em": "2026-04-19T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "PAL",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554854,
       "rodada": 12,
       "inicio_em": "2026-04-19T22:30:00Z",
       "status": "encerrada",
@@ -5005,19 +6373,7 @@
       }
     },
     {
-      "id": 346376,
-      "rodada": 13,
-      "inicio_em": "2026-04-25T21:30:00Z",
-      "status": "encerrada",
-      "mandante": "BOT",
-      "visitante": "INT",
-      "placar": {
-        "mandante": 2,
-        "visitante": 2
-      }
-    },
-    {
-      "id": 346389,
+      "id": 554862,
       "rodada": 13,
       "inicio_em": "2026-04-25T21:30:00Z",
       "status": "encerrada",
@@ -5029,7 +6385,19 @@
       }
     },
     {
-      "id": 346390,
+      "id": 554863,
+      "rodada": 13,
+      "inicio_em": "2026-04-25T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "INT",
+      "placar": {
+        "mandante": 2,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 554868,
       "rodada": 13,
       "inicio_em": "2026-04-25T21:30:00Z",
       "status": "encerrada",
@@ -5041,7 +6409,7 @@
       }
     },
     {
-      "id": 346378,
+      "id": 554869,
       "rodada": 13,
       "inicio_em": "2026-04-26T00:00:00Z",
       "status": "encerrada",
@@ -5053,7 +6421,7 @@
       }
     },
     {
-      "id": 346380,
+      "id": 554865,
       "rodada": 13,
       "inicio_em": "2026-04-26T19:00:00Z",
       "status": "encerrada",
@@ -5065,7 +6433,7 @@
       }
     },
     {
-      "id": 346386,
+      "id": 554867,
       "rodada": 13,
       "inicio_em": "2026-04-26T19:00:00Z",
       "status": "encerrada",
@@ -5077,19 +6445,7 @@
       }
     },
     {
-      "id": 346382,
-      "rodada": 13,
-      "inicio_em": "2026-04-26T21:30:00Z",
-      "status": "encerrada",
-      "mandante": "RBB",
-      "visitante": "PAL",
-      "placar": {
-        "mandante": 0,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346388,
+      "id": 554860,
       "rodada": 13,
       "inicio_em": "2026-04-26T21:30:00Z",
       "status": "encerrada",
@@ -5101,19 +6457,19 @@
       }
     },
     {
-      "id": 346374,
+      "id": 554864,
       "rodada": 13,
-      "inicio_em": "2026-04-26T23:30:00Z",
+      "inicio_em": "2026-04-26T21:30:00Z",
       "status": "encerrada",
-      "mandante": "FLU",
-      "visitante": "CHA",
+      "mandante": "RBB",
+      "visitante": "PAL",
       "placar": {
-        "mandante": 2,
+        "mandante": 0,
         "visitante": 1
       }
     },
     {
-      "id": 346384,
+      "id": 554861,
       "rodada": 13,
       "inicio_em": "2026-04-26T23:30:00Z",
       "status": "encerrada",
@@ -5125,7 +6481,19 @@
       }
     },
     {
-      "id": 346412,
+      "id": 554866,
+      "rodada": 13,
+      "inicio_em": "2026-04-26T23:30:00Z",
+      "status": "encerrada",
+      "mandante": "FLU",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554871,
       "rodada": 14,
       "inicio_em": "2026-05-02T19:00:00Z",
       "status": "encerrada",
@@ -5137,7 +6505,7 @@
       }
     },
     {
-      "id": 346414,
+      "id": 554877,
       "rodada": 14,
       "inicio_em": "2026-05-02T21:30:00Z",
       "status": "encerrada",
@@ -5149,7 +6517,7 @@
       }
     },
     {
-      "id": 346419,
+      "id": 554879,
       "rodada": 14,
       "inicio_em": "2026-05-02T21:30:00Z",
       "status": "encerrada",
@@ -5161,7 +6529,7 @@
       }
     },
     {
-      "id": 346418,
+      "id": 554870,
       "rodada": 14,
       "inicio_em": "2026-05-02T23:30:00Z",
       "status": "encerrada",
@@ -5173,7 +6541,7 @@
       }
     },
     {
-      "id": 346416,
+      "id": 554873,
       "rodada": 14,
       "inicio_em": "2026-05-03T00:00:00Z",
       "status": "encerrada",
@@ -5185,7 +6553,7 @@
       }
     },
     {
-      "id": 346411,
+      "id": 554874,
       "rodada": 14,
       "inicio_em": "2026-05-03T19:00:00Z",
       "status": "encerrada",
@@ -5197,7 +6565,7 @@
       }
     },
     {
-      "id": 346413,
+      "id": 554878,
       "rodada": 14,
       "inicio_em": "2026-05-03T19:00:00Z",
       "status": "encerrada",
@@ -5209,19 +6577,7 @@
       }
     },
     {
-      "id": 346417,
-      "rodada": 14,
-      "inicio_em": "2026-05-03T21:30:00Z",
-      "status": "encerrada",
-      "mandante": "INT",
-      "visitante": "FLU",
-      "placar": {
-        "mandante": 2,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346420,
+      "id": 554872,
       "rodada": 14,
       "inicio_em": "2026-05-03T21:30:00Z",
       "status": "encerrada",
@@ -5233,7 +6589,19 @@
       }
     },
     {
-      "id": 346415,
+      "id": 554875,
+      "rodada": 14,
+      "inicio_em": "2026-05-03T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554876,
       "rodada": 14,
       "inicio_em": "2026-05-03T23:30:00Z",
       "status": "encerrada",
@@ -5245,7 +6613,7 @@
       }
     },
     {
-      "id": 346432,
+      "id": 554883,
       "rodada": 15,
       "inicio_em": "2026-05-09T19:00:00Z",
       "status": "encerrada",
@@ -5257,7 +6625,7 @@
       }
     },
     {
-      "id": 346425,
+      "id": 554884,
       "rodada": 15,
       "inicio_em": "2026-05-09T21:00:00Z",
       "status": "encerrada",
@@ -5269,7 +6637,7 @@
       }
     },
     {
-      "id": 346433,
+      "id": 554881,
       "rodada": 15,
       "inicio_em": "2026-05-10T00:00:00Z",
       "status": "encerrada",
@@ -5281,7 +6649,7 @@
       }
     },
     {
-      "id": 346430,
+      "id": 554880,
       "rodada": 15,
       "inicio_em": "2026-05-10T19:00:00Z",
       "status": "encerrada",
@@ -5293,9 +6661,9 @@
       }
     },
     {
-      "id": 346434,
+      "id": 554887,
       "rodada": 15,
-      "inicio_em": "2026-05-10T19:00:00Z",
+      "inicio_em": "2026-05-10T20:40:00Z",
       "status": "encerrada",
       "mandante": "REM",
       "visitante": "PAL",
@@ -5305,19 +6673,7 @@
       }
     },
     {
-      "id": 346427,
-      "rodada": 15,
-      "inicio_em": "2026-05-10T21:30:00Z",
-      "status": "encerrada",
-      "mandante": "SAN",
-      "visitante": "RBB",
-      "placar": {
-        "mandante": 2,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346428,
+      "id": 554882,
       "rodada": 15,
       "inicio_em": "2026-05-10T21:30:00Z",
       "status": "encerrada",
@@ -5329,7 +6685,7 @@
       }
     },
     {
-      "id": 346429,
+      "id": 554886,
       "rodada": 15,
       "inicio_em": "2026-05-10T21:30:00Z",
       "status": "encerrada",
@@ -5341,7 +6697,19 @@
       }
     },
     {
-      "id": 346431,
+      "id": 554888,
+      "rodada": 15,
+      "inicio_em": "2026-05-10T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": 2,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554885,
       "rodada": 15,
       "inicio_em": "2026-05-10T22:30:00Z",
       "status": "encerrada",
@@ -5353,7 +6721,7 @@
       }
     },
     {
-      "id": 346426,
+      "id": 554889,
       "rodada": 15,
       "inicio_em": "2026-05-10T23:30:00Z",
       "status": "encerrada",
@@ -5365,7 +6733,7 @@
       }
     },
     {
-      "id": 346460,
+      "id": 554891,
       "rodada": 16,
       "inicio_em": "2026-05-16T21:30:00Z",
       "status": "encerrada",
@@ -5377,7 +6745,7 @@
       }
     },
     {
-      "id": 346461,
+      "id": 554897,
       "rodada": 16,
       "inicio_em": "2026-05-16T21:30:00Z",
       "status": "encerrada",
@@ -5389,7 +6757,7 @@
       }
     },
     {
-      "id": 346455,
+      "id": 554896,
       "rodada": 16,
       "inicio_em": "2026-05-16T22:00:00Z",
       "status": "encerrada",
@@ -5401,7 +6769,7 @@
       }
     },
     {
-      "id": 346458,
+      "id": 554898,
       "rodada": 16,
       "inicio_em": "2026-05-17T00:00:00Z",
       "status": "encerrada",
@@ -5413,7 +6781,7 @@
       }
     },
     {
-      "id": 346457,
+      "id": 554899,
       "rodada": 16,
       "inicio_em": "2026-05-17T14:00:00Z",
       "status": "encerrada",
@@ -5425,19 +6793,7 @@
       }
     },
     {
-      "id": 346456,
-      "rodada": 16,
-      "inicio_em": "2026-05-17T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "BOT",
-      "visitante": "COR",
-      "placar": {
-        "mandante": 3,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346463,
+      "id": 554892,
       "rodada": 16,
       "inicio_em": "2026-05-17T19:00:00Z",
       "status": "encerrada",
@@ -5449,7 +6805,19 @@
       }
     },
     {
-      "id": 346459,
+      "id": 554893,
+      "rodada": 16,
+      "inicio_em": "2026-05-17T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "BOT",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 3,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554894,
       "rodada": 16,
       "inicio_em": "2026-05-17T21:30:00Z",
       "status": "encerrada",
@@ -5461,7 +6829,7 @@
       }
     },
     {
-      "id": 346464,
+      "id": 554895,
       "rodada": 16,
       "inicio_em": "2026-05-17T21:30:00Z",
       "status": "encerrada",
@@ -5473,7 +6841,7 @@
       }
     },
     {
-      "id": 346462,
+      "id": 554890,
       "rodada": 16,
       "inicio_em": "2026-05-17T22:30:00Z",
       "status": "encerrada",
@@ -5485,7 +6853,7 @@
       }
     },
     {
-      "id": 346487,
+      "id": 554907,
       "rodada": 17,
       "inicio_em": "2026-05-23T20:00:00Z",
       "status": "encerrada",
@@ -5497,7 +6865,7 @@
       }
     },
     {
-      "id": 346493,
+      "id": 554909,
       "rodada": 17,
       "inicio_em": "2026-05-23T20:00:00Z",
       "status": "encerrada",
@@ -5509,19 +6877,7 @@
       }
     },
     {
-      "id": 346489,
-      "rodada": 17,
-      "inicio_em": "2026-05-23T22:00:00Z",
-      "status": "encerrada",
-      "mandante": "MIR",
-      "visitante": "FLU",
-      "placar": {
-        "mandante": 1,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346491,
+      "id": 554904,
       "rodada": 17,
       "inicio_em": "2026-05-23T22:00:00Z",
       "status": "encerrada",
@@ -5533,7 +6889,19 @@
       }
     },
     {
-      "id": 346485,
+      "id": 554905,
+      "rodada": 17,
+      "inicio_em": "2026-05-23T22:00:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554903,
       "rodada": 17,
       "inicio_em": "2026-05-24T00:00:00Z",
       "status": "encerrada",
@@ -5545,7 +6913,7 @@
       }
     },
     {
-      "id": 346490,
+      "id": 554902,
       "rodada": 17,
       "inicio_em": "2026-05-24T19:00:00Z",
       "status": "encerrada",
@@ -5557,7 +6925,7 @@
       }
     },
     {
-      "id": 346494,
+      "id": 554906,
       "rodada": 17,
       "inicio_em": "2026-05-24T19:00:00Z",
       "status": "encerrada",
@@ -5569,7 +6937,7 @@
       }
     },
     {
-      "id": 346488,
+      "id": 554900,
       "rodada": 17,
       "inicio_em": "2026-05-24T21:30:00Z",
       "status": "encerrada",
@@ -5581,7 +6949,7 @@
       }
     },
     {
-      "id": 346486,
+      "id": 554908,
       "rodada": 17,
       "inicio_em": "2026-05-24T23:30:00Z",
       "status": "encerrada",
@@ -5593,7 +6961,7 @@
       }
     },
     {
-      "id": 346492,
+      "id": 554901,
       "rodada": 17,
       "inicio_em": "2026-05-25T23:00:00Z",
       "status": "encerrada",
@@ -5605,19 +6973,7 @@
       }
     },
     {
-      "id": 346505,
-      "rodada": 18,
-      "inicio_em": "2026-05-30T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "FLA",
-      "visitante": "CFC",
-      "placar": {
-        "mandante": 3,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346512,
+      "id": 554910,
       "rodada": 18,
       "inicio_em": "2026-05-30T19:00:00Z",
       "status": "encerrada",
@@ -5629,19 +6985,19 @@
       }
     },
     {
-      "id": 346511,
+      "id": 554914,
       "rodada": 18,
-      "inicio_em": "2026-05-30T20:30:00Z",
+      "inicio_em": "2026-05-30T19:00:00Z",
       "status": "encerrada",
-      "mandante": "GRE",
-      "visitante": "COR",
+      "mandante": "FLA",
+      "visitante": "CFC",
       "placar": {
-        "mandante": 1,
-        "visitante": 3
+        "mandante": 3,
+        "visitante": 0
       }
     },
     {
-      "id": 346513,
+      "id": 554911,
       "rodada": 18,
       "inicio_em": "2026-05-30T20:30:00Z",
       "status": "encerrada",
@@ -5653,7 +7009,19 @@
       }
     },
     {
-      "id": 346507,
+      "id": 554915,
+      "rodada": 18,
+      "inicio_em": "2026-05-30T20:30:00Z",
+      "status": "encerrada",
+      "mandante": "GRE",
+      "visitante": "COR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 554918,
       "rodada": 18,
       "inicio_em": "2026-05-30T23:00:00Z",
       "status": "encerrada",
@@ -5665,7 +7033,7 @@
       }
     },
     {
-      "id": 346509,
+      "id": 554912,
       "rodada": 18,
       "inicio_em": "2026-05-31T14:00:00Z",
       "status": "encerrada",
@@ -5677,19 +7045,7 @@
       }
     },
     {
-      "id": 346506,
-      "rodada": 18,
-      "inicio_em": "2026-05-31T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "VAS",
-      "visitante": "CAM",
-      "placar": {
-        "mandante": 0,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346508,
+      "id": 554916,
       "rodada": 18,
       "inicio_em": "2026-05-31T19:00:00Z",
       "status": "encerrada",
@@ -5701,7 +7057,19 @@
       }
     },
     {
-      "id": 346510,
+      "id": 554919,
+      "rodada": 18,
+      "inicio_em": "2026-05-31T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "CAM",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554913,
       "rodada": 18,
       "inicio_em": "2026-05-31T23:30:00Z",
       "status": "encerrada",
@@ -5713,7 +7081,7 @@
       }
     },
     {
-      "id": 346514,
+      "id": 554917,
       "rodada": 18,
       "inicio_em": "2026-05-31T23:30:00Z",
       "status": "encerrada",
@@ -5725,7 +7093,7 @@
       }
     },
     {
-      "id": 346536,
+      "id": 554921,
       "rodada": 19,
       "inicio_em": "2026-07-16T22:30:00Z",
       "status": "encerrada",
@@ -5737,7 +7105,7 @@
       }
     },
     {
-      "id": 346543,
+      "id": 554929,
       "rodada": 19,
       "inicio_em": "2026-07-16T22:30:00Z",
       "status": "encerrada",
@@ -5749,7 +7117,7 @@
       }
     },
     {
-      "id": 346535,
+      "id": 554925,
       "rodada": 19,
       "inicio_em": "2026-07-17T23:00:00Z",
       "status": "encerrada",
@@ -5761,7 +7129,7 @@
       }
     },
     {
-      "id": 346539,
+      "id": 554927,
       "rodada": 19,
       "inicio_em": "2026-07-17T23:00:00Z",
       "status": "encerrada",
@@ -5773,7 +7141,7 @@
       }
     },
     {
-      "id": 346540,
+      "id": 554920,
       "rodada": 19,
       "inicio_em": "2026-07-21T22:30:00Z",
       "status": "encerrada",
@@ -5785,7 +7153,7 @@
       }
     },
     {
-      "id": 346542,
+      "id": 554924,
       "rodada": 19,
       "inicio_em": "2026-07-22T22:30:00Z",
       "status": "encerrada",
@@ -5797,31 +7165,7 @@
       }
     },
     {
-      "id": 346537,
-      "rodada": 19,
-      "inicio_em": "2026-07-23T00:30:00Z",
-      "status": "encerrada",
-      "mandante": "SAO",
-      "visitante": "CAP",
-      "placar": {
-        "mandante": 1,
-        "visitante": 2
-      }
-    },
-    {
-      "id": 346541,
-      "rodada": 19,
-      "inicio_em": "2026-07-23T00:30:00Z",
-      "status": "encerrada",
-      "mandante": "INT",
-      "visitante": "CRU",
-      "placar": {
-        "mandante": 1,
-        "visitante": 2
-      }
-    },
-    {
-      "id": 346544,
+      "id": 554922,
       "rodada": 19,
       "inicio_em": "2026-07-23T00:30:00Z",
       "status": "encerrada",
@@ -5833,7 +7177,31 @@
       }
     },
     {
-      "id": 346538,
+      "id": 554926,
+      "rodada": 19,
+      "inicio_em": "2026-07-23T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "INT",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 554928,
+      "rodada": 19,
+      "inicio_em": "2026-07-23T00:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAO",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 1,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 554923,
       "rodada": 19,
       "inicio_em": "2026-07-23T22:30:00Z",
       "status": "encerrada",
@@ -5845,7 +7213,7 @@
       }
     },
     {
-      "id": 346268,
+      "id": 554930,
       "rodada": 20,
       "inicio_em": "2026-07-25T21:30:00Z",
       "status": "encerrada",
@@ -5857,7 +7225,7 @@
       }
     },
     {
-      "id": 346423,
+      "id": 554938,
       "rodada": 20,
       "inicio_em": "2026-07-25T21:30:00Z",
       "status": "encerrada",
@@ -5869,7 +7237,7 @@
       }
     },
     {
-      "id": 346422,
+      "id": 554939,
       "rodada": 20,
       "inicio_em": "2026-07-25T23:30:00Z",
       "status": "encerrada",
@@ -5881,19 +7249,7 @@
       }
     },
     {
-      "id": 346266,
-      "rodada": 20,
-      "inicio_em": "2026-07-26T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "CRU",
-      "visitante": "BOT",
-      "placar": {
-        "mandante": 0,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346269,
+      "id": 554931,
       "rodada": 20,
       "inicio_em": "2026-07-26T19:00:00Z",
       "status": "encerrada",
@@ -5905,7 +7261,19 @@
       }
     },
     {
-      "id": 346265,
+      "id": 554933,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "CRU",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": 0,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554932,
       "rodada": 20,
       "inicio_em": "2026-07-26T21:30:00Z",
       "status": "encerrada",
@@ -5917,19 +7285,7 @@
       }
     },
     {
-      "id": 346267,
-      "rodada": 20,
-      "inicio_em": "2026-07-26T21:30:00Z",
-      "status": "encerrada",
-      "mandante": "GRE",
-      "visitante": "FLU",
-      "placar": {
-        "mandante": 1,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346421,
+      "id": 554934,
       "rodada": 20,
       "inicio_em": "2026-07-26T21:30:00Z",
       "status": "encerrada",
@@ -5941,19 +7297,19 @@
       }
     },
     {
-      "id": 346270,
+      "id": 554935,
       "rodada": 20,
-      "inicio_em": "2026-07-26T22:30:00Z",
+      "inicio_em": "2026-07-26T21:30:00Z",
       "status": "encerrada",
-      "mandante": "REM",
-      "visitante": "VIT",
+      "mandante": "GRE",
+      "visitante": "FLU",
       "placar": {
-        "mandante": 2,
-        "visitante": 0
+        "mandante": 1,
+        "visitante": 1
       }
     },
     {
-      "id": 346424,
+      "id": 554936,
       "rodada": 20,
       "inicio_em": "2026-07-26T22:30:00Z",
       "status": "encerrada",
@@ -5965,19 +7321,55 @@
       }
     },
     {
-      "id": 346285,
-      "rodada": 21,
-      "inicio_em": "2026-07-29T22:30:00Z",
+      "id": 554937,
+      "rodada": 20,
+      "inicio_em": "2026-07-26T22:30:00Z",
       "status": "encerrada",
-      "mandante": "MIR",
-      "visitante": "REM",
+      "mandante": "REM",
+      "visitante": "VIT",
       "placar": {
         "mandante": 2,
-        "visitante": 1
+        "visitante": 0
       }
     },
     {
-      "id": 346287,
+      "id": 554940,
+      "rodada": 21,
+      "inicio_em": "2026-07-29T00:00:00Z",
+      "status": "adiada",
+      "mandante": "CAM",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 554942,
+      "rodada": 21,
+      "inicio_em": "2026-07-29T00:00:00Z",
+      "status": "adiada",
+      "mandante": "CHA",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 554948,
+      "rodada": 21,
+      "inicio_em": "2026-07-29T00:00:00Z",
+      "status": "adiada",
+      "mandante": "SAO",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 554946,
       "rodada": 21,
       "inicio_em": "2026-07-29T22:30:00Z",
       "status": "encerrada",
@@ -5989,7 +7381,19 @@
       }
     },
     {
-      "id": 346281,
+      "id": 554947,
+      "rodada": 21,
+      "inicio_em": "2026-07-29T22:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "REM",
+      "placar": {
+        "mandante": 2,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554945,
       "rodada": 21,
       "inicio_em": "2026-07-30T00:30:00Z",
       "status": "encerrada",
@@ -6001,7 +7405,7 @@
       }
     },
     {
-      "id": 346289,
+      "id": 554949,
       "rodada": 21,
       "inicio_em": "2026-07-30T00:30:00Z",
       "status": "encerrada",
@@ -6013,7 +7417,7 @@
       }
     },
     {
-      "id": 346284,
+      "id": 554943,
       "rodada": 21,
       "inicio_em": "2026-07-30T22:30:00Z",
       "status": "encerrada",
@@ -6025,7 +7429,7 @@
       }
     },
     {
-      "id": 346288,
+      "id": 554944,
       "rodada": 21,
       "inicio_em": "2026-07-31T00:30:00Z",
       "status": "encerrada",
@@ -6037,7 +7441,7 @@
       }
     },
     {
-      "id": 346282,
+      "id": 554941,
       "rodada": 21,
       "inicio_em": "2026-09-16T22:30:00Z",
       "status": "agendada",
@@ -6049,7 +7453,7 @@
       }
     },
     {
-      "id": 346317,
+      "id": 554956,
       "rodada": 22,
       "inicio_em": "2026-08-08T19:00:00Z",
       "status": "encerrada",
@@ -6061,7 +7465,7 @@
       }
     },
     {
-      "id": 346320,
+      "id": 554958,
       "rodada": 22,
       "inicio_em": "2026-08-08T21:30:00Z",
       "status": "encerrada",
@@ -6073,7 +7477,7 @@
       }
     },
     {
-      "id": 346318,
+      "id": 554953,
       "rodada": 22,
       "inicio_em": "2026-08-08T23:30:00Z",
       "status": "encerrada",
@@ -6085,7 +7489,7 @@
       }
     },
     {
-      "id": 346312,
+      "id": 554951,
       "rodada": 22,
       "inicio_em": "2026-08-09T00:00:00Z",
       "status": "encerrada",
@@ -6097,7 +7501,7 @@
       }
     },
     {
-      "id": 346316,
+      "id": 554954,
       "rodada": 22,
       "inicio_em": "2026-08-09T14:00:00Z",
       "status": "encerrada",
@@ -6109,19 +7513,7 @@
       }
     },
     {
-      "id": 346314,
-      "rodada": 22,
-      "inicio_em": "2026-08-09T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "PAL",
-      "visitante": "INT",
-      "placar": {
-        "mandante": 0,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346319,
+      "id": 554950,
       "rodada": 22,
       "inicio_em": "2026-08-09T19:00:00Z",
       "status": "encerrada",
@@ -6133,19 +7525,19 @@
       }
     },
     {
-      "id": 346313,
+      "id": 554957,
       "rodada": 22,
-      "inicio_em": "2026-08-09T21:30:00Z",
+      "inicio_em": "2026-08-09T19:00:00Z",
       "status": "encerrada",
-      "mandante": "SAN",
-      "visitante": "CAP",
+      "mandante": "PAL",
+      "visitante": "INT",
       "placar": {
         "mandante": 0,
-        "visitante": 2
+        "visitante": 0
       }
     },
     {
-      "id": 346315,
+      "id": 554952,
       "rodada": 22,
       "inicio_em": "2026-08-09T21:30:00Z",
       "status": "encerrada",
@@ -6157,7 +7549,19 @@
       }
     },
     {
-      "id": 346311,
+      "id": 554959,
+      "rodada": 22,
+      "inicio_em": "2026-08-09T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": 0,
+        "visitante": 2
+      }
+    },
+    {
+      "id": 554955,
       "rodada": 22,
       "inicio_em": "2026-08-09T22:30:00Z",
       "status": "encerrada",
@@ -6169,7 +7573,7 @@
       }
     },
     {
-      "id": 346331,
+      "id": 554964,
       "rodada": 23,
       "inicio_em": "2026-08-15T19:30:00Z",
       "status": "encerrada",
@@ -6181,7 +7585,7 @@
       }
     },
     {
-      "id": 346342,
+      "id": 554960,
       "rodada": 23,
       "inicio_em": "2026-08-15T21:30:00Z",
       "status": "encerrada",
@@ -6193,7 +7597,7 @@
       }
     },
     {
-      "id": 346333,
+      "id": 554967,
       "rodada": 23,
       "inicio_em": "2026-08-16T00:00:00Z",
       "status": "encerrada",
@@ -6205,7 +7609,7 @@
       }
     },
     {
-      "id": 346346,
+      "id": 554962,
       "rodada": 23,
       "inicio_em": "2026-08-16T14:00:00Z",
       "status": "encerrada",
@@ -6217,19 +7621,7 @@
       }
     },
     {
-      "id": 346332,
-      "rodada": 23,
-      "inicio_em": "2026-08-16T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "VAS",
-      "visitante": "SAN",
-      "placar": {
-        "mandante": 0,
-        "visitante": 3
-      }
-    },
-    {
-      "id": 346338,
+      "id": 554961,
       "rodada": 23,
       "inicio_em": "2026-08-16T19:00:00Z",
       "status": "encerrada",
@@ -6241,7 +7633,19 @@
       }
     },
     {
-      "id": 346336,
+      "id": 554968,
+      "rodada": 23,
+      "inicio_em": "2026-08-16T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "VAS",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": 0,
+        "visitante": 3
+      }
+    },
+    {
+      "id": 554966,
       "rodada": 23,
       "inicio_em": "2026-08-16T21:30:00Z",
       "status": "encerrada",
@@ -6253,7 +7657,7 @@
       }
     },
     {
-      "id": 346344,
+      "id": 554969,
       "rodada": 23,
       "inicio_em": "2026-08-16T21:30:00Z",
       "status": "encerrada",
@@ -6265,7 +7669,7 @@
       }
     },
     {
-      "id": 346334,
+      "id": 554963,
       "rodada": 23,
       "inicio_em": "2026-08-16T22:30:00Z",
       "status": "encerrada",
@@ -6277,7 +7681,7 @@
       }
     },
     {
-      "id": 346340,
+      "id": 554965,
       "rodada": 23,
       "inicio_em": "2026-08-17T23:00:00Z",
       "status": "encerrada",
@@ -6289,7 +7693,7 @@
       }
     },
     {
-      "id": 346371,
+      "id": 554975,
       "rodada": 24,
       "inicio_em": "2026-08-22T19:00:00Z",
       "status": "encerrada",
@@ -6301,7 +7705,7 @@
       }
     },
     {
-      "id": 346381,
+      "id": 554976,
       "rodada": 24,
       "inicio_em": "2026-08-22T21:30:00Z",
       "status": "encerrada",
@@ -6313,7 +7717,7 @@
       }
     },
     {
-      "id": 346379,
+      "id": 554974,
       "rodada": 24,
       "inicio_em": "2026-08-22T23:30:00Z",
       "status": "encerrada",
@@ -6325,7 +7729,19 @@
       }
     },
     {
-      "id": 346375,
+      "id": 554971,
+      "rodada": 24,
+      "inicio_em": "2026-08-23T19:00:00Z",
+      "status": "encerrada",
+      "mandante": "RBB",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": 1,
+        "visitante": 0
+      }
+    },
+    {
+      "id": 554977,
       "rodada": 24,
       "inicio_em": "2026-08-23T19:00:00Z",
       "status": "encerrada",
@@ -6337,19 +7753,7 @@
       }
     },
     {
-      "id": 346377,
-      "rodada": 24,
-      "inicio_em": "2026-08-23T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "RBB",
-      "visitante": "GRE",
-      "placar": {
-        "mandante": 1,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346385,
+      "id": 554979,
       "rodada": 24,
       "inicio_em": "2026-08-23T19:00:00Z",
       "status": "encerrada",
@@ -6361,19 +7765,7 @@
       }
     },
     {
-      "id": 346373,
-      "rodada": 24,
-      "inicio_em": "2026-08-23T21:30:00Z",
-      "status": "encerrada",
-      "mandante": "SAN",
-      "visitante": "MIR",
-      "placar": {
-        "mandante": 1,
-        "visitante": 1
-      }
-    },
-    {
-      "id": 346387,
+      "id": 554972,
       "rodada": 24,
       "inicio_em": "2026-08-23T21:30:00Z",
       "status": "encerrada",
@@ -6385,7 +7777,19 @@
       }
     },
     {
-      "id": 346383,
+      "id": 554978,
+      "rodada": 24,
+      "inicio_em": "2026-08-23T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "SAN",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554973,
       "rodada": 24,
       "inicio_em": "2026-08-23T22:30:00Z",
       "status": "encerrada",
@@ -6397,7 +7801,7 @@
       }
     },
     {
-      "id": 346372,
+      "id": 554970,
       "rodada": 24,
       "inicio_em": "2026-08-24T23:00:00Z",
       "status": "encerrada",
@@ -6409,7 +7813,7 @@
       }
     },
     {
-      "id": 346450,
+      "id": 554981,
       "rodada": 25,
       "inicio_em": "2026-08-29T21:30:00Z",
       "status": "encerrada",
@@ -6421,7 +7825,7 @@
       }
     },
     {
-      "id": 346447,
+      "id": 554988,
       "rodada": 25,
       "inicio_em": "2026-08-29T23:00:00Z",
       "status": "encerrada",
@@ -6433,7 +7837,7 @@
       }
     },
     {
-      "id": 346446,
+      "id": 554989,
       "rodada": 25,
       "inicio_em": "2026-08-30T00:20:00Z",
       "status": "encerrada",
@@ -6445,7 +7849,7 @@
       }
     },
     {
-      "id": 346452,
+      "id": 554980,
       "rodada": 25,
       "inicio_em": "2026-08-30T14:00:00Z",
       "status": "encerrada",
@@ -6457,19 +7861,7 @@
       }
     },
     {
-      "id": 346445,
-      "rodada": 25,
-      "inicio_em": "2026-08-30T19:00:00Z",
-      "status": "encerrada",
-      "mandante": "FLA",
-      "visitante": "BOT",
-      "placar": {
-        "mandante": 3,
-        "visitante": 0
-      }
-    },
-    {
-      "id": 346448,
+      "id": 554983,
       "rodada": 25,
       "inicio_em": "2026-08-30T19:00:00Z",
       "status": "encerrada",
@@ -6481,19 +7873,19 @@
       }
     },
     {
-      "id": 346449,
+      "id": 554984,
       "rodada": 25,
-      "inicio_em": "2026-08-30T21:30:00Z",
+      "inicio_em": "2026-08-30T19:00:00Z",
       "status": "encerrada",
-      "mandante": "MIR",
-      "visitante": "PAL",
+      "mandante": "FLA",
+      "visitante": "BOT",
       "placar": {
-        "mandante": 1,
-        "visitante": 1
+        "mandante": 3,
+        "visitante": 0
       }
     },
     {
-      "id": 346451,
+      "id": 554985,
       "rodada": 25,
       "inicio_em": "2026-08-30T21:30:00Z",
       "status": "encerrada",
@@ -6505,7 +7897,19 @@
       }
     },
     {
-      "id": 346453,
+      "id": 554986,
+      "rodada": 25,
+      "inicio_em": "2026-08-30T21:30:00Z",
+      "status": "encerrada",
+      "mandante": "MIR",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": 1,
+        "visitante": 1
+      }
+    },
+    {
+      "id": 554982,
       "rodada": 25,
       "inicio_em": "2026-08-30T22:30:00Z",
       "status": "encerrada",
@@ -6517,7 +7921,7 @@
       }
     },
     {
-      "id": 346454,
+      "id": 554987,
       "rodada": 25,
       "inicio_em": "2026-08-31T23:00:00Z",
       "status": "encerrada",
@@ -6529,7 +7933,7 @@
       }
     },
     {
-      "id": 346499,
+      "id": 554991,
       "rodada": 26,
       "inicio_em": "2026-09-05T19:00:00Z",
       "status": "encerrada",
@@ -6541,7 +7945,7 @@
       }
     },
     {
-      "id": 346497,
+      "id": 554998,
       "rodada": 26,
       "inicio_em": "2026-09-05T21:30:00Z",
       "status": "encerrada",
@@ -6553,7 +7957,7 @@
       }
     },
     {
-      "id": 346495,
+      "id": 554995,
       "rodada": 26,
       "inicio_em": "2026-09-06T00:00:00Z",
       "status": "encerrada",
@@ -6565,7 +7969,7 @@
       }
     },
     {
-      "id": 346502,
+      "id": 554993,
       "rodada": 26,
       "inicio_em": "2026-09-06T14:00:00Z",
       "status": "encerrada",
@@ -6577,7 +7981,7 @@
       }
     },
     {
-      "id": 346500,
+      "id": 554994,
       "rodada": 26,
       "inicio_em": "2026-09-06T19:00:00Z",
       "status": "encerrada",
@@ -6589,7 +7993,7 @@
       }
     },
     {
-      "id": 346501,
+      "id": 554996,
       "rodada": 26,
       "inicio_em": "2026-09-06T19:00:00Z",
       "status": "encerrada",
@@ -6601,7 +8005,7 @@
       }
     },
     {
-      "id": 346504,
+      "id": 554997,
       "rodada": 26,
       "inicio_em": "2026-09-06T19:00:00Z",
       "status": "encerrada",
@@ -6613,7 +8017,7 @@
       }
     },
     {
-      "id": 346496,
+      "id": 554990,
       "rodada": 26,
       "inicio_em": "2026-09-06T21:30:00Z",
       "status": "encerrada",
@@ -6625,7 +8029,7 @@
       }
     },
     {
-      "id": 346498,
+      "id": 554992,
       "rodada": 26,
       "inicio_em": "2026-09-06T22:30:00Z",
       "status": "encerrada",
@@ -6637,7 +8041,7 @@
       }
     },
     {
-      "id": 346503,
+      "id": 554999,
       "rodada": 26,
       "inicio_em": "2026-09-07T23:00:00Z",
       "status": "encerrada",
@@ -6649,7 +8053,7 @@
       }
     },
     {
-      "id": 346522,
+      "id": 555004,
       "rodada": 27,
       "inicio_em": "2026-09-12T00:00:00Z",
       "status": "encerrada",
@@ -6661,7 +8065,7 @@
       }
     },
     {
-      "id": 346520,
+      "id": 555000,
       "rodada": 27,
       "inicio_em": "2026-09-12T19:00:00Z",
       "status": "encerrada",
@@ -6673,7 +8077,7 @@
       }
     },
     {
-      "id": 346521,
+      "id": 555006,
       "rodada": 27,
       "inicio_em": "2026-09-12T19:00:00Z",
       "status": "encerrada",
@@ -6685,7 +8089,7 @@
       }
     },
     {
-      "id": 346524,
+      "id": 555003,
       "rodada": 27,
       "inicio_em": "2026-09-12T20:00:00Z",
       "status": "encerrada",
@@ -6697,7 +8101,7 @@
       }
     },
     {
-      "id": 346518,
+      "id": 555008,
       "rodada": 27,
       "inicio_em": "2026-09-12T21:30:00Z",
       "status": "encerrada",
@@ -6709,7 +8113,7 @@
       }
     },
     {
-      "id": 346516,
+      "id": 555002,
       "rodada": 27,
       "inicio_em": "2026-09-12T23:30:00Z",
       "status": "encerrada",
@@ -6721,7 +8125,7 @@
       }
     },
     {
-      "id": 346517,
+      "id": 555009,
       "rodada": 27,
       "inicio_em": "2026-09-13T00:00:00Z",
       "status": "encerrada",
@@ -6733,7 +8137,7 @@
       }
     },
     {
-      "id": 346519,
+      "id": 555007,
       "rodada": 27,
       "inicio_em": "2026-09-13T19:00:00Z",
       "status": "encerrada",
@@ -6745,7 +8149,7 @@
       }
     },
     {
-      "id": 346515,
+      "id": 555005,
       "rodada": 27,
       "inicio_em": "2026-09-13T20:30:00Z",
       "status": "encerrada",
@@ -6757,19 +8161,19 @@
       }
     },
     {
-      "id": 346523,
+      "id": 555001,
       "rodada": 27,
       "inicio_em": "2026-09-14T23:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "BAH",
       "visitante": "REM",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
-      "id": 346550,
+      "id": 555011,
       "rodada": 28,
       "inicio_em": "2026-09-19T19:00:00Z",
       "status": "agendada",
@@ -6781,7 +8185,7 @@
       }
     },
     {
-      "id": 346549,
+      "id": 555015,
       "rodada": 28,
       "inicio_em": "2026-09-19T20:00:00Z",
       "status": "agendada",
@@ -6793,7 +8197,7 @@
       }
     },
     {
-      "id": 346554,
+      "id": 555016,
       "rodada": 28,
       "inicio_em": "2026-09-19T21:30:00Z",
       "status": "agendada",
@@ -6805,7 +8209,7 @@
       }
     },
     {
-      "id": 346546,
+      "id": 555018,
       "rodada": 28,
       "inicio_em": "2026-09-19T23:30:00Z",
       "status": "agendada",
@@ -6817,7 +8221,7 @@
       }
     },
     {
-      "id": 346547,
+      "id": 555017,
       "rodada": 28,
       "inicio_em": "2026-09-20T00:00:00Z",
       "status": "agendada",
@@ -6829,7 +8233,7 @@
       }
     },
     {
-      "id": 346551,
+      "id": 555014,
       "rodada": 28,
       "inicio_em": "2026-09-20T14:00:00Z",
       "status": "agendada",
@@ -6841,7 +8245,7 @@
       }
     },
     {
-      "id": 346548,
+      "id": 555012,
       "rodada": 28,
       "inicio_em": "2026-09-20T19:00:00Z",
       "status": "agendada",
@@ -6853,7 +8257,7 @@
       }
     },
     {
-      "id": 346553,
+      "id": 555019,
       "rodada": 28,
       "inicio_em": "2026-09-20T19:00:00Z",
       "status": "agendada",
@@ -6865,7 +8269,7 @@
       }
     },
     {
-      "id": 346545,
+      "id": 555013,
       "rodada": 28,
       "inicio_em": "2026-09-20T21:30:00Z",
       "status": "agendada",
@@ -6877,7 +8281,7 @@
       }
     },
     {
-      "id": 346552,
+      "id": 555010,
       "rodada": 28,
       "inicio_em": "2026-09-20T22:30:00Z",
       "status": "agendada",
@@ -6889,7 +8293,7 @@
       }
     },
     {
-      "id": 346579,
+      "id": 555022,
       "rodada": 29,
       "inicio_em": "2026-10-07T22:30:00Z",
       "status": "agendada",
@@ -6901,7 +8305,7 @@
       }
     },
     {
-      "id": 346581,
+      "id": 555025,
       "rodada": 29,
       "inicio_em": "2026-10-07T22:30:00Z",
       "status": "agendada",
@@ -6913,7 +8317,7 @@
       }
     },
     {
-      "id": 346584,
+      "id": 555027,
       "rodada": 29,
       "inicio_em": "2026-10-07T22:30:00Z",
       "status": "agendada",
@@ -6925,7 +8329,7 @@
       }
     },
     {
-      "id": 346583,
+      "id": 555029,
       "rodada": 29,
       "inicio_em": "2026-10-07T23:00:00Z",
       "status": "agendada",
@@ -6937,7 +8341,7 @@
       }
     },
     {
-      "id": 346576,
+      "id": 555021,
       "rodada": 29,
       "inicio_em": "2026-10-07T23:30:00Z",
       "status": "agendada",
@@ -6949,7 +8353,7 @@
       }
     },
     {
-      "id": 346580,
+      "id": 555023,
       "rodada": 29,
       "inicio_em": "2026-10-08T00:30:00Z",
       "status": "agendada",
@@ -6961,7 +8365,7 @@
       }
     },
     {
-      "id": 346577,
+      "id": 555028,
       "rodada": 29,
       "inicio_em": "2026-10-08T22:30:00Z",
       "status": "agendada",
@@ -6973,7 +8377,7 @@
       }
     },
     {
-      "id": 346582,
+      "id": 555020,
       "rodada": 29,
       "inicio_em": "2026-10-08T23:00:00Z",
       "status": "agendada",
@@ -6985,7 +8389,7 @@
       }
     },
     {
-      "id": 346575,
+      "id": 555024,
       "rodada": 29,
       "inicio_em": "2026-10-09T00:30:00Z",
       "status": "agendada",
@@ -6997,7 +8401,7 @@
       }
     },
     {
-      "id": 346578,
+      "id": 555026,
       "rodada": 29,
       "inicio_em": "2026-10-09T00:30:00Z",
       "status": "agendada",
@@ -7009,7 +8413,7 @@
       }
     },
     {
-      "id": 346556,
+      "id": 555039,
       "rodada": 30,
       "inicio_em": "2026-10-10T20:00:00Z",
       "status": "agendada",
@@ -7021,7 +8425,7 @@
       }
     },
     {
-      "id": 346557,
+      "id": 555038,
       "rodada": 30,
       "inicio_em": "2026-10-11T00:00:00Z",
       "status": "agendada",
@@ -7033,7 +8437,7 @@
       }
     },
     {
-      "id": 346563,
+      "id": 555030,
       "rodada": 30,
       "inicio_em": "2026-10-11T19:00:00Z",
       "status": "agendada",
@@ -7045,7 +8449,7 @@
       }
     },
     {
-      "id": 346555,
+      "id": 555035,
       "rodada": 30,
       "inicio_em": "2026-10-11T20:30:00Z",
       "status": "agendada",
@@ -7057,19 +8461,7 @@
       }
     },
     {
-      "id": 346559,
-      "rodada": 30,
-      "inicio_em": "2026-10-11T20:30:00Z",
-      "status": "agendada",
-      "mandante": "PAL",
-      "visitante": "COR",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346565,
+      "id": 555036,
       "rodada": 30,
       "inicio_em": "2026-10-11T20:30:00Z",
       "status": "agendada",
@@ -7081,19 +8473,19 @@
       }
     },
     {
-      "id": 346567,
+      "id": 555037,
       "rodada": 30,
-      "inicio_em": "2026-10-11T22:30:00Z",
+      "inicio_em": "2026-10-11T20:30:00Z",
       "status": "agendada",
-      "mandante": "CFC",
-      "visitante": "BOT",
+      "mandante": "PAL",
+      "visitante": "COR",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346568,
+      "id": 555031,
       "rodada": 30,
       "inicio_em": "2026-10-11T22:30:00Z",
       "status": "agendada",
@@ -7105,7 +8497,19 @@
       }
     },
     {
-      "id": 346569,
+      "id": 555034,
+      "rodada": 30,
+      "inicio_em": "2026-10-11T22:30:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555033,
       "rodada": 30,
       "inicio_em": "2026-10-12T22:30:00Z",
       "status": "agendada",
@@ -7117,7 +8521,7 @@
       }
     },
     {
-      "id": 346561,
+      "id": 555032,
       "rodada": 30,
       "inicio_em": "2026-10-13T00:00:00Z",
       "status": "agendada",
@@ -7129,93 +8533,9 @@
       }
     },
     {
-      "id": 346525,
+      "id": 555040,
       "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "FLU",
-      "visitante": "SAN",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346526,
-      "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "BOT",
-      "visitante": "CHA",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346527,
-      "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "SAO",
-      "visitante": "VAS",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346528,
-      "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "COR",
-      "visitante": "VIT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346529,
-      "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "MIR",
-      "visitante": "INT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346530,
-      "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CAM",
-      "visitante": "CFC",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346531,
-      "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "GRE",
-      "visitante": "CRU",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346532,
-      "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
+      "inicio_em": "2026-10-17T00:00:00Z",
       "status": "agendada",
       "mandante": "CAP",
       "visitante": "PAL",
@@ -7225,21 +8545,93 @@
       }
     },
     {
-      "id": 346533,
+      "id": 555041,
       "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
+      "inicio_em": "2026-10-17T00:00:00Z",
       "status": "agendada",
-      "mandante": "BAH",
-      "visitante": "FLA",
+      "mandante": "CAM",
+      "visitante": "CFC",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346534,
+      "id": 555042,
       "rodada": 31,
-      "inicio_em": "2026-10-18T15:00:00Z",
+      "inicio_em": "2026-10-17T00:00:00Z",
+      "status": "agendada",
+      "mandante": "BAH",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555043,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T00:00:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555044,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T00:00:00Z",
+      "status": "agendada",
+      "mandante": "COR",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555045,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T00:00:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555046,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T00:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555047,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T00:00:00Z",
+      "status": "agendada",
+      "mandante": "MIR",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555048,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T00:00:00Z",
       "status": "agendada",
       "mandante": "REM",
       "visitante": "RBB",
@@ -7249,9 +8641,57 @@
       }
     },
     {
-      "id": 346465,
+      "id": 555049,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T00:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555050,
       "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
+      "inicio_em": "2026-10-24T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CHA",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555051,
+      "rodada": 32,
+      "inicio_em": "2026-10-24T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555052,
+      "rodada": 32,
+      "inicio_em": "2026-10-24T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555053,
+      "rodada": 32,
+      "inicio_em": "2026-10-24T00:00:00Z",
       "status": "agendada",
       "mandante": "FLA",
       "visitante": "CAM",
@@ -7261,45 +8701,21 @@
       }
     },
     {
-      "id": 346466,
+      "id": 555054,
       "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
+      "inicio_em": "2026-10-24T00:00:00Z",
       "status": "agendada",
-      "mandante": "VAS",
-      "visitante": "COR",
+      "mandante": "INT",
+      "visitante": "BOT",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346467,
+      "id": 555055,
       "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
-      "status": "agendada",
-      "mandante": "SAN",
-      "visitante": "BAH",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346468,
-      "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
-      "status": "agendada",
-      "mandante": "PAL",
-      "visitante": "RBB",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346469,
-      "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
+      "inicio_em": "2026-10-24T00:00:00Z",
       "status": "agendada",
       "mandante": "MIR",
       "visitante": "SAO",
@@ -7309,45 +8725,45 @@
       }
     },
     {
-      "id": 346470,
+      "id": 555056,
       "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
+      "inicio_em": "2026-10-24T00:00:00Z",
       "status": "agendada",
-      "mandante": "CRU",
-      "visitante": "REM",
+      "mandante": "PAL",
+      "visitante": "RBB",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346471,
+      "id": 555057,
       "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
+      "inicio_em": "2026-10-24T00:00:00Z",
       "status": "agendada",
-      "mandante": "INT",
-      "visitante": "BOT",
+      "mandante": "SAN",
+      "visitante": "BAH",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346472,
+      "id": 555058,
       "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
+      "inicio_em": "2026-10-24T00:00:00Z",
       "status": "agendada",
-      "mandante": "CFC",
-      "visitante": "GRE",
+      "mandante": "VAS",
+      "visitante": "COR",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346473,
+      "id": 555059,
       "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
+      "inicio_em": "2026-10-24T00:00:00Z",
       "status": "agendada",
       "mandante": "VIT",
       "visitante": "CAP",
@@ -7357,81 +8773,9 @@
       }
     },
     {
-      "id": 346474,
-      "rodada": 32,
-      "inicio_em": "2026-10-25T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CHA",
-      "visitante": "FLU",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346435,
+      "id": 555060,
       "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
-      "status": "agendada",
-      "mandante": "FLU",
-      "visitante": "INT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346436,
-      "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
-      "status": "agendada",
-      "mandante": "VAS",
-      "visitante": "FLA",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346437,
-      "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
-      "status": "agendada",
-      "mandante": "SAN",
-      "visitante": "PAL",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346438,
-      "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
-      "status": "agendada",
-      "mandante": "COR",
-      "visitante": "MIR",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346439,
-      "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
-      "status": "agendada",
-      "mandante": "RBB",
-      "visitante": "CHA",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346440,
-      "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
+      "inicio_em": "2026-10-28T00:00:00Z",
       "status": "agendada",
       "mandante": "CAM",
       "visitante": "CRU",
@@ -7441,33 +8785,9 @@
       }
     },
     {
-      "id": 346441,
+      "id": 555061,
       "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
-      "status": "agendada",
-      "mandante": "GRE",
-      "visitante": "CAP",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346442,
-      "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CFC",
-      "visitante": "VIT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346443,
-      "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
+      "inicio_em": "2026-10-28T00:00:00Z",
       "status": "agendada",
       "mandante": "BAH",
       "visitante": "SAO",
@@ -7477,9 +8797,69 @@
       }
     },
     {
-      "id": 346444,
+      "id": 555062,
       "rodada": 33,
-      "inicio_em": "2026-10-28T15:00:00Z",
+      "inicio_em": "2026-10-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555063,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "COR",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555064,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555065,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555066,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555067,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T00:00:00Z",
       "status": "agendada",
       "mandante": "REM",
       "visitante": "BOT",
@@ -7489,93 +8869,33 @@
       }
     },
     {
-      "id": 346391,
-      "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
+      "id": 555068,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T00:00:00Z",
       "status": "agendada",
-      "mandante": "FLA",
-      "visitante": "GRE",
+      "mandante": "SAN",
+      "visitante": "PAL",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346392,
-      "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
+      "id": 555069,
+      "rodada": 33,
+      "inicio_em": "2026-10-28T00:00:00Z",
       "status": "agendada",
-      "mandante": "BOT",
-      "visitante": "CAM",
+      "mandante": "VAS",
+      "visitante": "FLA",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346393,
+      "id": 555070,
       "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
-      "status": "agendada",
-      "mandante": "SAO",
-      "visitante": "COR",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346394,
-      "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
-      "status": "agendada",
-      "mandante": "PAL",
-      "visitante": "REM",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346395,
-      "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
-      "status": "agendada",
-      "mandante": "RBB",
-      "visitante": "SAN",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346396,
-      "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CRU",
-      "visitante": "BAH",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346397,
-      "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
-      "status": "agendada",
-      "mandante": "INT",
-      "visitante": "CFC",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346398,
-      "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
+      "inicio_em": "2026-11-04T00:00:00Z",
       "status": "agendada",
       "mandante": "CAP",
       "visitante": "VAS",
@@ -7585,21 +8905,33 @@
       }
     },
     {
-      "id": 346399,
+      "id": 555071,
       "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
+      "inicio_em": "2026-11-04T00:00:00Z",
       "status": "agendada",
-      "mandante": "VIT",
-      "visitante": "FLU",
+      "mandante": "BOT",
+      "visitante": "CAM",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346400,
+      "id": 555072,
       "rodada": 34,
-      "inicio_em": "2026-11-04T15:00:00Z",
+      "inicio_em": "2026-11-04T00:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555073,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T00:00:00Z",
       "status": "agendada",
       "mandante": "CHA",
       "visitante": "MIR",
@@ -7609,35 +8941,71 @@
       }
     },
     {
-      "id": 346361,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
+      "id": 555074,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555075,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T00:00:00Z",
       "status": "agendada",
       "mandante": "FLA",
-      "visitante": "CAP",
+      "visitante": "GRE",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346362,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
+      "id": 555076,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T00:00:00Z",
       "status": "agendada",
-      "mandante": "VAS",
-      "visitante": "INT",
+      "mandante": "INT",
+      "visitante": "CFC",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346363,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
+      "id": 555077,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T00:00:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555078,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T00:00:00Z",
       "status": "agendada",
       "mandante": "SAO",
+      "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555079,
+      "rodada": 34,
+      "inicio_em": "2026-11-04T00:00:00Z",
+      "status": "agendada",
+      "mandante": "VIT",
       "visitante": "FLU",
       "placar": {
         "mandante": null,
@@ -7645,9 +9013,9 @@
       }
     },
     {
-      "id": 346364,
+      "id": 555080,
       "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
+      "inicio_em": "2026-11-18T00:00:00Z",
       "status": "agendada",
       "mandante": "COR",
       "visitante": "BOT",
@@ -7657,9 +9025,57 @@
       }
     },
     {
-      "id": 346365,
+      "id": 555081,
       "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
+      "inicio_em": "2026-11-18T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555082,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555083,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T00:00:00Z",
+      "status": "agendada",
+      "mandante": "FLA",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555084,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T00:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "BAH",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555085,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T00:00:00Z",
       "status": "agendada",
       "mandante": "MIR",
       "visitante": "CAM",
@@ -7669,57 +9085,9 @@
       }
     },
     {
-      "id": 346366,
+      "id": 555086,
       "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CRU",
-      "visitante": "PAL",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346367,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "GRE",
-      "visitante": "BAH",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346368,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CFC",
-      "visitante": "SAN",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346369,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
-      "status": "agendada",
-      "mandante": "VIT",
-      "visitante": "RBB",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346370,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T15:00:00Z",
+      "inicio_em": "2026-11-18T00:00:00Z",
       "status": "agendada",
       "mandante": "REM",
       "visitante": "CHA",
@@ -7729,93 +9097,45 @@
       }
     },
     {
-      "id": 346301,
-      "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
+      "id": 555087,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T00:00:00Z",
       "status": "agendada",
-      "mandante": "FLU",
-      "visitante": "MIR",
+      "mandante": "SAO",
+      "visitante": "FLU",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346302,
-      "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
+      "id": 555088,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T00:00:00Z",
       "status": "agendada",
-      "mandante": "BOT",
-      "visitante": "SAO",
+      "mandante": "VAS",
+      "visitante": "INT",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346303,
-      "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
+      "id": 555089,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T00:00:00Z",
       "status": "agendada",
-      "mandante": "SAN",
-      "visitante": "GRE",
+      "mandante": "VIT",
+      "visitante": "RBB",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346304,
+      "id": 555090,
       "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
-      "status": "agendada",
-      "mandante": "PAL",
-      "visitante": "FLA",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346305,
-      "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
-      "status": "agendada",
-      "mandante": "RBB",
-      "visitante": "VAS",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346306,
-      "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CAM",
-      "visitante": "COR",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346307,
-      "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
-      "status": "agendada",
-      "mandante": "INT",
-      "visitante": "VIT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346308,
-      "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
+      "inicio_em": "2026-11-21T00:00:00Z",
       "status": "agendada",
       "mandante": "CAP",
       "visitante": "REM",
@@ -7825,9 +9145,21 @@
       }
     },
     {
-      "id": 346309,
+      "id": 555091,
       "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
+      "inicio_em": "2026-11-21T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555092,
+      "rodada": 36,
+      "inicio_em": "2026-11-21T00:00:00Z",
       "status": "agendada",
       "mandante": "BAH",
       "visitante": "CFC",
@@ -7837,9 +9169,33 @@
       }
     },
     {
-      "id": 346310,
+      "id": 555093,
       "rodada": 36,
-      "inicio_em": "2026-11-22T15:00:00Z",
+      "inicio_em": "2026-11-21T00:00:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555094,
+      "rodada": 36,
+      "inicio_em": "2026-11-21T00:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555095,
+      "rodada": 36,
+      "inicio_em": "2026-11-21T00:00:00Z",
       "status": "agendada",
       "mandante": "CHA",
       "visitante": "CRU",
@@ -7849,21 +9205,69 @@
       }
     },
     {
-      "id": 346271,
-      "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
+      "id": 555096,
+      "rodada": 36,
+      "inicio_em": "2026-11-21T00:00:00Z",
       "status": "agendada",
       "mandante": "FLU",
-      "visitante": "CRU",
+      "visitante": "MIR",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346272,
+      "id": 555097,
+      "rodada": 36,
+      "inicio_em": "2026-11-21T00:00:00Z",
+      "status": "agendada",
+      "mandante": "INT",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555098,
+      "rodada": 36,
+      "inicio_em": "2026-11-21T00:00:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "FLA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555099,
+      "rodada": 36,
+      "inicio_em": "2026-11-21T00:00:00Z",
+      "status": "agendada",
+      "mandante": "SAN",
+      "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555100,
       "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
+      "inicio_em": "2026-11-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555101,
+      "rodada": 37,
+      "inicio_em": "2026-11-28T00:00:00Z",
       "status": "agendada",
       "mandante": "BOT",
       "visitante": "BAH",
@@ -7873,21 +9277,21 @@
       }
     },
     {
-      "id": 346273,
+      "id": 555102,
       "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
+      "inicio_em": "2026-11-28T00:00:00Z",
       "status": "agendada",
-      "mandante": "SAO",
-      "visitante": "REM",
+      "mandante": "CHA",
+      "visitante": "PAL",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     },
     {
-      "id": 346274,
+      "id": 555103,
       "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
+      "inicio_em": "2026-11-28T00:00:00Z",
       "status": "agendada",
       "mandante": "COR",
       "visitante": "GRE",
@@ -7897,45 +9301,9 @@
       }
     },
     {
-      "id": 346275,
+      "id": 555104,
       "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
-      "status": "agendada",
-      "mandante": "MIR",
-      "visitante": "CAP",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346276,
-      "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CAM",
-      "visitante": "VAS",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346277,
-      "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
-      "status": "agendada",
-      "mandante": "INT",
-      "visitante": "RBB",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346278,
-      "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
+      "inicio_em": "2026-11-28T00:00:00Z",
       "status": "agendada",
       "mandante": "CFC",
       "visitante": "FLA",
@@ -7945,9 +9313,57 @@
       }
     },
     {
-      "id": 346279,
+      "id": 555105,
       "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
+      "inicio_em": "2026-11-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555106,
+      "rodada": 37,
+      "inicio_em": "2026-11-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "INT",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555107,
+      "rodada": 37,
+      "inicio_em": "2026-11-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "MIR",
+      "visitante": "CAP",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555108,
+      "rodada": 37,
+      "inicio_em": "2026-11-28T00:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555109,
+      "rodada": 37,
+      "inicio_em": "2026-11-28T00:00:00Z",
       "status": "agendada",
       "mandante": "VIT",
       "visitante": "SAN",
@@ -7957,105 +9373,9 @@
       }
     },
     {
-      "id": 346280,
-      "rodada": 37,
-      "inicio_em": "2026-11-29T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CHA",
-      "visitante": "PAL",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346245,
+      "id": 555110,
       "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
-      "status": "agendada",
-      "mandante": "FLA",
-      "visitante": "CHA",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346246,
-      "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
-      "status": "agendada",
-      "mandante": "VAS",
-      "visitante": "VIT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346247,
-      "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
-      "status": "agendada",
-      "mandante": "SAN",
-      "visitante": "BOT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346248,
-      "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
-      "status": "agendada",
-      "mandante": "PAL",
-      "visitante": "CFC",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346249,
-      "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
-      "status": "agendada",
-      "mandante": "RBB",
-      "visitante": "FLU",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346250,
-      "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
-      "status": "agendada",
-      "mandante": "CRU",
-      "visitante": "INT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346251,
-      "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
-      "status": "agendada",
-      "mandante": "GRE",
-      "visitante": "MIR",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 346252,
-      "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
+      "inicio_em": "2026-12-02T00:00:00Z",
       "status": "agendada",
       "mandante": "CAP",
       "visitante": "SAO",
@@ -8065,9 +9385,9 @@
       }
     },
     {
-      "id": 346253,
+      "id": 555111,
       "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
+      "inicio_em": "2026-12-02T00:00:00Z",
       "status": "agendada",
       "mandante": "BAH",
       "visitante": "CAM",
@@ -8077,28 +9397,112 @@
       }
     },
     {
-      "id": 346254,
+      "id": 555112,
       "rodada": 38,
-      "inicio_em": "2026-12-02T15:00:00Z",
+      "inicio_em": "2026-12-02T00:00:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "FLU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555113,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CRU",
+      "visitante": "INT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555114,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T00:00:00Z",
+      "status": "agendada",
+      "mandante": "FLA",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555115,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T00:00:00Z",
+      "status": "agendada",
+      "mandante": "GRE",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555116,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T00:00:00Z",
+      "status": "agendada",
+      "mandante": "PAL",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555117,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T00:00:00Z",
       "status": "agendada",
       "mandante": "REM",
       "visitante": "COR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555118,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T00:00:00Z",
+      "status": "agendada",
+      "mandante": "SAN",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555119,
+      "rodada": 38,
+      "inicio_em": "2026-12-02T00:00:00Z",
+      "status": "agendada",
+      "mandante": "VAS",
+      "visitante": "VIT",
       "placar": {
         "mandante": null,
         "visitante": null
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-14T21:42:27.174484+00:00",
-  "dados_verificados_em": "2026-09-14T21:42:27.174484+00:00",
+  "dados_atualizados_em": "2026-09-14T23:09:08.022718+00:00",
+  "dados_verificados_em": "2026-09-14T23:09:08.022804+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "CBF",
+  "fonte": "football-data.org",
   "fontes": {
-    "classificacao": "CBF",
-    "artilharia": "CBF",
-    "partidas": "ge"
+    "classificacao": "football-data.org",
+    "artilharia": "football-data.org",
+    "partidas": "football-data.org"
   },
   "info": {
     "campeonato": "Brasileirao Serie A",
@@ -8115,5 +9519,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-14T21:42:27.172015+00:00"
+  "agenda_atualizada_em": "2026-09-14T23:09:05.359295+00:00",
+  "historico_atualizado_em": "2026-09-14T23:09:08.021190+00:00"
 }
