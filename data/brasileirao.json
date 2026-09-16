@@ -12232,12 +12232,12 @@
       "id": 554941,
       "rodada": 21,
       "inicio_em": "2026-09-16T22:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "BOT",
       "visitante": "GRE",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -14281,8 +14281,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-15T18:13:11.597592+00:00",
-  "dados_verificados_em": "2026-09-16T20:09:13.322000+00:00",
+  "dados_atualizados_em": "2026-09-16T22:57:34.920209+00:00",
+  "dados_verificados_em": "2026-09-16T22:57:34.920322+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14307,6 +14307,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-16T20:09:12.697460+00:00",
-  "historico_atualizado_em": "2026-09-16T20:09:13.318668+00:00"
+  "agenda_atualizada_em": "2026-09-16T22:57:34.363148+00:00",
+  "historico_atualizado_em": "2026-09-16T22:57:34.917588+00:00"
 }
