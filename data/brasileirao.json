@@ -172,6 +172,23 @@
     },
     {
       "posicao": 11,
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/BOT.png",
+      "jogos": 27,
+      "vitorias": 9,
+      "empates": 8,
+      "derrotas": 10,
+      "gols_pro": 41,
+      "gols_contra": 43,
+      "saldo": -2,
+      "pontos": 35,
+      "aproveitamento": 43.2
+    },
+    {
+      "posicao": 12,
       "time": "São Paulo",
       "sigla": "SAO",
       "estado": "SP",
@@ -188,7 +205,7 @@
       "aproveitamento": 42.3
     },
     {
-      "posicao": 12,
+      "posicao": 13,
       "time": "Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -205,7 +222,7 @@
       "aproveitamento": 40.7
     },
     {
-      "posicao": 13,
+      "posicao": 14,
       "time": "Corinthians",
       "sigla": "COR",
       "estado": "SP",
@@ -220,23 +237,6 @@
       "saldo": -1,
       "pontos": 32,
       "aproveitamento": 39.5
-    },
-    {
-      "posicao": 14,
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/BOT.png",
-      "jogos": 26,
-      "vitorias": 8,
-      "empates": 8,
-      "derrotas": 10,
-      "gols_pro": 38,
-      "gols_contra": 41,
-      "saldo": -3,
-      "pontos": 32,
-      "aproveitamento": 41.0
     },
     {
       "posicao": 15,
@@ -279,15 +279,15 @@
       "estado": "RS",
       "cor": "#0080C8",
       "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 26,
+      "jogos": 27,
       "vitorias": 7,
       "empates": 7,
-      "derrotas": 12,
-      "gols_pro": 28,
-      "gols_contra": 35,
-      "saldo": -7,
+      "derrotas": 13,
+      "gols_pro": 30,
+      "gols_contra": 38,
+      "saldo": -8,
       "pontos": 28,
-      "aproveitamento": 35.9
+      "aproveitamento": 34.6
     },
     {
       "posicao": 18,
@@ -3251,6 +3251,23 @@
       },
       {
         "posicao": 11,
+        "time": "Botafogo",
+        "sigla": "BOT",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/BOT.png",
+        "jogos": 27,
+        "vitorias": 9,
+        "empates": 8,
+        "derrotas": 10,
+        "gols_pro": 41,
+        "gols_contra": 43,
+        "saldo": -2,
+        "pontos": 35,
+        "aproveitamento": 43.2
+      },
+      {
+        "posicao": 12,
         "time": "São Paulo",
         "sigla": "SAO",
         "estado": "SP",
@@ -3267,7 +3284,7 @@
         "aproveitamento": 42.3
       },
       {
-        "posicao": 12,
+        "posicao": 13,
         "time": "Vitória",
         "sigla": "VIT",
         "estado": "BA",
@@ -3284,7 +3301,7 @@
         "aproveitamento": 40.7
       },
       {
-        "posicao": 13,
+        "posicao": 14,
         "time": "Corinthians",
         "sigla": "COR",
         "estado": "SP",
@@ -3299,23 +3316,6 @@
         "saldo": -1,
         "pontos": 32,
         "aproveitamento": 39.5
-      },
-      {
-        "posicao": 14,
-        "time": "Botafogo",
-        "sigla": "BOT",
-        "estado": "RJ",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/BOT.png",
-        "jogos": 26,
-        "vitorias": 8,
-        "empates": 8,
-        "derrotas": 10,
-        "gols_pro": 38,
-        "gols_contra": 41,
-        "saldo": -3,
-        "pontos": 32,
-        "aproveitamento": 41.0
       },
       {
         "posicao": 15,
@@ -3358,15 +3358,15 @@
         "estado": "RS",
         "cor": "#0080C8",
         "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 26,
+        "jogos": 27,
         "vitorias": 7,
         "empates": 7,
-        "derrotas": 12,
-        "gols_pro": 28,
-        "gols_contra": 35,
-        "saldo": -7,
+        "derrotas": 13,
+        "gols_pro": 30,
+        "gols_contra": 38,
+        "saldo": -8,
         "pontos": 28,
-        "aproveitamento": 35.9
+        "aproveitamento": 34.6
       },
       {
         "posicao": 18,
@@ -7612,6 +7612,23 @@
       },
       {
         "posicao": 6,
+        "time": "Botafogo",
+        "sigla": "BOT",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/BOT.png",
+        "jogos": 21,
+        "vitorias": 9,
+        "empates": 5,
+        "derrotas": 7,
+        "gols_pro": 37,
+        "gols_contra": 34,
+        "saldo": 3,
+        "pontos": 32,
+        "aproveitamento": 50.8
+      },
+      {
+        "posicao": 7,
         "time": "Red Bull Bragantino",
         "sigla": "RBB",
         "estado": "SP",
@@ -7628,7 +7645,7 @@
         "aproveitamento": 51.7
       },
       {
-        "posicao": 7,
+        "posicao": 8,
         "time": "Cruzeiro",
         "sigla": "CRU",
         "estado": "MG",
@@ -7643,23 +7660,6 @@
         "saldo": -3,
         "pontos": 30,
         "aproveitamento": 47.6
-      },
-      {
-        "posicao": 8,
-        "time": "Botafogo",
-        "sigla": "BOT",
-        "estado": "RJ",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/BOT.png",
-        "jogos": 20,
-        "vitorias": 8,
-        "empates": 5,
-        "derrotas": 7,
-        "gols_pro": 34,
-        "gols_contra": 32,
-        "saldo": 2,
-        "pontos": 29,
-        "aproveitamento": 48.3
       },
       {
         "posicao": 9,
@@ -7804,15 +7804,15 @@
         "estado": "RS",
         "cor": "#0080C8",
         "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 20,
+        "jogos": 21,
         "vitorias": 5,
         "empates": 7,
-        "derrotas": 8,
-        "gols_pro": 22,
-        "gols_contra": 26,
-        "saldo": -4,
+        "derrotas": 9,
+        "gols_pro": 24,
+        "gols_contra": 29,
+        "saldo": -5,
         "pontos": 22,
-        "aproveitamento": 36.7
+        "aproveitamento": 34.9
       },
       {
         "posicao": 18,
@@ -9607,6 +9607,13 @@
       "gols": 10
     },
     {
+      "jogador": "Danilo dos Santos de Oliveira",
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "posicao": "Meia",
+      "gols": 9
+    },
+    {
       "jogador": "John Kennedy",
       "time": "Fluminense",
       "sigla": "FLU",
@@ -9661,13 +9668,6 @@
       "sigla": "CFC",
       "posicao": "Atacante",
       "gols": 8
-    },
-    {
-      "jogador": "Danilo dos Santos de Oliveira",
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "posicao": "Meia",
-      "gols": 7
     },
     {
       "jogador": "Jonathan Calleri",
@@ -12232,12 +12232,12 @@
       "id": 554941,
       "rodada": 21,
       "inicio_em": "2026-09-16T22:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "BOT",
       "visitante": "GRE",
       "placar": {
-        "mandante": 0,
-        "visitante": 0
+        "mandante": 3,
+        "visitante": 2
       }
     },
     {
@@ -14281,8 +14281,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-16T22:57:34.920209+00:00",
-  "dados_verificados_em": "2026-09-16T22:57:34.920322+00:00",
+  "dados_atualizados_em": "2026-09-17T01:27:16.015882+00:00",
+  "dados_verificados_em": "2026-09-17T01:27:16.016012+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14307,6 +14307,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-16T22:57:34.363148+00:00",
-  "historico_atualizado_em": "2026-09-16T22:57:34.917588+00:00"
+  "agenda_atualizada_em": "2026-09-17T01:27:15.327145+00:00",
+  "historico_atualizado_em": "2026-09-17T01:27:16.012857+00:00"
 }
