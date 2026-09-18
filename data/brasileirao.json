@@ -12463,36 +12463,12 @@
       }
     },
     {
-      "id": 554940,
-      "rodada": 21,
-      "inicio_em": "2026-07-29T00:00:00Z",
-      "status": "adiada",
-      "mandante": "CAM",
-      "visitante": "RBB",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
       "id": 554942,
       "rodada": 21,
       "inicio_em": "2026-07-29T00:00:00Z",
       "status": "adiada",
       "mandante": "CHA",
       "visitante": "VAS",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 554948,
-      "rodada": 21,
-      "inicio_em": "2026-07-29T00:00:00Z",
-      "status": "adiada",
-      "mandante": "SAO",
-      "visitante": "SAN",
       "placar": {
         "mandante": null,
         "visitante": null
@@ -12580,6 +12556,30 @@
       "placar": {
         "mandante": 3,
         "visitante": 2
+      }
+    },
+    {
+      "id": 554948,
+      "rodada": 21,
+      "inicio_em": "2026-10-02T23:00:00Z",
+      "status": "agendada",
+      "mandante": "SAO",
+      "visitante": "SAN",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 554940,
+      "rodada": 21,
+      "inicio_em": "2026-10-03T21:30:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "RBB",
+      "placar": {
+        "mandante": null,
+        "visitante": null
       }
     },
     {
@@ -14623,8 +14623,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-18T11:17:47.717248+00:00",
-  "dados_verificados_em": "2026-09-18T16:25:52.430062+00:00",
+  "dados_atualizados_em": "2026-09-18T19:38:47.997747+00:00",
+  "dados_verificados_em": "2026-09-18T19:38:47.997877+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14649,6 +14649,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-18T16:25:52.032867+00:00",
-  "historico_atualizado_em": "2026-09-18T16:25:52.426609+00:00"
+  "agenda_atualizada_em": "2026-09-18T19:38:47.205916+00:00",
+  "historico_atualizado_em": "2026-09-18T19:38:47.994523+00:00"
 }
