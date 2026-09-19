@@ -109,15 +109,15 @@
       "estado": "MG",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 26,
+      "jogos": 27,
       "vitorias": 11,
-      "empates": 6,
+      "empates": 7,
       "derrotas": 9,
-      "gols_pro": 35,
-      "gols_contra": 31,
+      "gols_pro": 36,
+      "gols_contra": 32,
       "saldo": 4,
-      "pontos": 39,
-      "aproveitamento": 50.0
+      "pontos": 40,
+      "aproveitamento": 49.4
     },
     {
       "posicao": 8,
@@ -177,15 +177,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/BOT.png",
-      "jogos": 27,
+      "jogos": 28,
       "vitorias": 9,
       "empates": 8,
-      "derrotas": 10,
+      "derrotas": 11,
       "gols_pro": 41,
-      "gols_contra": 43,
-      "saldo": -2,
+      "gols_contra": 45,
+      "saldo": -4,
       "pontos": 35,
-      "aproveitamento": 43.2
+      "aproveitamento": 41.7
     },
     {
       "posicao": 12,
@@ -245,15 +245,15 @@
       "estado": "SP",
       "cor": "#FFD700",
       "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 27,
-      "vitorias": 7,
+      "jogos": 28,
+      "vitorias": 8,
       "empates": 8,
       "derrotas": 12,
-      "gols_pro": 31,
+      "gols_pro": 33,
       "gols_contra": 42,
-      "saldo": -11,
-      "pontos": 29,
-      "aproveitamento": 35.8
+      "saldo": -9,
+      "pontos": 32,
+      "aproveitamento": 38.1
     },
     {
       "posicao": 16,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "static/img/escudos/normalizados/CHA.png",
-      "jogos": 26,
+      "jogos": 27,
       "vitorias": 3,
-      "empates": 8,
+      "empates": 9,
       "derrotas": 15,
-      "gols_pro": 28,
-      "gols_contra": 52,
+      "gols_pro": 29,
+      "gols_contra": 53,
       "saldo": -24,
-      "pontos": 17,
-      "aproveitamento": 21.8
+      "pontos": 18,
+      "aproveitamento": 22.2
     }
   ],
   "classificacao_por_rodada": {
@@ -9686,15 +9686,15 @@
         "estado": "MG",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 26,
+        "jogos": 27,
         "vitorias": 11,
-        "empates": 6,
+        "empates": 7,
         "derrotas": 9,
-        "gols_pro": 35,
-        "gols_contra": 31,
+        "gols_pro": 36,
+        "gols_contra": 32,
         "saldo": 4,
-        "pontos": 39,
-        "aproveitamento": 50.0
+        "pontos": 40,
+        "aproveitamento": 49.4
       },
       {
         "posicao": 8,
@@ -9754,15 +9754,15 @@
         "estado": "RJ",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/BOT.png",
-        "jogos": 27,
+        "jogos": 28,
         "vitorias": 9,
         "empates": 8,
-        "derrotas": 10,
+        "derrotas": 11,
         "gols_pro": 41,
-        "gols_contra": 43,
-        "saldo": -2,
+        "gols_contra": 45,
+        "saldo": -4,
         "pontos": 35,
-        "aproveitamento": 43.2
+        "aproveitamento": 41.7
       },
       {
         "posicao": 12,
@@ -9822,15 +9822,15 @@
         "estado": "SP",
         "cor": "#FFD700",
         "escudo": "static/img/escudos/normalizados/MIR.png",
-        "jogos": 27,
-        "vitorias": 7,
+        "jogos": 28,
+        "vitorias": 8,
         "empates": 8,
         "derrotas": 12,
-        "gols_pro": 31,
+        "gols_pro": 33,
         "gols_contra": 42,
-        "saldo": -11,
-        "pontos": 29,
-        "aproveitamento": 35.8
+        "saldo": -9,
+        "pontos": 32,
+        "aproveitamento": 38.1
       },
       {
         "posicao": 16,
@@ -9907,15 +9907,15 @@
         "estado": "SC",
         "cor": "#008000",
         "escudo": "static/img/escudos/normalizados/CHA.png",
-        "jogos": 26,
+        "jogos": 27,
         "vitorias": 3,
-        "empates": 8,
+        "empates": 9,
         "derrotas": 15,
-        "gols_pro": 28,
-        "gols_contra": 52,
+        "gols_pro": 29,
+        "gols_contra": 53,
         "saldo": -24,
-        "pontos": 17,
-        "aproveitamento": 21.8
+        "pontos": 18,
+        "aproveitamento": 22.2
       }
     ]
   },
@@ -10054,10 +10054,10 @@
       "gols": 7
     },
     {
-      "jogador": "Neymar",
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "posicao": "Atacante",
+      "jogador": "Carlos Eduardo",
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "posicao": "Meia",
       "gols": 6
     }
   ],
@@ -13306,7 +13306,7 @@
       "id": 555011,
       "rodada": 28,
       "inicio_em": "2026-09-19T19:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "CAM",
       "visitante": "CHA",
       "placar": {
@@ -13318,11 +13318,11 @@
       "id": 555015,
       "rodada": 28,
       "inicio_em": "2026-09-19T20:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "MIR",
       "visitante": "BOT",
       "placar": {
-        "mandante": 1,
+        "mandante": 2,
         "visitante": 0
       }
     },
@@ -13330,12 +13330,12 @@
       "id": 555016,
       "rodada": 28,
       "inicio_em": "2026-09-19T21:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "REM",
       "visitante": "SAN",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -14623,8 +14623,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-19T20:42:53.481669+00:00",
-  "dados_verificados_em": "2026-09-19T20:42:53.481840+00:00",
+  "dados_atualizados_em": "2026-09-19T23:08:22.399576+00:00",
+  "dados_verificados_em": "2026-09-19T23:08:22.399712+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14641,7 +14641,7 @@
     "rodada_atual": 28,
     "rodada_confirmada": true,
     "jogos_minimos": 26,
-    "jogos_maximos": 27,
+    "jogos_maximos": 28,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Flamengo",
@@ -14649,6 +14649,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-19T20:42:52.893841+00:00",
-  "historico_atualizado_em": "2026-09-19T20:42:53.477727+00:00"
+  "agenda_atualizada_em": "2026-09-19T23:08:21.757641+00:00",
+  "historico_atualizado_em": "2026-09-19T23:08:22.396660+00:00"
 }
