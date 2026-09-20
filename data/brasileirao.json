@@ -24,15 +24,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "static/img/escudos/normalizados/PAL.png",
-      "jogos": 27,
+      "jogos": 28,
       "vitorias": 16,
-      "empates": 8,
+      "empates": 9,
       "derrotas": 3,
       "gols_pro": 47,
       "gols_contra": 21,
       "saldo": 26,
-      "pontos": 56,
-      "aproveitamento": 69.1
+      "pontos": 57,
+      "aproveitamento": 67.9
     },
     {
       "posicao": 3,
@@ -274,6 +274,23 @@
     },
     {
       "posicao": 17,
+      "time": "Grêmio",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "static/img/escudos/normalizados/GRE.png",
+      "jogos": 28,
+      "vitorias": 7,
+      "empates": 8,
+      "derrotas": 13,
+      "gols_pro": 30,
+      "gols_contra": 38,
+      "saldo": -8,
+      "pontos": 29,
+      "aproveitamento": 34.5
+    },
+    {
+      "posicao": 18,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -288,23 +305,6 @@
       "saldo": -6,
       "pontos": 28,
       "aproveitamento": 33.3
-    },
-    {
-      "posicao": 18,
-      "time": "Grêmio",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 27,
-      "vitorias": 7,
-      "empates": 7,
-      "derrotas": 13,
-      "gols_pro": 30,
-      "gols_contra": 38,
-      "saldo": -8,
-      "pontos": 28,
-      "aproveitamento": 34.6
     },
     {
       "posicao": 19,
@@ -9601,15 +9601,15 @@
         "estado": "SP",
         "cor": "#006437",
         "escudo": "static/img/escudos/normalizados/PAL.png",
-        "jogos": 27,
+        "jogos": 28,
         "vitorias": 16,
-        "empates": 8,
+        "empates": 9,
         "derrotas": 3,
         "gols_pro": 47,
         "gols_contra": 21,
         "saldo": 26,
-        "pontos": 56,
-        "aproveitamento": 69.1
+        "pontos": 57,
+        "aproveitamento": 67.9
       },
       {
         "posicao": 3,
@@ -9851,6 +9851,23 @@
       },
       {
         "posicao": 17,
+        "time": "Grêmio",
+        "sigla": "GRE",
+        "estado": "RS",
+        "cor": "#0080C8",
+        "escudo": "static/img/escudos/normalizados/GRE.png",
+        "jogos": 28,
+        "vitorias": 7,
+        "empates": 8,
+        "derrotas": 13,
+        "gols_pro": 30,
+        "gols_contra": 38,
+        "saldo": -8,
+        "pontos": 29,
+        "aproveitamento": 34.5
+      },
+      {
+        "posicao": 18,
         "time": "Internacional",
         "sigla": "INT",
         "estado": "RS",
@@ -9865,23 +9882,6 @@
         "saldo": -6,
         "pontos": 28,
         "aproveitamento": 33.3
-      },
-      {
-        "posicao": 18,
-        "time": "Grêmio",
-        "sigla": "GRE",
-        "estado": "RS",
-        "cor": "#0080C8",
-        "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 27,
-        "vitorias": 7,
-        "empates": 7,
-        "derrotas": 13,
-        "gols_pro": 30,
-        "gols_contra": 38,
-        "saldo": -8,
-        "pontos": 28,
-        "aproveitamento": 34.6
       },
       {
         "posicao": 19,
@@ -13366,12 +13366,12 @@
       "id": 555014,
       "rodada": 28,
       "inicio_em": "2026-09-20T14:00:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "GRE",
       "visitante": "PAL",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -14623,8 +14623,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-20T06:21:29.016190+00:00",
-  "dados_verificados_em": "2026-09-20T12:24:15.818138+00:00",
+  "dados_atualizados_em": "2026-09-20T16:49:25.611309+00:00",
+  "dados_verificados_em": "2026-09-20T16:49:25.611461+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14649,6 +14649,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-20T12:24:15.411410+00:00",
-  "historico_atualizado_em": "2026-09-20T12:24:15.814739+00:00"
+  "agenda_atualizada_em": "2026-09-20T16:49:24.613480+00:00",
+  "historico_atualizado_em": "2026-09-20T16:49:25.608385+00:00"
 }
