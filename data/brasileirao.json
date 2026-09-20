@@ -121,6 +121,23 @@
     },
     {
       "posicao": 8,
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/SAN.png",
+      "jogos": 27,
+      "vitorias": 10,
+      "empates": 8,
+      "derrotas": 9,
+      "gols_pro": 41,
+      "gols_contra": 40,
+      "saldo": 1,
+      "pontos": 38,
+      "aproveitamento": 46.9
+    },
+    {
+      "posicao": 9,
       "time": "Coritiba SAF",
       "sigla": "CFC",
       "estado": "PR",
@@ -137,7 +154,7 @@
       "aproveitamento": 46.9
     },
     {
-      "posicao": 9,
+      "posicao": 10,
       "time": "Red Bull Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -152,23 +169,6 @@
       "saldo": 3,
       "pontos": 36,
       "aproveitamento": 46.2
-    },
-    {
-      "posicao": 10,
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/SAN.png",
-      "jogos": 26,
-      "vitorias": 9,
-      "empates": 8,
-      "derrotas": 9,
-      "gols_pro": 39,
-      "gols_contra": 39,
-      "saldo": 0,
-      "pontos": 35,
-      "aproveitamento": 44.9
     },
     {
       "posicao": 11,
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "static/img/escudos/normalizados/REM.png",
-      "jogos": 27,
+      "jogos": 28,
       "vitorias": 5,
       "empates": 8,
-      "derrotas": 14,
-      "gols_pro": 31,
-      "gols_contra": 45,
-      "saldo": -14,
+      "derrotas": 15,
+      "gols_pro": 32,
+      "gols_contra": 47,
+      "saldo": -15,
       "pontos": 23,
-      "aproveitamento": 28.4
+      "aproveitamento": 27.4
     },
     {
       "posicao": 20,
@@ -9698,6 +9698,23 @@
       },
       {
         "posicao": 8,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 27,
+        "vitorias": 10,
+        "empates": 8,
+        "derrotas": 9,
+        "gols_pro": 41,
+        "gols_contra": 40,
+        "saldo": 1,
+        "pontos": 38,
+        "aproveitamento": 46.9
+      },
+      {
+        "posicao": 9,
         "time": "Coritiba SAF",
         "sigla": "CFC",
         "estado": "PR",
@@ -9714,7 +9731,7 @@
         "aproveitamento": 46.9
       },
       {
-        "posicao": 9,
+        "posicao": 10,
         "time": "Red Bull Bragantino",
         "sigla": "RBB",
         "estado": "SP",
@@ -9729,23 +9746,6 @@
         "saldo": 3,
         "pontos": 36,
         "aproveitamento": 46.2
-      },
-      {
-        "posicao": 10,
-        "time": "Santos FC",
-        "sigla": "SAN",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/SAN.png",
-        "jogos": 26,
-        "vitorias": 9,
-        "empates": 8,
-        "derrotas": 9,
-        "gols_pro": 39,
-        "gols_contra": 39,
-        "saldo": 0,
-        "pontos": 35,
-        "aproveitamento": 44.9
       },
       {
         "posicao": 11,
@@ -9890,15 +9890,15 @@
         "estado": "PA",
         "cor": "#00008B",
         "escudo": "static/img/escudos/normalizados/REM.png",
-        "jogos": 27,
+        "jogos": 28,
         "vitorias": 5,
         "empates": 8,
-        "derrotas": 14,
-        "gols_pro": 31,
-        "gols_contra": 45,
-        "saldo": -14,
+        "derrotas": 15,
+        "gols_pro": 32,
+        "gols_contra": 47,
+        "saldo": -15,
         "pontos": 23,
-        "aproveitamento": 28.4
+        "aproveitamento": 27.4
       },
       {
         "posicao": 20,
@@ -9935,17 +9935,17 @@
       "gols": 15
     },
     {
-      "jogador": "Carlos Vinícius",
-      "time": "Grêmio",
-      "sigla": "GRE",
-      "posicao": "Centroavante",
-      "gols": 10
-    },
-    {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Atacante",
+      "gols": 11
+    },
+    {
+      "jogador": "Carlos Vinícius",
+      "time": "Grêmio",
+      "sigla": "GRE",
+      "posicao": "Centroavante",
       "gols": 10
     },
     {
@@ -9991,6 +9991,13 @@
       "gols": 8
     },
     {
+      "jogador": "Jonathan Calleri",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 8
+    },
+    {
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro",
       "sigla": "CRU",
@@ -10010,13 +10017,6 @@
       "sigla": "CFC",
       "posicao": "Atacante",
       "gols": 8
-    },
-    {
-      "jogador": "Jonathan Calleri",
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 7
     },
     {
       "jogador": "Arthur Cabral",
@@ -13330,36 +13330,36 @@
       "id": 555016,
       "rodada": 28,
       "inicio_em": "2026-09-19T21:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "REM",
       "visitante": "SAN",
       "placar": {
-        "mandante": 0,
-        "visitante": 0
+        "mandante": 1,
+        "visitante": 2
       }
     },
     {
       "id": 555018,
       "rodada": 28,
       "inicio_em": "2026-09-19T23:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "VAS",
       "visitante": "CFC",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 5,
+        "visitante": 0
       }
     },
     {
       "id": 555017,
       "rodada": 28,
       "inicio_em": "2026-09-20T00:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "SAO",
       "visitante": "INT",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
@@ -14623,8 +14623,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-19T23:08:22.399576+00:00",
-  "dados_verificados_em": "2026-09-19T23:08:22.399712+00:00",
+  "dados_atualizados_em": "2026-09-20T01:11:49.885161+00:00",
+  "dados_verificados_em": "2026-09-20T01:11:49.885284+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14649,6 +14649,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-19T23:08:21.757641+00:00",
-  "historico_atualizado_em": "2026-09-19T23:08:22.396660+00:00"
+  "agenda_atualizada_em": "2026-09-20T01:11:49.386650+00:00",
+  "historico_atualizado_em": "2026-09-20T01:11:49.883058+00:00"
 }
