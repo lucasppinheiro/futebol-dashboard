@@ -36,6 +36,23 @@
     },
     {
       "posicao": 3,
+      "time": "Fluminense",
+      "sigla": "FLU",
+      "estado": "RJ",
+      "cor": "#7B0023",
+      "escudo": "static/img/escudos/normalizados/FLU.png",
+      "jogos": 28,
+      "vitorias": 13,
+      "empates": 9,
+      "derrotas": 6,
+      "gols_pro": 44,
+      "gols_contra": 36,
+      "saldo": 8,
+      "pontos": 48,
+      "aproveitamento": 57.1
+    },
+    {
+      "posicao": 4,
       "time": "Athletico Paranaense",
       "sigla": "CAP",
       "estado": "PR",
@@ -52,7 +69,7 @@
       "aproveitamento": 56.8
     },
     {
-      "posicao": 4,
+      "posicao": 5,
       "time": "Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -69,38 +86,21 @@
       "aproveitamento": 56.8
     },
     {
-      "posicao": 5,
-      "time": "Fluminense",
-      "sigla": "FLU",
-      "estado": "RJ",
-      "cor": "#7B0023",
-      "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 27,
-      "vitorias": 12,
-      "empates": 9,
-      "derrotas": 6,
-      "gols_pro": 41,
-      "gols_contra": 35,
-      "saldo": 6,
-      "pontos": 45,
-      "aproveitamento": 55.6
-    },
-    {
       "posicao": 6,
       "time": "Cruzeiro",
       "sigla": "CRU",
       "estado": "MG",
       "cor": "#003DA5",
       "escudo": "static/img/escudos/normalizados/CRU.png",
-      "jogos": 27,
-      "vitorias": 12,
+      "jogos": 28,
+      "vitorias": 13,
       "empates": 6,
       "derrotas": 9,
-      "gols_pro": 39,
-      "gols_contra": 39,
-      "saldo": 0,
-      "pontos": 42,
-      "aproveitamento": 51.9
+      "gols_pro": 42,
+      "gols_contra": 40,
+      "saldo": 2,
+      "pontos": 45,
+      "aproveitamento": 53.6
     },
     {
       "posicao": 7,
@@ -211,15 +211,15 @@
       "estado": "BA",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/VIT.png",
-      "jogos": 27,
+      "jogos": 28,
       "vitorias": 9,
       "empates": 6,
-      "derrotas": 12,
-      "gols_pro": 27,
-      "gols_contra": 39,
-      "saldo": -12,
+      "derrotas": 13,
+      "gols_pro": 28,
+      "gols_contra": 42,
+      "saldo": -14,
       "pontos": 33,
-      "aproveitamento": 40.7
+      "aproveitamento": 39.3
     },
     {
       "posicao": 14,
@@ -228,15 +228,15 @@
       "estado": "SP",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/COR.png",
-      "jogos": 27,
+      "jogos": 28,
       "vitorias": 8,
       "empates": 8,
-      "derrotas": 11,
-      "gols_pro": 28,
-      "gols_contra": 29,
-      "saldo": -1,
+      "derrotas": 12,
+      "gols_pro": 29,
+      "gols_contra": 32,
+      "saldo": -3,
       "pontos": 32,
-      "aproveitamento": 39.5
+      "aproveitamento": 38.1
     },
     {
       "posicao": 15,
@@ -9613,6 +9613,23 @@
       },
       {
         "posicao": 3,
+        "time": "Fluminense",
+        "sigla": "FLU",
+        "estado": "RJ",
+        "cor": "#7B0023",
+        "escudo": "static/img/escudos/normalizados/FLU.png",
+        "jogos": 28,
+        "vitorias": 13,
+        "empates": 9,
+        "derrotas": 6,
+        "gols_pro": 44,
+        "gols_contra": 36,
+        "saldo": 8,
+        "pontos": 48,
+        "aproveitamento": 57.1
+      },
+      {
+        "posicao": 4,
         "time": "Athletico Paranaense",
         "sigla": "CAP",
         "estado": "PR",
@@ -9629,7 +9646,7 @@
         "aproveitamento": 56.8
       },
       {
-        "posicao": 4,
+        "posicao": 5,
         "time": "Bahia",
         "sigla": "BAH",
         "estado": "BA",
@@ -9646,38 +9663,21 @@
         "aproveitamento": 56.8
       },
       {
-        "posicao": 5,
-        "time": "Fluminense",
-        "sigla": "FLU",
-        "estado": "RJ",
-        "cor": "#7B0023",
-        "escudo": "static/img/escudos/normalizados/FLU.png",
-        "jogos": 27,
-        "vitorias": 12,
-        "empates": 9,
-        "derrotas": 6,
-        "gols_pro": 41,
-        "gols_contra": 35,
-        "saldo": 6,
-        "pontos": 45,
-        "aproveitamento": 55.6
-      },
-      {
         "posicao": 6,
         "time": "Cruzeiro",
         "sigla": "CRU",
         "estado": "MG",
         "cor": "#003DA5",
         "escudo": "static/img/escudos/normalizados/CRU.png",
-        "jogos": 27,
-        "vitorias": 12,
+        "jogos": 28,
+        "vitorias": 13,
         "empates": 6,
         "derrotas": 9,
-        "gols_pro": 39,
-        "gols_contra": 39,
-        "saldo": 0,
-        "pontos": 42,
-        "aproveitamento": 51.9
+        "gols_pro": 42,
+        "gols_contra": 40,
+        "saldo": 2,
+        "pontos": 45,
+        "aproveitamento": 53.6
       },
       {
         "posicao": 7,
@@ -9788,15 +9788,15 @@
         "estado": "BA",
         "cor": "#E11D1D",
         "escudo": "static/img/escudos/normalizados/VIT.png",
-        "jogos": 27,
+        "jogos": 28,
         "vitorias": 9,
         "empates": 6,
-        "derrotas": 12,
-        "gols_pro": 27,
-        "gols_contra": 39,
-        "saldo": -12,
+        "derrotas": 13,
+        "gols_pro": 28,
+        "gols_contra": 42,
+        "saldo": -14,
         "pontos": 33,
-        "aproveitamento": 40.7
+        "aproveitamento": 39.3
       },
       {
         "posicao": 14,
@@ -9805,15 +9805,15 @@
         "estado": "SP",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/COR.png",
-        "jogos": 27,
+        "jogos": 28,
         "vitorias": 8,
         "empates": 8,
-        "derrotas": 11,
-        "gols_pro": 28,
-        "gols_contra": 29,
-        "saldo": -1,
+        "derrotas": 12,
+        "gols_pro": 29,
+        "gols_contra": 32,
+        "saldo": -3,
         "pontos": 32,
-        "aproveitamento": 39.5
+        "aproveitamento": 38.1
       },
       {
         "posicao": 15,
@@ -9963,6 +9963,13 @@
       "gols": 9
     },
     {
+      "jogador": "Matheus Pereira",
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "posicao": "Atacante",
+      "gols": 9
+    },
+    {
       "jogador": "Luciano Juba",
       "time": "Bahia",
       "sigla": "BAH",
@@ -9998,13 +10005,6 @@
       "gols": 8
     },
     {
-      "jogador": "Matheus Pereira",
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "posicao": "Atacante",
-      "gols": 8
-    },
-    {
       "jogador": "Breno Lopes",
       "time": "Coritiba SAF",
       "sigla": "CFC",
@@ -10015,6 +10015,13 @@
       "jogador": "Pedro Rocha",
       "time": "Coritiba SAF",
       "sigla": "CFC",
+      "posicao": "Atacante",
+      "gols": 8
+    },
+    {
+      "jogador": "Carlos Renê",
+      "time": "Vitória",
+      "sigla": "VIT",
       "posicao": "Atacante",
       "gols": 8
     },
@@ -10040,25 +10047,18 @@
       "gols": 7
     },
     {
+      "jogador": "Hulk",
+      "time": "Fluminense",
+      "sigla": "FLU",
+      "posicao": "Atacante",
+      "gols": 7
+    },
+    {
       "jogador": "Johan Carbonero",
       "time": "Internacional",
       "sigla": "INT",
       "posicao": "Atacante",
       "gols": 7
-    },
-    {
-      "jogador": "Carlos Renê",
-      "time": "Vitória",
-      "sigla": "VIT",
-      "posicao": "Atacante",
-      "gols": 7
-    },
-    {
-      "jogador": "Carlos Eduardo",
-      "time": "Mirassol",
-      "sigla": "MIR",
-      "posicao": "Meia",
-      "gols": 6
     }
   ],
   "partidas": [
@@ -13378,36 +13378,36 @@
       "id": 555012,
       "rodada": 28,
       "inicio_em": "2026-09-20T19:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "COR",
       "visitante": "FLU",
       "placar": {
-        "mandante": 0,
-        "visitante": 0
+        "mandante": 1,
+        "visitante": 3
       }
     },
     {
       "id": 555019,
       "rodada": 28,
       "inicio_em": "2026-09-20T19:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "VIT",
       "visitante": "CRU",
       "placar": {
-        "mandante": 0,
-        "visitante": 0
+        "mandante": 1,
+        "visitante": 3
       }
     },
     {
       "id": 555013,
       "rodada": 28,
       "inicio_em": "2026-09-20T21:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "FLA",
       "visitante": "RBB",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
@@ -14623,8 +14623,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-20T19:28:00.290737+00:00",
-  "dados_verificados_em": "2026-09-20T19:28:00.290849+00:00",
+  "dados_atualizados_em": "2026-09-20T22:27:55.856274+00:00",
+  "dados_verificados_em": "2026-09-20T22:27:55.856396+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14649,6 +14649,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-20T19:27:59.727926+00:00",
-  "historico_atualizado_em": "2026-09-20T19:28:00.288319+00:00"
+  "agenda_atualizada_em": "2026-09-20T22:27:55.325907+00:00",
+  "historico_atualizado_em": "2026-09-20T22:27:55.854262+00:00"
 }
