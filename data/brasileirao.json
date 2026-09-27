@@ -13663,48 +13663,12 @@
       }
     },
     {
-      "id": 555040,
-      "rodada": 31,
-      "inicio_em": "2026-10-17T00:00:00Z",
-      "status": "agendada",
-      "mandante": "CAP",
-      "visitante": "PAL",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555041,
-      "rodada": 31,
-      "inicio_em": "2026-10-17T00:00:00Z",
-      "status": "agendada",
-      "mandante": "CAM",
-      "visitante": "CFC",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
       "id": 555042,
       "rodada": 31,
       "inicio_em": "2026-10-17T00:00:00Z",
       "status": "agendada",
       "mandante": "BAH",
       "visitante": "FLA",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555043,
-      "rodada": 31,
-      "inicio_em": "2026-10-17T00:00:00Z",
-      "status": "agendada",
-      "mandante": "BOT",
-      "visitante": "CHA",
       "placar": {
         "mandante": null,
         "visitante": null
@@ -13771,9 +13735,45 @@
       }
     },
     {
+      "id": 555043,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T21:00:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555041,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T21:30:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555040,
+      "rodada": 31,
+      "inicio_em": "2026-10-17T22:30:00Z",
+      "status": "agendada",
+      "mandante": "CAP",
+      "visitante": "PAL",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
       "id": 555049,
       "rodada": 31,
-      "inicio_em": "2026-10-17T00:00:00Z",
+      "inicio_em": "2026-10-18T00:00:00Z",
       "status": "agendada",
       "mandante": "SAO",
       "visitante": "VAS",
@@ -14623,8 +14623,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-09-23T11:40:17.470953+00:00",
-  "dados_verificados_em": "2026-09-27T14:02:36.342390+00:00",
+  "dados_atualizados_em": "2026-09-27T18:25:59.784231+00:00",
+  "dados_verificados_em": "2026-09-27T18:25:59.784364+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14649,6 +14649,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-09-27T14:02:35.740174+00:00",
-  "historico_atualizado_em": "2026-09-27T14:02:36.338623+00:00"
+  "agenda_atualizada_em": "2026-09-27T18:25:59.271436+00:00",
+  "historico_atualizado_em": "2026-09-27T18:25:59.780993+00:00"
 }
