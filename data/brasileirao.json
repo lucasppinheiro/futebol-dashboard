@@ -104,6 +104,23 @@
     },
     {
       "posicao": 7,
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/SAN.png",
+      "jogos": 28,
+      "vitorias": 11,
+      "empates": 8,
+      "derrotas": 9,
+      "gols_pro": 43,
+      "gols_contra": 41,
+      "saldo": 2,
+      "pontos": 41,
+      "aproveitamento": 48.8
+    },
+    {
+      "posicao": 8,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -118,23 +135,6 @@
       "saldo": 4,
       "pontos": 40,
       "aproveitamento": 49.4
-    },
-    {
-      "posicao": 8,
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/SAN.png",
-      "jogos": 27,
-      "vitorias": 10,
-      "empates": 8,
-      "derrotas": 9,
-      "gols_pro": 41,
-      "gols_contra": 40,
-      "saldo": 1,
-      "pontos": 38,
-      "aproveitamento": 46.9
     },
     {
       "posicao": 9,
@@ -177,15 +177,15 @@
       "estado": "SP",
       "cor": "#FF0000",
       "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 27,
+      "jogos": 28,
       "vitorias": 10,
       "empates": 6,
-      "derrotas": 11,
-      "gols_pro": 32,
-      "gols_contra": 30,
-      "saldo": 2,
+      "derrotas": 12,
+      "gols_pro": 33,
+      "gols_contra": 32,
+      "saldo": 1,
       "pontos": 36,
-      "aproveitamento": 44.4
+      "aproveitamento": 42.9
     },
     {
       "posicao": 12,
@@ -7719,15 +7719,15 @@
         "estado": "SP",
         "cor": "#FF0000",
         "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 20,
+        "jogos": 21,
         "vitorias": 7,
         "empates": 5,
-        "derrotas": 8,
-        "gols_pro": 25,
-        "gols_contra": 23,
-        "saldo": 2,
+        "derrotas": 9,
+        "gols_pro": 26,
+        "gols_contra": 25,
+        "saldo": 1,
         "pontos": 26,
-        "aproveitamento": 43.3
+        "aproveitamento": 41.3
       },
       {
         "posicao": 13,
@@ -7748,6 +7748,23 @@
       },
       {
         "posicao": 14,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 21,
+        "vitorias": 6,
+        "empates": 7,
+        "derrotas": 8,
+        "gols_pro": 31,
+        "gols_contra": 34,
+        "saldo": -3,
+        "pontos": 25,
+        "aproveitamento": 39.7
+      },
+      {
+        "posicao": 15,
         "time": "Mirassol",
         "sigla": "MIR",
         "estado": "SP",
@@ -7762,23 +7779,6 @@
         "saldo": -6,
         "pontos": 23,
         "aproveitamento": 36.5
-      },
-      {
-        "posicao": 15,
-        "time": "Santos FC",
-        "sigla": "SAN",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/SAN.png",
-        "jogos": 20,
-        "vitorias": 5,
-        "empates": 7,
-        "derrotas": 8,
-        "gols_pro": 29,
-        "gols_contra": 33,
-        "saldo": -4,
-        "pontos": 22,
-        "aproveitamento": 36.7
       },
       {
         "posicao": 16,
@@ -9681,6 +9681,23 @@
       },
       {
         "posicao": 7,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 28,
+        "vitorias": 11,
+        "empates": 8,
+        "derrotas": 9,
+        "gols_pro": 43,
+        "gols_contra": 41,
+        "saldo": 2,
+        "pontos": 41,
+        "aproveitamento": 48.8
+      },
+      {
+        "posicao": 8,
         "time": "Atlético Mineiro",
         "sigla": "CAM",
         "estado": "MG",
@@ -9695,23 +9712,6 @@
         "saldo": 4,
         "pontos": 40,
         "aproveitamento": 49.4
-      },
-      {
-        "posicao": 8,
-        "time": "Santos FC",
-        "sigla": "SAN",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/SAN.png",
-        "jogos": 27,
-        "vitorias": 10,
-        "empates": 8,
-        "derrotas": 9,
-        "gols_pro": 41,
-        "gols_contra": 40,
-        "saldo": 1,
-        "pontos": 38,
-        "aproveitamento": 46.9
       },
       {
         "posicao": 9,
@@ -9754,15 +9754,15 @@
         "estado": "SP",
         "cor": "#FF0000",
         "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 27,
+        "jogos": 28,
         "vitorias": 10,
         "empates": 6,
-        "derrotas": 11,
-        "gols_pro": 32,
-        "gols_contra": 30,
-        "saldo": 2,
+        "derrotas": 12,
+        "gols_pro": 33,
+        "gols_contra": 32,
+        "saldo": 1,
         "pontos": 36,
-        "aproveitamento": 44.4
+        "aproveitamento": 42.9
       },
       {
         "posicao": 12,
@@ -9939,7 +9939,7 @@
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Atacante",
-      "gols": 11
+      "gols": 13
     },
     {
       "jogador": "Carlos Vinícius",
@@ -9947,6 +9947,13 @@
       "sigla": "GRE",
       "posicao": "Centroavante",
       "gols": 10
+    },
+    {
+      "jogador": "Luciano",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 9
     },
     {
       "jogador": "Danilo dos Santos de Oliveira",
@@ -9987,13 +9994,6 @@
       "jogador": "José Manuel López",
       "time": "Palmeiras",
       "sigla": "PAL",
-      "posicao": "Atacante",
-      "gols": 8
-    },
-    {
-      "jogador": "Luciano",
-      "time": "São Paulo",
-      "sigla": "SAO",
       "posicao": "Atacante",
       "gols": 8
     },
@@ -12562,12 +12562,12 @@
       "id": 554948,
       "rodada": 21,
       "inicio_em": "2026-10-02T23:00:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "SAO",
       "visitante": "SAN",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 2
       }
     },
     {
@@ -14623,8 +14623,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-02T05:40:36.720575+00:00",
-  "dados_verificados_em": "2026-10-02T22:58:57.808840+00:00",
+  "dados_atualizados_em": "2026-10-03T01:59:59.610912+00:00",
+  "dados_verificados_em": "2026-10-03T01:59:59.611045+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14649,6 +14649,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-10-02T22:58:56.893696+00:00",
-  "historico_atualizado_em": "2026-10-02T22:58:57.805694+00:00"
+  "agenda_atualizada_em": "2026-10-03T01:59:58.952870+00:00",
+  "historico_atualizado_em": "2026-10-03T01:59:59.608074+00:00"
 }
