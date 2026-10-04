@@ -104,6 +104,23 @@
     },
     {
       "posicao": 7,
+      "time": "Atlético Mineiro",
+      "sigla": "CAM",
+      "estado": "MG",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/CAM.png",
+      "jogos": 28,
+      "vitorias": 12,
+      "empates": 7,
+      "derrotas": 9,
+      "gols_pro": 37,
+      "gols_contra": 32,
+      "saldo": 5,
+      "pontos": 43,
+      "aproveitamento": 51.2
+    },
+    {
+      "posicao": 8,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
@@ -118,23 +135,6 @@
       "saldo": 2,
       "pontos": 41,
       "aproveitamento": 48.8
-    },
-    {
-      "posicao": 8,
-      "time": "Atlético Mineiro",
-      "sigla": "CAM",
-      "estado": "MG",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 27,
-      "vitorias": 11,
-      "empates": 7,
-      "derrotas": 9,
-      "gols_pro": 36,
-      "gols_contra": 32,
-      "saldo": 4,
-      "pontos": 40,
-      "aproveitamento": 49.4
     },
     {
       "posicao": 9,
@@ -160,15 +160,15 @@
       "estado": "SP",
       "cor": "#E30613",
       "escudo": "static/img/escudos/normalizados/RBB.png",
-      "jogos": 27,
+      "jogos": 28,
       "vitorias": 10,
       "empates": 6,
-      "derrotas": 11,
+      "derrotas": 12,
       "gols_pro": 33,
-      "gols_contra": 31,
-      "saldo": 2,
+      "gols_contra": 32,
+      "saldo": 1,
       "pontos": 36,
-      "aproveitamento": 44.4
+      "aproveitamento": 42.9
     },
     {
       "posicao": 11,
@@ -7634,18 +7634,35 @@
         "estado": "SP",
         "cor": "#E30613",
         "escudo": "static/img/escudos/normalizados/RBB.png",
-        "jogos": 20,
+        "jogos": 21,
         "vitorias": 9,
         "empates": 4,
-        "derrotas": 7,
+        "derrotas": 8,
         "gols_pro": 26,
-        "gols_contra": 20,
-        "saldo": 6,
+        "gols_contra": 21,
+        "saldo": 5,
         "pontos": 31,
-        "aproveitamento": 51.7
+        "aproveitamento": 49.2
       },
       {
         "posicao": 8,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 21,
+        "vitorias": 9,
+        "empates": 4,
+        "derrotas": 8,
+        "gols_pro": 26,
+        "gols_contra": 25,
+        "saldo": 1,
+        "pontos": 31,
+        "aproveitamento": 49.2
+      },
+      {
+        "posicao": 9,
         "time": "Cruzeiro",
         "sigla": "CRU",
         "estado": "MG",
@@ -7662,7 +7679,7 @@
         "aproveitamento": 47.6
       },
       {
-        "posicao": 9,
+        "posicao": 10,
         "time": "Corinthians",
         "sigla": "COR",
         "estado": "SP",
@@ -7677,23 +7694,6 @@
         "saldo": 2,
         "pontos": 29,
         "aproveitamento": 46.0
-      },
-      {
-        "posicao": 10,
-        "time": "Atlético Mineiro",
-        "sigla": "CAM",
-        "estado": "MG",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 20,
-        "vitorias": 8,
-        "empates": 4,
-        "derrotas": 8,
-        "gols_pro": 25,
-        "gols_contra": 25,
-        "saldo": 0,
-        "pontos": 28,
-        "aproveitamento": 46.7
       },
       {
         "posicao": 11,
@@ -9681,6 +9681,23 @@
       },
       {
         "posicao": 7,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 28,
+        "vitorias": 12,
+        "empates": 7,
+        "derrotas": 9,
+        "gols_pro": 37,
+        "gols_contra": 32,
+        "saldo": 5,
+        "pontos": 43,
+        "aproveitamento": 51.2
+      },
+      {
+        "posicao": 8,
         "time": "Santos FC",
         "sigla": "SAN",
         "estado": "SP",
@@ -9695,23 +9712,6 @@
         "saldo": 2,
         "pontos": 41,
         "aproveitamento": 48.8
-      },
-      {
-        "posicao": 8,
-        "time": "Atlético Mineiro",
-        "sigla": "CAM",
-        "estado": "MG",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 27,
-        "vitorias": 11,
-        "empates": 7,
-        "derrotas": 9,
-        "gols_pro": 36,
-        "gols_contra": 32,
-        "saldo": 4,
-        "pontos": 40,
-        "aproveitamento": 49.4
       },
       {
         "posicao": 9,
@@ -9737,15 +9737,15 @@
         "estado": "SP",
         "cor": "#E30613",
         "escudo": "static/img/escudos/normalizados/RBB.png",
-        "jogos": 27,
+        "jogos": 28,
         "vitorias": 10,
         "empates": 6,
-        "derrotas": 11,
+        "derrotas": 12,
         "gols_pro": 33,
-        "gols_contra": 31,
-        "saldo": 2,
+        "gols_contra": 32,
+        "saldo": 1,
         "pontos": 36,
-        "aproveitamento": 44.4
+        "aproveitamento": 42.9
       },
       {
         "posicao": 11,
@@ -12574,12 +12574,12 @@
       "id": 554940,
       "rodada": 21,
       "inicio_em": "2026-10-03T21:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "CAM",
       "visitante": "RBB",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
@@ -14623,8 +14623,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-03T01:59:59.610912+00:00",
-  "dados_verificados_em": "2026-10-03T21:18:29.050237+00:00",
+  "dados_atualizados_em": "2026-10-04T00:39:40.814060+00:00",
+  "dados_verificados_em": "2026-10-04T00:39:40.814137+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14649,6 +14649,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-10-03T21:18:28.268572+00:00",
-  "historico_atualizado_em": "2026-10-03T21:18:29.048194+00:00"
+  "agenda_atualizada_em": "2026-10-04T00:39:40.264460+00:00",
+  "historico_atualizado_em": "2026-10-04T00:39:40.812381+00:00"
 }
