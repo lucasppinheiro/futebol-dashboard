@@ -70,6 +70,23 @@
     },
     {
       "posicao": 5,
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "estado": "MG",
+      "cor": "#003DA5",
+      "escudo": "static/img/escudos/normalizados/CRU.png",
+      "jogos": 29,
+      "vitorias": 14,
+      "empates": 6,
+      "derrotas": 9,
+      "gols_pro": 44,
+      "gols_contra": 40,
+      "saldo": 4,
+      "pontos": 48,
+      "aproveitamento": 55.2
+    },
+    {
+      "posicao": 6,
       "time": "Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -84,23 +101,6 @@
       "saldo": 8,
       "pontos": 46,
       "aproveitamento": 54.8
-    },
-    {
-      "posicao": 6,
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "estado": "MG",
-      "cor": "#003DA5",
-      "escudo": "static/img/escudos/normalizados/CRU.png",
-      "jogos": 28,
-      "vitorias": 13,
-      "empates": 6,
-      "derrotas": 9,
-      "gols_pro": 42,
-      "gols_contra": 40,
-      "saldo": 2,
-      "pontos": 45,
-      "aproveitamento": 53.6
     },
     {
       "posicao": 7,
@@ -177,15 +177,15 @@
       "estado": "SP",
       "cor": "#FF0000",
       "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 28,
+      "jogos": 29,
       "vitorias": 10,
       "empates": 6,
-      "derrotas": 12,
+      "derrotas": 13,
       "gols_pro": 33,
-      "gols_contra": 32,
-      "saldo": 1,
+      "gols_contra": 34,
+      "saldo": -1,
       "pontos": 36,
-      "aproveitamento": 42.9
+      "aproveitamento": 41.4
     },
     {
       "posicao": 12,
@@ -9989,6 +9989,23 @@
       },
       {
         "posicao": 5,
+        "time": "Cruzeiro",
+        "sigla": "CRU",
+        "estado": "MG",
+        "cor": "#003DA5",
+        "escudo": "static/img/escudos/normalizados/CRU.png",
+        "jogos": 29,
+        "vitorias": 14,
+        "empates": 6,
+        "derrotas": 9,
+        "gols_pro": 44,
+        "gols_contra": 40,
+        "saldo": 4,
+        "pontos": 48,
+        "aproveitamento": 55.2
+      },
+      {
+        "posicao": 6,
         "time": "Bahia",
         "sigla": "BAH",
         "estado": "BA",
@@ -10003,23 +10020,6 @@
         "saldo": 8,
         "pontos": 46,
         "aproveitamento": 54.8
-      },
-      {
-        "posicao": 6,
-        "time": "Cruzeiro",
-        "sigla": "CRU",
-        "estado": "MG",
-        "cor": "#003DA5",
-        "escudo": "static/img/escudos/normalizados/CRU.png",
-        "jogos": 28,
-        "vitorias": 13,
-        "empates": 6,
-        "derrotas": 9,
-        "gols_pro": 42,
-        "gols_contra": 40,
-        "saldo": 2,
-        "pontos": 45,
-        "aproveitamento": 53.6
       },
       {
         "posicao": 7,
@@ -10096,15 +10096,15 @@
         "estado": "SP",
         "cor": "#FF0000",
         "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 28,
+        "jogos": 29,
         "vitorias": 10,
         "empates": 6,
-        "derrotas": 12,
+        "derrotas": 13,
         "gols_pro": 33,
-        "gols_contra": 32,
-        "saldo": 1,
+        "gols_contra": 34,
+        "saldo": -1,
         "pontos": 36,
-        "aproveitamento": 42.9
+        "aproveitamento": 41.4
       },
       {
         "posicao": 12,
@@ -13828,7 +13828,7 @@
       "id": 555023,
       "rodada": 29,
       "inicio_em": "2026-10-08T00:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "CRU",
       "visitante": "SAO",
       "placar": {
@@ -14965,8 +14965,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-08T01:57:29.946892+00:00",
-  "dados_verificados_em": "2026-10-08T01:57:29.947027+00:00",
+  "dados_atualizados_em": "2026-10-08T09:00:51.246581+00:00",
+  "dados_verificados_em": "2026-10-08T09:00:51.246730+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -14991,6 +14991,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 18
   },
-  "agenda_atualizada_em": "2026-10-08T01:57:29.343264+00:00",
-  "historico_atualizado_em": "2026-10-08T01:57:29.943880+00:00"
+  "agenda_atualizada_em": "2026-10-08T09:00:50.329332+00:00",
+  "historico_atualizado_em": "2026-10-08T09:00:51.243588+00:00"
 }
