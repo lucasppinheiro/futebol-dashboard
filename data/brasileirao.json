@@ -228,15 +228,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/VAS.png",
-      "jogos": 28,
+      "jogos": 29,
       "vitorias": 9,
-      "empates": 7,
+      "empates": 8,
       "derrotas": 12,
       "gols_pro": 36,
       "gols_contra": 42,
       "saldo": -6,
-      "pontos": 34,
-      "aproveitamento": 40.5
+      "pontos": 35,
+      "aproveitamento": 40.2
     },
     {
       "posicao": 15,
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "static/img/escudos/normalizados/REM.png",
-      "jogos": 29,
+      "jogos": 30,
       "vitorias": 5,
-      "empates": 9,
+      "empates": 10,
       "derrotas": 15,
       "gols_pro": 33,
       "gols_contra": 48,
       "saldo": -15,
-      "pontos": 24,
-      "aproveitamento": 27.6
+      "pontos": 25,
+      "aproveitamento": 27.8
     },
     {
       "posicao": 20,
@@ -10489,15 +10489,15 @@
         "estado": "RJ",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/VAS.png",
-        "jogos": 28,
+        "jogos": 29,
         "vitorias": 9,
-        "empates": 7,
+        "empates": 8,
         "derrotas": 12,
         "gols_pro": 36,
         "gols_contra": 42,
         "saldo": -6,
-        "pontos": 34,
-        "aproveitamento": 40.5
+        "pontos": 35,
+        "aproveitamento": 40.2
       },
       {
         "posicao": 15,
@@ -10574,15 +10574,15 @@
         "estado": "PA",
         "cor": "#00008B",
         "escudo": "static/img/escudos/normalizados/REM.png",
-        "jogos": 29,
+        "jogos": 30,
         "vitorias": 5,
-        "empates": 9,
+        "empates": 10,
         "derrotas": 15,
         "gols_pro": 33,
         "gols_contra": 48,
         "saldo": -15,
-        "pontos": 24,
-        "aproveitamento": 27.6
+        "pontos": 25,
+        "aproveitamento": 27.8
       },
       {
         "posicao": 20,
@@ -10633,6 +10633,13 @@
       "gols": 10
     },
     {
+      "jogador": "Jonathan Calleri",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 10
+    },
+    {
       "jogador": "José Manuel López",
       "time": "Palmeiras",
       "sigla": "PAL",
@@ -10680,13 +10687,6 @@
       "sigla": "FLA",
       "posicao": "Ponta esquerda",
       "gols": 9
-    },
-    {
-      "jogador": "Jonathan Calleri",
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 8
     },
     {
       "jogador": "Breno Lopes",
@@ -14230,7 +14230,7 @@
       "id": 555039,
       "rodada": 30,
       "inicio_em": "2026-10-10T21:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "VAS",
       "visitante": "REM",
       "placar": {
@@ -14242,12 +14242,12 @@
       "id": 555038,
       "rodada": 30,
       "inicio_em": "2026-10-11T00:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "SAO",
       "visitante": "VIT",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 2,
+        "visitante": 1
       }
     },
     {
@@ -15307,8 +15307,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-10T22:34:53.559221+00:00",
-  "dados_verificados_em": "2026-10-10T22:34:53.559386+00:00",
+  "dados_atualizados_em": "2026-10-11T01:55:54.715708+00:00",
+  "dados_verificados_em": "2026-10-11T01:55:54.715823+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15325,7 +15325,7 @@
     "rodada_atual": 30,
     "rodada_confirmada": true,
     "jogos_minimos": 28,
-    "jogos_maximos": 29,
+    "jogos_maximos": 30,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Flamengo",
@@ -15333,6 +15333,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 19
   },
-  "agenda_atualizada_em": "2026-10-10T22:34:52.964916+00:00",
-  "historico_atualizado_em": "2026-10-10T22:34:53.555620+00:00"
+  "agenda_atualizada_em": "2026-10-11T01:55:54.070609+00:00",
+  "historico_atualizado_em": "2026-10-11T01:55:54.713421+00:00"
 }
