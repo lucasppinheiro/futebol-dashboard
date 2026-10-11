@@ -138,6 +138,23 @@
     },
     {
       "posicao": 9,
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "estado": "SP",
+      "cor": "#FF0000",
+      "escudo": "static/img/escudos/normalizados/SAO.png",
+      "jogos": 30,
+      "vitorias": 11,
+      "empates": 6,
+      "derrotas": 13,
+      "gols_pro": 35,
+      "gols_contra": 35,
+      "saldo": 0,
+      "pontos": 39,
+      "aproveitamento": 43.3
+    },
+    {
+      "posicao": 10,
       "time": "Coritiba SAF",
       "sigla": "CFC",
       "estado": "PR",
@@ -154,7 +171,7 @@
       "aproveitamento": 43.7
     },
     {
-      "posicao": 10,
+      "posicao": 11,
       "time": "Red Bull Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -171,38 +188,21 @@
       "aproveitamento": 42.5
     },
     {
-      "posicao": 11,
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "estado": "SP",
-      "cor": "#FF0000",
-      "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 29,
-      "vitorias": 10,
-      "empates": 6,
-      "derrotas": 13,
-      "gols_pro": 33,
-      "gols_contra": 34,
-      "saldo": -1,
-      "pontos": 36,
-      "aproveitamento": 41.4
-    },
-    {
       "posicao": 12,
       "time": "Vitória",
       "sigla": "VIT",
       "estado": "BA",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/VIT.png",
-      "jogos": 29,
+      "jogos": 30,
       "vitorias": 10,
       "empates": 6,
-      "derrotas": 13,
-      "gols_pro": 32,
-      "gols_contra": 42,
-      "saldo": -10,
+      "derrotas": 14,
+      "gols_pro": 33,
+      "gols_contra": 44,
+      "saldo": -11,
       "pontos": 36,
-      "aproveitamento": 41.4
+      "aproveitamento": 40.0
     },
     {
       "posicao": 13,
@@ -10399,6 +10399,23 @@
       },
       {
         "posicao": 9,
+        "time": "São Paulo",
+        "sigla": "SAO",
+        "estado": "SP",
+        "cor": "#FF0000",
+        "escudo": "static/img/escudos/normalizados/SAO.png",
+        "jogos": 30,
+        "vitorias": 11,
+        "empates": 6,
+        "derrotas": 13,
+        "gols_pro": 35,
+        "gols_contra": 35,
+        "saldo": 0,
+        "pontos": 39,
+        "aproveitamento": 43.3
+      },
+      {
+        "posicao": 10,
         "time": "Coritiba SAF",
         "sigla": "CFC",
         "estado": "PR",
@@ -10415,7 +10432,7 @@
         "aproveitamento": 43.7
       },
       {
-        "posicao": 10,
+        "posicao": 11,
         "time": "Red Bull Bragantino",
         "sigla": "RBB",
         "estado": "SP",
@@ -10432,38 +10449,21 @@
         "aproveitamento": 42.5
       },
       {
-        "posicao": 11,
-        "time": "São Paulo",
-        "sigla": "SAO",
-        "estado": "SP",
-        "cor": "#FF0000",
-        "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 29,
-        "vitorias": 10,
-        "empates": 6,
-        "derrotas": 13,
-        "gols_pro": 33,
-        "gols_contra": 34,
-        "saldo": -1,
-        "pontos": 36,
-        "aproveitamento": 41.4
-      },
-      {
         "posicao": 12,
         "time": "Vitória",
         "sigla": "VIT",
         "estado": "BA",
         "cor": "#E11D1D",
         "escudo": "static/img/escudos/normalizados/VIT.png",
-        "jogos": 29,
+        "jogos": 30,
         "vitorias": 10,
         "empates": 6,
-        "derrotas": 13,
-        "gols_pro": 32,
-        "gols_contra": 42,
-        "saldo": -10,
+        "derrotas": 14,
+        "gols_pro": 33,
+        "gols_contra": 44,
+        "saldo": -11,
         "pontos": 36,
-        "aproveitamento": 41.4
+        "aproveitamento": 40.0
       },
       {
         "posicao": 13,
@@ -14242,7 +14242,7 @@
       "id": 555038,
       "rodada": 30,
       "inicio_em": "2026-10-11T00:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "SAO",
       "visitante": "VIT",
       "placar": {
@@ -15307,8 +15307,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-11T01:55:54.715708+00:00",
-  "dados_verificados_em": "2026-10-11T01:55:54.715823+00:00",
+  "dados_atualizados_em": "2026-10-11T08:54:48.129285+00:00",
+  "dados_verificados_em": "2026-10-11T08:54:48.129411+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15333,6 +15333,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 19
   },
-  "agenda_atualizada_em": "2026-10-11T01:55:54.070609+00:00",
-  "historico_atualizado_em": "2026-10-11T01:55:54.713421+00:00"
+  "agenda_atualizada_em": "2026-10-11T08:54:47.225755+00:00",
+  "historico_atualizado_em": "2026-10-11T08:54:48.126878+00:00"
 }
