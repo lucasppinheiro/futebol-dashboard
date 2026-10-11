@@ -14254,12 +14254,12 @@
       "id": 555030,
       "rodada": 30,
       "inicio_em": "2026-10-11T19:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "CAM",
       "visitante": "SAN",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -15307,8 +15307,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-11T08:54:48.129285+00:00",
-  "dados_verificados_em": "2026-10-11T15:43:28.661636+00:00",
+  "dados_atualizados_em": "2026-10-11T20:18:53.762223+00:00",
+  "dados_verificados_em": "2026-10-11T20:18:53.762341+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15333,6 +15333,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 19
   },
-  "agenda_atualizada_em": "2026-10-11T15:43:28.258864+00:00",
-  "historico_atualizado_em": "2026-10-11T15:43:28.658029+00:00"
+  "agenda_atualizada_em": "2026-10-11T20:18:53.149810+00:00",
+  "historico_atualizado_em": "2026-10-11T20:18:53.759642+00:00"
 }
