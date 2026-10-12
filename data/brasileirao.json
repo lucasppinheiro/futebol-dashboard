@@ -7,15 +7,15 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/FLA.png",
-      "jogos": 29,
-      "vitorias": 18,
+      "jogos": 30,
+      "vitorias": 19,
       "empates": 7,
       "derrotas": 4,
-      "gols_pro": 57,
+      "gols_pro": 58,
       "gols_contra": 25,
-      "saldo": 32,
-      "pontos": 61,
-      "aproveitamento": 70.1
+      "saldo": 33,
+      "pontos": 64,
+      "aproveitamento": 71.1
     },
     {
       "posicao": 2,
@@ -24,15 +24,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "static/img/escudos/normalizados/PAL.png",
-      "jogos": 29,
-      "vitorias": 17,
+      "jogos": 30,
+      "vitorias": 18,
       "empates": 9,
       "derrotas": 3,
-      "gols_pro": 48,
-      "gols_contra": 21,
-      "saldo": 27,
-      "pontos": 60,
-      "aproveitamento": 69.0
+      "gols_pro": 52,
+      "gols_contra": 22,
+      "saldo": 30,
+      "pontos": 63,
+      "aproveitamento": 70.0
     },
     {
       "posicao": 3,
@@ -41,15 +41,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 29,
+      "jogos": 30,
       "vitorias": 14,
       "empates": 9,
-      "derrotas": 6,
+      "derrotas": 7,
       "gols_pro": 48,
-      "gols_contra": 36,
-      "saldo": 12,
+      "gols_contra": 37,
+      "saldo": 11,
       "pontos": 51,
-      "aproveitamento": 58.6
+      "aproveitamento": 56.7
     },
     {
       "posicao": 4,
@@ -87,6 +87,23 @@
     },
     {
       "posicao": 6,
+      "time": "Atlético Mineiro",
+      "sigla": "CAM",
+      "estado": "MG",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/CAM.png",
+      "jogos": 30,
+      "vitorias": 13,
+      "empates": 8,
+      "derrotas": 9,
+      "gols_pro": 41,
+      "gols_contra": 35,
+      "saldo": 6,
+      "pontos": 47,
+      "aproveitamento": 52.2
+    },
+    {
+      "posicao": 7,
       "time": "Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -103,38 +120,21 @@
       "aproveitamento": 52.9
     },
     {
-      "posicao": 7,
-      "time": "Atlético Mineiro",
-      "sigla": "CAM",
-      "estado": "MG",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 29,
-      "vitorias": 12,
-      "empates": 8,
-      "derrotas": 9,
-      "gols_pro": 39,
-      "gols_contra": 34,
-      "saldo": 5,
-      "pontos": 44,
-      "aproveitamento": 50.6
-    },
-    {
       "posicao": 8,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/SAN.png",
-      "jogos": 29,
+      "jogos": 30,
       "vitorias": 11,
       "empates": 9,
-      "derrotas": 9,
-      "gols_pro": 45,
-      "gols_contra": 43,
-      "saldo": 2,
+      "derrotas": 10,
+      "gols_pro": 46,
+      "gols_contra": 45,
+      "saldo": 1,
       "pontos": 42,
-      "aproveitamento": 48.3
+      "aproveitamento": 46.7
     },
     {
       "posicao": 9,
@@ -257,36 +257,36 @@
     },
     {
       "posicao": 16,
-      "time": "Corinthians",
-      "sigla": "COR",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/COR.png",
-      "jogos": 29,
-      "vitorias": 8,
-      "empates": 8,
-      "derrotas": 13,
-      "gols_pro": 30,
-      "gols_contra": 34,
-      "saldo": -4,
-      "pontos": 32,
-      "aproveitamento": 36.8
-    },
-    {
-      "posicao": 17,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
       "cor": "#E30613",
       "escudo": "static/img/escudos/normalizados/INT.png",
-      "jogos": 29,
+      "jogos": 30,
       "vitorias": 7,
-      "empates": 10,
+      "empates": 11,
       "derrotas": 12,
-      "gols_pro": 32,
-      "gols_contra": 37,
+      "gols_pro": 33,
+      "gols_contra": 38,
       "saldo": -5,
-      "pontos": 31,
+      "pontos": 32,
+      "aproveitamento": 35.6
+    },
+    {
+      "posicao": 17,
+      "time": "Corinthians",
+      "sigla": "COR",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/COR.png",
+      "jogos": 30,
+      "vitorias": 8,
+      "empates": 8,
+      "derrotas": 14,
+      "gols_pro": 31,
+      "gols_contra": 38,
+      "saldo": -7,
+      "pontos": 32,
       "aproveitamento": 35.6
     },
     {
@@ -296,15 +296,15 @@
       "estado": "RS",
       "cor": "#0080C8",
       "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 29,
+      "jogos": 30,
       "vitorias": 7,
-      "empates": 9,
+      "empates": 10,
       "derrotas": 13,
-      "gols_pro": 31,
-      "gols_contra": 39,
+      "gols_pro": 32,
+      "gols_contra": 40,
       "saldo": -8,
-      "pontos": 30,
-      "aproveitamento": 34.5
+      "pontos": 31,
+      "aproveitamento": 34.4
     },
     {
       "posicao": 19,
@@ -10268,15 +10268,15 @@
         "estado": "RJ",
         "cor": "#E11D1D",
         "escudo": "static/img/escudos/normalizados/FLA.png",
-        "jogos": 29,
-        "vitorias": 18,
+        "jogos": 30,
+        "vitorias": 19,
         "empates": 7,
         "derrotas": 4,
-        "gols_pro": 57,
+        "gols_pro": 58,
         "gols_contra": 25,
-        "saldo": 32,
-        "pontos": 61,
-        "aproveitamento": 70.1
+        "saldo": 33,
+        "pontos": 64,
+        "aproveitamento": 71.1
       },
       {
         "posicao": 2,
@@ -10285,15 +10285,15 @@
         "estado": "SP",
         "cor": "#006437",
         "escudo": "static/img/escudos/normalizados/PAL.png",
-        "jogos": 29,
-        "vitorias": 17,
+        "jogos": 30,
+        "vitorias": 18,
         "empates": 9,
         "derrotas": 3,
-        "gols_pro": 48,
-        "gols_contra": 21,
-        "saldo": 27,
-        "pontos": 60,
-        "aproveitamento": 69.0
+        "gols_pro": 52,
+        "gols_contra": 22,
+        "saldo": 30,
+        "pontos": 63,
+        "aproveitamento": 70.0
       },
       {
         "posicao": 3,
@@ -10302,15 +10302,15 @@
         "estado": "RJ",
         "cor": "#7B0023",
         "escudo": "static/img/escudos/normalizados/FLU.png",
-        "jogos": 29,
+        "jogos": 30,
         "vitorias": 14,
         "empates": 9,
-        "derrotas": 6,
+        "derrotas": 7,
         "gols_pro": 48,
-        "gols_contra": 36,
-        "saldo": 12,
+        "gols_contra": 37,
+        "saldo": 11,
         "pontos": 51,
-        "aproveitamento": 58.6
+        "aproveitamento": 56.7
       },
       {
         "posicao": 4,
@@ -10348,6 +10348,23 @@
       },
       {
         "posicao": 6,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 30,
+        "vitorias": 13,
+        "empates": 8,
+        "derrotas": 9,
+        "gols_pro": 41,
+        "gols_contra": 35,
+        "saldo": 6,
+        "pontos": 47,
+        "aproveitamento": 52.2
+      },
+      {
+        "posicao": 7,
         "time": "Bahia",
         "sigla": "BAH",
         "estado": "BA",
@@ -10364,38 +10381,21 @@
         "aproveitamento": 52.9
       },
       {
-        "posicao": 7,
-        "time": "Atlético Mineiro",
-        "sigla": "CAM",
-        "estado": "MG",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 29,
-        "vitorias": 12,
-        "empates": 8,
-        "derrotas": 9,
-        "gols_pro": 39,
-        "gols_contra": 34,
-        "saldo": 5,
-        "pontos": 44,
-        "aproveitamento": 50.6
-      },
-      {
         "posicao": 8,
         "time": "Santos FC",
         "sigla": "SAN",
         "estado": "SP",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/SAN.png",
-        "jogos": 29,
+        "jogos": 30,
         "vitorias": 11,
         "empates": 9,
-        "derrotas": 9,
-        "gols_pro": 45,
-        "gols_contra": 43,
-        "saldo": 2,
+        "derrotas": 10,
+        "gols_pro": 46,
+        "gols_contra": 45,
+        "saldo": 1,
         "pontos": 42,
-        "aproveitamento": 48.3
+        "aproveitamento": 46.7
       },
       {
         "posicao": 9,
@@ -10518,36 +10518,36 @@
       },
       {
         "posicao": 16,
-        "time": "Corinthians",
-        "sigla": "COR",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/COR.png",
-        "jogos": 29,
-        "vitorias": 8,
-        "empates": 8,
-        "derrotas": 13,
-        "gols_pro": 30,
-        "gols_contra": 34,
-        "saldo": -4,
-        "pontos": 32,
-        "aproveitamento": 36.8
-      },
-      {
-        "posicao": 17,
         "time": "Internacional",
         "sigla": "INT",
         "estado": "RS",
         "cor": "#E30613",
         "escudo": "static/img/escudos/normalizados/INT.png",
-        "jogos": 29,
+        "jogos": 30,
         "vitorias": 7,
-        "empates": 10,
+        "empates": 11,
         "derrotas": 12,
-        "gols_pro": 32,
-        "gols_contra": 37,
+        "gols_pro": 33,
+        "gols_contra": 38,
         "saldo": -5,
-        "pontos": 31,
+        "pontos": 32,
+        "aproveitamento": 35.6
+      },
+      {
+        "posicao": 17,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 30,
+        "vitorias": 8,
+        "empates": 8,
+        "derrotas": 14,
+        "gols_pro": 31,
+        "gols_contra": 38,
+        "saldo": -7,
+        "pontos": 32,
         "aproveitamento": 35.6
       },
       {
@@ -10557,15 +10557,15 @@
         "estado": "RS",
         "cor": "#0080C8",
         "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 29,
+        "jogos": 30,
         "vitorias": 7,
-        "empates": 9,
+        "empates": 10,
         "derrotas": 13,
-        "gols_pro": 31,
-        "gols_contra": 39,
+        "gols_pro": 32,
+        "gols_contra": 40,
         "saldo": -8,
-        "pontos": 30,
-        "aproveitamento": 34.5
+        "pontos": 31,
+        "aproveitamento": 34.4
       },
       {
         "posicao": 19,
@@ -10623,7 +10623,7 @@
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Atacante",
-      "gols": 13
+      "gols": 14
     },
     {
       "jogador": "Carlos Vinícius",
@@ -10637,6 +10637,13 @@
       "time": "São Paulo",
       "sigla": "SAO",
       "posicao": "Atacante",
+      "gols": 10
+    },
+    {
+      "jogador": "Luciano Juba",
+      "time": "Bahia",
+      "sigla": "BAH",
+      "posicao": "Defensor",
       "gols": 10
     },
     {
@@ -10672,13 +10679,6 @@
       "time": "Cruzeiro",
       "sigla": "CRU",
       "posicao": "Atacante",
-      "gols": 9
-    },
-    {
-      "jogador": "Luciano Juba",
-      "time": "Bahia",
-      "sigla": "BAH",
-      "posicao": "Defensor",
       "gols": 9
     },
     {
@@ -14254,60 +14254,60 @@
       "id": 555030,
       "rodada": 30,
       "inicio_em": "2026-10-11T19:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "CAM",
       "visitante": "SAN",
       "placar": {
-        "mandante": 0,
-        "visitante": 0
+        "mandante": 2,
+        "visitante": 1
       }
     },
     {
       "id": 555035,
       "rodada": 30,
       "inicio_em": "2026-10-11T20:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "FLA",
       "visitante": "FLU",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
       "id": 555036,
       "rodada": 30,
       "inicio_em": "2026-10-11T20:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "GRE",
       "visitante": "INT",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 1
       }
     },
     {
       "id": 555037,
       "rodada": 30,
       "inicio_em": "2026-10-11T20:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "PAL",
       "visitante": "COR",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 4,
+        "visitante": 1
       }
     },
     {
       "id": 555031,
       "rodada": 30,
       "inicio_em": "2026-10-11T22:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "BAH",
       "visitante": "MIR",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
@@ -15307,8 +15307,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-11T20:18:53.762223+00:00",
-  "dados_verificados_em": "2026-10-11T20:18:53.762341+00:00",
+  "dados_atualizados_em": "2026-10-12T00:34:19.771507+00:00",
+  "dados_verificados_em": "2026-10-12T00:34:19.771661+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15329,10 +15329,10 @@
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Flamengo",
-    "lider_pontos": 61,
+    "lider_pontos": 64,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 19
   },
-  "agenda_atualizada_em": "2026-10-11T20:18:53.149810+00:00",
-  "historico_atualizado_em": "2026-10-11T20:18:53.759642+00:00"
+  "agenda_atualizada_em": "2026-10-12T00:34:19.228921+00:00",
+  "historico_atualizado_em": "2026-10-12T00:34:19.768759+00:00"
 }
