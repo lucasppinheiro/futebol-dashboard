@@ -14584,108 +14584,108 @@
       "id": 555038,
       "rodada": 30,
       "inicio_em": "2026-10-11T00:00:00Z",
-      "status": "encerrada",
+      "status": "em_andamento",
       "mandante": "SAO",
       "visitante": "VIT",
       "placar": {
-        "mandante": 2,
-        "visitante": 1
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
       "id": 555030,
       "rodada": 30,
       "inicio_em": "2026-10-11T19:00:00Z",
-      "status": "encerrada",
+      "status": "agendada",
       "mandante": "CAM",
       "visitante": "SAN",
       "placar": {
-        "mandante": 2,
-        "visitante": 1
+        "mandante": null,
+        "visitante": null
       }
     },
     {
       "id": 555035,
       "rodada": 30,
       "inicio_em": "2026-10-11T20:30:00Z",
-      "status": "encerrada",
+      "status": "agendada",
       "mandante": "FLA",
       "visitante": "FLU",
       "placar": {
-        "mandante": 1,
-        "visitante": 0
+        "mandante": null,
+        "visitante": null
       }
     },
     {
       "id": 555036,
       "rodada": 30,
       "inicio_em": "2026-10-11T20:30:00Z",
-      "status": "encerrada",
+      "status": "agendada",
       "mandante": "GRE",
       "visitante": "INT",
       "placar": {
-        "mandante": 1,
-        "visitante": 1
+        "mandante": null,
+        "visitante": null
       }
     },
     {
       "id": 555037,
       "rodada": 30,
       "inicio_em": "2026-10-11T20:30:00Z",
-      "status": "encerrada",
+      "status": "agendada",
       "mandante": "PAL",
       "visitante": "COR",
       "placar": {
-        "mandante": 4,
-        "visitante": 1
+        "mandante": null,
+        "visitante": null
       }
     },
     {
       "id": 555031,
       "rodada": 30,
       "inicio_em": "2026-10-11T22:30:00Z",
-      "status": "encerrada",
+      "status": "agendada",
       "mandante": "BAH",
       "visitante": "MIR",
       "placar": {
-        "mandante": 1,
-        "visitante": 0
+        "mandante": null,
+        "visitante": null
       }
     },
     {
       "id": 555034,
       "rodada": 30,
       "inicio_em": "2026-10-12T19:00:00Z",
-      "status": "encerrada",
+      "status": "agendada",
       "mandante": "CFC",
       "visitante": "BOT",
       "placar": {
-        "mandante": 1,
-        "visitante": 1
+        "mandante": null,
+        "visitante": null
       }
     },
     {
       "id": 555033,
       "rodada": 30,
       "inicio_em": "2026-10-12T22:30:00Z",
-      "status": "encerrada",
+      "status": "agendada",
       "mandante": "CHA",
       "visitante": "CAP",
       "placar": {
-        "mandante": 1,
-        "visitante": 4
+        "mandante": null,
+        "visitante": null
       }
     },
     {
       "id": 555032,
       "rodada": 30,
       "inicio_em": "2026-10-13T00:00:00Z",
-      "status": "encerrada",
+      "status": "agendada",
       "mandante": "RBB",
       "visitante": "CRU",
       "placar": {
-        "mandante": 4,
-        "visitante": 2
+        "mandante": null,
+        "visitante": null
       }
     },
     {
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-15T15:02:57.177891+00:00",
-  "dados_verificados_em": "2026-10-15T19:10:18.256006+00:00",
+  "dados_atualizados_em": "2026-10-15T22:21:00.294312+00:00",
+  "dados_verificados_em": "2026-10-15T22:21:00.294455+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-15T19:10:17.722285+00:00",
-  "historico_atualizado_em": "2026-10-15T19:10:18.253084+00:00"
+  "agenda_atualizada_em": "2026-10-15T22:20:59.312933+00:00",
+  "historico_atualizado_em": "2026-10-15T22:21:00.290966+00:00"
 }
