@@ -206,6 +206,23 @@
     },
     {
       "posicao": 13,
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "estado": "SP",
+      "cor": "#FFD700",
+      "escudo": "static/img/escudos/normalizados/MIR.png",
+      "jogos": 31,
+      "vitorias": 9,
+      "empates": 9,
+      "derrotas": 13,
+      "gols_pro": 36,
+      "gols_contra": 44,
+      "saldo": -8,
+      "pontos": 36,
+      "aproveitamento": 38.7
+    },
+    {
+      "posicao": 14,
       "time": "Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -222,7 +239,7 @@
       "aproveitamento": 40.0
     },
     {
-      "posicao": 14,
+      "posicao": 15,
       "time": "Vasco da Gama Saf",
       "sigla": "VAS",
       "estado": "RJ",
@@ -239,38 +256,21 @@
       "aproveitamento": 40.2
     },
     {
-      "posicao": 15,
-      "time": "Mirassol",
-      "sigla": "MIR",
-      "estado": "SP",
-      "cor": "#FFD700",
-      "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 30,
-      "vitorias": 8,
-      "empates": 9,
-      "derrotas": 13,
-      "gols_pro": 34,
-      "gols_contra": 44,
-      "saldo": -10,
-      "pontos": 33,
-      "aproveitamento": 36.7
-    },
-    {
       "posicao": 16,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
       "cor": "#E30613",
       "escudo": "static/img/escudos/normalizados/INT.png",
-      "jogos": 30,
+      "jogos": 31,
       "vitorias": 7,
       "empates": 11,
-      "derrotas": 12,
+      "derrotas": 13,
       "gols_pro": 33,
-      "gols_contra": 38,
-      "saldo": -5,
+      "gols_contra": 40,
+      "saldo": -7,
       "pontos": 32,
-      "aproveitamento": 35.6
+      "aproveitamento": 34.4
     },
     {
       "posicao": 17,
@@ -10809,6 +10809,23 @@
       },
       {
         "posicao": 13,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 31,
+        "vitorias": 9,
+        "empates": 9,
+        "derrotas": 13,
+        "gols_pro": 36,
+        "gols_contra": 44,
+        "saldo": -8,
+        "pontos": 36,
+        "aproveitamento": 38.7
+      },
+      {
+        "posicao": 14,
         "time": "Vitória",
         "sigla": "VIT",
         "estado": "BA",
@@ -10825,7 +10842,7 @@
         "aproveitamento": 40.0
       },
       {
-        "posicao": 14,
+        "posicao": 15,
         "time": "Vasco da Gama Saf",
         "sigla": "VAS",
         "estado": "RJ",
@@ -10842,38 +10859,21 @@
         "aproveitamento": 40.2
       },
       {
-        "posicao": 15,
-        "time": "Mirassol",
-        "sigla": "MIR",
-        "estado": "SP",
-        "cor": "#FFD700",
-        "escudo": "static/img/escudos/normalizados/MIR.png",
-        "jogos": 30,
-        "vitorias": 8,
-        "empates": 9,
-        "derrotas": 13,
-        "gols_pro": 34,
-        "gols_contra": 44,
-        "saldo": -10,
-        "pontos": 33,
-        "aproveitamento": 36.7
-      },
-      {
         "posicao": 16,
         "time": "Internacional",
         "sigla": "INT",
         "estado": "RS",
         "cor": "#E30613",
         "escudo": "static/img/escudos/normalizados/INT.png",
-        "jogos": 30,
+        "jogos": 31,
         "vitorias": 7,
         "empates": 11,
-        "derrotas": 12,
+        "derrotas": 13,
         "gols_pro": 33,
-        "gols_contra": 38,
-        "saldo": -5,
+        "gols_contra": 40,
+        "saldo": -7,
         "pontos": 32,
-        "aproveitamento": 35.6
+        "aproveitamento": 34.4
       },
       {
         "posicao": 17,
@@ -11066,6 +11066,13 @@
       "gols": 8
     },
     {
+      "jogador": "Carlos Eduardo",
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "posicao": "Meia",
+      "gols": 7
+    },
+    {
       "jogador": "Arthur Cabral",
       "time": "Botafogo",
       "sigla": "BOT",
@@ -11077,13 +11084,6 @@
       "time": "Palmeiras",
       "sigla": "PAL",
       "posicao": "Meia",
-      "gols": 7
-    },
-    {
-      "jogador": "Hulk",
-      "time": "Fluminense",
-      "sigla": "FLU",
-      "posicao": "Atacante",
       "gols": 7
     }
   ],
@@ -14692,11 +14692,11 @@
       "id": 555047,
       "rodada": 31,
       "inicio_em": "2026-10-16T23:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "MIR",
       "visitante": "INT",
       "placar": {
-        "mandante": 0,
+        "mandante": 2,
         "visitante": 0
       }
     },
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-16T23:37:54.551747+00:00",
-  "dados_verificados_em": "2026-10-16T23:37:54.551832+00:00",
+  "dados_atualizados_em": "2026-10-17T04:29:48.335206+00:00",
+  "dados_verificados_em": "2026-10-17T04:29:48.335368+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15667,7 +15667,7 @@
     "rodada_atual": 31,
     "rodada_confirmada": true,
     "jogos_minimos": 29,
-    "jogos_maximos": 30,
+    "jogos_maximos": 31,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Flamengo",
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-16T23:37:54.023143+00:00",
-  "historico_atualizado_em": "2026-10-16T23:37:54.549672+00:00"
+  "agenda_atualizada_em": "2026-10-17T04:29:47.733780+00:00",
+  "historico_atualizado_em": "2026-10-17T04:29:48.332157+00:00"
 }
