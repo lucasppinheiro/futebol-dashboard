@@ -58,18 +58,35 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 30,
+      "jogos": 31,
       "vitorias": 14,
       "empates": 9,
-      "derrotas": 7,
-      "gols_pro": 48,
-      "gols_contra": 37,
-      "saldo": 11,
+      "derrotas": 8,
+      "gols_pro": 49,
+      "gols_contra": 39,
+      "saldo": 10,
       "pontos": 51,
-      "aproveitamento": 56.7
+      "aproveitamento": 54.8
     },
     {
       "posicao": 5,
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "estado": "MG",
+      "cor": "#003DA5",
+      "escudo": "static/img/escudos/normalizados/CRU.png",
+      "jogos": 31,
+      "vitorias": 15,
+      "empates": 6,
+      "derrotas": 10,
+      "gols_pro": 50,
+      "gols_contra": 46,
+      "saldo": 4,
+      "pontos": 51,
+      "aproveitamento": 54.8
+    },
+    {
+      "posicao": 6,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -86,7 +103,7 @@
       "aproveitamento": 53.8
     },
     {
-      "posicao": 6,
+      "posicao": 7,
       "time": "Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -103,38 +120,21 @@
       "aproveitamento": 54.4
     },
     {
-      "posicao": 7,
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "estado": "MG",
-      "cor": "#003DA5",
-      "escudo": "static/img/escudos/normalizados/CRU.png",
-      "jogos": 30,
-      "vitorias": 14,
-      "empates": 6,
-      "derrotas": 10,
-      "gols_pro": 46,
-      "gols_contra": 44,
-      "saldo": 2,
-      "pontos": 48,
-      "aproveitamento": 53.3
-    },
-    {
       "posicao": 8,
       "time": "Santos FC",
       "sigla": "SAN",
       "estado": "SP",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/SAN.png",
-      "jogos": 30,
-      "vitorias": 11,
+      "jogos": 31,
+      "vitorias": 12,
       "empates": 9,
       "derrotas": 10,
-      "gols_pro": 46,
-      "gols_contra": 45,
-      "saldo": 1,
-      "pontos": 42,
-      "aproveitamento": 46.7
+      "gols_pro": 48,
+      "gols_contra": 46,
+      "saldo": 2,
+      "pontos": 45,
+      "aproveitamento": 48.4
     },
     {
       "posicao": 9,
@@ -296,15 +296,15 @@
       "estado": "RS",
       "cor": "#0080C8",
       "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 30,
+      "jogos": 31,
       "vitorias": 7,
       "empates": 10,
-      "derrotas": 13,
-      "gols_pro": 32,
-      "gols_contra": 40,
-      "saldo": -8,
+      "derrotas": 14,
+      "gols_pro": 34,
+      "gols_contra": 44,
+      "saldo": -10,
       "pontos": 31,
-      "aproveitamento": 34.4
+      "aproveitamento": 33.3
     },
     {
       "posicao": 19,
@@ -10661,18 +10661,35 @@
         "estado": "RJ",
         "cor": "#7B0023",
         "escudo": "static/img/escudos/normalizados/FLU.png",
-        "jogos": 30,
+        "jogos": 31,
         "vitorias": 14,
         "empates": 9,
-        "derrotas": 7,
-        "gols_pro": 48,
-        "gols_contra": 37,
-        "saldo": 11,
+        "derrotas": 8,
+        "gols_pro": 49,
+        "gols_contra": 39,
+        "saldo": 10,
         "pontos": 51,
-        "aproveitamento": 56.7
+        "aproveitamento": 54.8
       },
       {
         "posicao": 5,
+        "time": "Cruzeiro",
+        "sigla": "CRU",
+        "estado": "MG",
+        "cor": "#003DA5",
+        "escudo": "static/img/escudos/normalizados/CRU.png",
+        "jogos": 31,
+        "vitorias": 15,
+        "empates": 6,
+        "derrotas": 10,
+        "gols_pro": 50,
+        "gols_contra": 46,
+        "saldo": 4,
+        "pontos": 51,
+        "aproveitamento": 54.8
+      },
+      {
+        "posicao": 6,
         "time": "Atlético Mineiro",
         "sigla": "CAM",
         "estado": "MG",
@@ -10689,7 +10706,7 @@
         "aproveitamento": 53.8
       },
       {
-        "posicao": 6,
+        "posicao": 7,
         "time": "Bahia",
         "sigla": "BAH",
         "estado": "BA",
@@ -10706,38 +10723,21 @@
         "aproveitamento": 54.4
       },
       {
-        "posicao": 7,
-        "time": "Cruzeiro",
-        "sigla": "CRU",
-        "estado": "MG",
-        "cor": "#003DA5",
-        "escudo": "static/img/escudos/normalizados/CRU.png",
-        "jogos": 30,
-        "vitorias": 14,
-        "empates": 6,
-        "derrotas": 10,
-        "gols_pro": 46,
-        "gols_contra": 44,
-        "saldo": 2,
-        "pontos": 48,
-        "aproveitamento": 53.3
-      },
-      {
         "posicao": 8,
         "time": "Santos FC",
         "sigla": "SAN",
         "estado": "SP",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/SAN.png",
-        "jogos": 30,
-        "vitorias": 11,
+        "jogos": 31,
+        "vitorias": 12,
         "empates": 9,
         "derrotas": 10,
-        "gols_pro": 46,
-        "gols_contra": 45,
-        "saldo": 1,
-        "pontos": 42,
-        "aproveitamento": 46.7
+        "gols_pro": 48,
+        "gols_contra": 46,
+        "saldo": 2,
+        "pontos": 45,
+        "aproveitamento": 48.4
       },
       {
         "posicao": 9,
@@ -10899,15 +10899,15 @@
         "estado": "RS",
         "cor": "#0080C8",
         "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 30,
+        "jogos": 31,
         "vitorias": 7,
         "empates": 10,
-        "derrotas": 13,
-        "gols_pro": 32,
-        "gols_contra": 40,
-        "saldo": -8,
+        "derrotas": 14,
+        "gols_pro": 34,
+        "gols_contra": 44,
+        "saldo": -10,
         "pontos": 31,
-        "aproveitamento": 34.4
+        "aproveitamento": 33.3
       },
       {
         "posicao": 19,
@@ -14752,7 +14752,7 @@
       "id": 555045,
       "rodada": 31,
       "inicio_em": "2026-10-18T19:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "FLU",
       "visitante": "SAN",
       "placar": {
@@ -14764,36 +14764,36 @@
       "id": 555046,
       "rodada": 31,
       "inicio_em": "2026-10-18T19:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "GRE",
       "visitante": "CRU",
       "placar": {
         "mandante": 2,
-        "visitante": 3
+        "visitante": 4
       }
     },
     {
       "id": 555042,
       "rodada": 31,
       "inicio_em": "2026-10-18T21:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "BAH",
       "visitante": "FLA",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 2
       }
     },
     {
       "id": 555048,
       "rodada": 31,
       "inicio_em": "2026-10-18T22:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "REM",
       "visitante": "RBB",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 1
       }
     },
     {
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-18T20:46:15.635059+00:00",
-  "dados_verificados_em": "2026-10-18T20:46:15.635203+00:00",
+  "dados_atualizados_em": "2026-10-18T23:14:47.835762+00:00",
+  "dados_verificados_em": "2026-10-18T23:14:47.835899+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-18T20:46:15.082938+00:00",
-  "historico_atualizado_em": "2026-10-18T20:46:15.631592+00:00"
+  "agenda_atualizada_em": "2026-10-18T23:14:47.354443+00:00",
+  "historico_atualizado_em": "2026-10-18T23:14:47.833708+00:00"
 }
