@@ -138,6 +138,23 @@
     },
     {
       "posicao": 9,
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "estado": "SP",
+      "cor": "#FF0000",
+      "escudo": "static/img/escudos/normalizados/SAO.png",
+      "jogos": 31,
+      "vitorias": 12,
+      "empates": 6,
+      "derrotas": 13,
+      "gols_pro": 36,
+      "gols_contra": 35,
+      "saldo": 1,
+      "pontos": 42,
+      "aproveitamento": 45.2
+    },
+    {
+      "posicao": 10,
       "time": "Red Bull Bragantino",
       "sigla": "RBB",
       "estado": "SP",
@@ -152,23 +169,6 @@
       "saldo": 3,
       "pontos": 40,
       "aproveitamento": 44.4
-    },
-    {
-      "posicao": 10,
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "estado": "SP",
-      "cor": "#FF0000",
-      "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 30,
-      "vitorias": 11,
-      "empates": 6,
-      "derrotas": 13,
-      "gols_pro": 35,
-      "gols_contra": 35,
-      "saldo": 0,
-      "pontos": 39,
-      "aproveitamento": 43.3
     },
     {
       "posicao": 11,
@@ -245,15 +245,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/VAS.png",
-      "jogos": 29,
+      "jogos": 30,
       "vitorias": 9,
       "empates": 8,
-      "derrotas": 12,
+      "derrotas": 13,
       "gols_pro": 36,
-      "gols_contra": 42,
-      "saldo": -6,
+      "gols_contra": 43,
+      "saldo": -7,
       "pontos": 35,
-      "aproveitamento": 40.2
+      "aproveitamento": 38.9
     },
     {
       "posicao": 16,
@@ -10741,6 +10741,23 @@
       },
       {
         "posicao": 9,
+        "time": "São Paulo",
+        "sigla": "SAO",
+        "estado": "SP",
+        "cor": "#FF0000",
+        "escudo": "static/img/escudos/normalizados/SAO.png",
+        "jogos": 31,
+        "vitorias": 12,
+        "empates": 6,
+        "derrotas": 13,
+        "gols_pro": 36,
+        "gols_contra": 35,
+        "saldo": 1,
+        "pontos": 42,
+        "aproveitamento": 45.2
+      },
+      {
+        "posicao": 10,
         "time": "Red Bull Bragantino",
         "sigla": "RBB",
         "estado": "SP",
@@ -10755,23 +10772,6 @@
         "saldo": 3,
         "pontos": 40,
         "aproveitamento": 44.4
-      },
-      {
-        "posicao": 10,
-        "time": "São Paulo",
-        "sigla": "SAO",
-        "estado": "SP",
-        "cor": "#FF0000",
-        "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 30,
-        "vitorias": 11,
-        "empates": 6,
-        "derrotas": 13,
-        "gols_pro": 35,
-        "gols_contra": 35,
-        "saldo": 0,
-        "pontos": 39,
-        "aproveitamento": 43.3
       },
       {
         "posicao": 11,
@@ -10848,15 +10848,15 @@
         "estado": "RJ",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/VAS.png",
-        "jogos": 29,
+        "jogos": 30,
         "vitorias": 9,
         "empates": 8,
-        "derrotas": 12,
+        "derrotas": 13,
         "gols_pro": 36,
-        "gols_contra": 42,
-        "saldo": -6,
+        "gols_contra": 43,
+        "saldo": -7,
         "pontos": 35,
-        "aproveitamento": 40.2
+        "aproveitamento": 38.9
       },
       {
         "posicao": 16,
@@ -14740,11 +14740,11 @@
       "id": 555049,
       "rodada": 31,
       "inicio_em": "2026-10-18T00:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "SAO",
       "visitante": "VAS",
       "placar": {
-        "mandante": 0,
+        "mandante": 1,
         "visitante": 0
       }
     },
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-18T01:04:17.929530+00:00",
-  "dados_verificados_em": "2026-10-18T01:04:17.929649+00:00",
+  "dados_atualizados_em": "2026-10-18T05:56:15.127961+00:00",
+  "dados_verificados_em": "2026-10-18T05:56:15.128116+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15666,7 +15666,7 @@
     "rodadas_total": 38,
     "rodada_atual": 31,
     "rodada_confirmada": true,
-    "jogos_minimos": 29,
+    "jogos_minimos": 30,
     "jogos_maximos": 31,
     "times_total": 20,
     "campeonato_finalizado": false,
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-18T01:04:17.520537+00:00",
-  "historico_atualizado_em": "2026-10-18T01:04:17.927126+00:00"
+  "agenda_atualizada_em": "2026-10-18T05:56:14.529976+00:00",
+  "historico_atualizado_em": "2026-10-18T05:56:15.125000+00:00"
 }
