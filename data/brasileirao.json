@@ -2,6 +2,23 @@
   "classificacao": [
     {
       "posicao": 1,
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "estado": "SP",
+      "cor": "#006437",
+      "escudo": "static/img/escudos/normalizados/PAL.png",
+      "jogos": 31,
+      "vitorias": 19,
+      "empates": 9,
+      "derrotas": 3,
+      "gols_pro": 54,
+      "gols_contra": 22,
+      "saldo": 32,
+      "pontos": 66,
+      "aproveitamento": 71.0
+    },
+    {
+      "posicao": 2,
       "time": "Flamengo",
       "sigla": "FLA",
       "estado": "RJ",
@@ -18,38 +35,21 @@
       "aproveitamento": 71.1
     },
     {
-      "posicao": 2,
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "estado": "SP",
-      "cor": "#006437",
-      "escudo": "static/img/escudos/normalizados/PAL.png",
-      "jogos": 30,
-      "vitorias": 18,
-      "empates": 9,
-      "derrotas": 3,
-      "gols_pro": 52,
-      "gols_contra": 22,
-      "saldo": 30,
-      "pontos": 63,
-      "aproveitamento": 70.0
-    },
-    {
       "posicao": 3,
       "time": "Athletico Paranaense",
       "sigla": "CAP",
       "estado": "PR",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/CAP.png",
-      "jogos": 30,
+      "jogos": 31,
       "vitorias": 15,
       "empates": 8,
-      "derrotas": 7,
+      "derrotas": 8,
       "gols_pro": 49,
-      "gols_contra": 35,
-      "saldo": 14,
+      "gols_contra": 37,
+      "saldo": 12,
       "pontos": 53,
-      "aproveitamento": 58.9
+      "aproveitamento": 57.0
     },
     {
       "posicao": 4,
@@ -70,6 +70,23 @@
     },
     {
       "posicao": 5,
+      "time": "Atlético Mineiro",
+      "sigla": "CAM",
+      "estado": "MG",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/CAM.png",
+      "jogos": 31,
+      "vitorias": 14,
+      "empates": 8,
+      "derrotas": 9,
+      "gols_pro": 42,
+      "gols_contra": 35,
+      "saldo": 7,
+      "pontos": 50,
+      "aproveitamento": 53.8
+    },
+    {
+      "posicao": 6,
       "time": "Bahia",
       "sigla": "BAH",
       "estado": "BA",
@@ -86,7 +103,7 @@
       "aproveitamento": 54.4
     },
     {
-      "posicao": 6,
+      "posicao": 7,
       "time": "Cruzeiro",
       "sigla": "CRU",
       "estado": "MG",
@@ -101,23 +118,6 @@
       "saldo": 2,
       "pontos": 48,
       "aproveitamento": 53.3
-    },
-    {
-      "posicao": 7,
-      "time": "Atlético Mineiro",
-      "sigla": "CAM",
-      "estado": "MG",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 30,
-      "vitorias": 13,
-      "empates": 8,
-      "derrotas": 9,
-      "gols_pro": 41,
-      "gols_contra": 35,
-      "saldo": 6,
-      "pontos": 47,
-      "aproveitamento": 52.2
     },
     {
       "posicao": 8,
@@ -172,37 +172,37 @@
     },
     {
       "posicao": 11,
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "estado": "PR",
-      "cor": "#006633",
-      "escudo": "static/img/escudos/normalizados/CFC.png",
-      "jogos": 30,
-      "vitorias": 10,
-      "empates": 9,
-      "derrotas": 11,
-      "gols_pro": 38,
-      "gols_contra": 48,
-      "saldo": -10,
-      "pontos": 39,
-      "aproveitamento": 43.3
-    },
-    {
-      "posicao": 12,
       "time": "Botafogo",
       "sigla": "BOT",
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/BOT.png",
-      "jogos": 30,
-      "vitorias": 9,
+      "jogos": 31,
+      "vitorias": 10,
       "empates": 9,
       "derrotas": 12,
-      "gols_pro": 43,
+      "gols_pro": 44,
       "gols_contra": 48,
-      "saldo": -5,
-      "pontos": 36,
-      "aproveitamento": 40.0
+      "saldo": -4,
+      "pontos": 39,
+      "aproveitamento": 41.9
+    },
+    {
+      "posicao": 12,
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "estado": "PR",
+      "cor": "#006633",
+      "escudo": "static/img/escudos/normalizados/CFC.png",
+      "jogos": 31,
+      "vitorias": 10,
+      "empates": 9,
+      "derrotas": 12,
+      "gols_pro": 38,
+      "gols_contra": 49,
+      "saldo": -11,
+      "pontos": 39,
+      "aproveitamento": 41.9
     },
     {
       "posicao": 13,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "static/img/escudos/normalizados/CHA.png",
-      "jogos": 29,
+      "jogos": 30,
       "vitorias": 3,
       "empates": 9,
-      "derrotas": 17,
+      "derrotas": 18,
       "gols_pro": 30,
-      "gols_contra": 61,
-      "saldo": -31,
+      "gols_contra": 62,
+      "saldo": -32,
       "pontos": 18,
-      "aproveitamento": 20.7
+      "aproveitamento": 20.0
     }
   ],
   "classificacao_por_rodada": {
@@ -10605,6 +10605,23 @@
     "31": [
       {
         "posicao": 1,
+        "time": "Palmeiras",
+        "sigla": "PAL",
+        "estado": "SP",
+        "cor": "#006437",
+        "escudo": "static/img/escudos/normalizados/PAL.png",
+        "jogos": 31,
+        "vitorias": 19,
+        "empates": 9,
+        "derrotas": 3,
+        "gols_pro": 54,
+        "gols_contra": 22,
+        "saldo": 32,
+        "pontos": 66,
+        "aproveitamento": 71.0
+      },
+      {
+        "posicao": 2,
         "time": "Flamengo",
         "sigla": "FLA",
         "estado": "RJ",
@@ -10621,38 +10638,21 @@
         "aproveitamento": 71.1
       },
       {
-        "posicao": 2,
-        "time": "Palmeiras",
-        "sigla": "PAL",
-        "estado": "SP",
-        "cor": "#006437",
-        "escudo": "static/img/escudos/normalizados/PAL.png",
-        "jogos": 30,
-        "vitorias": 18,
-        "empates": 9,
-        "derrotas": 3,
-        "gols_pro": 52,
-        "gols_contra": 22,
-        "saldo": 30,
-        "pontos": 63,
-        "aproveitamento": 70.0
-      },
-      {
         "posicao": 3,
         "time": "Athletico Paranaense",
         "sigla": "CAP",
         "estado": "PR",
         "cor": "#E11D1D",
         "escudo": "static/img/escudos/normalizados/CAP.png",
-        "jogos": 30,
+        "jogos": 31,
         "vitorias": 15,
         "empates": 8,
-        "derrotas": 7,
+        "derrotas": 8,
         "gols_pro": 49,
-        "gols_contra": 35,
-        "saldo": 14,
+        "gols_contra": 37,
+        "saldo": 12,
         "pontos": 53,
-        "aproveitamento": 58.9
+        "aproveitamento": 57.0
       },
       {
         "posicao": 4,
@@ -10673,6 +10673,23 @@
       },
       {
         "posicao": 5,
+        "time": "Atlético Mineiro",
+        "sigla": "CAM",
+        "estado": "MG",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/CAM.png",
+        "jogos": 31,
+        "vitorias": 14,
+        "empates": 8,
+        "derrotas": 9,
+        "gols_pro": 42,
+        "gols_contra": 35,
+        "saldo": 7,
+        "pontos": 50,
+        "aproveitamento": 53.8
+      },
+      {
+        "posicao": 6,
         "time": "Bahia",
         "sigla": "BAH",
         "estado": "BA",
@@ -10689,7 +10706,7 @@
         "aproveitamento": 54.4
       },
       {
-        "posicao": 6,
+        "posicao": 7,
         "time": "Cruzeiro",
         "sigla": "CRU",
         "estado": "MG",
@@ -10704,23 +10721,6 @@
         "saldo": 2,
         "pontos": 48,
         "aproveitamento": 53.3
-      },
-      {
-        "posicao": 7,
-        "time": "Atlético Mineiro",
-        "sigla": "CAM",
-        "estado": "MG",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 30,
-        "vitorias": 13,
-        "empates": 8,
-        "derrotas": 9,
-        "gols_pro": 41,
-        "gols_contra": 35,
-        "saldo": 6,
-        "pontos": 47,
-        "aproveitamento": 52.2
       },
       {
         "posicao": 8,
@@ -10775,37 +10775,37 @@
       },
       {
         "posicao": 11,
-        "time": "Coritiba SAF",
-        "sigla": "CFC",
-        "estado": "PR",
-        "cor": "#006633",
-        "escudo": "static/img/escudos/normalizados/CFC.png",
-        "jogos": 30,
-        "vitorias": 10,
-        "empates": 9,
-        "derrotas": 11,
-        "gols_pro": 38,
-        "gols_contra": 48,
-        "saldo": -10,
-        "pontos": 39,
-        "aproveitamento": 43.3
-      },
-      {
-        "posicao": 12,
         "time": "Botafogo",
         "sigla": "BOT",
         "estado": "RJ",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/BOT.png",
-        "jogos": 30,
-        "vitorias": 9,
+        "jogos": 31,
+        "vitorias": 10,
         "empates": 9,
         "derrotas": 12,
-        "gols_pro": 43,
+        "gols_pro": 44,
         "gols_contra": 48,
-        "saldo": -5,
-        "pontos": 36,
-        "aproveitamento": 40.0
+        "saldo": -4,
+        "pontos": 39,
+        "aproveitamento": 41.9
+      },
+      {
+        "posicao": 12,
+        "time": "Coritiba SAF",
+        "sigla": "CFC",
+        "estado": "PR",
+        "cor": "#006633",
+        "escudo": "static/img/escudos/normalizados/CFC.png",
+        "jogos": 31,
+        "vitorias": 10,
+        "empates": 9,
+        "derrotas": 12,
+        "gols_pro": 38,
+        "gols_contra": 49,
+        "saldo": -11,
+        "pontos": 39,
+        "aproveitamento": 41.9
       },
       {
         "posicao": 13,
@@ -10933,15 +10933,15 @@
         "estado": "SC",
         "cor": "#008000",
         "escudo": "static/img/escudos/normalizados/CHA.png",
-        "jogos": 29,
+        "jogos": 30,
         "vitorias": 3,
         "empates": 9,
-        "derrotas": 17,
+        "derrotas": 18,
         "gols_pro": 30,
-        "gols_contra": 61,
-        "saldo": -31,
+        "gols_contra": 62,
+        "saldo": -32,
         "pontos": 18,
-        "aproveitamento": 20.7
+        "aproveitamento": 20.0
       }
     ]
   },
@@ -11031,6 +11031,13 @@
       "gols": 9
     },
     {
+      "jogador": "Mauricio",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Meia",
+      "gols": 8
+    },
+    {
       "jogador": "Breno Lopes",
       "time": "Coritiba SAF",
       "sigla": "CFC",
@@ -11077,13 +11084,6 @@
       "time": "Botafogo",
       "sigla": "BOT",
       "posicao": "Centroavante",
-      "gols": 7
-    },
-    {
-      "jogador": "Mauricio",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Meia",
       "gols": 7
     }
   ],
@@ -14704,7 +14704,7 @@
       "id": 555043,
       "rodada": 31,
       "inicio_em": "2026-10-17T21:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "BOT",
       "visitante": "CHA",
       "placar": {
@@ -14716,11 +14716,11 @@
       "id": 555041,
       "rodada": 31,
       "inicio_em": "2026-10-17T21:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "CAM",
       "visitante": "CFC",
       "placar": {
-        "mandante": 0,
+        "mandante": 1,
         "visitante": 0
       }
     },
@@ -14728,24 +14728,24 @@
       "id": 555040,
       "rodada": 31,
       "inicio_em": "2026-10-17T22:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "CAP",
       "visitante": "PAL",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 2
       }
     },
     {
       "id": 555049,
       "rodada": 31,
       "inicio_em": "2026-10-18T00:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "SAO",
       "visitante": "VAS",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-17T22:20:53.443438+00:00",
-  "dados_verificados_em": "2026-10-17T22:20:53.443596+00:00",
+  "dados_atualizados_em": "2026-10-18T01:04:17.929530+00:00",
+  "dados_verificados_em": "2026-10-18T01:04:17.929649+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15670,11 +15670,11 @@
     "jogos_maximos": 31,
     "times_total": 20,
     "campeonato_finalizado": false,
-    "lider": "Flamengo",
-    "lider_pontos": 64,
+    "lider": "Palmeiras",
+    "lider_pontos": 66,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-17T22:20:52.872611+00:00",
-  "historico_atualizado_em": "2026-10-17T22:20:53.439935+00:00"
+  "agenda_atualizada_em": "2026-10-18T01:04:17.520537+00:00",
+  "historico_atualizado_em": "2026-10-18T01:04:17.927126+00:00"
 }
