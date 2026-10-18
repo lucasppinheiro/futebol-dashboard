@@ -10965,14 +10965,21 @@
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Atacante",
-      "gols": 14
+      "gols": 15
     },
     {
       "jogador": "Carlos Vinícius",
       "time": "Grêmio",
       "sigla": "GRE",
       "posicao": "Centroavante",
-      "gols": 10
+      "gols": 11
+    },
+    {
+      "jogador": "Kaio Jorge",
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "posicao": "Centroavante",
+      "gols": 11
     },
     {
       "jogador": "Danilo dos Santos de Oliveira",
@@ -11049,13 +11056,6 @@
       "time": "Coritiba SAF",
       "sigla": "CFC",
       "posicao": "Atacante",
-      "gols": 8
-    },
-    {
-      "jogador": "Kaio Jorge",
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "posicao": "Centroavante",
       "gols": 8
     },
     {
@@ -14752,24 +14752,24 @@
       "id": 555045,
       "rodada": 31,
       "inicio_em": "2026-10-18T19:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "FLU",
       "visitante": "SAN",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 2
       }
     },
     {
       "id": 555046,
       "rodada": 31,
       "inicio_em": "2026-10-18T19:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "GRE",
       "visitante": "CRU",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 2,
+        "visitante": 3
       }
     },
     {
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-18T05:56:15.127961+00:00",
-  "dados_verificados_em": "2026-10-18T18:07:25.888712+00:00",
+  "dados_atualizados_em": "2026-10-18T20:46:15.635059+00:00",
+  "dados_verificados_em": "2026-10-18T20:46:15.635203+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-18T18:07:25.239481+00:00",
-  "historico_atualizado_em": "2026-10-18T18:07:25.885110+00:00"
+  "agenda_atualizada_em": "2026-10-18T20:46:15.082938+00:00",
+  "historico_atualizado_em": "2026-10-18T20:46:15.631592+00:00"
 }
