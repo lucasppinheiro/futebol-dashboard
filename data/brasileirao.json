@@ -14788,7 +14788,7 @@
       "id": 555048,
       "rodada": 31,
       "inicio_em": "2026-10-18T22:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "REM",
       "visitante": "RBB",
       "placar": {
@@ -15001,18 +15001,6 @@
       }
     },
     {
-      "id": 555064,
-      "rodada": 33,
-      "inicio_em": "2026-10-29T22:30:00Z",
-      "status": "agendada",
-      "mandante": "CFC",
-      "visitante": "VIT",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
       "id": 555069,
       "rodada": 33,
       "inicio_em": "2026-10-29T23:00:00Z",
@@ -15043,6 +15031,18 @@
       "status": "agendada",
       "mandante": "COR",
       "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555064,
+      "rodada": 33,
+      "inicio_em": "2026-10-31T19:00:00Z",
+      "status": "agendada",
+      "mandante": "CFC",
+      "visitante": "VIT",
       "placar": {
         "mandante": null,
         "visitante": null
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-19T07:48:51.575994+00:00",
-  "dados_verificados_em": "2026-10-19T07:48:51.576142+00:00",
+  "dados_atualizados_em": "2026-10-19T15:37:57.812010+00:00",
+  "dados_verificados_em": "2026-10-19T15:37:57.812160+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-19T07:48:51.024889+00:00",
-  "historico_atualizado_em": "2026-10-19T07:48:51.573331+00:00"
+  "agenda_atualizada_em": "2026-10-19T15:37:56.837310+00:00",
+  "historico_atualizado_em": "2026-10-19T15:37:57.808881+00:00"
 }
