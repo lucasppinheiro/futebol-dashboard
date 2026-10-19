@@ -2,6 +2,23 @@
   "classificacao": [
     {
       "posicao": 1,
+      "time": "Flamengo",
+      "sigla": "FLA",
+      "estado": "RJ",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/normalizados/FLA.png",
+      "jogos": 31,
+      "vitorias": 20,
+      "empates": 7,
+      "derrotas": 4,
+      "gols_pro": 61,
+      "gols_contra": 25,
+      "saldo": 36,
+      "pontos": 67,
+      "aproveitamento": 72.0
+    },
+    {
+      "posicao": 2,
       "time": "Palmeiras",
       "sigla": "PAL",
       "estado": "SP",
@@ -16,23 +33,6 @@
       "saldo": 32,
       "pontos": 66,
       "aproveitamento": 71.0
-    },
-    {
-      "posicao": 2,
-      "time": "Flamengo",
-      "sigla": "FLA",
-      "estado": "RJ",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/normalizados/FLA.png",
-      "jogos": 30,
-      "vitorias": 19,
-      "empates": 7,
-      "derrotas": 4,
-      "gols_pro": 58,
-      "gols_contra": 25,
-      "saldo": 33,
-      "pontos": 64,
-      "aproveitamento": 71.1
     },
     {
       "posicao": 3,
@@ -109,15 +109,15 @@
       "estado": "BA",
       "cor": "#004A99",
       "escudo": "static/img/escudos/normalizados/BAH.png",
-      "jogos": 30,
+      "jogos": 31,
       "vitorias": 13,
       "empates": 10,
-      "derrotas": 7,
+      "derrotas": 8,
       "gols_pro": 44,
-      "gols_contra": 36,
-      "saldo": 8,
+      "gols_contra": 39,
+      "saldo": 5,
       "pontos": 49,
-      "aproveitamento": 54.4
+      "aproveitamento": 52.7
     },
     {
       "posicao": 8,
@@ -160,15 +160,15 @@
       "estado": "SP",
       "cor": "#E30613",
       "escudo": "static/img/escudos/normalizados/RBB.png",
-      "jogos": 30,
+      "jogos": 31,
       "vitorias": 11,
-      "empates": 7,
+      "empates": 8,
       "derrotas": 12,
-      "gols_pro": 38,
-      "gols_contra": 35,
+      "gols_pro": 39,
+      "gols_contra": 36,
       "saldo": 3,
-      "pontos": 40,
-      "aproveitamento": 44.4
+      "pontos": 41,
+      "aproveitamento": 44.1
     },
     {
       "posicao": 11,
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "static/img/escudos/normalizados/REM.png",
-      "jogos": 30,
+      "jogos": 31,
       "vitorias": 5,
-      "empates": 10,
+      "empates": 11,
       "derrotas": 15,
-      "gols_pro": 33,
-      "gols_contra": 48,
+      "gols_pro": 34,
+      "gols_contra": 49,
       "saldo": -15,
-      "pontos": 25,
-      "aproveitamento": 27.8
+      "pontos": 26,
+      "aproveitamento": 28.0
     },
     {
       "posicao": 20,
@@ -10605,6 +10605,23 @@
     "31": [
       {
         "posicao": 1,
+        "time": "Flamengo",
+        "sigla": "FLA",
+        "estado": "RJ",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/FLA.png",
+        "jogos": 31,
+        "vitorias": 20,
+        "empates": 7,
+        "derrotas": 4,
+        "gols_pro": 61,
+        "gols_contra": 25,
+        "saldo": 36,
+        "pontos": 67,
+        "aproveitamento": 72.0
+      },
+      {
+        "posicao": 2,
         "time": "Palmeiras",
         "sigla": "PAL",
         "estado": "SP",
@@ -10619,23 +10636,6 @@
         "saldo": 32,
         "pontos": 66,
         "aproveitamento": 71.0
-      },
-      {
-        "posicao": 2,
-        "time": "Flamengo",
-        "sigla": "FLA",
-        "estado": "RJ",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/FLA.png",
-        "jogos": 30,
-        "vitorias": 19,
-        "empates": 7,
-        "derrotas": 4,
-        "gols_pro": 58,
-        "gols_contra": 25,
-        "saldo": 33,
-        "pontos": 64,
-        "aproveitamento": 71.1
       },
       {
         "posicao": 3,
@@ -10712,15 +10712,15 @@
         "estado": "BA",
         "cor": "#004A99",
         "escudo": "static/img/escudos/normalizados/BAH.png",
-        "jogos": 30,
+        "jogos": 31,
         "vitorias": 13,
         "empates": 10,
-        "derrotas": 7,
+        "derrotas": 8,
         "gols_pro": 44,
-        "gols_contra": 36,
-        "saldo": 8,
+        "gols_contra": 39,
+        "saldo": 5,
         "pontos": 49,
-        "aproveitamento": 54.4
+        "aproveitamento": 52.7
       },
       {
         "posicao": 8,
@@ -10763,15 +10763,15 @@
         "estado": "SP",
         "cor": "#E30613",
         "escudo": "static/img/escudos/normalizados/RBB.png",
-        "jogos": 30,
+        "jogos": 31,
         "vitorias": 11,
-        "empates": 7,
+        "empates": 8,
         "derrotas": 12,
-        "gols_pro": 38,
-        "gols_contra": 35,
+        "gols_pro": 39,
+        "gols_contra": 36,
         "saldo": 3,
-        "pontos": 40,
-        "aproveitamento": 44.4
+        "pontos": 41,
+        "aproveitamento": 44.1
       },
       {
         "posicao": 11,
@@ -10916,15 +10916,15 @@
         "estado": "PA",
         "cor": "#00008B",
         "escudo": "static/img/escudos/normalizados/REM.png",
-        "jogos": 30,
+        "jogos": 31,
         "vitorias": 5,
-        "empates": 10,
+        "empates": 11,
         "derrotas": 15,
-        "gols_pro": 33,
-        "gols_contra": 48,
+        "gols_pro": 34,
+        "gols_contra": 49,
         "saldo": -15,
-        "pontos": 25,
-        "aproveitamento": 27.8
+        "pontos": 26,
+        "aproveitamento": 28.0
       },
       {
         "posicao": 20,
@@ -14776,23 +14776,23 @@
       "id": 555042,
       "rodada": 31,
       "inicio_em": "2026-10-18T21:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "BAH",
       "visitante": "FLA",
       "placar": {
         "mandante": 0,
-        "visitante": 2
+        "visitante": 3
       }
     },
     {
       "id": 555048,
       "rodada": 31,
       "inicio_em": "2026-10-18T22:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "REM",
       "visitante": "RBB",
       "placar": {
-        "mandante": 0,
+        "mandante": 1,
         "visitante": 1
       }
     },
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-18T23:14:47.835762+00:00",
-  "dados_verificados_em": "2026-10-18T23:14:47.835899+00:00",
+  "dados_atualizados_em": "2026-10-19T01:22:00.878743+00:00",
+  "dados_verificados_em": "2026-10-19T01:22:00.878957+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15670,11 +15670,11 @@
     "jogos_maximos": 31,
     "times_total": 20,
     "campeonato_finalizado": false,
-    "lider": "Palmeiras",
-    "lider_pontos": 66,
+    "lider": "Flamengo",
+    "lider_pontos": 67,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-18T23:14:47.354443+00:00",
-  "historico_atualizado_em": "2026-10-18T23:14:47.833708+00:00"
+  "agenda_atualizada_em": "2026-10-19T01:22:00.369644+00:00",
+  "historico_atualizado_em": "2026-10-19T01:22:00.875047+00:00"
 }
