@@ -11038,6 +11038,13 @@
       "gols": 9
     },
     {
+      "jogador": "Carlos Renê",
+      "time": "Vitória",
+      "sigla": "VIT",
+      "posicao": "Atacante",
+      "gols": 9
+    },
+    {
       "jogador": "Mauricio",
       "time": "Palmeiras",
       "sigla": "PAL",
@@ -11062,13 +11069,6 @@
       "jogador": "Neymar",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Atacante",
-      "gols": 8
-    },
-    {
-      "jogador": "Carlos Renê",
-      "time": "Vitória",
-      "sigla": "VIT",
       "posicao": "Atacante",
       "gols": 8
     },
@@ -14800,12 +14800,12 @@
       "id": 555044,
       "rodada": 31,
       "inicio_em": "2026-10-19T23:00:00Z",
-      "status": "agendada",
+      "status": "intervalo",
       "mandante": "COR",
       "visitante": "VIT",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 1
       }
     },
     {
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-19T15:37:57.812010+00:00",
-  "dados_verificados_em": "2026-10-19T21:04:52.308485+00:00",
+  "dados_atualizados_em": "2026-10-20T00:22:07.866614+00:00",
+  "dados_verificados_em": "2026-10-20T00:22:07.866701+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-19T21:04:51.759041+00:00",
-  "historico_atualizado_em": "2026-10-19T21:04:52.305663+00:00"
+  "agenda_atualizada_em": "2026-10-20T00:22:07.287272+00:00",
+  "historico_atualizado_em": "2026-10-20T00:22:07.864562+00:00"
 }
