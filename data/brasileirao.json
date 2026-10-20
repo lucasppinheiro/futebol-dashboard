@@ -206,6 +206,23 @@
     },
     {
       "posicao": 13,
+      "time": "Vitória",
+      "sigla": "VIT",
+      "estado": "BA",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/normalizados/VIT.png",
+      "jogos": 31,
+      "vitorias": 10,
+      "empates": 7,
+      "derrotas": 14,
+      "gols_pro": 34,
+      "gols_contra": 45,
+      "saldo": -11,
+      "pontos": 37,
+      "aproveitamento": 39.8
+    },
+    {
+      "posicao": 14,
       "time": "Mirassol",
       "sigla": "MIR",
       "estado": "SP",
@@ -220,23 +237,6 @@
       "saldo": -8,
       "pontos": 36,
       "aproveitamento": 38.7
-    },
-    {
-      "posicao": 14,
-      "time": "Vitória",
-      "sigla": "VIT",
-      "estado": "BA",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/normalizados/VIT.png",
-      "jogos": 30,
-      "vitorias": 10,
-      "empates": 6,
-      "derrotas": 14,
-      "gols_pro": 33,
-      "gols_contra": 44,
-      "saldo": -11,
-      "pontos": 36,
-      "aproveitamento": 40.0
     },
     {
       "posicao": 15,
@@ -257,6 +257,23 @@
     },
     {
       "posicao": 16,
+      "time": "Corinthians",
+      "sigla": "COR",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/COR.png",
+      "jogos": 31,
+      "vitorias": 8,
+      "empates": 9,
+      "derrotas": 14,
+      "gols_pro": 32,
+      "gols_contra": 39,
+      "saldo": -7,
+      "pontos": 33,
+      "aproveitamento": 35.5
+    },
+    {
+      "posicao": 17,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -271,23 +288,6 @@
       "saldo": -7,
       "pontos": 32,
       "aproveitamento": 34.4
-    },
-    {
-      "posicao": 17,
-      "time": "Corinthians",
-      "sigla": "COR",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/COR.png",
-      "jogos": 30,
-      "vitorias": 8,
-      "empates": 8,
-      "derrotas": 14,
-      "gols_pro": 31,
-      "gols_contra": 38,
-      "saldo": -7,
-      "pontos": 32,
-      "aproveitamento": 35.6
     },
     {
       "posicao": 18,
@@ -10809,6 +10809,23 @@
       },
       {
         "posicao": 13,
+        "time": "Vitória",
+        "sigla": "VIT",
+        "estado": "BA",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/VIT.png",
+        "jogos": 31,
+        "vitorias": 10,
+        "empates": 7,
+        "derrotas": 14,
+        "gols_pro": 34,
+        "gols_contra": 45,
+        "saldo": -11,
+        "pontos": 37,
+        "aproveitamento": 39.8
+      },
+      {
+        "posicao": 14,
         "time": "Mirassol",
         "sigla": "MIR",
         "estado": "SP",
@@ -10823,23 +10840,6 @@
         "saldo": -8,
         "pontos": 36,
         "aproveitamento": 38.7
-      },
-      {
-        "posicao": 14,
-        "time": "Vitória",
-        "sigla": "VIT",
-        "estado": "BA",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/VIT.png",
-        "jogos": 30,
-        "vitorias": 10,
-        "empates": 6,
-        "derrotas": 14,
-        "gols_pro": 33,
-        "gols_contra": 44,
-        "saldo": -11,
-        "pontos": 36,
-        "aproveitamento": 40.0
       },
       {
         "posicao": 15,
@@ -10860,6 +10860,23 @@
       },
       {
         "posicao": 16,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 31,
+        "vitorias": 8,
+        "empates": 9,
+        "derrotas": 14,
+        "gols_pro": 32,
+        "gols_contra": 39,
+        "saldo": -7,
+        "pontos": 33,
+        "aproveitamento": 35.5
+      },
+      {
+        "posicao": 17,
         "time": "Internacional",
         "sigla": "INT",
         "estado": "RS",
@@ -10874,23 +10891,6 @@
         "saldo": -7,
         "pontos": 32,
         "aproveitamento": 34.4
-      },
-      {
-        "posicao": 17,
-        "time": "Corinthians",
-        "sigla": "COR",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/COR.png",
-        "jogos": 30,
-        "vitorias": 8,
-        "empates": 8,
-        "derrotas": 14,
-        "gols_pro": 31,
-        "gols_contra": 38,
-        "saldo": -7,
-        "pontos": 32,
-        "aproveitamento": 35.6
       },
       {
         "posicao": 18,
@@ -14800,11 +14800,11 @@
       "id": 555044,
       "rodada": 31,
       "inicio_em": "2026-10-19T23:00:00Z",
-      "status": "intervalo",
+      "status": "encerrada",
       "mandante": "COR",
       "visitante": "VIT",
       "placar": {
-        "mandante": 0,
+        "mandante": 1,
         "visitante": 1
       }
     },
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-20T00:22:07.866614+00:00",
-  "dados_verificados_em": "2026-10-20T00:22:07.866701+00:00",
+  "dados_atualizados_em": "2026-10-20T06:03:04.531985+00:00",
+  "dados_verificados_em": "2026-10-20T06:03:04.532072+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-20T00:22:07.287272+00:00",
-  "historico_atualizado_em": "2026-10-20T00:22:07.864562+00:00"
+  "agenda_atualizada_em": "2026-10-20T06:03:03.993168+00:00",
+  "historico_atualizado_em": "2026-10-20T06:03:04.530005+00:00"
 }
