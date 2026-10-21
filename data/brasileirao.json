@@ -10978,7 +10978,7 @@
       "jogador": "Kaio Jorge",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Centroavante",
+      "posicao": "Atacante",
       "gols": 11
     },
     {
@@ -11020,21 +11020,21 @@
       "jogador": "John Kennedy",
       "time": "Fluminense",
       "sigla": "FLU",
-      "posicao": "Centroavante",
+      "posicao": "Atacante",
       "gols": 9
     },
     {
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Atacante",
+      "posicao": "Meia",
       "gols": 9
     },
     {
       "jogador": "Samuel Lino",
       "time": "Flamengo",
       "sigla": "FLA",
-      "posicao": "Ponta esquerda",
+      "posicao": "Atacante",
       "gols": 9
     },
     {
@@ -11069,7 +11069,7 @@
       "jogador": "Neymar",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Atacante",
+      "posicao": "Meia",
       "gols": 8
     },
     {
@@ -11083,7 +11083,7 @@
       "jogador": "Arthur Cabral",
       "time": "Botafogo",
       "sigla": "BOT",
-      "posicao": "Centroavante",
+      "posicao": "Atacante",
       "gols": 7
     }
   ],
@@ -15649,8 +15649,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-20T06:03:04.531985+00:00",
-  "dados_verificados_em": "2026-10-21T04:51:34.165356+00:00",
+  "dados_atualizados_em": "2026-10-21T10:11:55.913290+00:00",
+  "dados_verificados_em": "2026-10-21T10:11:55.913432+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -15675,6 +15675,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-21T04:51:30.457522+00:00",
-  "historico_atualizado_em": "2026-10-21T04:51:34.163161+00:00"
+  "agenda_atualizada_em": "2026-10-21T10:11:54.835141+00:00",
+  "historico_atualizado_em": "2026-10-21T10:11:55.909864+00:00"
 }
