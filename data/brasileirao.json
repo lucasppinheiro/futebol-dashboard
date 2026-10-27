@@ -2,6 +2,23 @@
   "classificacao": [
     {
       "posicao": 1,
+      "time": "Flamengo",
+      "sigla": "FLA",
+      "estado": "RJ",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/normalizados/FLA.png",
+      "jogos": 32,
+      "vitorias": 21,
+      "empates": 7,
+      "derrotas": 4,
+      "gols_pro": 64,
+      "gols_contra": 27,
+      "saldo": 37,
+      "pontos": 70,
+      "aproveitamento": 72.9
+    },
+    {
+      "posicao": 2,
       "time": "Palmeiras",
       "sigla": "PAL",
       "estado": "SP",
@@ -16,23 +33,6 @@
       "saldo": 34,
       "pontos": 69,
       "aproveitamento": 71.9
-    },
-    {
-      "posicao": 2,
-      "time": "Flamengo",
-      "sigla": "FLA",
-      "estado": "RJ",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/normalizados/FLA.png",
-      "jogos": 31,
-      "vitorias": 20,
-      "empates": 7,
-      "derrotas": 4,
-      "gols_pro": 61,
-      "gols_contra": 25,
-      "saldo": 36,
-      "pontos": 67,
-      "aproveitamento": 72.0
     },
     {
       "posicao": 3,
@@ -92,15 +92,15 @@
       "estado": "MG",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 31,
+      "jogos": 32,
       "vitorias": 14,
       "empates": 8,
-      "derrotas": 9,
-      "gols_pro": 42,
-      "gols_contra": 35,
-      "saldo": 7,
+      "derrotas": 10,
+      "gols_pro": 44,
+      "gols_contra": 38,
+      "saldo": 6,
       "pontos": 50,
-      "aproveitamento": 53.8
+      "aproveitamento": 52.1
     },
     {
       "posicao": 7,
@@ -194,15 +194,15 @@
       "estado": "PR",
       "cor": "#006633",
       "escudo": "static/img/escudos/normalizados/CFC.png",
-      "jogos": 31,
+      "jogos": 32,
       "vitorias": 10,
       "empates": 9,
-      "derrotas": 12,
+      "derrotas": 13,
       "gols_pro": 38,
-      "gols_contra": 49,
-      "saldo": -11,
+      "gols_contra": 50,
+      "saldo": -12,
       "pontos": 39,
-      "aproveitamento": 41.9
+      "aproveitamento": 40.6
     },
     {
       "posicao": 13,
@@ -274,6 +274,23 @@
     },
     {
       "posicao": 17,
+      "time": "Grêmio",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "static/img/escudos/normalizados/GRE.png",
+      "jogos": 32,
+      "vitorias": 8,
+      "empates": 10,
+      "derrotas": 14,
+      "gols_pro": 35,
+      "gols_contra": 44,
+      "saldo": -9,
+      "pontos": 34,
+      "aproveitamento": 35.4
+    },
+    {
+      "posicao": 18,
       "time": "Corinthians",
       "sigla": "COR",
       "estado": "SP",
@@ -288,23 +305,6 @@
       "saldo": -8,
       "pontos": 33,
       "aproveitamento": 34.4
-    },
-    {
-      "posicao": 18,
-      "time": "Grêmio",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 31,
-      "vitorias": 7,
-      "empates": 10,
-      "derrotas": 14,
-      "gols_pro": 34,
-      "gols_contra": 44,
-      "saldo": -10,
-      "pontos": 31,
-      "aproveitamento": 33.3
     },
     {
       "posicao": 19,
@@ -10947,6 +10947,23 @@
     "32": [
       {
         "posicao": 1,
+        "time": "Flamengo",
+        "sigla": "FLA",
+        "estado": "RJ",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/FLA.png",
+        "jogos": 32,
+        "vitorias": 21,
+        "empates": 7,
+        "derrotas": 4,
+        "gols_pro": 64,
+        "gols_contra": 27,
+        "saldo": 37,
+        "pontos": 70,
+        "aproveitamento": 72.9
+      },
+      {
+        "posicao": 2,
         "time": "Palmeiras",
         "sigla": "PAL",
         "estado": "SP",
@@ -10961,23 +10978,6 @@
         "saldo": 34,
         "pontos": 69,
         "aproveitamento": 71.9
-      },
-      {
-        "posicao": 2,
-        "time": "Flamengo",
-        "sigla": "FLA",
-        "estado": "RJ",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/FLA.png",
-        "jogos": 31,
-        "vitorias": 20,
-        "empates": 7,
-        "derrotas": 4,
-        "gols_pro": 61,
-        "gols_contra": 25,
-        "saldo": 36,
-        "pontos": 67,
-        "aproveitamento": 72.0
       },
       {
         "posicao": 3,
@@ -11037,15 +11037,15 @@
         "estado": "MG",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 31,
+        "jogos": 32,
         "vitorias": 14,
         "empates": 8,
-        "derrotas": 9,
-        "gols_pro": 42,
-        "gols_contra": 35,
-        "saldo": 7,
+        "derrotas": 10,
+        "gols_pro": 44,
+        "gols_contra": 38,
+        "saldo": 6,
         "pontos": 50,
-        "aproveitamento": 53.8
+        "aproveitamento": 52.1
       },
       {
         "posicao": 7,
@@ -11139,15 +11139,15 @@
         "estado": "PR",
         "cor": "#006633",
         "escudo": "static/img/escudos/normalizados/CFC.png",
-        "jogos": 31,
+        "jogos": 32,
         "vitorias": 10,
         "empates": 9,
-        "derrotas": 12,
+        "derrotas": 13,
         "gols_pro": 38,
-        "gols_contra": 49,
-        "saldo": -11,
+        "gols_contra": 50,
+        "saldo": -12,
         "pontos": 39,
-        "aproveitamento": 41.9
+        "aproveitamento": 40.6
       },
       {
         "posicao": 13,
@@ -11219,6 +11219,23 @@
       },
       {
         "posicao": 17,
+        "time": "Grêmio",
+        "sigla": "GRE",
+        "estado": "RS",
+        "cor": "#0080C8",
+        "escudo": "static/img/escudos/normalizados/GRE.png",
+        "jogos": 32,
+        "vitorias": 8,
+        "empates": 10,
+        "derrotas": 14,
+        "gols_pro": 35,
+        "gols_contra": 44,
+        "saldo": -9,
+        "pontos": 34,
+        "aproveitamento": 35.4
+      },
+      {
+        "posicao": 18,
         "time": "Corinthians",
         "sigla": "COR",
         "estado": "SP",
@@ -11233,23 +11250,6 @@
         "saldo": -8,
         "pontos": 33,
         "aproveitamento": 34.4
-      },
-      {
-        "posicao": 18,
-        "time": "Grêmio",
-        "sigla": "GRE",
-        "estado": "RS",
-        "cor": "#0080C8",
-        "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 31,
-        "vitorias": 7,
-        "empates": 10,
-        "derrotas": 14,
-        "gols_pro": 34,
-        "gols_contra": 44,
-        "saldo": -10,
-        "pontos": 31,
-        "aproveitamento": 33.3
       },
       {
         "posicao": 19,
@@ -15250,23 +15250,23 @@
       "id": 555051,
       "rodada": 32,
       "inicio_em": "2026-10-26T22:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "CFC",
       "visitante": "GRE",
       "placar": {
         "mandante": 0,
-        "visitante": 0
+        "visitante": 1
       }
     },
     {
       "id": 555053,
       "rodada": 32,
       "inicio_em": "2026-10-26T23:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "FLA",
       "visitante": "CAM",
       "placar": {
-        "mandante": 2,
+        "mandante": 3,
         "visitante": 2
       }
     },
@@ -15991,8 +15991,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-27T00:27:20.884829+00:00",
-  "dados_verificados_em": "2026-10-27T00:27:20.885038+00:00",
+  "dados_atualizados_em": "2026-10-27T06:18:24.698566+00:00",
+  "dados_verificados_em": "2026-10-27T06:18:24.698725+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -16012,11 +16012,11 @@
     "jogos_maximos": 32,
     "times_total": 20,
     "campeonato_finalizado": false,
-    "lider": "Palmeiras",
-    "lider_pontos": 69,
+    "lider": "Flamengo",
+    "lider_pontos": 70,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-27T00:27:20.292433+00:00",
-  "historico_atualizado_em": "2026-10-27T00:27:20.880841+00:00"
+  "agenda_atualizada_em": "2026-10-27T06:18:24.137145+00:00",
+  "historico_atualizado_em": "2026-10-27T06:18:24.695331+00:00"
 }
