@@ -87,6 +87,23 @@
     },
     {
       "posicao": 6,
+      "time": "Bahia",
+      "sigla": "BAH",
+      "estado": "BA",
+      "cor": "#004A99",
+      "escudo": "static/img/escudos/normalizados/BAH.png",
+      "jogos": 33,
+      "vitorias": 14,
+      "empates": 11,
+      "derrotas": 8,
+      "gols_pro": 48,
+      "gols_contra": 42,
+      "saldo": 6,
+      "pontos": 53,
+      "aproveitamento": 53.5
+    },
+    {
+      "posicao": 7,
       "time": "Atlético Mineiro",
       "sigla": "CAM",
       "estado": "MG",
@@ -99,23 +116,6 @@
       "gols_pro": 44,
       "gols_contra": 38,
       "saldo": 6,
-      "pontos": 50,
-      "aproveitamento": 52.1
-    },
-    {
-      "posicao": 7,
-      "time": "Bahia",
-      "sigla": "BAH",
-      "estado": "BA",
-      "cor": "#004A99",
-      "escudo": "static/img/escudos/normalizados/BAH.png",
-      "jogos": 32,
-      "vitorias": 13,
-      "empates": 11,
-      "derrotas": 8,
-      "gols_pro": 45,
-      "gols_contra": 40,
-      "saldo": 5,
       "pontos": 50,
       "aproveitamento": 52.1
     },
@@ -160,15 +160,15 @@
       "estado": "SP",
       "cor": "#FF0000",
       "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 32,
+      "jogos": 33,
       "vitorias": 12,
       "empates": 7,
-      "derrotas": 13,
-      "gols_pro": 37,
-      "gols_contra": 36,
-      "saldo": 1,
+      "derrotas": 14,
+      "gols_pro": 39,
+      "gols_contra": 39,
+      "saldo": 0,
       "pontos": 43,
-      "aproveitamento": 44.8
+      "aproveitamento": 43.4
     },
     {
       "posicao": 11,
@@ -177,15 +177,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/BOT.png",
-      "jogos": 32,
+      "jogos": 33,
       "vitorias": 10,
       "empates": 9,
-      "derrotas": 13,
-      "gols_pro": 44,
-      "gols_contra": 51,
-      "saldo": -7,
+      "derrotas": 14,
+      "gols_pro": 45,
+      "gols_contra": 53,
+      "saldo": -8,
       "pontos": 39,
-      "aproveitamento": 40.6
+      "aproveitamento": 39.4
     },
     {
       "posicao": 12,
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "static/img/escudos/normalizados/REM.png",
-      "jogos": 32,
-      "vitorias": 5,
+      "jogos": 33,
+      "vitorias": 6,
       "empates": 11,
       "derrotas": 16,
-      "gols_pro": 34,
-      "gols_contra": 50,
-      "saldo": -16,
-      "pontos": 26,
-      "aproveitamento": 27.1
+      "gols_pro": 36,
+      "gols_contra": 51,
+      "saldo": -15,
+      "pontos": 29,
+      "aproveitamento": 29.3
     },
     {
       "posicao": 20,
@@ -11374,6 +11374,23 @@
       },
       {
         "posicao": 6,
+        "time": "Bahia",
+        "sigla": "BAH",
+        "estado": "BA",
+        "cor": "#004A99",
+        "escudo": "static/img/escudos/normalizados/BAH.png",
+        "jogos": 33,
+        "vitorias": 14,
+        "empates": 11,
+        "derrotas": 8,
+        "gols_pro": 48,
+        "gols_contra": 42,
+        "saldo": 6,
+        "pontos": 53,
+        "aproveitamento": 53.5
+      },
+      {
+        "posicao": 7,
         "time": "Atlético Mineiro",
         "sigla": "CAM",
         "estado": "MG",
@@ -11386,23 +11403,6 @@
         "gols_pro": 44,
         "gols_contra": 38,
         "saldo": 6,
-        "pontos": 50,
-        "aproveitamento": 52.1
-      },
-      {
-        "posicao": 7,
-        "time": "Bahia",
-        "sigla": "BAH",
-        "estado": "BA",
-        "cor": "#004A99",
-        "escudo": "static/img/escudos/normalizados/BAH.png",
-        "jogos": 32,
-        "vitorias": 13,
-        "empates": 11,
-        "derrotas": 8,
-        "gols_pro": 45,
-        "gols_contra": 40,
-        "saldo": 5,
         "pontos": 50,
         "aproveitamento": 52.1
       },
@@ -11447,15 +11447,15 @@
         "estado": "SP",
         "cor": "#FF0000",
         "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 32,
+        "jogos": 33,
         "vitorias": 12,
         "empates": 7,
-        "derrotas": 13,
-        "gols_pro": 37,
-        "gols_contra": 36,
-        "saldo": 1,
+        "derrotas": 14,
+        "gols_pro": 39,
+        "gols_contra": 39,
+        "saldo": 0,
         "pontos": 43,
-        "aproveitamento": 44.8
+        "aproveitamento": 43.4
       },
       {
         "posicao": 11,
@@ -11464,15 +11464,15 @@
         "estado": "RJ",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/BOT.png",
-        "jogos": 32,
+        "jogos": 33,
         "vitorias": 10,
         "empates": 9,
-        "derrotas": 13,
-        "gols_pro": 44,
-        "gols_contra": 51,
-        "saldo": -7,
+        "derrotas": 14,
+        "gols_pro": 45,
+        "gols_contra": 53,
+        "saldo": -8,
         "pontos": 39,
-        "aproveitamento": 40.6
+        "aproveitamento": 39.4
       },
       {
         "posicao": 12,
@@ -11600,15 +11600,15 @@
         "estado": "PA",
         "cor": "#00008B",
         "escudo": "static/img/escudos/normalizados/REM.png",
-        "jogos": 32,
-        "vitorias": 5,
+        "jogos": 33,
+        "vitorias": 6,
         "empates": 11,
         "derrotas": 16,
-        "gols_pro": 34,
-        "gols_contra": 50,
-        "saldo": -16,
-        "pontos": 26,
-        "aproveitamento": 27.1
+        "gols_pro": 36,
+        "gols_contra": 51,
+        "saldo": -15,
+        "pontos": 29,
+        "aproveitamento": 29.3
       },
       {
         "posicao": 20,
@@ -15652,11 +15652,11 @@
       "id": 555061,
       "rodada": 33,
       "inicio_em": "2026-10-29T00:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "BAH",
       "visitante": "SAO",
       "placar": {
-        "mandante": 2,
+        "mandante": 3,
         "visitante": 2
       }
     },
@@ -15664,12 +15664,12 @@
       "id": 555067,
       "rodada": 33,
       "inicio_em": "2026-10-29T00:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "REM",
       "visitante": "BOT",
       "placar": {
-        "mandante": 1,
-        "visitante": 0
+        "mandante": 2,
+        "visitante": 1
       }
     },
     {
@@ -16333,8 +16333,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-29T01:48:39.651566+00:00",
-  "dados_verificados_em": "2026-10-29T01:48:39.651703+00:00",
+  "dados_atualizados_em": "2026-10-29T08:31:13.922636+00:00",
+  "dados_verificados_em": "2026-10-29T08:31:13.922774+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -16359,6 +16359,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-29T01:48:39.249857+00:00",
-  "historico_atualizado_em": "2026-10-29T01:48:39.648973+00:00"
+  "agenda_atualizada_em": "2026-10-29T08:31:13.376137+00:00",
+  "historico_atualizado_em": "2026-10-29T08:31:13.920142+00:00"
 }
