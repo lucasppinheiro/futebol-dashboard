@@ -15853,12 +15853,12 @@
       }
     },
     {
-      "id": 555080,
+      "id": 555085,
       "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
+      "inicio_em": "2026-11-14T21:30:00Z",
       "status": "agendada",
-      "mandante": "COR",
-      "visitante": "BOT",
+      "mandante": "MIR",
+      "visitante": "CAM",
       "placar": {
         "mandante": null,
         "visitante": null
@@ -15867,7 +15867,7 @@
     {
       "id": 555081,
       "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
+      "inicio_em": "2026-11-18T22:30:00Z",
       "status": "agendada",
       "mandante": "CFC",
       "visitante": "SAN",
@@ -15877,9 +15877,21 @@
       }
     },
     {
+      "id": 555086,
+      "rodada": 35,
+      "inicio_em": "2026-11-18T23:00:00Z",
+      "status": "agendada",
+      "mandante": "REM",
+      "visitante": "CHA",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
       "id": 555082,
       "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
+      "inicio_em": "2026-11-18T23:30:00Z",
       "status": "agendada",
       "mandante": "CRU",
       "visitante": "PAL",
@@ -15891,7 +15903,7 @@
     {
       "id": 555083,
       "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
+      "inicio_em": "2026-11-18T23:30:00Z",
       "status": "agendada",
       "mandante": "FLA",
       "visitante": "CAP",
@@ -15901,9 +15913,21 @@
       }
     },
     {
+      "id": 555080,
+      "rodada": 35,
+      "inicio_em": "2026-11-19T00:30:00Z",
+      "status": "agendada",
+      "mandante": "COR",
+      "visitante": "BOT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
       "id": 555084,
       "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
+      "inicio_em": "2026-11-19T00:30:00Z",
       "status": "agendada",
       "mandante": "GRE",
       "visitante": "BAH",
@@ -15913,45 +15937,9 @@
       }
     },
     {
-      "id": 555085,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
-      "status": "agendada",
-      "mandante": "MIR",
-      "visitante": "CAM",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555086,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
-      "status": "agendada",
-      "mandante": "REM",
-      "visitante": "CHA",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555087,
-      "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
-      "status": "agendada",
-      "mandante": "SAO",
-      "visitante": "FLU",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
       "id": 555088,
       "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
+      "inicio_em": "2026-11-19T22:30:00Z",
       "status": "agendada",
       "mandante": "VAS",
       "visitante": "INT",
@@ -15963,7 +15951,7 @@
     {
       "id": 555089,
       "rodada": 35,
-      "inicio_em": "2026-11-18T00:00:00Z",
+      "inicio_em": "2026-11-19T22:30:00Z",
       "status": "agendada",
       "mandante": "VIT",
       "visitante": "RBB",
@@ -15973,96 +15961,12 @@
       }
     },
     {
-      "id": 555090,
-      "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
+      "id": 555087,
+      "rodada": 35,
+      "inicio_em": "2026-11-20T00:30:00Z",
       "status": "agendada",
-      "mandante": "CAP",
-      "visitante": "REM",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555091,
-      "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
-      "status": "agendada",
-      "mandante": "CAM",
-      "visitante": "COR",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555092,
-      "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
-      "status": "agendada",
-      "mandante": "BAH",
-      "visitante": "CFC",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555093,
-      "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
-      "status": "agendada",
-      "mandante": "BOT",
-      "visitante": "SAO",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555094,
-      "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
-      "status": "agendada",
-      "mandante": "RBB",
-      "visitante": "VAS",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555095,
-      "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
-      "status": "agendada",
-      "mandante": "CHA",
-      "visitante": "CRU",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555096,
-      "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
-      "status": "agendada",
-      "mandante": "FLU",
-      "visitante": "MIR",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
-      "id": 555097,
-      "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
-      "status": "agendada",
-      "mandante": "INT",
-      "visitante": "VIT",
+      "mandante": "SAO",
+      "visitante": "FLU",
       "placar": {
         "mandante": null,
         "visitante": null
@@ -16071,7 +15975,7 @@
     {
       "id": 555098,
       "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
+      "inicio_em": "2026-11-21T19:30:00Z",
       "status": "agendada",
       "mandante": "PAL",
       "visitante": "FLA",
@@ -16081,12 +15985,108 @@
       }
     },
     {
+      "id": 555092,
+      "rodada": 36,
+      "inicio_em": "2026-11-21T20:30:00Z",
+      "status": "agendada",
+      "mandante": "BAH",
+      "visitante": "CFC",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555095,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T00:00:00Z",
+      "status": "agendada",
+      "mandante": "CHA",
+      "visitante": "CRU",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555090,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T19:00:00Z",
+      "status": "agendada",
+      "mandante": "CAP",
+      "visitante": "REM",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555096,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T21:30:00Z",
+      "status": "agendada",
+      "mandante": "FLU",
+      "visitante": "MIR",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555094,
+      "rodada": 36,
+      "inicio_em": "2026-11-22T22:30:00Z",
+      "status": "agendada",
+      "mandante": "RBB",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555097,
+      "rodada": 36,
+      "inicio_em": "2026-11-23T22:30:00Z",
+      "status": "agendada",
+      "mandante": "INT",
+      "visitante": "VIT",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555093,
+      "rodada": 36,
+      "inicio_em": "2026-11-23T23:00:00Z",
+      "status": "agendada",
+      "mandante": "BOT",
+      "visitante": "SAO",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
       "id": 555099,
       "rodada": 36,
-      "inicio_em": "2026-11-21T00:00:00Z",
+      "inicio_em": "2026-11-24T00:00:00Z",
       "status": "agendada",
       "mandante": "SAN",
       "visitante": "GRE",
+      "placar": {
+        "mandante": null,
+        "visitante": null
+      }
+    },
+    {
+      "id": 555091,
+      "rodada": 36,
+      "inicio_em": "2026-11-25T23:00:00Z",
+      "status": "agendada",
+      "mandante": "CAM",
+      "visitante": "COR",
       "placar": {
         "mandante": null,
         "visitante": null
@@ -16333,8 +16333,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-30T07:09:04.710164+00:00",
-  "dados_verificados_em": "2026-10-30T14:11:29.106563+00:00",
+  "dados_atualizados_em": "2026-10-30T19:25:42.960593+00:00",
+  "dados_verificados_em": "2026-10-30T19:25:42.960690+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -16359,6 +16359,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-30T14:11:28.569649+00:00",
-  "historico_atualizado_em": "2026-10-30T14:11:29.102733+00:00"
+  "agenda_atualizada_em": "2026-10-30T19:25:42.427003+00:00",
+  "historico_atualizado_em": "2026-10-30T19:25:42.958279+00:00"
 }
