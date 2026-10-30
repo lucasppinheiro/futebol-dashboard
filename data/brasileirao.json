@@ -53,23 +53,6 @@
     },
     {
       "posicao": 4,
-      "time": "Athletico Paranaense",
-      "sigla": "CAP",
-      "estado": "PR",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/normalizados/CAP.png",
-      "jogos": 32,
-      "vitorias": 15,
-      "empates": 9,
-      "derrotas": 8,
-      "gols_pro": 50,
-      "gols_contra": 38,
-      "saldo": 12,
-      "pontos": 54,
-      "aproveitamento": 56.2
-    },
-    {
-      "posicao": 5,
       "time": "Fluminense",
       "sigla": "FLU",
       "estado": "RJ",
@@ -81,6 +64,23 @@
       "derrotas": 9,
       "gols_pro": 52,
       "gols_contra": 42,
+      "saldo": 10,
+      "pontos": 54,
+      "aproveitamento": 54.5
+    },
+    {
+      "posicao": 5,
+      "time": "Athletico Paranaense",
+      "sigla": "CAP",
+      "estado": "PR",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/normalizados/CAP.png",
+      "jogos": 33,
+      "vitorias": 15,
+      "empates": 9,
+      "derrotas": 9,
+      "gols_pro": 50,
+      "gols_contra": 40,
       "saldo": 10,
       "pontos": 54,
       "aproveitamento": 54.5
@@ -240,6 +240,23 @@
     },
     {
       "posicao": 15,
+      "time": "Grêmio",
+      "sigla": "GRE",
+      "estado": "RS",
+      "cor": "#0080C8",
+      "escudo": "static/img/escudos/normalizados/GRE.png",
+      "jogos": 33,
+      "vitorias": 9,
+      "empates": 10,
+      "derrotas": 14,
+      "gols_pro": 37,
+      "gols_contra": 44,
+      "saldo": -7,
+      "pontos": 37,
+      "aproveitamento": 37.4
+    },
+    {
+      "posicao": 16,
       "time": "Mirassol",
       "sigla": "MIR",
       "estado": "SP",
@@ -256,7 +273,7 @@
       "aproveitamento": 38.5
     },
     {
-      "posicao": 16,
+      "posicao": 17,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -270,23 +287,6 @@
       "gols_contra": 42,
       "saldo": -5,
       "pontos": 35,
-      "aproveitamento": 35.4
-    },
-    {
-      "posicao": 17,
-      "time": "Grêmio",
-      "sigla": "GRE",
-      "estado": "RS",
-      "cor": "#0080C8",
-      "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 32,
-      "vitorias": 8,
-      "empates": 10,
-      "derrotas": 14,
-      "gols_pro": 35,
-      "gols_contra": 44,
-      "saldo": -9,
-      "pontos": 34,
       "aproveitamento": 35.4
     },
     {
@@ -11340,23 +11340,6 @@
       },
       {
         "posicao": 4,
-        "time": "Athletico Paranaense",
-        "sigla": "CAP",
-        "estado": "PR",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/CAP.png",
-        "jogos": 32,
-        "vitorias": 15,
-        "empates": 9,
-        "derrotas": 8,
-        "gols_pro": 50,
-        "gols_contra": 38,
-        "saldo": 12,
-        "pontos": 54,
-        "aproveitamento": 56.2
-      },
-      {
-        "posicao": 5,
         "time": "Fluminense",
         "sigla": "FLU",
         "estado": "RJ",
@@ -11368,6 +11351,23 @@
         "derrotas": 9,
         "gols_pro": 52,
         "gols_contra": 42,
+        "saldo": 10,
+        "pontos": 54,
+        "aproveitamento": 54.5
+      },
+      {
+        "posicao": 5,
+        "time": "Athletico Paranaense",
+        "sigla": "CAP",
+        "estado": "PR",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/CAP.png",
+        "jogos": 33,
+        "vitorias": 15,
+        "empates": 9,
+        "derrotas": 9,
+        "gols_pro": 50,
+        "gols_contra": 40,
         "saldo": 10,
         "pontos": 54,
         "aproveitamento": 54.5
@@ -11527,6 +11527,23 @@
       },
       {
         "posicao": 15,
+        "time": "Grêmio",
+        "sigla": "GRE",
+        "estado": "RS",
+        "cor": "#0080C8",
+        "escudo": "static/img/escudos/normalizados/GRE.png",
+        "jogos": 33,
+        "vitorias": 9,
+        "empates": 10,
+        "derrotas": 14,
+        "gols_pro": 37,
+        "gols_contra": 44,
+        "saldo": -7,
+        "pontos": 37,
+        "aproveitamento": 37.4
+      },
+      {
+        "posicao": 16,
         "time": "Mirassol",
         "sigla": "MIR",
         "estado": "SP",
@@ -11543,7 +11560,7 @@
         "aproveitamento": 38.5
       },
       {
-        "posicao": 16,
+        "posicao": 17,
         "time": "Internacional",
         "sigla": "INT",
         "estado": "RS",
@@ -11557,23 +11574,6 @@
         "gols_contra": 42,
         "saldo": -5,
         "pontos": 35,
-        "aproveitamento": 35.4
-      },
-      {
-        "posicao": 17,
-        "time": "Grêmio",
-        "sigla": "GRE",
-        "estado": "RS",
-        "cor": "#0080C8",
-        "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 32,
-        "vitorias": 8,
-        "empates": 10,
-        "derrotas": 14,
-        "gols_pro": 35,
-        "gols_contra": 44,
-        "saldo": -9,
-        "pontos": 34,
         "aproveitamento": 35.4
       },
       {
@@ -15688,7 +15688,7 @@
       "id": 555069,
       "rodada": 33,
       "inicio_em": "2026-10-29T23:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "VAS",
       "visitante": "FLA",
       "placar": {
@@ -15700,11 +15700,11 @@
       "id": 555066,
       "rodada": 33,
       "inicio_em": "2026-10-30T00:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "GRE",
       "visitante": "CAP",
       "placar": {
-        "mandante": 0,
+        "mandante": 2,
         "visitante": 0
       }
     },
@@ -16333,8 +16333,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-30T01:01:51.439523+00:00",
-  "dados_verificados_em": "2026-10-30T01:01:51.439608+00:00",
+  "dados_atualizados_em": "2026-10-30T07:09:04.710164+00:00",
+  "dados_verificados_em": "2026-10-30T07:09:04.710314+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -16359,6 +16359,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-30T01:01:50.825977+00:00",
-  "historico_atualizado_em": "2026-10-30T01:01:51.437692+00:00"
+  "agenda_atualizada_em": "2026-10-30T07:09:04.112664+00:00",
+  "historico_atualizado_em": "2026-10-30T07:09:04.706850+00:00"
 }
