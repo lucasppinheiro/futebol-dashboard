@@ -240,23 +240,6 @@
     },
     {
       "posicao": 15,
-      "time": "Mirassol",
-      "sigla": "MIR",
-      "estado": "SP",
-      "cor": "#FFD700",
-      "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 33,
-      "vitorias": 9,
-      "empates": 11,
-      "derrotas": 13,
-      "gols_pro": 37,
-      "gols_contra": 45,
-      "saldo": -8,
-      "pontos": 38,
-      "aproveitamento": 38.4
-    },
-    {
-      "posicao": 16,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
@@ -273,7 +256,41 @@
       "aproveitamento": 37.4
     },
     {
+      "posicao": 16,
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "estado": "SP",
+      "cor": "#FFD700",
+      "escudo": "static/img/escudos/normalizados/MIR.png",
+      "jogos": 33,
+      "vitorias": 9,
+      "empates": 10,
+      "derrotas": 14,
+      "gols_pro": 37,
+      "gols_contra": 47,
+      "saldo": -10,
+      "pontos": 37,
+      "aproveitamento": 37.4
+    },
+    {
       "posicao": 17,
+      "time": "Corinthians",
+      "sigla": "COR",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/COR.png",
+      "jogos": 33,
+      "vitorias": 9,
+      "empates": 9,
+      "derrotas": 15,
+      "gols_pro": 36,
+      "gols_contra": 42,
+      "saldo": -6,
+      "pontos": 36,
+      "aproveitamento": 36.4
+    },
+    {
+      "posicao": 18,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
@@ -288,23 +305,6 @@
       "saldo": -5,
       "pontos": 35,
       "aproveitamento": 35.4
-    },
-    {
-      "posicao": 18,
-      "time": "Corinthians",
-      "sigla": "COR",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/COR.png",
-      "jogos": 33,
-      "vitorias": 8,
-      "empates": 10,
-      "derrotas": 15,
-      "gols_pro": 34,
-      "gols_contra": 42,
-      "saldo": -8,
-      "pontos": 34,
-      "aproveitamento": 34.3
     },
     {
       "posicao": 19,
@@ -11527,23 +11527,6 @@
       },
       {
         "posicao": 15,
-        "time": "Mirassol",
-        "sigla": "MIR",
-        "estado": "SP",
-        "cor": "#FFD700",
-        "escudo": "static/img/escudos/normalizados/MIR.png",
-        "jogos": 33,
-        "vitorias": 9,
-        "empates": 11,
-        "derrotas": 13,
-        "gols_pro": 37,
-        "gols_contra": 45,
-        "saldo": -8,
-        "pontos": 38,
-        "aproveitamento": 38.4
-      },
-      {
-        "posicao": 16,
         "time": "Grêmio",
         "sigla": "GRE",
         "estado": "RS",
@@ -11560,7 +11543,41 @@
         "aproveitamento": 37.4
       },
       {
+        "posicao": 16,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 33,
+        "vitorias": 9,
+        "empates": 10,
+        "derrotas": 14,
+        "gols_pro": 37,
+        "gols_contra": 47,
+        "saldo": -10,
+        "pontos": 37,
+        "aproveitamento": 37.4
+      },
+      {
         "posicao": 17,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 33,
+        "vitorias": 9,
+        "empates": 9,
+        "derrotas": 15,
+        "gols_pro": 36,
+        "gols_contra": 42,
+        "saldo": -6,
+        "pontos": 36,
+        "aproveitamento": 36.4
+      },
+      {
+        "posicao": 18,
         "time": "Internacional",
         "sigla": "INT",
         "estado": "RS",
@@ -11575,23 +11592,6 @@
         "saldo": -5,
         "pontos": 35,
         "aproveitamento": 35.4
-      },
-      {
-        "posicao": 18,
-        "time": "Corinthians",
-        "sigla": "COR",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/COR.png",
-        "jogos": 33,
-        "vitorias": 8,
-        "empates": 10,
-        "derrotas": 15,
-        "gols_pro": 34,
-        "gols_contra": 42,
-        "saldo": -8,
-        "pontos": 34,
-        "aproveitamento": 34.3
       },
       {
         "posicao": 19,
@@ -11722,14 +11722,14 @@
       "gols": 9
     },
     {
-      "jogador": "Lopez",
+      "jogador": "Mauricio",
       "time": "Palmeiras",
       "sigla": "PAL",
       "posicao": "Nao informado",
       "gols": 9
     },
     {
-      "jogador": "Mauricio",
+      "jogador": "Lopez",
       "time": "Palmeiras",
       "sigla": "PAL",
       "posicao": "Nao informado",
@@ -11764,7 +11764,7 @@
       "gols": 8
     },
     {
-      "jogador": "Lucas Paquetá",
+      "jogador": "Carrascal",
       "time": "Flamengo",
       "sigla": "FLA",
       "posicao": "Nao informado",
@@ -15712,11 +15712,11 @@
       "id": 555063,
       "rodada": 33,
       "inicio_em": "2026-10-30T23:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "COR",
       "visitante": "MIR",
       "placar": {
-        "mandante": 0,
+        "mandante": 2,
         "visitante": 0
       }
     },
@@ -16333,14 +16333,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-30T23:49:19.193243+00:00",
-  "dados_verificados_em": "2026-10-30T23:49:19.193385+00:00",
+  "dados_atualizados_em": "2026-10-31T05:45:01.317979+00:00",
+  "dados_verificados_em": "2026-10-31T05:45:01.318115+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "ge",
+  "fonte": "CBF",
   "fontes": {
-    "classificacao": "ge",
+    "classificacao": "CBF",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -16359,6 +16359,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-10-30T23:49:18.410548+00:00",
-  "historico_atualizado_em": "2026-10-30T23:49:19.190214+00:00"
+  "agenda_atualizada_em": "2026-10-31T05:45:00.775334+00:00",
+  "historico_atualizado_em": "2026-10-31T05:45:01.315714+00:00"
 }
