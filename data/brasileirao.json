@@ -14173,18 +14173,6 @@
       }
     },
     {
-      "id": 554942,
-      "rodada": 21,
-      "inicio_em": "2026-07-29T00:00:00Z",
-      "status": "adiada",
-      "mandante": "CHA",
-      "visitante": "VAS",
-      "placar": {
-        "mandante": null,
-        "visitante": null
-      }
-    },
-    {
       "id": 554946,
       "rodada": 21,
       "inicio_em": "2026-07-29T22:30:00Z",
@@ -14290,6 +14278,18 @@
       "placar": {
         "mandante": 1,
         "visitante": 0
+      }
+    },
+    {
+      "id": 554942,
+      "rodada": 21,
+      "inicio_em": "2026-11-14T23:30:00Z",
+      "status": "agendada",
+      "mandante": "CHA",
+      "visitante": "VAS",
+      "placar": {
+        "mandante": null,
+        "visitante": null
       }
     },
     {
@@ -16333,8 +16333,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-10-31T21:37:26.103623+00:00",
-  "dados_verificados_em": "2026-11-01T07:36:54.945614+00:00",
+  "dados_atualizados_em": "2026-11-01T15:12:30.398781+00:00",
+  "dados_verificados_em": "2026-11-01T15:12:30.398870+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -16359,6 +16359,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-01T07:36:54.423419+00:00",
-  "historico_atualizado_em": "2026-11-01T07:36:54.943283+00:00"
+  "agenda_atualizada_em": "2026-11-01T15:12:29.868511+00:00",
+  "historico_atualizado_em": "2026-11-01T15:12:30.396973+00:00"
 }
