@@ -121,37 +121,37 @@
     },
     {
       "posicao": 8,
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/SAN.png",
-      "jogos": 33,
-      "vitorias": 12,
-      "empates": 11,
-      "derrotas": 10,
-      "gols_pro": 49,
-      "gols_contra": 47,
-      "saldo": 2,
-      "pontos": 47,
-      "aproveitamento": 47.5
-    },
-    {
-      "posicao": 9,
       "time": "Red Bull Bragantino",
       "sigla": "RBB",
       "estado": "SP",
       "cor": "#E30613",
       "escudo": "static/img/escudos/normalizados/RBB.png",
-      "jogos": 33,
-      "vitorias": 12,
+      "jogos": 34,
+      "vitorias": 13,
       "empates": 8,
       "derrotas": 13,
-      "gols_pro": 42,
+      "gols_pro": 43,
       "gols_contra": 38,
-      "saldo": 4,
-      "pontos": 44,
-      "aproveitamento": 44.4
+      "saldo": 5,
+      "pontos": 47,
+      "aproveitamento": 46.1
+    },
+    {
+      "posicao": 9,
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/SAN.png",
+      "jogos": 34,
+      "vitorias": 12,
+      "empates": 11,
+      "derrotas": 11,
+      "gols_pro": 49,
+      "gols_contra": 48,
+      "saldo": 1,
+      "pontos": 47,
+      "aproveitamento": 46.1
     },
     {
       "posicao": 10,
@@ -11408,37 +11408,37 @@
       },
       {
         "posicao": 8,
-        "time": "Santos FC",
-        "sigla": "SAN",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/SAN.png",
-        "jogos": 33,
-        "vitorias": 12,
-        "empates": 11,
-        "derrotas": 10,
-        "gols_pro": 49,
-        "gols_contra": 47,
-        "saldo": 2,
-        "pontos": 47,
-        "aproveitamento": 47.5
-      },
-      {
-        "posicao": 9,
         "time": "Red Bull Bragantino",
         "sigla": "RBB",
         "estado": "SP",
         "cor": "#E30613",
         "escudo": "static/img/escudos/normalizados/RBB.png",
-        "jogos": 33,
-        "vitorias": 12,
+        "jogos": 34,
+        "vitorias": 13,
         "empates": 8,
         "derrotas": 13,
-        "gols_pro": 42,
+        "gols_pro": 43,
         "gols_contra": 38,
-        "saldo": 4,
-        "pontos": 44,
-        "aproveitamento": 44.4
+        "saldo": 5,
+        "pontos": 47,
+        "aproveitamento": 46.1
+      },
+      {
+        "posicao": 9,
+        "time": "Santos FC",
+        "sigla": "SAN",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/SAN.png",
+        "jogos": 34,
+        "vitorias": 12,
+        "empates": 11,
+        "derrotas": 11,
+        "gols_pro": 49,
+        "gols_contra": 48,
+        "saldo": 1,
+        "pontos": 47,
+        "aproveitamento": 46.1
       },
       {
         "posicao": 10,
@@ -15736,12 +15736,12 @@
       "id": 555072,
       "rodada": 34,
       "inicio_em": "2026-11-02T23:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "RBB",
       "visitante": "SAN",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
@@ -16333,14 +16333,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-01T15:12:30.398781+00:00",
-  "dados_verificados_em": "2026-11-02T15:57:54.378527+00:00",
+  "dados_atualizados_em": "2026-11-02T23:32:23.956868+00:00",
+  "dados_verificados_em": "2026-11-02T23:32:23.956956+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "CBF",
+  "fonte": "ge",
   "fontes": {
-    "classificacao": "CBF",
+    "classificacao": "ge",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -16351,7 +16351,7 @@
     "rodada_atual": 33,
     "rodada_confirmada": true,
     "jogos_minimos": 32,
-    "jogos_maximos": 33,
+    "jogos_maximos": 34,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Flamengo",
@@ -16359,6 +16359,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-02T15:57:53.726203+00:00",
-  "historico_atualizado_em": "2026-11-02T15:57:54.374971+00:00"
+  "agenda_atualizada_em": "2026-11-02T23:32:23.435486+00:00",
+  "historico_atualizado_em": "2026-11-02T23:32:23.955101+00:00"
 }
