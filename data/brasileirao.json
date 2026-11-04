@@ -177,15 +177,15 @@
       "estado": "PR",
       "cor": "#006633",
       "escudo": "static/img/escudos/normalizados/CFC.png",
-      "jogos": 33,
+      "jogos": 34,
       "vitorias": 11,
       "empates": 9,
-      "derrotas": 13,
+      "derrotas": 14,
       "gols_pro": 40,
-      "gols_contra": 50,
-      "saldo": -10,
+      "gols_contra": 51,
+      "saldo": -11,
       "pontos": 42,
-      "aproveitamento": 42.4
+      "aproveitamento": 41.2
     },
     {
       "posicao": 12,
@@ -257,6 +257,23 @@
     },
     {
       "posicao": 16,
+      "time": "Internacional",
+      "sigla": "INT",
+      "estado": "RS",
+      "cor": "#E30613",
+      "escudo": "static/img/escudos/normalizados/INT.png",
+      "jogos": 34,
+      "vitorias": 9,
+      "empates": 11,
+      "derrotas": 14,
+      "gols_pro": 38,
+      "gols_contra": 42,
+      "saldo": -4,
+      "pontos": 38,
+      "aproveitamento": 37.3
+    },
+    {
+      "posicao": 17,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
@@ -273,7 +290,7 @@
       "aproveitamento": 37.4
     },
     {
-      "posicao": 17,
+      "posicao": 18,
       "time": "Corinthians",
       "sigla": "COR",
       "estado": "SP",
@@ -288,23 +305,6 @@
       "saldo": -6,
       "pontos": 36,
       "aproveitamento": 36.4
-    },
-    {
-      "posicao": 18,
-      "time": "Internacional",
-      "sigla": "INT",
-      "estado": "RS",
-      "cor": "#E30613",
-      "escudo": "static/img/escudos/normalizados/INT.png",
-      "jogos": 33,
-      "vitorias": 8,
-      "empates": 11,
-      "derrotas": 14,
-      "gols_pro": 37,
-      "gols_contra": 42,
-      "saldo": -5,
-      "pontos": 35,
-      "aproveitamento": 35.4
     },
     {
       "posicao": 19,
@@ -11806,15 +11806,15 @@
         "estado": "PR",
         "cor": "#006633",
         "escudo": "static/img/escudos/normalizados/CFC.png",
-        "jogos": 33,
+        "jogos": 34,
         "vitorias": 11,
         "empates": 9,
-        "derrotas": 13,
+        "derrotas": 14,
         "gols_pro": 40,
-        "gols_contra": 50,
-        "saldo": -10,
+        "gols_contra": 51,
+        "saldo": -11,
         "pontos": 42,
-        "aproveitamento": 42.4
+        "aproveitamento": 41.2
       },
       {
         "posicao": 12,
@@ -11886,6 +11886,23 @@
       },
       {
         "posicao": 16,
+        "time": "Internacional",
+        "sigla": "INT",
+        "estado": "RS",
+        "cor": "#E30613",
+        "escudo": "static/img/escudos/normalizados/INT.png",
+        "jogos": 34,
+        "vitorias": 9,
+        "empates": 11,
+        "derrotas": 14,
+        "gols_pro": 38,
+        "gols_contra": 42,
+        "saldo": -4,
+        "pontos": 38,
+        "aproveitamento": 37.3
+      },
+      {
+        "posicao": 17,
         "time": "Grêmio",
         "sigla": "GRE",
         "estado": "RS",
@@ -11902,7 +11919,7 @@
         "aproveitamento": 37.4
       },
       {
-        "posicao": 17,
+        "posicao": 18,
         "time": "Corinthians",
         "sigla": "COR",
         "estado": "SP",
@@ -11917,23 +11934,6 @@
         "saldo": -6,
         "pontos": 36,
         "aproveitamento": 36.4
-      },
-      {
-        "posicao": 18,
-        "time": "Internacional",
-        "sigla": "INT",
-        "estado": "RS",
-        "cor": "#E30613",
-        "escudo": "static/img/escudos/normalizados/INT.png",
-        "jogos": 33,
-        "vitorias": 8,
-        "empates": 11,
-        "derrotas": 14,
-        "gols_pro": 37,
-        "gols_contra": 42,
-        "saldo": -5,
-        "pontos": 35,
-        "aproveitamento": 35.4
       },
       {
         "posicao": 19,
@@ -11976,140 +11976,140 @@
       "jogador": "Kevin Viveros",
       "time": "Athletico Paranaense",
       "sigla": "CAP",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 21
     },
     {
       "jogador": "Pedro",
       "time": "Flamengo",
       "sigla": "FLA",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 18
     },
     {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 15
     },
     {
       "jogador": "Kaio Jorge",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Atacante",
-      "gols": 12
+      "posicao": "Nao informado",
+      "gols": 13
     },
     {
-      "jogador": "Carlos Vinícius",
-      "time": "Grêmio",
-      "sigla": "GRE",
-      "posicao": "Centroavante",
+      "jogador": "Samuel Lino",
+      "time": "Flamengo",
+      "sigla": "FLA",
+      "posicao": "Nao informado",
       "gols": 11
     },
     {
       "jogador": "Luciano Juba",
       "time": "Bahia",
       "sigla": "BAH",
-      "posicao": "Defensor",
+      "posicao": "Nao informado",
       "gols": 11
     },
     {
-      "jogador": "Samuel Lino",
-      "time": "Flamengo",
-      "sigla": "FLA",
-      "posicao": "Atacante",
+      "jogador": "Vinicius",
+      "time": "Grêmio",
+      "sigla": "GRE",
+      "posicao": "Nao informado",
       "gols": 11
     },
     {
-      "jogador": "Danilo dos Santos de Oliveira",
+      "jogador": "Calleri",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Nao informado",
+      "gols": 10
+    },
+    {
+      "jogador": "Rene",
+      "time": "Vitória",
+      "sigla": "VIT",
+      "posicao": "Nao informado",
+      "gols": 10
+    },
+    {
+      "jogador": "Danilo Santos",
       "time": "Botafogo",
       "sigla": "BOT",
-      "posicao": "Meia",
+      "posicao": "Nao informado",
       "gols": 10
-    },
-    {
-      "jogador": "Jonathan Calleri",
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 10
-    },
-    {
-      "jogador": "José Manuel López",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Atacante",
-      "gols": 9
-    },
-    {
-      "jogador": "Luciano",
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "posicao": "Atacante",
-      "gols": 9
-    },
-    {
-      "jogador": "Mauricio",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Meia",
-      "gols": 9
-    },
-    {
-      "jogador": "John Kennedy",
-      "time": "Fluminense",
-      "sigla": "FLU",
-      "posicao": "Atacante",
-      "gols": 9
     },
     {
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Meia",
+      "posicao": "Nao informado",
       "gols": 9
     },
     {
       "jogador": "Pedro Rocha",
       "time": "Coritiba SAF",
       "sigla": "CFC",
-      "posicao": "Atacante",
+      "posicao": "Nao informado",
       "gols": 9
     },
     {
-      "jogador": "Carlos Renê",
-      "time": "Vitória",
-      "sigla": "VIT",
-      "posicao": "Atacante",
+      "jogador": "Luciano",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Nao informado",
       "gols": 9
     },
     {
-      "jogador": "Breno Lopes",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "posicao": "Atacante",
-      "gols": 8
+      "jogador": "John Kennedy",
+      "time": "Fluminense",
+      "sigla": "FLU",
+      "posicao": "Nao informado",
+      "gols": 9
     },
     {
-      "jogador": "Neymar",
+      "jogador": "Lopez",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Nao informado",
+      "gols": 9
+    },
+    {
+      "jogador": "Mauricio",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Nao informado",
+      "gols": 9
+    },
+    {
+      "jogador": "Neymar Jr",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Meia",
+      "posicao": "Nao informado",
       "gols": 8
     },
     {
-      "jogador": "Carlos Eduardo",
-      "time": "Mirassol",
-      "sigla": "MIR",
-      "posicao": "Meia",
-      "gols": 7
+      "jogador": "Jajá",
+      "time": "Remo",
+      "sigla": "REM",
+      "posicao": "Nao informado",
+      "gols": 8
     },
     {
-      "jogador": "Arthur Cabral",
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "posicao": "Atacante",
+      "jogador": "Breno",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Nao informado",
+      "gols": 8
+    },
+    {
+      "jogador": "Carrascal",
+      "time": "Flamengo",
+      "sigla": "FLA",
+      "posicao": "Nao informado",
       "gols": 7
     }
   ],
@@ -16675,15 +16675,15 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-04T01:24:51.740422+00:00",
-  "dados_verificados_em": "2026-11-04T01:24:51.740549+00:00",
+  "dados_atualizados_em": "2026-11-04T09:16:13.747167+00:00",
+  "dados_verificados_em": "2026-11-04T09:16:13.747302+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "football-data.org",
+  "fonte": "CBF",
   "fontes": {
-    "classificacao": "football-data.org",
-    "artilharia": "football-data.org",
+    "classificacao": "CBF",
+    "artilharia": "CBF",
     "partidas": "football-data.org"
   },
   "info": {
@@ -16701,6 +16701,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-04T01:24:51.206182+00:00",
-  "historico_atualizado_em": "2026-11-04T01:24:51.737948+00:00"
+  "agenda_atualizada_em": "2026-11-04T09:16:13.178113+00:00",
+  "historico_atualizado_em": "2026-11-04T09:16:13.744781+00:00"
 }
