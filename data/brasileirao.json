@@ -7,15 +7,15 @@
       "estado": "RJ",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/FLA.png",
-      "jogos": 33,
-      "vitorias": 22,
+      "jogos": 34,
+      "vitorias": 23,
       "empates": 7,
       "derrotas": 4,
-      "gols_pro": 68,
+      "gols_pro": 71,
       "gols_contra": 28,
-      "saldo": 40,
-      "pontos": 73,
-      "aproveitamento": 73.7
+      "saldo": 43,
+      "pontos": 76,
+      "aproveitamento": 74.5
     },
     {
       "posicao": 2,
@@ -53,6 +53,23 @@
     },
     {
       "posicao": 4,
+      "time": "Athletico Paranaense",
+      "sigla": "CAP",
+      "estado": "PR",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/normalizados/CAP.png",
+      "jogos": 34,
+      "vitorias": 16,
+      "empates": 9,
+      "derrotas": 9,
+      "gols_pro": 51,
+      "gols_contra": 40,
+      "saldo": 11,
+      "pontos": 57,
+      "aproveitamento": 55.9
+    },
+    {
+      "posicao": 5,
       "time": "Fluminense",
       "sigla": "FLU",
       "estado": "RJ",
@@ -64,23 +81,6 @@
       "derrotas": 9,
       "gols_pro": 52,
       "gols_contra": 42,
-      "saldo": 10,
-      "pontos": 54,
-      "aproveitamento": 54.5
-    },
-    {
-      "posicao": 5,
-      "time": "Athletico Paranaense",
-      "sigla": "CAP",
-      "estado": "PR",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/normalizados/CAP.png",
-      "jogos": 33,
-      "vitorias": 15,
-      "empates": 9,
-      "derrotas": 9,
-      "gols_pro": 50,
-      "gols_contra": 40,
       "saldo": 10,
       "pontos": 54,
       "aproveitamento": 54.5
@@ -228,15 +228,15 @@
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/VAS.png",
-      "jogos": 32,
+      "jogos": 33,
       "vitorias": 10,
       "empates": 8,
-      "derrotas": 14,
+      "derrotas": 15,
       "gols_pro": 40,
-      "gols_contra": 49,
-      "saldo": -9,
+      "gols_contra": 50,
+      "saldo": -10,
       "pontos": 38,
-      "aproveitamento": 39.6
+      "aproveitamento": 38.4
     },
     {
       "posicao": 15,
@@ -279,15 +279,15 @@
       "estado": "RS",
       "cor": "#0080C8",
       "escudo": "static/img/escudos/normalizados/GRE.png",
-      "jogos": 33,
+      "jogos": 34,
       "vitorias": 9,
       "empates": 10,
-      "derrotas": 14,
+      "derrotas": 15,
       "gols_pro": 37,
-      "gols_contra": 44,
-      "saldo": -7,
+      "gols_contra": 47,
+      "saldo": -10,
       "pontos": 37,
-      "aproveitamento": 37.4
+      "aproveitamento": 36.3
     },
     {
       "posicao": 18,
@@ -11636,15 +11636,15 @@
         "estado": "RJ",
         "cor": "#E11D1D",
         "escudo": "static/img/escudos/normalizados/FLA.png",
-        "jogos": 33,
-        "vitorias": 22,
+        "jogos": 34,
+        "vitorias": 23,
         "empates": 7,
         "derrotas": 4,
-        "gols_pro": 68,
+        "gols_pro": 71,
         "gols_contra": 28,
-        "saldo": 40,
-        "pontos": 73,
-        "aproveitamento": 73.7
+        "saldo": 43,
+        "pontos": 76,
+        "aproveitamento": 74.5
       },
       {
         "posicao": 2,
@@ -11682,6 +11682,23 @@
       },
       {
         "posicao": 4,
+        "time": "Athletico Paranaense",
+        "sigla": "CAP",
+        "estado": "PR",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/CAP.png",
+        "jogos": 34,
+        "vitorias": 16,
+        "empates": 9,
+        "derrotas": 9,
+        "gols_pro": 51,
+        "gols_contra": 40,
+        "saldo": 11,
+        "pontos": 57,
+        "aproveitamento": 55.9
+      },
+      {
+        "posicao": 5,
         "time": "Fluminense",
         "sigla": "FLU",
         "estado": "RJ",
@@ -11693,23 +11710,6 @@
         "derrotas": 9,
         "gols_pro": 52,
         "gols_contra": 42,
-        "saldo": 10,
-        "pontos": 54,
-        "aproveitamento": 54.5
-      },
-      {
-        "posicao": 5,
-        "time": "Athletico Paranaense",
-        "sigla": "CAP",
-        "estado": "PR",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/CAP.png",
-        "jogos": 33,
-        "vitorias": 15,
-        "empates": 9,
-        "derrotas": 9,
-        "gols_pro": 50,
-        "gols_contra": 40,
         "saldo": 10,
         "pontos": 54,
         "aproveitamento": 54.5
@@ -11857,15 +11857,15 @@
         "estado": "RJ",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/VAS.png",
-        "jogos": 32,
+        "jogos": 33,
         "vitorias": 10,
         "empates": 8,
-        "derrotas": 14,
+        "derrotas": 15,
         "gols_pro": 40,
-        "gols_contra": 49,
-        "saldo": -9,
+        "gols_contra": 50,
+        "saldo": -10,
         "pontos": 38,
-        "aproveitamento": 39.6
+        "aproveitamento": 38.4
       },
       {
         "posicao": 15,
@@ -11908,15 +11908,15 @@
         "estado": "RS",
         "cor": "#0080C8",
         "escudo": "static/img/escudos/normalizados/GRE.png",
-        "jogos": 33,
+        "jogos": 34,
         "vitorias": 9,
         "empates": 10,
-        "derrotas": 14,
+        "derrotas": 15,
         "gols_pro": 37,
-        "gols_contra": 44,
-        "saldo": -7,
+        "gols_contra": 47,
+        "saldo": -10,
         "pontos": 37,
-        "aproveitamento": 37.4
+        "aproveitamento": 36.3
       },
       {
         "posicao": 18,
@@ -16114,24 +16114,24 @@
       "id": 555070,
       "rodada": 34,
       "inicio_em": "2026-11-04T22:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "CAP",
       "visitante": "VAS",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
       "id": 555075,
       "rodada": 34,
       "inicio_em": "2026-11-04T22:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "FLA",
       "visitante": "GRE",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 3,
+        "visitante": 0
       }
     },
     {
@@ -16675,14 +16675,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-04T17:59:31.554652+00:00",
-  "dados_verificados_em": "2026-11-04T17:59:31.554829+00:00",
+  "dados_atualizados_em": "2026-11-04T23:41:10.911473+00:00",
+  "dados_verificados_em": "2026-11-04T23:41:10.911667+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "CBF",
+  "fonte": "ge",
   "fontes": {
-    "classificacao": "CBF",
+    "classificacao": "ge",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -16692,15 +16692,15 @@
     "rodadas_total": 38,
     "rodada_atual": 34,
     "rodada_confirmada": true,
-    "jogos_minimos": 32,
+    "jogos_minimos": 33,
     "jogos_maximos": 34,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Flamengo",
-    "lider_pontos": 73,
+    "lider_pontos": 76,
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-04T17:59:31.133231+00:00",
-  "historico_atualizado_em": "2026-11-04T17:59:31.550549+00:00"
+  "agenda_atualizada_em": "2026-11-04T23:41:10.367945+00:00",
+  "historico_atualizado_em": "2026-11-04T23:41:10.907542+00:00"
 }
