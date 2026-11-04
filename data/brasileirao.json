@@ -189,6 +189,23 @@
     },
     {
       "posicao": 12,
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "estado": "SP",
+      "cor": "#FFD700",
+      "escudo": "static/img/escudos/normalizados/MIR.png",
+      "jogos": 34,
+      "vitorias": 10,
+      "empates": 10,
+      "derrotas": 14,
+      "gols_pro": 39,
+      "gols_contra": 48,
+      "saldo": -9,
+      "pontos": 40,
+      "aproveitamento": 39.2
+    },
+    {
+      "posicao": 13,
       "time": "Botafogo",
       "sigla": "BOT",
       "estado": "RJ",
@@ -205,7 +222,7 @@
       "aproveitamento": 39.4
     },
     {
-      "posicao": 13,
+      "posicao": 14,
       "time": "Vasco da Gama Saf",
       "sigla": "VAS",
       "estado": "RJ",
@@ -222,7 +239,7 @@
       "aproveitamento": 39.6
     },
     {
-      "posicao": 14,
+      "posicao": 15,
       "time": "Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -239,7 +256,7 @@
       "aproveitamento": 38.4
     },
     {
-      "posicao": 15,
+      "posicao": 16,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
@@ -252,23 +269,6 @@
       "gols_pro": 37,
       "gols_contra": 44,
       "saldo": -7,
-      "pontos": 37,
-      "aproveitamento": 37.4
-    },
-    {
-      "posicao": 16,
-      "time": "Mirassol",
-      "sigla": "MIR",
-      "estado": "SP",
-      "cor": "#FFD700",
-      "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 33,
-      "vitorias": 9,
-      "empates": 10,
-      "derrotas": 14,
-      "gols_pro": 37,
-      "gols_contra": 47,
-      "saldo": -10,
       "pontos": 37,
       "aproveitamento": 37.4
     },
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "static/img/escudos/normalizados/CHA.png",
-      "jogos": 32,
+      "jogos": 33,
       "vitorias": 4,
       "empates": 9,
-      "derrotas": 19,
-      "gols_pro": 32,
-      "gols_contra": 66,
-      "saldo": -34,
+      "derrotas": 20,
+      "gols_pro": 33,
+      "gols_contra": 68,
+      "saldo": -35,
       "pontos": 21,
-      "aproveitamento": 21.9
+      "aproveitamento": 21.2
     }
   ],
   "classificacao_por_rodada": {
@@ -11818,6 +11818,23 @@
       },
       {
         "posicao": 12,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 34,
+        "vitorias": 10,
+        "empates": 10,
+        "derrotas": 14,
+        "gols_pro": 39,
+        "gols_contra": 48,
+        "saldo": -9,
+        "pontos": 40,
+        "aproveitamento": 39.2
+      },
+      {
+        "posicao": 13,
         "time": "Botafogo",
         "sigla": "BOT",
         "estado": "RJ",
@@ -11834,7 +11851,7 @@
         "aproveitamento": 39.4
       },
       {
-        "posicao": 13,
+        "posicao": 14,
         "time": "Vasco da Gama Saf",
         "sigla": "VAS",
         "estado": "RJ",
@@ -11851,7 +11868,7 @@
         "aproveitamento": 39.6
       },
       {
-        "posicao": 14,
+        "posicao": 15,
         "time": "Vitória",
         "sigla": "VIT",
         "estado": "BA",
@@ -11868,7 +11885,7 @@
         "aproveitamento": 38.4
       },
       {
-        "posicao": 15,
+        "posicao": 16,
         "time": "Grêmio",
         "sigla": "GRE",
         "estado": "RS",
@@ -11881,23 +11898,6 @@
         "gols_pro": 37,
         "gols_contra": 44,
         "saldo": -7,
-        "pontos": 37,
-        "aproveitamento": 37.4
-      },
-      {
-        "posicao": 16,
-        "time": "Mirassol",
-        "sigla": "MIR",
-        "estado": "SP",
-        "cor": "#FFD700",
-        "escudo": "static/img/escudos/normalizados/MIR.png",
-        "jogos": 33,
-        "vitorias": 9,
-        "empates": 10,
-        "derrotas": 14,
-        "gols_pro": 37,
-        "gols_contra": 47,
-        "saldo": -10,
         "pontos": 37,
         "aproveitamento": 37.4
       },
@@ -11959,15 +11959,15 @@
         "estado": "SC",
         "cor": "#008000",
         "escudo": "static/img/escudos/normalizados/CHA.png",
-        "jogos": 32,
+        "jogos": 33,
         "vitorias": 4,
         "empates": 9,
-        "derrotas": 19,
-        "gols_pro": 32,
-        "gols_contra": 66,
-        "saldo": -34,
+        "derrotas": 20,
+        "gols_pro": 33,
+        "gols_contra": 68,
+        "saldo": -35,
         "pontos": 21,
-        "aproveitamento": 21.9
+        "aproveitamento": 21.2
       }
     ]
   },
@@ -11976,140 +11976,140 @@
       "jogador": "Kevin Viveros",
       "time": "Athletico Paranaense",
       "sigla": "CAP",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 21
     },
     {
       "jogador": "Pedro",
       "time": "Flamengo",
       "sigla": "FLA",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 18
     },
     {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 15
     },
     {
       "jogador": "Kaio Jorge",
       "time": "Cruzeiro",
       "sigla": "CRU",
-      "posicao": "Nao informado",
-      "gols": 13
+      "posicao": "Atacante",
+      "gols": 12
     },
     {
-      "jogador": "Samuel Lino",
-      "time": "Flamengo",
-      "sigla": "FLA",
-      "posicao": "Nao informado",
+      "jogador": "Carlos Vinícius",
+      "time": "Grêmio",
+      "sigla": "GRE",
+      "posicao": "Centroavante",
       "gols": 11
     },
     {
       "jogador": "Luciano Juba",
       "time": "Bahia",
       "sigla": "BAH",
-      "posicao": "Nao informado",
+      "posicao": "Defensor",
       "gols": 11
     },
     {
-      "jogador": "Vinicius",
-      "time": "Grêmio",
-      "sigla": "GRE",
-      "posicao": "Nao informado",
+      "jogador": "Samuel Lino",
+      "time": "Flamengo",
+      "sigla": "FLA",
+      "posicao": "Atacante",
       "gols": 11
     },
     {
-      "jogador": "Calleri",
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "posicao": "Nao informado",
-      "gols": 10
-    },
-    {
-      "jogador": "Rene",
-      "time": "Vitória",
-      "sigla": "VIT",
-      "posicao": "Nao informado",
-      "gols": 10
-    },
-    {
-      "jogador": "Danilo Santos",
+      "jogador": "Danilo dos Santos de Oliveira",
       "time": "Botafogo",
       "sigla": "BOT",
-      "posicao": "Nao informado",
+      "posicao": "Meia",
       "gols": 10
     },
     {
-      "jogador": "Matheus Pereira",
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "posicao": "Nao informado",
-      "gols": 9
+      "jogador": "Jonathan Calleri",
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "posicao": "Atacante",
+      "gols": 10
     },
     {
-      "jogador": "Pedro Rocha",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
-      "posicao": "Nao informado",
+      "jogador": "José Manuel López",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Atacante",
       "gols": 9
     },
     {
       "jogador": "Luciano",
       "time": "São Paulo",
       "sigla": "SAO",
-      "posicao": "Nao informado",
-      "gols": 9
-    },
-    {
-      "jogador": "John Kennedy",
-      "time": "Fluminense",
-      "sigla": "FLU",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
       "gols": 9
     },
     {
       "jogador": "Mauricio",
       "time": "Palmeiras",
       "sigla": "PAL",
-      "posicao": "Nao informado",
+      "posicao": "Meia",
       "gols": 9
     },
     {
-      "jogador": "Lopez",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Nao informado",
+      "jogador": "John Kennedy",
+      "time": "Fluminense",
+      "sigla": "FLU",
+      "posicao": "Atacante",
       "gols": 9
     },
     {
-      "jogador": "Jajá",
-      "time": "Remo",
-      "sigla": "REM",
-      "posicao": "Nao informado",
-      "gols": 8
+      "jogador": "Matheus Pereira",
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "posicao": "Meia",
+      "gols": 9
     },
     {
-      "jogador": "Neymar Jr",
-      "time": "Santos FC",
-      "sigla": "SAN",
-      "posicao": "Nao informado",
-      "gols": 8
-    },
-    {
-      "jogador": "Breno",
+      "jogador": "Pedro Rocha",
       "time": "Coritiba SAF",
       "sigla": "CFC",
-      "posicao": "Nao informado",
+      "posicao": "Atacante",
+      "gols": 9
+    },
+    {
+      "jogador": "Carlos Renê",
+      "time": "Vitória",
+      "sigla": "VIT",
+      "posicao": "Atacante",
+      "gols": 9
+    },
+    {
+      "jogador": "Breno Lopes",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Atacante",
       "gols": 8
     },
     {
-      "jogador": "Carrascal",
-      "time": "Flamengo",
-      "sigla": "FLA",
-      "posicao": "Nao informado",
+      "jogador": "Neymar",
+      "time": "Santos FC",
+      "sigla": "SAN",
+      "posicao": "Meia",
+      "gols": 8
+    },
+    {
+      "jogador": "Carlos Eduardo",
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "posicao": "Meia",
+      "gols": 7
+    },
+    {
+      "jogador": "Arthur Cabral",
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "posicao": "Atacante",
       "gols": 7
     }
   ],
@@ -16090,24 +16090,24 @@
       "id": 555073,
       "rodada": 34,
       "inicio_em": "2026-11-03T22:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "CHA",
       "visitante": "MIR",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 2
       }
     },
     {
       "id": 555076,
       "rodada": 34,
       "inicio_em": "2026-11-04T00:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "INT",
       "visitante": "CFC",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -16675,15 +16675,15 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-03T06:50:55.120077+00:00",
-  "dados_verificados_em": "2026-11-03T21:01:22.603062+00:00",
+  "dados_atualizados_em": "2026-11-04T01:24:51.740422+00:00",
+  "dados_verificados_em": "2026-11-04T01:24:51.740549+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "CBF",
+  "fonte": "football-data.org",
   "fontes": {
-    "classificacao": "CBF",
-    "artilharia": "CBF",
+    "classificacao": "football-data.org",
+    "artilharia": "football-data.org",
     "partidas": "football-data.org"
   },
   "info": {
@@ -16701,6 +16701,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-03T21:01:21.812948+00:00",
-  "historico_atualizado_em": "2026-11-03T21:01:22.600361+00:00"
+  "agenda_atualizada_em": "2026-11-04T01:24:51.206182+00:00",
+  "historico_atualizado_em": "2026-11-04T01:24:51.737948+00:00"
 }
