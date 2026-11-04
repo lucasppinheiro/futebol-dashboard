@@ -16102,11 +16102,11 @@
       "id": 555076,
       "rodada": 34,
       "inicio_em": "2026-11-04T00:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "INT",
       "visitante": "CFC",
       "placar": {
-        "mandante": 0,
+        "mandante": 1,
         "visitante": 0
       }
     },
@@ -16675,8 +16675,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-04T09:16:13.747167+00:00",
-  "dados_verificados_em": "2026-11-04T09:16:13.747302+00:00",
+  "dados_atualizados_em": "2026-11-04T17:59:31.554652+00:00",
+  "dados_verificados_em": "2026-11-04T17:59:31.554829+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
@@ -16701,6 +16701,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-04T09:16:13.178113+00:00",
-  "historico_atualizado_em": "2026-11-04T09:16:13.744781+00:00"
+  "agenda_atualizada_em": "2026-11-04T17:59:31.133231+00:00",
+  "historico_atualizado_em": "2026-11-04T17:59:31.550549+00:00"
 }
