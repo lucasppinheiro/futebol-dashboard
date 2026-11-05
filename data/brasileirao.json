@@ -12,8 +12,8 @@
       "empates": 7,
       "derrotas": 4,
       "gols_pro": 71,
-      "gols_contra": 28,
-      "saldo": 43,
+      "gols_contra": 29,
+      "saldo": 42,
       "pontos": 76,
       "aproveitamento": 74.5
     },
@@ -53,23 +53,6 @@
     },
     {
       "posicao": 4,
-      "time": "Athletico Paranaense",
-      "sigla": "CAP",
-      "estado": "PR",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/normalizados/CAP.png",
-      "jogos": 34,
-      "vitorias": 16,
-      "empates": 9,
-      "derrotas": 9,
-      "gols_pro": 51,
-      "gols_contra": 40,
-      "saldo": 11,
-      "pontos": 57,
-      "aproveitamento": 55.9
-    },
-    {
-      "posicao": 5,
       "time": "Fluminense",
       "sigla": "FLU",
       "estado": "RJ",
@@ -84,6 +67,23 @@
       "saldo": 10,
       "pontos": 54,
       "aproveitamento": 54.5
+    },
+    {
+      "posicao": 5,
+      "time": "Athletico Paranaense",
+      "sigla": "CAP",
+      "estado": "PR",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/normalizados/CAP.png",
+      "jogos": 34,
+      "vitorias": 15,
+      "empates": 9,
+      "derrotas": 10,
+      "gols_pro": 51,
+      "gols_contra": 43,
+      "saldo": 8,
+      "pontos": 54,
+      "aproveitamento": 52.9
     },
     {
       "posicao": 6,
@@ -109,15 +109,15 @@
       "estado": "MG",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 33,
+      "jogos": 34,
       "vitorias": 14,
       "empates": 8,
-      "derrotas": 11,
+      "derrotas": 12,
       "gols_pro": 44,
-      "gols_contra": 39,
-      "saldo": 5,
+      "gols_contra": 40,
+      "saldo": 4,
       "pontos": 50,
-      "aproveitamento": 50.5
+      "aproveitamento": 49.0
     },
     {
       "posicao": 8,
@@ -160,18 +160,35 @@
       "estado": "SP",
       "cor": "#FF0000",
       "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 33,
+      "jogos": 34,
       "vitorias": 12,
-      "empates": 7,
+      "empates": 8,
       "derrotas": 14,
       "gols_pro": 39,
       "gols_contra": 39,
       "saldo": 0,
-      "pontos": 43,
-      "aproveitamento": 43.4
+      "pontos": 44,
+      "aproveitamento": 43.1
     },
     {
       "posicao": 11,
+      "time": "Botafogo",
+      "sigla": "BOT",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/BOT.png",
+      "jogos": 34,
+      "vitorias": 11,
+      "empates": 9,
+      "derrotas": 14,
+      "gols_pro": 46,
+      "gols_contra": 53,
+      "saldo": -7,
+      "pontos": 42,
+      "aproveitamento": 41.2
+    },
+    {
+      "posicao": 12,
       "time": "Coritiba SAF",
       "sigla": "CFC",
       "estado": "PR",
@@ -188,7 +205,24 @@
       "aproveitamento": 41.2
     },
     {
-      "posicao": 12,
+      "posicao": 13,
+      "time": "Vasco da Gama Saf",
+      "sigla": "VAS",
+      "estado": "RJ",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/VAS.png",
+      "jogos": 33,
+      "vitorias": 11,
+      "empates": 8,
+      "derrotas": 14,
+      "gols_pro": 43,
+      "gols_contra": 50,
+      "saldo": -7,
+      "pontos": 41,
+      "aproveitamento": 41.4
+    },
+    {
+      "posicao": 14,
       "time": "Mirassol",
       "sigla": "MIR",
       "estado": "SP",
@@ -203,40 +237,6 @@
       "saldo": -9,
       "pontos": 40,
       "aproveitamento": 39.2
-    },
-    {
-      "posicao": 13,
-      "time": "Botafogo",
-      "sigla": "BOT",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/BOT.png",
-      "jogos": 33,
-      "vitorias": 10,
-      "empates": 9,
-      "derrotas": 14,
-      "gols_pro": 45,
-      "gols_contra": 53,
-      "saldo": -8,
-      "pontos": 39,
-      "aproveitamento": 39.4
-    },
-    {
-      "posicao": 14,
-      "time": "Vasco da Gama Saf",
-      "sigla": "VAS",
-      "estado": "RJ",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/VAS.png",
-      "jogos": 33,
-      "vitorias": 10,
-      "empates": 8,
-      "derrotas": 15,
-      "gols_pro": 40,
-      "gols_contra": 50,
-      "saldo": -10,
-      "pontos": 38,
-      "aproveitamento": 38.4
     },
     {
       "posicao": 15,
@@ -274,6 +274,23 @@
     },
     {
       "posicao": 17,
+      "time": "Corinthians",
+      "sigla": "COR",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/COR.png",
+      "jogos": 34,
+      "vitorias": 9,
+      "empates": 10,
+      "derrotas": 15,
+      "gols_pro": 36,
+      "gols_contra": 42,
+      "saldo": -6,
+      "pontos": 37,
+      "aproveitamento": 36.3
+    },
+    {
+      "posicao": 18,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
@@ -283,28 +300,11 @@
       "vitorias": 9,
       "empates": 10,
       "derrotas": 15,
-      "gols_pro": 37,
+      "gols_pro": 38,
       "gols_contra": 47,
-      "saldo": -10,
+      "saldo": -9,
       "pontos": 37,
       "aproveitamento": 36.3
-    },
-    {
-      "posicao": 18,
-      "time": "Corinthians",
-      "sigla": "COR",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/COR.png",
-      "jogos": 33,
-      "vitorias": 9,
-      "empates": 9,
-      "derrotas": 15,
-      "gols_pro": 36,
-      "gols_contra": 42,
-      "saldo": -6,
-      "pontos": 36,
-      "aproveitamento": 36.4
     },
     {
       "posicao": 19,
@@ -11641,8 +11641,8 @@
         "empates": 7,
         "derrotas": 4,
         "gols_pro": 71,
-        "gols_contra": 28,
-        "saldo": 43,
+        "gols_contra": 29,
+        "saldo": 42,
         "pontos": 76,
         "aproveitamento": 74.5
       },
@@ -11682,23 +11682,6 @@
       },
       {
         "posicao": 4,
-        "time": "Athletico Paranaense",
-        "sigla": "CAP",
-        "estado": "PR",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/CAP.png",
-        "jogos": 34,
-        "vitorias": 16,
-        "empates": 9,
-        "derrotas": 9,
-        "gols_pro": 51,
-        "gols_contra": 40,
-        "saldo": 11,
-        "pontos": 57,
-        "aproveitamento": 55.9
-      },
-      {
-        "posicao": 5,
         "time": "Fluminense",
         "sigla": "FLU",
         "estado": "RJ",
@@ -11713,6 +11696,23 @@
         "saldo": 10,
         "pontos": 54,
         "aproveitamento": 54.5
+      },
+      {
+        "posicao": 5,
+        "time": "Athletico Paranaense",
+        "sigla": "CAP",
+        "estado": "PR",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/CAP.png",
+        "jogos": 34,
+        "vitorias": 15,
+        "empates": 9,
+        "derrotas": 10,
+        "gols_pro": 51,
+        "gols_contra": 43,
+        "saldo": 8,
+        "pontos": 54,
+        "aproveitamento": 52.9
       },
       {
         "posicao": 6,
@@ -11738,15 +11738,15 @@
         "estado": "MG",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 33,
+        "jogos": 34,
         "vitorias": 14,
         "empates": 8,
-        "derrotas": 11,
+        "derrotas": 12,
         "gols_pro": 44,
-        "gols_contra": 39,
-        "saldo": 5,
+        "gols_contra": 40,
+        "saldo": 4,
         "pontos": 50,
-        "aproveitamento": 50.5
+        "aproveitamento": 49.0
       },
       {
         "posicao": 8,
@@ -11789,18 +11789,35 @@
         "estado": "SP",
         "cor": "#FF0000",
         "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 33,
+        "jogos": 34,
         "vitorias": 12,
-        "empates": 7,
+        "empates": 8,
         "derrotas": 14,
         "gols_pro": 39,
         "gols_contra": 39,
         "saldo": 0,
-        "pontos": 43,
-        "aproveitamento": 43.4
+        "pontos": 44,
+        "aproveitamento": 43.1
       },
       {
         "posicao": 11,
+        "time": "Botafogo",
+        "sigla": "BOT",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/BOT.png",
+        "jogos": 34,
+        "vitorias": 11,
+        "empates": 9,
+        "derrotas": 14,
+        "gols_pro": 46,
+        "gols_contra": 53,
+        "saldo": -7,
+        "pontos": 42,
+        "aproveitamento": 41.2
+      },
+      {
+        "posicao": 12,
         "time": "Coritiba SAF",
         "sigla": "CFC",
         "estado": "PR",
@@ -11817,7 +11834,24 @@
         "aproveitamento": 41.2
       },
       {
-        "posicao": 12,
+        "posicao": 13,
+        "time": "Vasco da Gama Saf",
+        "sigla": "VAS",
+        "estado": "RJ",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/VAS.png",
+        "jogos": 33,
+        "vitorias": 11,
+        "empates": 8,
+        "derrotas": 14,
+        "gols_pro": 43,
+        "gols_contra": 50,
+        "saldo": -7,
+        "pontos": 41,
+        "aproveitamento": 41.4
+      },
+      {
+        "posicao": 14,
         "time": "Mirassol",
         "sigla": "MIR",
         "estado": "SP",
@@ -11832,40 +11866,6 @@
         "saldo": -9,
         "pontos": 40,
         "aproveitamento": 39.2
-      },
-      {
-        "posicao": 13,
-        "time": "Botafogo",
-        "sigla": "BOT",
-        "estado": "RJ",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/BOT.png",
-        "jogos": 33,
-        "vitorias": 10,
-        "empates": 9,
-        "derrotas": 14,
-        "gols_pro": 45,
-        "gols_contra": 53,
-        "saldo": -8,
-        "pontos": 39,
-        "aproveitamento": 39.4
-      },
-      {
-        "posicao": 14,
-        "time": "Vasco da Gama Saf",
-        "sigla": "VAS",
-        "estado": "RJ",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/VAS.png",
-        "jogos": 33,
-        "vitorias": 10,
-        "empates": 8,
-        "derrotas": 15,
-        "gols_pro": 40,
-        "gols_contra": 50,
-        "saldo": -10,
-        "pontos": 38,
-        "aproveitamento": 38.4
       },
       {
         "posicao": 15,
@@ -11903,6 +11903,23 @@
       },
       {
         "posicao": 17,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 34,
+        "vitorias": 9,
+        "empates": 10,
+        "derrotas": 15,
+        "gols_pro": 36,
+        "gols_contra": 42,
+        "saldo": -6,
+        "pontos": 37,
+        "aproveitamento": 36.3
+      },
+      {
+        "posicao": 18,
         "time": "Grêmio",
         "sigla": "GRE",
         "estado": "RS",
@@ -11912,28 +11929,11 @@
         "vitorias": 9,
         "empates": 10,
         "derrotas": 15,
-        "gols_pro": 37,
+        "gols_pro": 38,
         "gols_contra": 47,
-        "saldo": -10,
+        "saldo": -9,
         "pontos": 37,
         "aproveitamento": 36.3
-      },
-      {
-        "posicao": 18,
-        "time": "Corinthians",
-        "sigla": "COR",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/COR.png",
-        "jogos": 33,
-        "vitorias": 9,
-        "empates": 9,
-        "derrotas": 15,
-        "gols_pro": 36,
-        "gols_contra": 42,
-        "saldo": -6,
-        "pontos": 36,
-        "aproveitamento": 36.4
       },
       {
         "posicao": 19,
@@ -11984,7 +11984,7 @@
       "time": "Flamengo",
       "sigla": "FLA",
       "posicao": "Nao informado",
-      "gols": 18
+      "gols": 20
     },
     {
       "jogador": "Gabriel Barbosa",
@@ -12005,7 +12005,7 @@
       "time": "Flamengo",
       "sigla": "FLA",
       "posicao": "Nao informado",
-      "gols": 11
+      "gols": 12
     },
     {
       "jogador": "Luciano Juba",
@@ -12043,6 +12043,13 @@
       "gols": 10
     },
     {
+      "jogador": "John Kennedy",
+      "time": "Fluminense",
+      "sigla": "FLU",
+      "posicao": "Nao informado",
+      "gols": 9
+    },
+    {
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro",
       "sigla": "CRU",
@@ -12060,13 +12067,6 @@
       "jogador": "Luciano",
       "time": "São Paulo",
       "sigla": "SAO",
-      "posicao": "Nao informado",
-      "gols": 9
-    },
-    {
-      "jogador": "John Kennedy",
-      "time": "Fluminense",
-      "sigla": "FLU",
       "posicao": "Nao informado",
       "gols": 9
     },
@@ -16114,48 +16114,48 @@
       "id": 555070,
       "rodada": 34,
       "inicio_em": "2026-11-04T22:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "CAP",
       "visitante": "VAS",
       "placar": {
         "mandante": 1,
-        "visitante": 0
+        "visitante": 3
       }
     },
     {
       "id": 555075,
       "rodada": 34,
       "inicio_em": "2026-11-04T22:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "FLA",
       "visitante": "GRE",
       "placar": {
         "mandante": 3,
-        "visitante": 0
+        "visitante": 1
       }
     },
     {
       "id": 555071,
       "rodada": 34,
       "inicio_em": "2026-11-05T00:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "BOT",
       "visitante": "CAM",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
       "id": 555078,
       "rodada": 34,
       "inicio_em": "2026-11-05T00:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "SAO",
       "visitante": "COR",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -16675,14 +16675,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-04T23:41:10.911473+00:00",
-  "dados_verificados_em": "2026-11-04T23:41:10.911667+00:00",
+  "dados_atualizados_em": "2026-11-05T06:50:09.478196+00:00",
+  "dados_verificados_em": "2026-11-05T06:50:09.478349+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "ge",
+  "fonte": "CBF",
   "fontes": {
-    "classificacao": "ge",
+    "classificacao": "CBF",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -16701,6 +16701,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-04T23:41:10.367945+00:00",
-  "historico_atualizado_em": "2026-11-04T23:41:10.907542+00:00"
+  "agenda_atualizada_em": "2026-11-05T06:50:08.893810+00:00",
+  "historico_atualizado_em": "2026-11-05T06:50:09.474872+00:00"
 }
