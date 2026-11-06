@@ -58,15 +58,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 33,
+      "jogos": 34,
       "vitorias": 15,
-      "empates": 9,
+      "empates": 10,
       "derrotas": 9,
       "gols_pro": 52,
       "gols_contra": 42,
       "saldo": 10,
-      "pontos": 54,
-      "aproveitamento": 54.5
+      "pontos": 55,
+      "aproveitamento": 53.9
     },
     {
       "posicao": 5,
@@ -245,15 +245,15 @@
       "estado": "BA",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/VIT.png",
-      "jogos": 33,
+      "jogos": 34,
       "vitorias": 10,
-      "empates": 8,
+      "empates": 9,
       "derrotas": 15,
       "gols_pro": 35,
       "gols_contra": 48,
       "saldo": -13,
-      "pontos": 38,
-      "aproveitamento": 38.4
+      "pontos": 39,
+      "aproveitamento": 38.2
     },
     {
       "posicao": 16,
@@ -11687,15 +11687,15 @@
         "estado": "RJ",
         "cor": "#7B0023",
         "escudo": "static/img/escudos/normalizados/FLU.png",
-        "jogos": 33,
+        "jogos": 34,
         "vitorias": 15,
-        "empates": 9,
+        "empates": 10,
         "derrotas": 9,
         "gols_pro": 52,
         "gols_contra": 42,
         "saldo": 10,
-        "pontos": 54,
-        "aproveitamento": 54.5
+        "pontos": 55,
+        "aproveitamento": 53.9
       },
       {
         "posicao": 5,
@@ -11874,15 +11874,15 @@
         "estado": "BA",
         "cor": "#E11D1D",
         "escudo": "static/img/escudos/normalizados/VIT.png",
-        "jogos": 33,
+        "jogos": 34,
         "vitorias": 10,
-        "empates": 8,
+        "empates": 9,
         "derrotas": 15,
         "gols_pro": 35,
         "gols_contra": 48,
         "saldo": -13,
-        "pontos": 38,
-        "aproveitamento": 38.4
+        "pontos": 39,
+        "aproveitamento": 38.2
       },
       {
         "posicao": 16,
@@ -16186,12 +16186,12 @@
       "id": 555079,
       "rodada": 34,
       "inicio_em": "2026-11-06T23:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "VIT",
       "visitante": "FLU",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -16675,14 +16675,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-06T17:58:59.768424+00:00",
-  "dados_verificados_em": "2026-11-06T17:58:59.768570+00:00",
+  "dados_atualizados_em": "2026-11-06T23:10:50.926886+00:00",
+  "dados_verificados_em": "2026-11-06T23:10:50.926978+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "CBF",
+  "fonte": "ge",
   "fontes": {
-    "classificacao": "CBF",
+    "classificacao": "ge",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -16701,6 +16701,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-06T17:58:59.387871+00:00",
-  "historico_atualizado_em": "2026-11-06T17:58:59.764816+00:00"
+  "agenda_atualizada_em": "2026-11-06T23:10:50.419623+00:00",
+  "historico_atualizado_em": "2026-11-06T23:10:50.925173+00:00"
 }
