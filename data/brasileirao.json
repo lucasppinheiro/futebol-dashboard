@@ -46,8 +46,8 @@
       "empates": 6,
       "derrotas": 10,
       "gols_pro": 55,
-      "gols_contra": 47,
-      "saldo": 8,
+      "gols_contra": 48,
+      "saldo": 7,
       "pontos": 60,
       "aproveitamento": 58.8
     },
@@ -96,9 +96,9 @@
       "vitorias": 14,
       "empates": 11,
       "derrotas": 9,
-      "gols_pro": 49,
+      "gols_pro": 50,
       "gols_contra": 45,
-      "saldo": 4,
+      "saldo": 5,
       "pontos": 53,
       "aproveitamento": 52.0
     },
@@ -11675,8 +11675,8 @@
         "empates": 6,
         "derrotas": 10,
         "gols_pro": 55,
-        "gols_contra": 47,
-        "saldo": 8,
+        "gols_contra": 48,
+        "saldo": 7,
         "pontos": 60,
         "aproveitamento": 58.8
       },
@@ -11725,9 +11725,9 @@
         "vitorias": 14,
         "empates": 11,
         "derrotas": 9,
-        "gols_pro": 49,
+        "gols_pro": 50,
         "gols_contra": 45,
-        "saldo": 4,
+        "saldo": 5,
         "pontos": 53,
         "aproveitamento": 52.0
       },
@@ -11987,18 +11987,18 @@
       "gols": 20
     },
     {
+      "jogador": "Kaio Jorge",
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "posicao": "Nao informado",
+      "gols": 15
+    },
+    {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Nao informado",
       "gols": 15
-    },
-    {
-      "jogador": "Kaio Jorge",
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "posicao": "Nao informado",
-      "gols": 13
     },
     {
       "jogador": "Samuel Lino",
@@ -12022,14 +12022,14 @@
       "gols": 11
     },
     {
-      "jogador": "Mauricio",
+      "jogador": "Lopez",
       "time": "Palmeiras",
       "sigla": "PAL",
       "posicao": "Nao informado",
       "gols": 10
     },
     {
-      "jogador": "Lopez",
+      "jogador": "Mauricio",
       "time": "Palmeiras",
       "sigla": "PAL",
       "posicao": "Nao informado",
@@ -12106,7 +12106,7 @@
       "gols": 8
     },
     {
-      "jogador": "Carrascal",
+      "jogador": "Lucas Paquetá",
       "time": "Flamengo",
       "sigla": "FLA",
       "posicao": "Nao informado",
@@ -16178,7 +16178,7 @@
       "mandante": "CRU",
       "visitante": "BAH",
       "placar": {
-        "mandante": 3,
+        "mandante": 0,
         "visitante": 1
       }
     },
@@ -16675,14 +16675,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-06T02:28:38.109180+00:00",
-  "dados_verificados_em": "2026-11-06T02:28:38.109333+00:00",
+  "dados_atualizados_em": "2026-11-06T10:55:49.889548+00:00",
+  "dados_verificados_em": "2026-11-06T10:55:49.889698+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "ge",
+  "fonte": "CBF",
   "fontes": {
-    "classificacao": "ge",
+    "classificacao": "CBF",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -16701,6 +16701,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-06T02:28:37.448017+00:00",
-  "historico_atualizado_em": "2026-11-06T02:28:38.105995+00:00"
+  "agenda_atualizada_em": "2026-11-06T10:55:49.489610+00:00",
+  "historico_atualizado_em": "2026-11-06T10:55:49.886402+00:00"
 }
