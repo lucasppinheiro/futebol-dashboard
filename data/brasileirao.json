@@ -24,15 +24,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "static/img/escudos/normalizados/PAL.png",
-      "jogos": 33,
-      "vitorias": 20,
+      "jogos": 34,
+      "vitorias": 21,
       "empates": 10,
       "derrotas": 3,
-      "gols_pro": 56,
-      "gols_contra": 22,
-      "saldo": 34,
-      "pontos": 70,
-      "aproveitamento": 70.7
+      "gols_pro": 62,
+      "gols_contra": 23,
+      "saldo": 39,
+      "pontos": 73,
+      "aproveitamento": 71.6
     },
     {
       "posicao": 3,
@@ -41,15 +41,15 @@
       "estado": "MG",
       "cor": "#003DA5",
       "escudo": "static/img/escudos/normalizados/CRU.png",
-      "jogos": 33,
-      "vitorias": 17,
+      "jogos": 34,
+      "vitorias": 18,
       "empates": 6,
       "derrotas": 10,
-      "gols_pro": 52,
-      "gols_contra": 46,
-      "saldo": 6,
-      "pontos": 57,
-      "aproveitamento": 57.6
+      "gols_pro": 55,
+      "gols_contra": 47,
+      "saldo": 8,
+      "pontos": 60,
+      "aproveitamento": 58.8
     },
     {
       "posicao": 4,
@@ -92,15 +92,15 @@
       "estado": "BA",
       "cor": "#004A99",
       "escudo": "static/img/escudos/normalizados/BAH.png",
-      "jogos": 33,
+      "jogos": 34,
       "vitorias": 14,
       "empates": 11,
-      "derrotas": 8,
-      "gols_pro": 48,
-      "gols_contra": 42,
-      "saldo": 6,
+      "derrotas": 9,
+      "gols_pro": 49,
+      "gols_contra": 45,
+      "saldo": 4,
       "pontos": 53,
-      "aproveitamento": 53.5
+      "aproveitamento": 52.0
     },
     {
       "posicao": 7,
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "static/img/escudos/normalizados/REM.png",
-      "jogos": 33,
+      "jogos": 34,
       "vitorias": 6,
       "empates": 11,
-      "derrotas": 16,
-      "gols_pro": 36,
-      "gols_contra": 51,
-      "saldo": -15,
+      "derrotas": 17,
+      "gols_pro": 37,
+      "gols_contra": 57,
+      "saldo": -20,
       "pontos": 29,
-      "aproveitamento": 29.3
+      "aproveitamento": 28.4
     },
     {
       "posicao": 20,
@@ -11653,15 +11653,15 @@
         "estado": "SP",
         "cor": "#006437",
         "escudo": "static/img/escudos/normalizados/PAL.png",
-        "jogos": 33,
-        "vitorias": 20,
+        "jogos": 34,
+        "vitorias": 21,
         "empates": 10,
         "derrotas": 3,
-        "gols_pro": 56,
-        "gols_contra": 22,
-        "saldo": 34,
-        "pontos": 70,
-        "aproveitamento": 70.7
+        "gols_pro": 62,
+        "gols_contra": 23,
+        "saldo": 39,
+        "pontos": 73,
+        "aproveitamento": 71.6
       },
       {
         "posicao": 3,
@@ -11670,15 +11670,15 @@
         "estado": "MG",
         "cor": "#003DA5",
         "escudo": "static/img/escudos/normalizados/CRU.png",
-        "jogos": 33,
-        "vitorias": 17,
+        "jogos": 34,
+        "vitorias": 18,
         "empates": 6,
         "derrotas": 10,
-        "gols_pro": 52,
-        "gols_contra": 46,
-        "saldo": 6,
-        "pontos": 57,
-        "aproveitamento": 57.6
+        "gols_pro": 55,
+        "gols_contra": 47,
+        "saldo": 8,
+        "pontos": 60,
+        "aproveitamento": 58.8
       },
       {
         "posicao": 4,
@@ -11721,15 +11721,15 @@
         "estado": "BA",
         "cor": "#004A99",
         "escudo": "static/img/escudos/normalizados/BAH.png",
-        "jogos": 33,
+        "jogos": 34,
         "vitorias": 14,
         "empates": 11,
-        "derrotas": 8,
-        "gols_pro": 48,
-        "gols_contra": 42,
-        "saldo": 6,
+        "derrotas": 9,
+        "gols_pro": 49,
+        "gols_contra": 45,
+        "saldo": 4,
         "pontos": 53,
-        "aproveitamento": 53.5
+        "aproveitamento": 52.0
       },
       {
         "posicao": 7,
@@ -11942,15 +11942,15 @@
         "estado": "PA",
         "cor": "#00008B",
         "escudo": "static/img/escudos/normalizados/REM.png",
-        "jogos": 33,
+        "jogos": 34,
         "vitorias": 6,
         "empates": 11,
-        "derrotas": 16,
-        "gols_pro": 36,
-        "gols_contra": 51,
-        "saldo": -15,
+        "derrotas": 17,
+        "gols_pro": 37,
+        "gols_contra": 57,
+        "saldo": -20,
         "pontos": 29,
-        "aproveitamento": 29.3
+        "aproveitamento": 28.4
       },
       {
         "posicao": 20,
@@ -12022,6 +12022,20 @@
       "gols": 11
     },
     {
+      "jogador": "Mauricio",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Nao informado",
+      "gols": 10
+    },
+    {
+      "jogador": "Lopez",
+      "time": "Palmeiras",
+      "sigla": "PAL",
+      "posicao": "Nao informado",
+      "gols": 10
+    },
+    {
       "jogador": "Calleri",
       "time": "São Paulo",
       "sigla": "SAO",
@@ -12067,20 +12081,6 @@
       "jogador": "Luciano",
       "time": "São Paulo",
       "sigla": "SAO",
-      "posicao": "Nao informado",
-      "gols": 9
-    },
-    {
-      "jogador": "Lopez",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Nao informado",
-      "gols": 9
-    },
-    {
-      "jogador": "Mauricio",
-      "time": "Palmeiras",
-      "sigla": "PAL",
       "posicao": "Nao informado",
       "gols": 9
     },
@@ -16162,24 +16162,24 @@
       "id": 555077,
       "rodada": 34,
       "inicio_em": "2026-11-05T22:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "PAL",
       "visitante": "REM",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 6,
+        "visitante": 1
       }
     },
     {
       "id": 555074,
       "rodada": 34,
       "inicio_em": "2026-11-06T00:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "CRU",
       "visitante": "BAH",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 3,
+        "visitante": 1
       }
     },
     {
@@ -16675,14 +16675,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-05T06:50:09.478196+00:00",
-  "dados_verificados_em": "2026-11-05T22:00:10.053134+00:00",
+  "dados_atualizados_em": "2026-11-06T02:28:38.109180+00:00",
+  "dados_verificados_em": "2026-11-06T02:28:38.109333+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "CBF",
+  "fonte": "ge",
   "fontes": {
-    "classificacao": "CBF",
+    "classificacao": "ge",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -16701,6 +16701,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-05T22:00:09.241504+00:00",
-  "historico_atualizado_em": "2026-11-05T22:00:10.050775+00:00"
+  "agenda_atualizada_em": "2026-11-06T02:28:37.448017+00:00",
+  "historico_atualizado_em": "2026-11-06T02:28:38.105995+00:00"
 }
