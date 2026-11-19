@@ -17018,13 +17018,13 @@
     }
   ],
   "dados_atualizados_em": "2026-11-19T03:31:24.716574+00:00",
-  "dados_verificados_em": "2026-11-19T03:31:24.716710+00:00",
+  "dados_verificados_em": "2026-11-19T13:12:16.195203+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": false,
-  "fonte": "ge",
+  "fonte": "CBF",
   "fontes": {
-    "classificacao": "ge",
+    "classificacao": "CBF",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -17043,6 +17043,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-19T03:31:24.714096+00:00",
+  "agenda_atualizada_em": "2026-11-19T13:12:16.192861+00:00",
   "historico_atualizado_em": "2026-11-15T02:41:30.700192+00:00"
 }
