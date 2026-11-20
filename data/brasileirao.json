@@ -16648,7 +16648,7 @@
       "id": 555087,
       "rodada": 35,
       "inicio_em": "2026-11-20T00:30:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "SAO",
       "visitante": "FLU",
       "placar": {
@@ -17017,8 +17017,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-20T12:55:55.756344+00:00",
-  "dados_verificados_em": "2026-11-20T12:55:55.756490+00:00",
+  "dados_atualizados_em": "2026-11-20T21:07:18.851516+00:00",
+  "dados_verificados_em": "2026-11-20T21:07:18.851612+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": false,
@@ -17043,6 +17043,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-20T12:55:55.752890+00:00",
+  "agenda_atualizada_em": "2026-11-20T21:07:18.849091+00:00",
   "historico_atualizado_em": "2026-11-15T02:41:30.700192+00:00"
 }
