@@ -58,15 +58,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 34,
-      "vitorias": 16,
+      "jogos": 35,
+      "vitorias": 17,
       "empates": 9,
       "derrotas": 9,
-      "gols_pro": 55,
+      "gols_pro": 56,
       "gols_contra": 42,
-      "saldo": 13,
-      "pontos": 57,
-      "aproveitamento": 55.9
+      "saldo": 14,
+      "pontos": 60,
+      "aproveitamento": 57.1
     },
     {
       "posicao": 5,
@@ -143,49 +143,49 @@
       "estado": "SP",
       "cor": "#E30613",
       "escudo": "static/img/escudos/normalizados/RBB.png",
-      "jogos": 34,
+      "jogos": 35,
       "vitorias": 13,
       "empates": 8,
-      "derrotas": 13,
-      "gols_pro": 44,
-      "gols_contra": 39,
-      "saldo": 5,
+      "derrotas": 14,
+      "gols_pro": 45,
+      "gols_contra": 41,
+      "saldo": 4,
       "pontos": 47,
-      "aproveitamento": 46.1
+      "aproveitamento": 44.8
     },
     {
       "posicao": 10,
-      "time": "São Paulo",
-      "sigla": "SAO",
-      "estado": "SP",
-      "cor": "#FF0000",
-      "escudo": "static/img/escudos/normalizados/SAO.png",
-      "jogos": 34,
-      "vitorias": 12,
-      "empates": 8,
-      "derrotas": 14,
-      "gols_pro": 39,
-      "gols_contra": 39,
-      "saldo": 0,
-      "pontos": 44,
-      "aproveitamento": 43.1
-    },
-    {
-      "posicao": 11,
       "time": "Vasco da Gama Saf",
       "sigla": "VAS",
       "estado": "RJ",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/VAS.png",
-      "jogos": 34,
-      "vitorias": 12,
+      "jogos": 35,
+      "vitorias": 13,
       "empates": 8,
       "derrotas": 14,
-      "gols_pro": 45,
-      "gols_contra": 50,
-      "saldo": -5,
+      "gols_pro": 47,
+      "gols_contra": 51,
+      "saldo": -4,
+      "pontos": 47,
+      "aproveitamento": 44.8
+    },
+    {
+      "posicao": 11,
+      "time": "São Paulo",
+      "sigla": "SAO",
+      "estado": "SP",
+      "cor": "#FF0000",
+      "escudo": "static/img/escudos/normalizados/SAO.png",
+      "jogos": 35,
+      "vitorias": 12,
+      "empates": 8,
+      "derrotas": 15,
+      "gols_pro": 39,
+      "gols_contra": 40,
+      "saldo": -1,
       "pontos": 44,
-      "aproveitamento": 43.1
+      "aproveitamento": 41.9
     },
     {
       "posicao": 12,
@@ -223,6 +223,23 @@
     },
     {
       "posicao": 14,
+      "time": "Vitória",
+      "sigla": "VIT",
+      "estado": "BA",
+      "cor": "#E11D1D",
+      "escudo": "static/img/escudos/normalizados/VIT.png",
+      "jogos": 35,
+      "vitorias": 11,
+      "empates": 8,
+      "derrotas": 16,
+      "gols_pro": 37,
+      "gols_contra": 52,
+      "saldo": -15,
+      "pontos": 41,
+      "aproveitamento": 39.0
+    },
+    {
+      "posicao": 15,
       "time": "Mirassol",
       "sigla": "MIR",
       "estado": "SP",
@@ -239,7 +256,7 @@
       "aproveitamento": 39.0
     },
     {
-      "posicao": 15,
+      "posicao": 16,
       "time": "Corinthians",
       "sigla": "COR",
       "estado": "SP",
@@ -256,38 +273,21 @@
       "aproveitamento": 38.1
     },
     {
-      "posicao": 16,
-      "time": "Vitória",
-      "sigla": "VIT",
-      "estado": "BA",
-      "cor": "#E11D1D",
-      "escudo": "static/img/escudos/normalizados/VIT.png",
-      "jogos": 34,
-      "vitorias": 10,
-      "empates": 8,
-      "derrotas": 16,
-      "gols_pro": 35,
-      "gols_contra": 51,
-      "saldo": -16,
-      "pontos": 38,
-      "aproveitamento": 37.3
-    },
-    {
       "posicao": 17,
       "time": "Internacional",
       "sigla": "INT",
       "estado": "RS",
       "cor": "#E30613",
       "escudo": "static/img/escudos/normalizados/INT.png",
-      "jogos": 34,
+      "jogos": 35,
       "vitorias": 9,
       "empates": 11,
-      "derrotas": 14,
-      "gols_pro": 38,
-      "gols_contra": 42,
-      "saldo": -4,
+      "derrotas": 15,
+      "gols_pro": 39,
+      "gols_contra": 44,
+      "saldo": -5,
       "pontos": 38,
-      "aproveitamento": 37.3
+      "aproveitamento": 36.2
     },
     {
       "posicao": 18,
@@ -12029,15 +12029,15 @@
         "estado": "RJ",
         "cor": "#7B0023",
         "escudo": "static/img/escudos/normalizados/FLU.png",
-        "jogos": 34,
-        "vitorias": 16,
+        "jogos": 35,
+        "vitorias": 17,
         "empates": 9,
         "derrotas": 9,
-        "gols_pro": 55,
+        "gols_pro": 56,
         "gols_contra": 42,
-        "saldo": 13,
-        "pontos": 57,
-        "aproveitamento": 55.9
+        "saldo": 14,
+        "pontos": 60,
+        "aproveitamento": 57.1
       },
       {
         "posicao": 5,
@@ -12114,49 +12114,49 @@
         "estado": "SP",
         "cor": "#E30613",
         "escudo": "static/img/escudos/normalizados/RBB.png",
-        "jogos": 34,
+        "jogos": 35,
         "vitorias": 13,
         "empates": 8,
-        "derrotas": 13,
-        "gols_pro": 44,
-        "gols_contra": 39,
-        "saldo": 5,
+        "derrotas": 14,
+        "gols_pro": 45,
+        "gols_contra": 41,
+        "saldo": 4,
         "pontos": 47,
-        "aproveitamento": 46.1
+        "aproveitamento": 44.8
       },
       {
         "posicao": 10,
-        "time": "São Paulo",
-        "sigla": "SAO",
-        "estado": "SP",
-        "cor": "#FF0000",
-        "escudo": "static/img/escudos/normalizados/SAO.png",
-        "jogos": 34,
-        "vitorias": 12,
-        "empates": 8,
-        "derrotas": 14,
-        "gols_pro": 39,
-        "gols_contra": 39,
-        "saldo": 0,
-        "pontos": 44,
-        "aproveitamento": 43.1
-      },
-      {
-        "posicao": 11,
         "time": "Vasco da Gama Saf",
         "sigla": "VAS",
         "estado": "RJ",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/VAS.png",
-        "jogos": 34,
-        "vitorias": 12,
+        "jogos": 35,
+        "vitorias": 13,
         "empates": 8,
         "derrotas": 14,
-        "gols_pro": 45,
-        "gols_contra": 50,
-        "saldo": -5,
+        "gols_pro": 47,
+        "gols_contra": 51,
+        "saldo": -4,
+        "pontos": 47,
+        "aproveitamento": 44.8
+      },
+      {
+        "posicao": 11,
+        "time": "São Paulo",
+        "sigla": "SAO",
+        "estado": "SP",
+        "cor": "#FF0000",
+        "escudo": "static/img/escudos/normalizados/SAO.png",
+        "jogos": 35,
+        "vitorias": 12,
+        "empates": 8,
+        "derrotas": 15,
+        "gols_pro": 39,
+        "gols_contra": 40,
+        "saldo": -1,
         "pontos": 44,
-        "aproveitamento": 43.1
+        "aproveitamento": 41.9
       },
       {
         "posicao": 12,
@@ -12194,6 +12194,23 @@
       },
       {
         "posicao": 14,
+        "time": "Vitória",
+        "sigla": "VIT",
+        "estado": "BA",
+        "cor": "#E11D1D",
+        "escudo": "static/img/escudos/normalizados/VIT.png",
+        "jogos": 35,
+        "vitorias": 11,
+        "empates": 8,
+        "derrotas": 16,
+        "gols_pro": 37,
+        "gols_contra": 52,
+        "saldo": -15,
+        "pontos": 41,
+        "aproveitamento": 39.0
+      },
+      {
+        "posicao": 15,
         "time": "Mirassol",
         "sigla": "MIR",
         "estado": "SP",
@@ -12210,7 +12227,7 @@
         "aproveitamento": 39.0
       },
       {
-        "posicao": 15,
+        "posicao": 16,
         "time": "Corinthians",
         "sigla": "COR",
         "estado": "SP",
@@ -12227,38 +12244,21 @@
         "aproveitamento": 38.1
       },
       {
-        "posicao": 16,
-        "time": "Vitória",
-        "sigla": "VIT",
-        "estado": "BA",
-        "cor": "#E11D1D",
-        "escudo": "static/img/escudos/normalizados/VIT.png",
-        "jogos": 34,
-        "vitorias": 10,
-        "empates": 8,
-        "derrotas": 16,
-        "gols_pro": 35,
-        "gols_contra": 51,
-        "saldo": -16,
-        "pontos": 38,
-        "aproveitamento": 37.3
-      },
-      {
         "posicao": 17,
         "time": "Internacional",
         "sigla": "INT",
         "estado": "RS",
         "cor": "#E30613",
         "escudo": "static/img/escudos/normalizados/INT.png",
-        "jogos": 34,
+        "jogos": 35,
         "vitorias": 9,
         "empates": 11,
-        "derrotas": 14,
-        "gols_pro": 38,
-        "gols_contra": 42,
-        "saldo": -4,
+        "derrotas": 15,
+        "gols_pro": 39,
+        "gols_contra": 44,
+        "saldo": -5,
         "pontos": 38,
-        "aproveitamento": 37.3
+        "aproveitamento": 36.2
       },
       {
         "posicao": 18,
@@ -12357,18 +12357,18 @@
       "gols": 11
     },
     {
+      "jogador": "Rene",
+      "time": "Vitória",
+      "sigla": "VIT",
+      "posicao": "Nao informado",
+      "gols": 11
+    },
+    {
       "jogador": "Vinicius",
       "time": "Grêmio",
       "sigla": "GRE",
       "posicao": "Nao informado",
       "gols": 11
-    },
-    {
-      "jogador": "Lopez",
-      "time": "Palmeiras",
-      "sigla": "PAL",
-      "posicao": "Nao informado",
-      "gols": 10
     },
     {
       "jogador": "Mauricio",
@@ -12378,16 +12378,16 @@
       "gols": 10
     },
     {
-      "jogador": "Calleri",
-      "time": "São Paulo",
-      "sigla": "SAO",
+      "jogador": "Lopez",
+      "time": "Palmeiras",
+      "sigla": "PAL",
       "posicao": "Nao informado",
       "gols": 10
     },
     {
-      "jogador": "Rene",
-      "time": "Vitória",
-      "sigla": "VIT",
+      "jogador": "Calleri",
+      "time": "São Paulo",
+      "sigla": "SAO",
       "posicao": "Nao informado",
       "gols": 10
     },
@@ -16624,36 +16624,36 @@
       "id": 555088,
       "rodada": 35,
       "inicio_em": "2026-11-19T22:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "VAS",
       "visitante": "INT",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 2,
+        "visitante": 1
       }
     },
     {
       "id": 555089,
       "rodada": 35,
       "inicio_em": "2026-11-19T22:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "VIT",
       "visitante": "RBB",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 2,
+        "visitante": 1
       }
     },
     {
       "id": 555087,
       "rodada": 35,
       "inicio_em": "2026-11-20T00:30:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "SAO",
       "visitante": "FLU",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 1
       }
     },
     {
@@ -17017,14 +17017,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-19T03:31:24.716574+00:00",
-  "dados_verificados_em": "2026-11-19T21:38:19.431719+00:00",
+  "dados_atualizados_em": "2026-11-20T03:18:55.487706+00:00",
+  "dados_verificados_em": "2026-11-20T03:18:55.487841+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": false,
-  "fonte": "CBF",
+  "fonte": "ge",
   "fontes": {
-    "classificacao": "CBF",
+    "classificacao": "ge",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -17034,7 +17034,7 @@
     "rodadas_total": 38,
     "rodada_atual": 35,
     "rodada_confirmada": true,
-    "jogos_minimos": 34,
+    "jogos_minimos": 35,
     "jogos_maximos": 35,
     "times_total": 20,
     "campeonato_finalizado": false,
@@ -17043,6 +17043,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-19T21:38:19.427929+00:00",
+  "agenda_atualizada_em": "2026-11-20T03:18:55.484933+00:00",
   "historico_atualizado_em": "2026-11-15T02:41:30.700192+00:00"
 }
