@@ -263,7 +263,7 @@
         return row;
     }
 
-    function initTable() {
+    function initTable(storage, favorites) {
         const tbody = document.querySelector('#tabela-classificacao tbody');
         if (!tbody) return;
         const tableWrap = document.getElementById('standings-table-wrap') || tbody.closest('.table-scroll');
@@ -271,26 +271,13 @@
         const heading = document.getElementById('standings-heading');
         const source = document.getElementById('standings-source');
         const search = document.getElementById('search-classificacao');
-        const filters = Array.from(document.querySelectorAll('.filter-btn'));
+        const filters = Array.from(document.querySelectorAll('.filter-btn[data-zona]'));
         const count = document.getElementById('classificacao-count');
         const empty = document.getElementById('classificacao-empty');
-        const storage = safeStorage();
-        let favorites = [];
         let clubs = window.dadosClassificacao || [];
         let zone = 'todas';
         let sortKey = null;
         let ascending = true;
-
-        try {
-            const parsed = JSON.parse(storage?.getItem('favoritos') || '[]');
-            favorites = Array.isArray(parsed) ? parsed : [];
-        } catch {
-            try {
-                storage?.removeItem('favoritos');
-            } catch {
-                // A tabela segue funcional sem persistência.
-            }
-        }
 
         function apply() {
             const term = (search?.value || '').trim().toLocaleLowerCase('pt-BR');
@@ -299,7 +286,7 @@
                 const matchesText =
                     !term || `${row.dataset.time} ${row.dataset.sigla}`.toLocaleLowerCase('pt-BR').includes(term);
                 const matchesZone = zone === 'todas' || zone === 'favoritos' || row.dataset.zona === zone;
-                const matchesFavorite = zone !== 'favoritos' || favorites.includes(row.dataset.sigla);
+                const matchesFavorite = zone !== 'favoritos' || favorites.has(row.dataset.sigla);
                 row.hidden = !(matchesText && matchesZone && matchesFavorite);
                 if (!row.hidden) visible += 1;
             });
@@ -327,22 +314,22 @@
             tbody.querySelectorAll('.favorite-toggle').forEach((button) => {
                 const sigla = button.dataset.favorite;
                 const sync = () => {
-                    const active = favorites.includes(sigla);
+                    const active = favorites.has(sigla);
                     button.classList.toggle('is-active', active);
                     button.setAttribute('aria-pressed', String(active));
                 };
                 sync();
                 button.addEventListener('click', () => {
-                    favorites = favorites.includes(sigla)
-                        ? favorites.filter((item) => item !== sigla)
-                        : [...favorites, sigla];
+                    if (favorites.has(sigla)) favorites.delete(sigla);
+                    else favorites.add(sigla);
                     try {
-                        storage?.setItem('favoritos', JSON.stringify(favorites));
+                        storage?.setItem('favoritos', JSON.stringify([...favorites]));
                     } catch {
                         // Favoritos continuam ativos nesta sessão.
                     }
                     sync();
                     apply();
+                    window.dispatchEvent(new Event('brasileirao:favoritos'));
                 });
             });
             tbody.querySelectorAll('.row-expand').forEach((button) => {
@@ -360,9 +347,13 @@
             const alternative = document.getElementById('attack-defense-data');
             if (alternative) {
                 alternative.replaceChildren(
-                    ...data.map((club) =>
-                        criar('li', '', `${club.time}: ${club.gols_pro} gols pró e ${club.gols_contra} gols contra.`)
-                    )
+                    ...data
+                        .filter((club) => club.jogos > 0)
+                        .map((club) => {
+                            const pro = (club.gols_pro / club.jogos).toFixed(2);
+                            const contra = (club.gols_contra / club.jogos).toFixed(2);
+                            return criar('li', '', `${club.time}: ${pro} gols marcados e ${contra} sofridos por jogo.`);
+                        })
                 );
             }
         }
@@ -441,30 +432,19 @@
     function initComparator() {
         const first = document.getElementById('cmp-time1');
         const second = document.getElementById('cmp-time2');
-        const button = document.getElementById('cmp-btn');
         const quick = document.getElementById('cmp-quick-leaders');
         const result = document.getElementById('cmp-result');
-        if (!first || !second || !button || !result) return;
+        if (!first || !second || !result) return;
         let clubs = window.dadosClassificacao || [];
 
-        function valid() {
-            const ok = Boolean(
-                clubs.length &&
-                first.value &&
-                second.value &&
-                first.value !== second.value &&
-                clubs.some((club) => club.sigla === first.value) &&
-                clubs.some((club) => club.sigla === second.value)
-            );
-            button.disabled = !ok;
-            return ok;
-        }
-
         function render(updateUrl = true) {
-            if (!valid()) return;
             const left = clubs.find((club) => club.sigla === first.value);
             const right = clubs.find((club) => club.sigla === second.value);
-            if (!left || !right) return;
+            if (!left || !right || left.sigla === right.sigla) {
+                result.replaceChildren(criar('p', '', 'Escolha dois clubes diferentes ou use o confronto sugerido.'));
+                if (updateUrl) atualizarQuery({ time1: null, time2: null });
+                return;
+            }
             const summary = criar('div', 'compare-summary');
             const team = (club) => {
                 const element = criar('div', 'compare-team');
@@ -501,40 +481,31 @@
             if (updateUrl) atualizarQuery({ time1: left.sigla, time2: right.sigla }, '#comparador');
         }
 
-        first.addEventListener('change', valid);
-        second.addEventListener('change', valid);
-        button.addEventListener('click', () => render(true));
+        first.addEventListener('change', () => render());
+        second.addEventListener('change', () => render());
         quick?.addEventListener('click', () => {
             if (clubs.length < 2) return;
             first.value = clubs[0].sigla;
             second.value = clubs[1].sigla;
-            valid();
-            render(true);
+            render();
         });
         window.addEventListener('brasileirao:classificacao', (event) => {
             clubs = event.detail.classificacao || [];
             if (!clubs.length) {
-                button.disabled = true;
                 result.replaceChildren(
                     criar('p', '', 'O comparador ficará disponível quando o histórico desta rodada for sincronizado.')
                 );
                 return;
             }
-            if (valid() && result.querySelector('.compare-summary')) render(false);
+            if (result.querySelector('.compare-summary')) render(false);
         });
 
         const params = new URL(window.location.href).searchParams;
         const queryFirst = params.get('time1');
         const querySecond = params.get('time2');
-        if (
-            clubs.some((club) => club.sigla === queryFirst) &&
-            clubs.some((club) => club.sigla === querySecond) &&
-            queryFirst !== querySecond
-        ) {
-            first.value = queryFirst;
-            second.value = querySecond;
-            render(false);
-        } else valid();
+        if (clubs.some((club) => club.sigla === queryFirst)) first.value = queryFirst;
+        if (querySecond !== queryFirst && clubs.some((club) => club.sigla === querySecond)) second.value = querySecond;
+        if (first.value && second.value) render(false);
     }
 
     function initCharts() {
@@ -621,14 +592,19 @@
         window.addEventListener('brasileirao:classificacao', (event) => update(event.detail.classificacao));
     }
 
-    function initRodadas() {
+    function initRodadas(favorites) {
         const controller = document.querySelector('[data-round-controller]') || document.getElementById('rodada');
         const track = document.getElementById('round-track');
         if (!controller || !track) return;
         const total = Number(controller.dataset.totalRounds || window.dashboardConfig?.rodadasTotal || 38);
+        const rodadaCampeonato = normalizarRodada(
+            window.dashboardConfig?.rodadaAtual,
+            Number(controller.dataset.currentRound),
+            total
+        );
         const fallback = normalizarRodada(
             window.dashboardConfig?.rodadaInicial || controller.dataset.currentRound,
-            Number(window.dashboardConfig?.rodadaAtual || 1),
+            rodadaCampeonato,
             total
         );
         const params = new URL(window.location.href).searchParams;
@@ -636,6 +612,12 @@
         const heading = document.getElementById('round-heading');
         const count = document.getElementById('round-count');
         const empty = document.getElementById('round-empty');
+        const emptyTitle = empty?.querySelector('strong');
+        const emptyDetail = empty?.querySelector('p');
+        const defaultTitle = emptyTitle?.textContent;
+        const defaultDetail = emptyDetail?.textContent;
+        const favoriteFilter = document.getElementById('round-favorites');
+        let onlyFavorites = false;
         const announcement = document.getElementById('round-announcement');
         const prev = document.getElementById('round-prev');
         const next = document.getElementById('round-next');
@@ -643,8 +625,7 @@
         const triggerLabel = document.getElementById('round-trigger-label');
         const listbox = document.getElementById('round-listbox');
         const options = Array.from(document.querySelectorAll('.round-option'));
-        const progress = document.getElementById('season-progress-bar');
-        const progressRoot = progress?.parentElement;
+        const current = document.getElementById('round-current');
 
         function fecharLista() {
             if (!listbox || !trigger) return;
@@ -652,42 +633,54 @@
             trigger.setAttribute('aria-expanded', 'false');
         }
 
-        function render(rodada, { updateUrl = false, announce = false, dispatch = true } = {}) {
+        function render(rodada, { updateUrl = false, announce = false } = {}) {
             atual = normalizarRodada(rodada, atual, total);
-            const partidas = (window.dadosPartidas || []).filter((partida) => Number(partida.rodada) === atual);
-            const classificacao =
-                window.classificacoesPorRodada?.[String(atual)] ||
-                (atual === Number(window.dashboardConfig?.rodadaAtual) ? window.dadosClassificacaoAtual : null);
+            const agenda = (window.dadosPartidas || []).filter((partida) => Number(partida.rodada) === atual);
+            const partidas = onlyFavorites
+                ? agenda.filter((partida) => favorites.has(partida.mandante) || favorites.has(partida.visitante))
+                : agenda;
             const mapa = timesMap();
             track.replaceChildren(...partidas.map((partida) => criarCartaoPartida(partida, mapa)));
             if (heading) heading.textContent = `Jogos da Rodada ${atual}`;
             if (count) count.textContent = `${partidas.length} ${partidas.length === 1 ? 'confronto' : 'confrontos'}`;
             if (empty) empty.hidden = partidas.length > 0;
-            if (triggerLabel) triggerLabel.textContent = `Rodada ${atual}`;
+            if (emptyTitle && emptyDetail && !partidas.length) {
+                if (onlyFavorites && !favorites.size) {
+                    emptyTitle.textContent = 'Nenhum clube favorito';
+                    emptyDetail.textContent = 'Use a estrela na tabela para adicionar seus clubes.';
+                } else if (onlyFavorites && agenda.length) {
+                    emptyTitle.textContent = 'Nenhum jogo dos seus clubes nesta rodada';
+                    emptyDetail.textContent = 'Desative Meus clubes para ver todos os confrontos.';
+                } else {
+                    emptyTitle.textContent = defaultTitle;
+                    emptyDetail.textContent = defaultDetail;
+                }
+            }
+            if (triggerLabel) triggerLabel.textContent = `Rodada ${atual} de ${total}`;
             if (prev) prev.disabled = atual <= 1;
             if (next) next.disabled = atual >= total;
             options.forEach((option) =>
                 option.setAttribute('aria-selected', String(Number(option.dataset.round) === atual))
             );
-            if (progress) progress.style.setProperty('--season-progress', `${(atual / total) * 100}%`);
-            if (progressRoot) progressRoot.setAttribute('aria-valuenow', String(atual));
-            if (updateUrl) atualizarQuery({ rodada: atual });
+            if (current) current.hidden = atual === rodadaCampeonato;
+            if (updateUrl) atualizarQuery({ rodada: atual === rodadaCampeonato ? null : atual });
             if (announce && announcement) {
                 announcement.textContent = `Rodada ${atual}. ${partidas.length} ${partidas.length === 1 ? 'confronto' : 'confrontos'}.`;
             }
-            if (dispatch) {
-                window.dispatchEvent(
-                    new CustomEvent('brasileirao:rodada', {
-                        detail: {
-                            rodada: atual,
-                            classificacao: Array.isArray(classificacao) ? classificacao : null,
-                            partidas
-                        }
-                    })
-                );
-            }
         }
 
+        if (favoriteFilter) {
+            favoriteFilter.hidden = false;
+            favoriteFilter.addEventListener('click', () => {
+                onlyFavorites = !onlyFavorites;
+                favoriteFilter.classList.toggle('is-active', onlyFavorites);
+                favoriteFilter.setAttribute('aria-pressed', String(onlyFavorites));
+                render(atual, { announce: true });
+            });
+            window.addEventListener('brasileirao:favoritos', () => {
+                if (onlyFavorites) render(atual, { announce: true });
+            });
+        }
         trigger?.addEventListener('click', () => {
             if (!listbox) return;
             const open = listbox.hidden;
@@ -721,21 +714,43 @@
         });
         prev?.addEventListener('click', () => render(atual - 1, { updateUrl: true, announce: true }));
         next?.addEventListener('click', () => render(atual + 1, { updateUrl: true, announce: true }));
+        current?.addEventListener('click', () => {
+            render(rodadaCampeonato, { updateUrl: true, announce: true });
+            trigger?.focus();
+        });
         document.addEventListener('click', (event) => {
             if (!event.target.closest('.round-picker')) fecharLista();
         });
-        render(atual, { dispatch: atual !== Number(controller.dataset.currentRound) });
+        render(atual);
     }
 
     function init() {
         if (document.documentElement.dataset.dashboardReady === 'true') return;
         document.documentElement.dataset.dashboardReady = 'true';
+        const verificationWarning = document.getElementById('verification-warning');
+        if (verificationWarning && Date.now() >= Number(verificationWarning.dataset.deadline)) {
+            verificationWarning.hidden = false;
+            document.querySelector('.classification-update')?.classList.add('is-stale');
+        }
+        const storage = safeStorage();
+        const favorites = new Set();
+        try {
+            const parsed = JSON.parse(storage?.getItem('favoritos') || '[]');
+            if (Array.isArray(parsed)) parsed.forEach((sigla) => favorites.add(sigla));
+        } catch {
+            try {
+                storage?.removeItem('favoritos');
+            } catch {
+                // A tabela segue funcional sem persistência.
+            }
+        }
+
         initNavigation();
         initImages();
-        initTable();
+        initTable(storage, favorites);
         initComparator();
         initCharts();
-        initRodadas();
+        initRodadas(favorites);
     }
 
     window.brasileiraoDashboard = { init, normalizarRodada, criarCartaoPartida, criarLinhaClassificacao };

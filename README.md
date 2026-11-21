@@ -19,11 +19,11 @@ Dashboard do Campeonato Brasileiro Série A com classificação atual, rodadas, 
 
 - Página contínua em tema claro com navegação por Tabela, Rodada, Artilharia, Gráficos e Comparador.
 - Classificação atual identifica sua fonte real; o ge só substitui a CBF quando publica mais partidas concluídas. A rodada selecionada altera somente as partidas e permanece compartilhável pela URL.
-- Navegação entre as 38 rodadas para consultar calendário e resultados disponíveis.
+- Navegação entre as 38 rodadas, com atalho para a rodada atual e filtro “Meus clubes” baseado nos favoritos da tabela.
 - Tabela de classificação com filtros por zona, busca, favoritos, ordenação e expansão mobile da campanha.
-- Artilharia em tabela compacta e quatro leituras não redundantes: ataque × defesa, casa × fora, forma recente e gols por rodada.
+- Top 20 da artilharia e quatro leituras de desempenho: ataque × defesa, casa × fora, forma recente e gols por rodada.
 - Comparador de clubes com escudos, métricas lado a lado e seleção preservada na URL.
-- Páginas individuais por time com forma, confrontos, média da liga, artilheiros e atalho para comparação.
+- Páginas por clube com próximo jogo, últimos cinco placares, média da liga e atalho para o comparador com o clube já selecionado.
 - Vinte escudos oficiais preservados localmente, com versões transparentes e visualmente equilibradas.
 - Endpoints JSON em `dist/api/` para classificação atual, classificações históricas, artilharia, partidas e saúde dos dados.
 
@@ -127,6 +127,8 @@ O script exige exatamente os 20 arquivos JPG da temporada e gera novamente todos
 ## Dados e configuração
 
 As variáveis disponíveis estão documentadas em `.env.example`. A fonte padrão é `DATA_SOURCE=cbf`; classificação, artilharia, calendário e gráficos continuam atualizando sem token. Para usar football-data.org como fonte preferencial do calendário e habilitar o histórico de classificação por rodada, mantenha `FOOTBALL_DATA_TOKEN` apenas no servidor e em **Settings > Secrets and variables > Actions** — nunca no HTML ou no JavaScript enviado ao navegador.
+
+O painel informa quando a fonte foi verificada e avisa após seis horas sem verificação. A coleta preserva a agenda anterior se a nova resposta perder jogos ou resultados confirmados. Na troca de temporada, a edição anterior fica disponível até que a nova tenha classificação e agenda válidas da mesma edição.
 
 Em execuções agendadas, uma falha temporária da fonte de dados não sobrescreve o dataset válido existente. Em execuções manuais (`workflow_dispatch`), o workflow falha para facilitar diagnóstico.
 

@@ -15,8 +15,8 @@
     <link rel="icon" href="{{ site_url('static/img/favicon.svg') }}" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="{{ asset_url('static/css/dashboard.css') }}">
 </head>
 <body>
@@ -33,39 +33,68 @@
                 {% if time.escudo %}<img src="{{ asset_url(time.escudo) }}" alt="Escudo do {{ time.time }}" width="112" height="112">{% endif %}
                 <div><span class="eyebrow">{{ time.estado }} · {{ time.sigla }}</span><h1>{{ time.time }}</h1><p>Série A {{ dados.info.temporada }} · leitura atualizada em {{ atualizado_em }}</p></div>
             </div>
-            <div class="club-position"><span>Posição atual</span><strong>{{ time.posicao }}º</strong><small>{{ time.pontos }} pontos em {{ time.jogos }} jogos</small></div>
+            <div class="club-position"><span>Posição atual</span><strong>{{ time.posicao }}º</strong><small>{{ time.pontos }} pontos</small></div>
         </div>
     </header>
 
     <main id="conteudo" class="edition-shell club-section">
+        <section class="fixture-pair" aria-label="Jogos do clube">
+            <article class="club-fixture club-next-fixture">
+                <div>
+                    <span>Próximo jogo</span>
+                    {% if proximo_jogo %}
+                    {% set em_casa = proximo_jogo.mandante == time.sigla %}
+                    {% set adversario = proximo_jogo.visitante_time if em_casa else proximo_jogo.mandante_time %}
+                    <h2>{{ adversario.time }}</h2>
+                    <p>{{ proximo_jogo.data_curta }} às {{ proximo_jogo.hora }} · {{ 'Em casa' if em_casa else 'Fora de casa' }} · Horário de Brasília</p>
+                    {% else %}
+                    <h2>A confirmar</h2>
+                    <p>A agenda futura ainda não está disponível.</p>
+                    {% endif %}
+                </div>
+                {% if proximo_jogo %}<a class="club-round-link" href="{{ site_url() }}?rodada={{ proximo_jogo.rodada }}#rodada">Ver rodada {{ proximo_jogo.rodada }} <span aria-hidden="true">→</span></a>{% endif %}
+            </article>
+            <article class="club-fixture"><span>Último jogo</span>{% if ultimo_jogo %}<h3>{{ ultimo_jogo.mandante_time.time }} {{ ultimo_jogo.placar.mandante }} × {{ ultimo_jogo.placar.visitante }} {{ ultimo_jogo.visitante_time.time }}</h3><p>Rodada {{ ultimo_jogo.rodada }} · {{ ultimo_jogo.data_curta }} · {{ ultimo_jogo.status_label }}</p>{% else %}<h3>A confirmar</h3><p>Sem resultado sincronizado para este clube.</p>{% endif %}</article>
+        </section>
+
         <section class="club-overview" aria-label="Resumo da campanha">
-            <article class="club-stat"><span>Pontos</span><strong>{{ time.pontos }}</strong><small>{{ time.aproveitamento }}% de aproveitamento</small></article>
-            <article class="club-stat"><span>Vitórias</span><strong>{{ time.vitorias }}</strong><small>{{ time.empates }} empates</small></article>
+            <article class="club-stat"><span>Jogos</span><strong>{{ time.jogos }}</strong><small>{{ time.aproveitamento }}% de aproveitamento</small></article>
+            <article class="club-stat"><span>Vitórias</span><strong>{{ time.vitorias }}</strong><small>{{ time.empates }} empates · {{ time.derrotas }} derrotas</small></article>
             <article class="club-stat"><span>Saldo</span><strong>{% if time.saldo > 0 %}+{% endif %}{{ time.saldo }}</strong><small>{{ time.gols_pro }} pró · {{ time.gols_contra }} contra</small></article>
-            <article class="club-stat"><span>Forma</span><strong class="club-form-summary">{% if forma %}{{ forma | join('') }}{% else %}—{% endif %}</strong><small>Últimos cinco jogos</small></article>
         </section>
 
         <div class="club-grid">
             <section class="club-panel" aria-labelledby="agenda-clube-title">
-                <span class="eyebrow">Agenda recente</span><h2 id="agenda-clube-title">O momento do clube</h2>
-                <div class="fixture-pair">
-                    <article class="club-fixture"><span>Último jogo</span>{% if ultimo_jogo %}<h3>{{ ultimo_jogo.mandante_time.time }} {{ ultimo_jogo.placar.mandante }} × {{ ultimo_jogo.placar.visitante }} {{ ultimo_jogo.visitante_time.time }}</h3><p>Rodada {{ ultimo_jogo.rodada }} · {{ ultimo_jogo.data_curta }} · {{ ultimo_jogo.status_label }}</p>{% else %}<h3>A confirmar</h3><p>Sem resultado sincronizado para este clube.</p>{% endif %}</article>
-                    <article class="club-fixture"><span>Próximo jogo</span>{% if proximo_jogo %}<h3>{{ proximo_jogo.mandante_time.time }} × {{ proximo_jogo.visitante_time.time }}</h3><p>Rodada {{ proximo_jogo.rodada }} · {{ proximo_jogo.data_curta }}, {{ proximo_jogo.hora }} · {{ proximo_jogo.status_label }}</p>{% else %}<h3>A confirmar</h3><p>A agenda futura ainda não está disponível.</p>{% endif %}</article>
-                </div>
-                <div class="form-block"><div><strong>Últimos cinco</strong><span>do mais recente ao mais antigo</span></div><div class="form-line" aria-label="Forma nos últimos cinco jogos">{% if forma %}{% for resultado in forma %}<span data-forma="{{ resultado }}" title="{{ 'Vitória' if resultado == 'V' else 'Empate' if resultado == 'E' else 'Derrota' }}">{{ resultado }}</span>{% endfor %}{% else %}<small>Resultados ainda não disponíveis.</small>{% endif %}</div></div>
+                <h2 id="agenda-clube-title">Últimos cinco jogos</h2>
+                {% if ultimas_partidas %}
+                <p class="club-recent-note">Do mais recente ao mais antigo. Gols do {{ time.sigla }} à esquerda.</p>
+                <ol class="club-recent-list">
+                    {% for partida in ultimas_partidas %}
+                    <li class="club-recent-match">
+                        <span class="club-recent-result" data-forma="{{ partida.resultado }}" aria-hidden="true">{{ partida.resultado }}</span>
+                        <span class="sr-only">{{ 'Vitória' if partida.resultado == 'V' else 'Empate' if partida.resultado == 'E' else 'Derrota' }}</span>
+                        <div>
+                            <a href="{{ site_url('time/' ~ partida.adversario.sigla ~ '/') }}">{{ partida.adversario.time }}</a>
+                            <small>{{ partida.data_curta }} · {{ partida.mando }}</small>
+                        </div>
+                        <strong class="club-recent-score">{{ partida.placar_clube }}</strong>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% else %}<p class="club-empty">Resultados ainda não disponíveis.</p>{% endif %}
             </section>
 
             <section class="club-panel" aria-labelledby="benchmark-title">
                 <span class="eyebrow">Campanha relativa</span><h2 id="benchmark-title">Clube × média da liga</h2>
                 <div class="benchmark-legend"><span><i class="club-swatch"></i>{{ time.sigla }}</span><span><i class="league-swatch"></i>Média da liga</span></div>
                 <div class="benchmark-list">{% for item in benchmarks %}<article class="benchmark-row"><span>{{ item.rotulo }}</span><div class="benchmark-bars" role="img" aria-label="{{ item.rotulo }}: {{ time.time }} {{ item.valor }}, média da liga {{ item.media }}"><i class="benchmark-club" style="--benchmark: {{ item.largura }}%"></i><i class="benchmark-league" style="--benchmark: {{ item.media_largura }}%"></i></div><small><strong>{{ item.valor }}</strong> / {{ item.media }}</small></article>{% endfor %}</div>
-                {% if adversario_comparacao %}<a class="club-compare-link" href="{{ site_url() }}?time1={{ time.sigla }}&amp;time2={{ adversario_comparacao.sigla }}#comparador">Comparar {{ time.time }} com {{ adversario_comparacao.time }} <span aria-hidden="true">→</span></a>{% endif %}
+                <a class="club-compare-link" href="{{ site_url() }}?time1={{ time.sigla }}#comparador">Comparar com outro clube <span aria-hidden="true">→</span></a>
             </section>
         </div>
 
         <section class="club-scorers club-panel" id="artilheiros-clube" aria-labelledby="artilheiros-clube-title">
-            <span class="eyebrow">Produção individual</span><h2 id="artilheiros-clube-title">Artilheiros do {{ time.time }}</h2>
-            {% if artilheiros %}<div class="club-table-scroll"><table><caption class="sr-only">Artilheiros do {{ time.time }} no Brasileirão {{ dados.info.temporada }}</caption><thead><tr><th scope="col">Posição</th><th scope="col">Jogador</th><th scope="col">Gols</th></tr></thead><tbody>{% for jogador in artilheiros %}<tr><td>{{ loop.index }}</td><td><strong>{{ jogador.jogador }}</strong></td><td class="club-goals">{{ jogador.gols }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<p class="club-empty">Ainda não há artilheiros sincronizados para este clube.</p>{% endif %}
+            <span class="eyebrow">Top 20 do Brasileirão</span><h2 id="artilheiros-clube-title">Artilheiros do {{ time.time }}</h2>
+            {% if artilheiros %}<div class="club-table-scroll"><table><caption class="sr-only">Artilheiros do {{ time.time }} no Brasileirão {{ dados.info.temporada }}</caption><thead><tr><th scope="col">Posição</th><th scope="col">Jogador</th><th scope="col">Gols</th></tr></thead><tbody>{% for jogador in artilheiros %}<tr><td>{{ loop.index }}</td><td><strong>{{ jogador.jogador }}</strong></td><td class="club-goals">{{ jogador.gols }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<p class="club-empty">Nenhum jogador do clube aparece no Top 20.</p>{% endif %}
         </section>
     </main>
 

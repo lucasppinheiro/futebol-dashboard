@@ -378,7 +378,14 @@ def formatar_atualizacao_dados(dados: dict[str, Any] | None = None) -> str:
 
 
 def status_dados_dashboard(dados: dict[str, Any]) -> dict[str, Any]:
+    verificacao = _timestamp_frescor_dados(dados)
+    horario_brasilia = timezone(timedelta(hours=-3))
+    verificado_em = datetime.fromtimestamp(verificacao, tz=horario_brasilia) if verificacao is not None else None
+    limite_verificacao = verificacao + 6 * 3600 if verificacao is not None else None
     return {
+        "verificado_em": verificado_em,
+        "limite_verificacao_ms": round(limite_verificacao * 1000) if limite_verificacao is not None else None,
+        "verificacao_em_atraso": limite_verificacao is not None and time.time() >= limite_verificacao,
         "desatualizados": dados_dashboard_desatualizados(dados),
         "refresh_necessario": dados_dashboard_refresh_necessario(dados),
         "fonte": dados.get("fonte") or "Fonte não informada",
@@ -591,7 +598,9 @@ def _calcular_leituras_campeonato(dados: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _contexto_time(dados: dict[str, Any], time_selecionado: dict[str, Any]) -> dict[str, Any]:
+def _contexto_time(
+    dados: dict[str, Any], time_selecionado: dict[str, Any], *, agora: datetime | None = None
+) -> dict[str, Any]:
     sigla = time_selecionado["sigla"]
     times_por_sigla = {time["sigla"]: time for time in dados["classificacao"]}
     partidas = [
@@ -599,14 +608,26 @@ def _contexto_time(dados: dict[str, Any], time_selecionado: dict[str, Any]) -> d
     ]
     partidas.sort(key=_instante_partida)
     encerradas = [partida for partida in partidas if partida.get("status") == "encerrada"]
-    futuras = [partida for partida in partidas if partida.get("status") == "agendada"]
-    ultimas = list(reversed(encerradas[-5:]))
-
-    forma = []
-    for partida in ultimas:
-        gols_time = partida["placar"]["mandante"] if partida["mandante"] == sigla else partida["placar"]["visitante"]
-        gols_rival = partida["placar"]["visitante"] if partida["mandante"] == sigla else partida["placar"]["mandante"]
-        forma.append("V" if gols_time > gols_rival else "E" if gols_time == gols_rival else "D")
+    agora = agora or datetime.now(timezone.utc)
+    proxima = next(
+        (partida for partida in partidas if partida.get("status") == "agendada" and _instante_partida(partida) > agora),
+        None,
+    )
+    ultimas_partidas = []
+    for partida in reversed(encerradas[-5:]):
+        em_casa = partida["mandante"] == sigla
+        gols_time = partida["placar"]["mandante" if em_casa else "visitante"]
+        gols_rival = partida["placar"]["visitante" if em_casa else "mandante"]
+        jogo = _partida_para_exibicao(partida, times_por_sigla)
+        ultimas_partidas.append(
+            {
+                **jogo,
+                "adversario": jogo["visitante_time" if em_casa else "mandante_time"],
+                "mando": "Em casa" if em_casa else "Fora de casa",
+                "placar_clube": f"{gols_time} × {gols_rival}",
+                "resultado": "V" if gols_time > gols_rival else "E" if gols_time == gols_rival else "D",
+            }
+        )
 
     classificacao = dados["classificacao"]
 
@@ -637,15 +658,12 @@ def _contexto_time(dados: dict[str, Any], time_selecionado: dict[str, Any]) -> d
                 "media_largura": round((media_liga / escala) * 100, 1),
             }
         )
-    adversario = next((time for time in classificacao if time["sigla"] != sigla), None)
     return {
-        "ultimas_partidas": [_partida_para_exibicao(partida, times_por_sigla) for partida in ultimas],
-        "ultimo_jogo": _partida_para_exibicao(encerradas[-1], times_por_sigla) if encerradas else None,
-        "proximo_jogo": _partida_para_exibicao(futuras[0], times_por_sigla) if futuras else None,
-        "forma": forma,
+        "ultimas_partidas": ultimas_partidas,
+        "ultimo_jogo": ultimas_partidas[0] if ultimas_partidas else None,
+        "proximo_jogo": _partida_para_exibicao(proxima, times_por_sigla) if proxima else None,
         "medias_liga": medias_liga,
         "benchmarks": benchmarks,
-        "adversario_comparacao": adversario,
     }
 
 

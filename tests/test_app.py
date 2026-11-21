@@ -2,6 +2,7 @@ import json
 import os
 import threading
 from copy import deepcopy
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
@@ -73,7 +74,8 @@ class TestRotaWeb:
         assert b"Brasileir" in resp.data
         assert b"site-header" in resp.data
         assert b"Jogos da Rodada" in resp.data
-        assert b"Dados atualizados em" in resp.data
+        assert b"Verificado em" in resp.data
+        assert b"Top 20 do Brasileir" in resp.data
 
     def test_index_identifica_dinamicamente_a_fonte_da_classificacao(self, client):
         dados = app_module.carregar_dados()
@@ -120,7 +122,7 @@ class TestRotaWeb:
         assert 'class="club-achievement"' not in html
         assert 'class="mobile-leader-label"' not in html
         assert 'class="metric-record-label"' in html
-        assert "Dados atualizados em" in html
+        assert "Verificado em" in html
 
     def test_classificacao_explica_as_cores_das_zonas(self, client):
         html = client.get("/").get_data(as_text=True)
@@ -254,6 +256,18 @@ class TestRotaWeb:
         assert leituras["forma"] == []
         assert leituras["gols_por_rodada"] == []
 
+    def test_grafico_ataque_defesa_omite_clube_sem_jogos(self, client, monkeypatch):
+        dados = deepcopy(app_module.carregar_dados())
+        time = dados["classificacao"][-1]
+        time["jogos"] = 0
+        monkeypatch.setattr(app_module, "carregar_dados", lambda: dados)
+
+        html = client.get("/").get_data(as_text=True)
+        descricao = html.split('id="attack-defense-data">', 1)[1].split("</ul>", 1)[0]
+
+        assert time["time"] not in descricao
+        assert dados["classificacao"][0]["time"] in descricao
+
     def test_grafico_mandante_visitante_exibe_rankings_top_cinco(self, client):
         resp = client.get("/")
 
@@ -350,6 +364,15 @@ class TestRotaTime:
                 "placar": {"mandante": 2, "visitante": 0},
             },
             {
+                "id": 3,
+                "rodada": 2,
+                "inicio_em": "2025-05-02T20:00:00+00:00",
+                "status": "encerrada",
+                "mandante": rival["sigla"],
+                "visitante": time["sigla"],
+                "placar": {"mandante": 1, "visitante": 3},
+            },
+            {
                 "id": 2,
                 "rodada": 2,
                 "inicio_em": "2027-04-25T20:00:00+00:00",
@@ -366,12 +389,20 @@ class TestRotaTime:
         html = client.get(f"/time/{time['sigla']}/").get_data(as_text=True)
 
         assert "Último jogo" in html
-        assert "Próximo jogo" in html
+        assert html.index("Próximo jogo") < html.index("Último jogo") < html.index("Resumo da campanha")
+        assert 'href="/?rodada=2#rodada"' in html
+        assert "Fora de casa" in html
+        assert "derrotas" in html
         assert 'data-forma="V"' in html
+        recente = html.split('class="club-recent-list"', 1)[1]
+        assert f'href="/time/{rival["sigla"]}/"' in recente
+        assert recente.index("3 × 1") < recente.index("2 × 0")
+        assert "club-form-summary" not in html
         assert "Média da liga" in html
-        assert f"time1={time['sigla']}" in html
+        assert f'href="/?time1={time["sigla"]}#comparador"' in html
+        assert "Comparar com outro clube" in html
 
-    def test_proximo_jogo_ignora_partida_cancelada(self, dados_json_validos):
+    def test_proximo_jogo_ignora_partidas_canceladas_e_passadas(self, dados_json_validos):
         time = dados_json_validos["classificacao"][0]
         rival = dados_json_validos["classificacao"][1]
         dados_json_validos["partidas"] = [
@@ -395,7 +426,11 @@ class TestRotaTime:
             },
         ]
 
-        contexto = app_module._contexto_time(dados_json_validos, time)
+        dados_json_validos["partidas"].append(
+            {**dados_json_validos["partidas"][1], "id": 4, "inicio_em": "2026-04-24T20:00:00+00:00"}
+        )
+        agora = datetime(2026, 4, 26, tzinfo=timezone.utc)
+        contexto = app_module._contexto_time(dados_json_validos, time, agora=agora)
 
         assert contexto["proximo_jogo"]["id"] == 3
 
@@ -989,3 +1024,20 @@ class TestAPIHealth:
         assert dados["fonte"] == "CBF"
         assert dados["dados_desatualizados"] is False
         assert dados["dados_refresh_necessario"] is True
+
+
+def test_painel_avisa_apos_seis_horas_sem_verificacao(client, monkeypatch, dados_json_validos):
+    dados_json_validos["dados_verificados_em"] = "2026-09-14T15:00:00+00:00"
+    app_module.normalizar_dados_dashboard(dados_json_validos)
+    monkeypatch.setattr(app_module, "carregar_dados", lambda: dados_json_validos)
+    instante = datetime(2026, 9, 14, 21, tzinfo=timezone.utc).timestamp()
+
+    def html_em(agora):
+        monkeypatch.setattr(app_module.time, "time", lambda: agora)
+        return client.get("/").get_data(as_text=True)
+
+    assert 'id="verification-warning" hidden' in html_em(instante - 1)
+    html = html_em(instante)
+    assert 'id="verification-warning" hidden' not in html
+    assert "14/09/2026 às 12:00" in html
+    assert "classificacoesPorRodada" not in html

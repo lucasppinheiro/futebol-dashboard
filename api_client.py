@@ -12,7 +12,7 @@ import time
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from typing import Any
 
 from club_assets import escudo_do_time
@@ -354,24 +354,43 @@ def _normalizar_linha_cbf(item: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def buscar_classificacao_cbf(temporada: str | None = None) -> list[dict[str, Any]]:
-    temporada = temporada or temporada_brasileirao_atual()
+def _buscar_pagina_cbf(temporada: str) -> str:
     html = _fetch_public(CBF_COMPETITION_URL.format(temporada=temporada))
     if not isinstance(html, str):
-        raise ValueError("CBF retornou payload de classificacao invalido")
+        raise ValueError("CBF retornou pagina da competicao invalida")
+    ano = re.search(r'\\"currentYear\\":\\"(\d{4})\\"', html)
+    if not ano or ano.group(1) != temporada:
+        raise ValueError(f"CBF nao confirmou a temporada {temporada}")
+    return html
 
-    tabela = _extrair_array_next(html, "data", "message")
+
+def buscar_classificacao_cbf(temporada: str | None = None) -> list[dict[str, Any]]:
+    temporada = temporada or temporada_brasileirao_atual()
+    tabela = _extrair_array_next(_buscar_pagina_cbf(temporada), "data", "message")
     classificacao = [_normalizar_linha_cbf(item) for item in tabela if "cod_time" in item and "pontos" in item]
     if len(classificacao) != 20:
         raise ValueError("CBF retornou classificacao incompleta")
     return classificacao
 
 
-def extrair_classificacao_ge(html: str) -> list[dict[str, Any]]:
+def _validar_inicio_edicao(inicio: Any, temporada: str, fonte: str) -> None:
+    try:
+        ano = str(date.fromisoformat(inicio).year)
+    except (TypeError, ValueError):
+        ano = None
+    if ano != temporada:
+        raise ValueError(f"{fonte} nao confirmou a temporada {temporada}")
+
+
+def extrair_classificacao_ge(html: str, *, temporada: str | None = None) -> list[dict[str, Any]]:
     match = re.search(r"const classificacao\s*=\s*(\{.*?\});", html, flags=re.DOTALL)
     if not match:
         raise ValueError("ge nao publicou o payload da classificacao")
     payload = json.loads(match.group(1))
+    if temporada is not None:
+        edicao = payload.get("edicao") if isinstance(payload, dict) else None
+        inicio = edicao.get("data_inicio") if isinstance(edicao, dict) else None
+        _validar_inicio_edicao(inicio, temporada, "ge")
     linhas = payload.get("classificacao") if isinstance(payload, dict) else None
     if not isinstance(linhas, list) or len(linhas) != 20:
         raise ValueError("ge retornou classificacao incompleta")
@@ -408,7 +427,7 @@ def buscar_classificacao_ge(temporada: str | None = None) -> list[dict[str, Any]
     html = _fetch_public(GE_COMPETITION_URL)
     if not isinstance(html, str):
         raise ValueError("ge retornou payload de classificacao invalido")
-    return extrair_classificacao_ge(html)
+    return extrair_classificacao_ge(html, temporada=temporada or temporada_brasileirao_atual())
 
 
 def extrair_configuracao_ge(html: str) -> tuple[str, str]:
@@ -473,6 +492,8 @@ def buscar_partidas_ge(temporada: str | None = None) -> list[dict[str, Any]]:
     if not isinstance(html, str):
         raise ValueError("ge retornou pagina da competicao invalida")
     uuid, fase = extrair_configuracao_ge(html)
+    if not fase.endswith(f"-{temporada}"):
+        raise ValueError(f"ge nao confirmou a temporada {temporada} na agenda")
 
     def buscar_rodada(rodada: int) -> list[dict[str, Any]]:
         url = GE_ROUND_URL.format(uuid=uuid, fase=fase, rodada=rodada)
@@ -516,10 +537,7 @@ def extrair_rodada_atual_cbf(html: str) -> int:
 
 def buscar_rodada_atual_cbf(temporada: str | None = None) -> int:
     temporada = temporada or temporada_brasileirao_atual()
-    html = _fetch_public(CBF_COMPETITION_URL.format(temporada=temporada))
-    if not isinstance(html, str):
-        raise ValueError("CBF retornou payload de rodada invalido")
-    return extrair_rodada_atual_cbf(html)
+    return extrair_rodada_atual_cbf(_buscar_pagina_cbf(temporada))
 
 
 def _normalizar_artilheiro_cbf(item: dict[str, Any]) -> dict[str, Any]:
@@ -594,11 +612,17 @@ def _normalizar_linha_classificacao(item: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _validar_edicao_football_data(edicao: Any, temporada: str) -> None:
+    inicio = edicao.get("startDate") if isinstance(edicao, dict) else None
+    _validar_inicio_edicao(inicio, temporada, "football-data.org")
+
+
 def _buscar_standings(temporada: str, rodada: int | None = None) -> list[dict[str, Any]]:
     url = f"{API_BASE}/competitions/{COMPETITION}/standings?season={temporada}"
     if rodada is not None:
         url += f"&matchday={rodada}"
     data = _fetch(url)
+    _validar_edicao_football_data(data.get("season"), temporada)
 
     standings = data.get("standings") or []
     total = next((item for item in standings if item.get("type") == "TOTAL"), standings[0] if standings else None)
@@ -614,6 +638,8 @@ def _buscar_partidas(temporada: str) -> list[dict[str, Any]]:
     matches = data.get("matches")
     if not isinstance(matches, list):
         raise ValueError("API retornou matches invalido")
+    for partida in matches:
+        _validar_edicao_football_data(partida.get("season"), temporada)
     return matches
 
 
@@ -671,8 +697,10 @@ def buscar_partidas(temporada: str | None = None) -> list[dict[str, Any]]:
 
 def buscar_rodada_atual_football_data(temporada: str | None = None) -> int:
     temporada = temporada or temporada_brasileirao_atual()
-    data = _fetch(f"{API_BASE}/competitions/{COMPETITION}?season={temporada}")
-    rodada = (data.get("currentSeason") or {}).get("currentMatchday")
+    data = _fetch(f"{API_BASE}/competitions/{COMPETITION}")
+    edicao = data.get("currentSeason")
+    _validar_edicao_football_data(edicao, temporada)
+    rodada = edicao.get("currentMatchday")
     if not isinstance(rodada, int) or isinstance(rodada, bool) or not 1 <= rodada <= 38:
         raise ValueError("football-data.org retornou rodada atual invalida")
     return rodada
@@ -800,6 +828,7 @@ def buscar_artilharia(temporada: str | None = None, limite: int = 20) -> list[di
     temporada = temporada or temporada_brasileirao_atual()
     url = f"{API_BASE}/competitions/{COMPETITION}/scorers?season={temporada}&limit={limite}"
     data = _fetch(url)
+    _validar_edicao_football_data(data.get("season"), temporada)
 
     resultado = []
     for item in data.get("scorers", []):

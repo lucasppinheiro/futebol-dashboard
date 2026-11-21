@@ -538,7 +538,8 @@ def test_enriquecimento_historico_prioriza_rodadas_ausentes_no_lote(monkeypatch)
     assert desatualizado is True
 
 
-def test_atualizar_descarta_cache_de_outra_temporada(monkeypatch, tmp_path):
+@pytest.mark.parametrize("agenda_disponivel", [False, True])
+def test_atualizar_so_substitui_a_temporada_quando_a_agenda_esta_disponivel(monkeypatch, tmp_path, agenda_disponivel):
     destino = tmp_path / "brasileirao.json"
     classificacao = [
         {
@@ -559,6 +560,7 @@ def test_atualizar_descarta_cache_de_outra_temporada(monkeypatch, tmp_path):
             "aproveitamento": 100.0,
         }
     ]
+    classificacao.append({**classificacao[0], "posicao": 2, "time": "Flamengo", "sigla": "FLA"})
     artilharia = [{"jogador": "Jogador", "time": "Palmeiras", "sigla": "PAL", "posicao": "Atacante", "gols": 1}]
     destino.write_text(
         json.dumps(
@@ -573,9 +575,62 @@ def test_atualizar_descarta_cache_de_outra_temporada(monkeypatch, tmp_path):
     monkeypatch.setattr(atualizar_dados, "buscar_classificacao_cbf", lambda _: classificacao)
     monkeypatch.setattr(atualizar_dados, "buscar_artilharia_cbf", lambda _: artilharia)
 
+    if not agenda_disponivel:
+        anterior = destino.read_bytes()
+        with pytest.raises(ValueError, match="Agenda da temporada 2026"):
+            atualizar_dados.atualizar("2026", destino=destino)
+        assert destino.read_bytes() == anterior
+        return
+
+    partidas = [
+        {
+            "id": 2,
+            "rodada": 1,
+            "inicio_em": "2026-01-28T19:00:00Z",
+            "status": "encerrada",
+            "mandante": "PAL",
+            "visitante": "FLA",
+            "placar": {"mandante": 1, "visitante": 0},
+        }
+    ]
+    monkeypatch.setattr(atualizar_dados, "buscar_partidas_ge", lambda _: partidas)
     atualizar_dados.atualizar("2026", destino=destino)
 
     dados = json.loads(destino.read_text(encoding="utf-8"))
-    assert dados["partidas"] == []
+    assert dados["partidas"] == partidas
+    assert dados["info"]["temporada"] == "2026"
     assert dados["info"]["rodada_atual"] == 1
     assert dados["classificacao_por_rodada"] == {"1": classificacao}
+
+
+@pytest.mark.parametrize("regressao", ["vazia", "truncada", "sem_placar_confirmado"])
+def test_enriquecimento_preserva_agenda_em_caso_de_regressao(monkeypatch, regressao):
+    jogo = {"id": 1, "rodada": 1, "mandante": "PAL", "visitante": "FLA", "status": "encerrada"}
+    agenda = [jogo, {**jogo, "id": 2, "rodada": 20, "mandante": "FLA", "visitante": "PAL"}]
+    respostas = {
+        "vazia": [],
+        "truncada": agenda[:1],
+        "sem_placar_confirmado": [{**jogo, "status": "agendada"}, agenda[1]],
+    }
+    snapshot = {"partidas": agenda, "agenda_atualizada_em": "2026-05-01T20:00:00Z"}
+    monkeypatch.setattr(atualizar_dados, "buscar_partidas_ge", lambda _: respostas[regressao])
+
+    resultado = atualizar_dados._enriquecer_agenda("2026", snapshot, {"PAL", "FLA"})
+
+    assert resultado == (agenda, None, snapshot["agenda_atualizada_em"], True, None)
+
+
+def test_enriquecimento_tenta_ge_quando_football_data_regride(monkeypatch):
+    jogo = {"id": 1, "rodada": 1, "mandante": "PAL", "visitante": "FLA", "status": "encerrada"}
+    agenda_ge = [{**jogo, "id": 100}]
+    monkeypatch.setenv("FOOTBALL_DATA_TOKEN", "token")
+    monkeypatch.setattr(atualizar_dados, "buscar_partidas", lambda _: [])
+    monkeypatch.setattr(atualizar_dados, "buscar_partidas_ge", lambda _: agenda_ge)
+
+    partidas, _, _, desatualizada, fonte = atualizar_dados._enriquecer_agenda(
+        "2026", {"partidas": [jogo]}, {"PAL", "FLA"}
+    )
+
+    assert partidas == agenda_ge
+    assert not desatualizada
+    assert fonte == "ge"

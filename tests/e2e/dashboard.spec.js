@@ -100,7 +100,6 @@ test('fluxo principal preserva rodada, favoritos, filtros e comparador compartil
 
     await page.locator('#cmp-time1').selectOption('FLA');
     await page.locator('#cmp-time2').selectOption('PAL');
-    await page.locator('#cmp-btn').click();
     await expect(page).toHaveURL(/time1=FLA/);
     await expect(page).toHaveURL(/time2=PAL/);
     await expect(page).toHaveURL(/#comparador$/);
@@ -122,7 +121,7 @@ test('seletor de rodadas funciona por teclado e página de clube mantém o percu
     await expect(page.locator('h1')).toHaveText('Flamengo');
     await expect(page.getByText('Último jogo', { exact: true })).toBeVisible();
     await expect(page.getByText('Próximo jogo', { exact: true })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Comparar Flamengo/ })).toHaveAttribute('href', /time1=FLA/);
+    await expect(page.getByRole('link', { name: /Comparar com outro clube/ })).toHaveAttribute('href', /time1=FLA/);
     const accessibility = await new AxeBuilder({ page })
         .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
         .analyze();
@@ -154,9 +153,9 @@ test('sistema visual usa tipografia esportiva, cabeçalho verde e comparador cla
     });
 
     expect(visual.mastheadHeight).toBeLessThanOrEqual(76);
-    expect(visual.heroSize).toBeLessThanOrEqual(44);
-    expect(visual.sectionPadding).toBeLessThanOrEqual(64);
-    expect(visual.sectionTitleFamily).toContain('Inter');
+    expect(visual.heroSize).toBeLessThanOrEqual(48);
+    expect(visual.sectionPadding).toBeLessThanOrEqual(36);
+    expect(visual.sectionTitleFamily).toContain('Barlow Condensed');
     expect(visual.bodyFamily).toContain('Inter');
     expect(visual.headerBackground).toBe('rgb(7, 82, 62)');
     expect(visual.comparisonBackground).toBe(visual.bodyBackground);

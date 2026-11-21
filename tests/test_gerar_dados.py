@@ -68,3 +68,14 @@ def test_montar_info_preserva_rodada_do_campeonato_separada_dos_jogos():
     assert info["rodada_confirmada"] is False
     assert info["jogos_minimos"] == 24
     assert info["jogos_maximos"] == 26
+
+
+def test_montar_info_so_encerra_campeonato_com_todos_os_jogos():
+    lider = {"time": "Palmeiras", "pontos": 80, "jogos": 38}
+    vice = {"time": "Flamengo", "pontos": 77, "jogos": 37}
+    artilharia = [{"jogador": "Atacante", "gols": 20}]
+
+    assert not montar_info([lider, vice], artilharia, "2026", 38, True)["campeonato_finalizado"]
+    info = montar_info([lider, {**vice, "jogos": 38}], artilharia, "2026", 37, False)
+    assert info["rodada_atual"] == 38
+    assert info["campeonato_finalizado"]

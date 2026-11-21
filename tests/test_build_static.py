@@ -29,14 +29,14 @@ def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
     assert 'data-ui="brasileirao-dashboard"' in index_html
     assert 'class="site-header"' in index_html
     assert 'id="round-track"' in index_html
-    assert "Dados atualizados em" in index_html
+    assert "Verificado em" in index_html
     assert "Classificação atual" in index_html
     dados = build_static.app_module.carregar_dados(permitir_refresh=False)
     assert f"rodadaAtual: {dados['info']['rodada_atual']}" in index_html
     assert f"rodadasTotal: {dados['info']['rodadas_total']}" in index_html
     assert "jogos mínimos" not in index_html
     assert "family=Inter" in index_html
-    assert "family=Barlow+Condensed" not in index_html
+    assert "family=Barlow+Condensed" in index_html
     assert "family=IBM+Plex+Mono" not in index_html
     assert "family=Outfit" not in index_html
     assert "family=Source+Serif+4" not in index_html
@@ -53,7 +53,8 @@ def test_build_static_aplica_site_base_path(monkeypatch, tmp_path):
     assert re.search(r'href="/futebol-dashboard/static/css/dashboard\.css\?v=[0-9a-f]+"', not_found_html)
     assert "family=Inter" in not_found_html
     assert "family=Inter" in time_html
-    assert "family=Barlow+Condensed" not in not_found_html
+    assert "family=Barlow+Condensed" in time_html
+    assert "family=Barlow+Condensed" in not_found_html
     assert "family=IBM+Plex+Mono" not in time_html
     assert "family=Outfit" not in time_html
     assert "editorial-v2-production" not in not_found_html

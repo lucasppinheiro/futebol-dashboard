@@ -48,17 +48,20 @@
     }
 
     function createAttackDefense(canvas, classificacao, colors) {
-        const data = classificacao.map((club) => {
-            const jogos = Math.max(1, Number(club.jogos || 0));
-            return {
-                x: Number((Number(club.gols_pro || 0) / jogos).toFixed(2)),
-                y: Number((Number(club.gols_contra || 0) / jogos).toFixed(2)),
+        const data = classificacao
+            .filter((club) => club.jogos > 0)
+            .map((club) => ({
+                x: Number((club.gols_pro / club.jogos).toFixed(2)),
+                y: Number((club.gols_contra / club.jogos).toFixed(2)),
                 club: club.time,
                 sigla: club.sigla,
                 pontos: club.pontos,
                 color: club.cor
-            };
-        });
+            }));
+        const container = canvas.closest('.chart-canvas');
+        container?.classList.toggle('is-empty', !data.length);
+        container?.querySelector('.chart-empty')?.toggleAttribute('hidden', data.length > 0);
+        if (!data.length) return null;
         return new Chart(canvas.getContext('2d'), {
             type: 'scatter',
             data: {
@@ -214,7 +217,7 @@
         if (index >= 0) instances.splice(index, 1);
         attackChart?.destroy();
         attackChart = createAttackDefense(canvas, classificacao, theme());
-        instances.unshift(attackChart);
+        if (attackChart) instances.unshift(attackChart);
         initialized = true;
         return true;
     }
@@ -232,7 +235,8 @@
         const goalsRound = document.getElementById('chart-goals-round');
         if (attack && Array.isArray(classificacao) && classificacao.length) {
             attackChart = createAttackDefense(attack, classificacao, colors);
-            instances.push(attackChart);
+            if (attackChart) instances.push(attackChart);
+            initialized = true;
         }
         if (recentForm && Array.isArray(graficos.forma) && graficos.forma.length) {
             instances.push(createRecentForm(recentForm, graficos.forma, colors));
@@ -240,7 +244,7 @@
         if (goalsRound && Array.isArray(graficos.gols_por_rodada) && graficos.gols_por_rodada.length) {
             instances.push(createGoalsByRound(goalsRound, graficos.gols_por_rodada, colors));
         }
-        initialized = instances.length > 0;
+        initialized ||= instances.length > 0;
         return initialized;
     }
 

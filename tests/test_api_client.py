@@ -81,7 +81,8 @@ def test_busca_classificacao_cbf_normaliza_tabela_oficial(monkeypatch):
             }
         )
 
-    monkeypatch.setattr(api_client, "_fetch_public", lambda url: _payload_next("data", tabela))
+    html = r"\"currentYear\":\"2026\"" + _payload_next("data", tabela)
+    monkeypatch.setattr(api_client, "_fetch_public", lambda url: html)
 
     classificacao = api_client.buscar_classificacao_cbf("2026")
     corinthians = classificacao[8]
@@ -120,6 +121,7 @@ def test_busca_artilharia_cbf_paginada(monkeypatch):
 
 def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
     standings_payload = {
+        "season": {"startDate": "2026-01-01"},
         "standings": [
             {
                 "table": [
@@ -141,7 +143,7 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
                     }
                 ]
             }
-        ]
+        ],
     }
     matches_payload = {"matches": []}
 
@@ -152,7 +154,7 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
 
     monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
-    classificacao = api_client.buscar_classificacao()
+    classificacao = api_client.buscar_classificacao("2026")
 
     assert classificacao[0]["sigla"] == "PAL"
     assert classificacao[0]["estado"] == "SP"
@@ -160,6 +162,7 @@ def test_busca_classificacao_prefere_tla_da_api(monkeypatch):
 
 def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monkeypatch):
     standings_payload = {
+        "season": {"startDate": "2026-01-01"},
         "standings": [
             {
                 "table": [
@@ -181,7 +184,7 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
                     }
                 ]
             }
-        ]
+        ],
     }
     matches_payload = {"matches": []}
 
@@ -192,7 +195,7 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
 
     monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
-    classificacao = api_client.buscar_classificacao()
+    classificacao = api_client.buscar_classificacao("2026")
 
     assert classificacao[0]["sigla"] == "SAO"
     assert classificacao[0]["estado"] == "SP"
@@ -200,6 +203,7 @@ def test_busca_classificacao_normaliza_tla_oficial_para_sigla_do_dashboard(monke
 
 def test_busca_classificacao_usa_escudo_local_do_athletico(monkeypatch):
     standings_payload = {
+        "season": {"startDate": "2026-01-01"},
         "standings": [
             {
                 "table": [
@@ -221,7 +225,7 @@ def test_busca_classificacao_usa_escudo_local_do_athletico(monkeypatch):
                     }
                 ]
             }
-        ]
+        ],
     }
     matches_payload = {"matches": []}
 
@@ -232,7 +236,7 @@ def test_busca_classificacao_usa_escudo_local_do_athletico(monkeypatch):
 
     monkeypatch.setattr(api_client, "_fetch", fake_fetch)
 
-    classificacao = api_client.buscar_classificacao()
+    classificacao = api_client.buscar_classificacao("2026")
 
     assert classificacao[0]["sigla"] == "CAP"
     assert classificacao[0]["escudo"] == "static/img/escudos/normalizados/CAP.png"
@@ -240,6 +244,7 @@ def test_busca_classificacao_usa_escudo_local_do_athletico(monkeypatch):
 
 def test_busca_artilharia_normaliza_posicao_e_preserva_nao_informado(monkeypatch):
     payload = {
+        "season": {"startDate": "2026-01-01"},
         "scorers": [
             {
                 "player": {"name": "Jogador A", "position": "Attacker"},
@@ -251,11 +256,11 @@ def test_busca_artilharia_normaliza_posicao_e_preserva_nao_informado(monkeypatch
                 "team": {"name": "Nome Variavel FC", "tla": "PAL"},
                 "goals": 3,
             },
-        ]
+        ],
     }
     monkeypatch.setattr(api_client, "_fetch", lambda url: payload)
 
-    artilharia = api_client.buscar_artilharia()
+    artilharia = api_client.buscar_artilharia("2026")
 
     assert artilharia[0]["sigla"] == "PAL"
     assert artilharia[0]["posicao"] == "Atacante"
@@ -269,6 +274,7 @@ def test_busca_classificacao_usa_temporada_atual_por_padrao(monkeypatch):
         urls.append(url)
         if "standings" in url:
             return {
+                "season": {"startDate": f"{temporada_brasileirao_atual()}-01-01"},
                 "standings": [
                     {
                         "table": [
@@ -285,7 +291,7 @@ def test_busca_classificacao_usa_temporada_atual_por_padrao(monkeypatch):
                             }
                         ]
                     }
-                ]
+                ],
             }
         return {"matches": []}
 
@@ -299,6 +305,7 @@ def test_busca_classificacao_usa_temporada_atual_por_padrao(monkeypatch):
 
 def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
     standings_payload = {
+        "season": {"startDate": "2026-01-01"},
         "standings": [
             {
                 "table": [
@@ -336,7 +343,7 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
                     },
                 ]
             }
-        ]
+        ],
     }
     matches_payload = {
         "matches": [
@@ -370,6 +377,7 @@ def test_busca_classificacao_preserva_tabela_oficial(monkeypatch):
 
 def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monkeypatch):
     standings_payload = {
+        "season": {"startDate": "2026-01-01"},
         "standings": [
             {
                 "table": [
@@ -397,7 +405,7 @@ def test_busca_classificacao_prefere_mapeamento_por_nome_quando_tla_colide(monke
                     },
                 ]
             }
-        ]
+        ],
     }
     matches_payload = {"matches": []}
 
@@ -629,7 +637,9 @@ def test_extrai_rodada_selecionada_sem_confundir_lista_de_opcoes_cbf():
 
 
 def test_buscar_rodada_atual_football_data(monkeypatch):
-    monkeypatch.setattr(api_client, "_fetch", lambda _: {"currentSeason": {"currentMatchday": 27}})
+    monkeypatch.setattr(
+        api_client, "_fetch", lambda _: {"currentSeason": {"startDate": "2026-01-01", "currentMatchday": 27}}
+    )
 
     assert api_client.buscar_rodada_atual_football_data("2026") == 27
 
@@ -640,6 +650,7 @@ def test_buscar_classificacao_por_rodada_inclui_matchday_e_normaliza(monkeypatch
     def fake_fetch(url):
         chamadas.append(url)
         return {
+            "season": {"startDate": "2026-01-01"},
             "standings": [
                 {
                     "type": "TOTAL",
@@ -657,7 +668,7 @@ def test_buscar_classificacao_por_rodada_inclui_matchday_e_normaliza(monkeypatch
                         }
                     ],
                 }
-            ]
+            ],
         }
 
     monkeypatch.setattr(api_client, "_fetch", fake_fetch)
@@ -673,3 +684,45 @@ def test_buscar_classificacao_por_rodada_inclui_matchday_e_normaliza(monkeypatch
 def test_buscar_classificacao_por_rodada_rejeita_rodada_invalida(rodada):
     with pytest.raises(ValueError, match="rodada"):
         api_client.buscar_classificacao_por_rodada("2026", rodada)
+
+
+@pytest.mark.parametrize("buscar", [api_client.buscar_classificacao_ge, api_client.buscar_partidas_ge])
+def test_ge_rejeita_temporada_divergente_ou_desconhecida(monkeypatch, buscar):
+    for fase, edicao in (("fase-2025", '{"data_inicio":"2025-01-01"}'), ("fase-sem-data", "{}")):
+        html = (
+            f'tUUID: "abc"; const fase = {{"slug":"{fase}"}}; '
+            f'const classificacao = {{"edicao":{edicao},"classificacao":[]}};'
+        )
+        monkeypatch.setattr(
+            api_client, "_fetch_public", lambda url, html=html: html if url == api_client.GE_COMPETITION_URL else []
+        )
+        with pytest.raises(ValueError, match="temporada"):
+            buscar("2026")
+
+
+@pytest.mark.parametrize("buscar", [api_client.buscar_classificacao_cbf, api_client.buscar_rodada_atual_cbf])
+def test_cbf_rejeita_pagina_de_outra_temporada(monkeypatch, buscar):
+    html = r"\"currentYear\":\"2025\"" + "Rodada 27"
+    monkeypatch.setattr(api_client, "_fetch_public", lambda _: html)
+
+    with pytest.raises(ValueError, match="temporada"):
+        buscar("2026")
+
+
+@pytest.mark.parametrize(
+    ("buscar", "resposta"),
+    [
+        (api_client.buscar_classificacao, {"season": {"startDate": "2025-01-01"}, "standings": []}),
+        (api_client.buscar_artilharia, {"season": {"startDate": "2025-01-01"}, "scorers": []}),
+        (api_client.buscar_partidas, {"matches": [{"season": {"startDate": "2025-01-01"}}]}),
+        (
+            api_client.buscar_rodada_atual_football_data,
+            {"currentSeason": {"startDate": "2025-01-01", "currentMatchday": 27}},
+        ),
+    ],
+)
+def test_football_data_rejeita_resposta_de_outra_temporada(monkeypatch, buscar, resposta):
+    monkeypatch.setattr(api_client, "_fetch", lambda _: resposta)
+
+    with pytest.raises(ValueError, match="temporada"):
+        buscar("2026")

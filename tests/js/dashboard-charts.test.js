@@ -7,7 +7,10 @@ const chartsJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/dashbo
 function criarDOM({ comPartidas = true } = {}) {
     const dom = new JSDOM(
         `<!DOCTYPE html><html><body>
-            <canvas id="chart-attack-defense"></canvas>
+            <div class="chart-canvas">
+                <canvas id="chart-attack-defense"></canvas>
+                <div class="chart-empty" hidden>Aguardando o primeiro jogo.</div>
+            </div>
             <div id="chart-home-away"></div>
             <canvas id="chart-recent-form"></canvas>
             <canvas id="chart-goals-round"></canvas>
@@ -18,8 +21,8 @@ function criarDOM({ comPartidas = true } = {}) {
         canvas.getContext = () => ({ canvas });
     });
     dom.window.dadosClassificacao = [
-        { time: 'Flamengo', sigla: 'FLA', pontos: 54, gols_pro: 51, gols_contra: 21, cor: '#E11D1D' },
-        { time: 'Palmeiras', sigla: 'PAL', pontos: 53, gols_pro: 45, gols_contra: 21, cor: '#006437' }
+        { time: 'Flamengo', sigla: 'FLA', jogos: 27, pontos: 54, gols_pro: 51, gols_contra: 21, cor: '#E11D1D' },
+        { time: 'Palmeiras', sigla: 'PAL', jogos: 27, pontos: 53, gols_pro: 45, gols_contra: 21, cor: '#006437' }
     ];
     dom.window.dadosGraficos = comPartidas
         ? {
@@ -85,5 +88,21 @@ test('ignora atualização de classificação vazia sem remover gráficos já re
 
     expect(dom.window.brasileiraoCharts.updateClassificacao([])).toBe(false);
     expect(dom.window.Chart.instances).toHaveLength(3);
+    dom.window.close();
+});
+
+test('oculta clubes sem jogos no gráfico de ataque e defesa', () => {
+    const dom = criarDOM({ comPartidas: false });
+    dom.window.dadosClassificacao[1].jogos = 0;
+    dom.window.eval(chartsJs);
+    dom.window.brasileiraoCharts.init();
+
+    const [config] = dom.window.Chart.instances;
+    expect(config.data.datasets[0].data).toMatchObject([{ sigla: 'FLA', x: 1.89, y: 0.78 }]);
+
+    dom.window.dadosClassificacao[0].jogos = 0;
+    dom.window.brasileiraoCharts.updateClassificacao(dom.window.dadosClassificacao);
+    expect(dom.window.Chart.instances).toHaveLength(1);
+    expect(dom.window.document.querySelector('.chart-empty').hidden).toBe(false);
     dom.window.close();
 });

@@ -4,13 +4,15 @@ const path = require('path');
 
 const dashboardJs = fs.readFileSync(path.resolve(__dirname, '../../static/js/dashboard.js'), 'utf-8');
 
-function criarDOM(url = 'http://localhost/?rodada=2') {
+function criarDOM(url = 'http://localhost/?rodada=2', prazoVerificacao = Date.now() + 60_000) {
     const dom = new JSDOM(
         `<!DOCTYPE html><html data-theme="light"><body>
             <nav><a class="edition-nav-link" href="#classificacao">Tabela</a><a class="edition-nav-link" href="#rodada">Rodada</a><a class="edition-nav-link" href="#desempenho">Desempenho</a></nav>
             <section id="classificacao">
                 <strong id="standings-heading"></strong><span id="standings-source"></span>
                 <p id="classificacao-unavailable" hidden></p>
+                <span class="classification-update"></span>
+                <p id="verification-warning" hidden data-deadline="${prazoVerificacao}"></p>
             </section>
             <section id="rodada" data-current-round="1" data-total-rounds="3">
                 <button id="round-prev"></button><button id="round-next"></button>
@@ -20,8 +22,8 @@ function criarDOM(url = 'http://localhost/?rodada=2') {
                     <button class="round-option" data-round="2" role="option"></button>
                     <button class="round-option" data-round="3" role="option"></button>
                 </div>
-                <strong id="round-heading"></strong><span id="round-count"></span>
-                <div id="round-track"></div><p id="round-empty" hidden></p><p id="round-announcement"></p>
+                <strong id="round-heading"></strong><span id="round-count"></span><button id="round-favorites" class="filter-btn" aria-pressed="false" hidden>Meus clubes</button>
+                <button id="round-current" hidden></button><div id="round-track"></div><div id="round-empty" hidden><strong></strong><p></p></div><p id="round-announcement"></p>
             </section>
             <section id="desempenho"></section>
             <label>Busca <input id="search-classificacao"></label>
@@ -36,7 +38,7 @@ function criarDOM(url = 'http://localhost/?rodada=2') {
             <button id="cmp-quick-leaders"></button>
             <select id="cmp-time1"><option value=""></option><option value="FLA">Flamengo</option><option value="PAL">Palmeiras</option></select>
             <select id="cmp-time2"><option value=""></option><option value="FLA">Flamengo</option><option value="PAL">Palmeiras</option></select>
-            <button id="cmp-btn" disabled></button><div id="cmp-result"></div>
+            <div id="cmp-result"></div>
         </body></html>`,
         { runScripts: 'dangerously', pretendToBeVisual: true, url }
     );
@@ -77,24 +79,24 @@ function criarDOM(url = 'http://localhost/?rodada=2') {
             placar: { mandante: null, visitante: null }
         }
     ];
-    dom.window.classificacoesPorRodada = {
-        1: dom.window.dadosClassificacao,
-        2: [
-            { ...dom.window.dadosClassificacao[1], posicao: 1, pontos: 13, vitorias: 4, saldo: 5 },
-            { ...dom.window.dadosClassificacao[0], posicao: 2, pontos: 12, vitorias: 4, saldo: 4 }
-        ]
-    };
     dom.window.eval(dashboardJs);
     dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
     return dom;
 }
+
+test('mostra o aviso quando o prazo de verificação vence após o build', () => {
+    const dom = criarDOM(undefined, Date.now() - 1);
+    expect(dom.window.document.getElementById('verification-warning').hidden).toBe(false);
+    expect(dom.window.document.querySelector('.classification-update').classList.contains('is-stale')).toBe(true);
+    dom.window.close();
+});
 
 describe('Linha da Rodada', () => {
     test('abre na rodada informada pela query string', () => {
         const dom = criarDOM();
         expect(dom.window.document.getElementById('round-heading').textContent).toContain('Rodada 2');
         expect(dom.window.document.querySelectorAll('.match-card')).toHaveLength(1);
-        expect(dom.window.document.getElementById('round-trigger-label').textContent).toBe('Rodada 2');
+        expect(dom.window.document.getElementById('round-trigger-label').textContent).toBe('Rodada 2 de 3');
         dom.window.close();
     });
 
@@ -161,7 +163,11 @@ describe('Interações preservadas', () => {
 
     test('integra melhor ataque e melhor defesa sem repetir a liderança', () => {
         const dom = criarDOM('http://localhost/?rodada=1');
-        const classification = dom.window.classificacoesPorRodada[2];
+        const [dadosFlamengo, dadosPalmeiras] = dom.window.dadosClassificacao;
+        const classification = [
+            { ...dadosPalmeiras, posicao: 1, pontos: 13, vitorias: 4, saldo: 5 },
+            { ...dadosFlamengo, posicao: 2, pontos: 12, vitorias: 4, saldo: 4 }
+        ];
 
         dom.window.dispatchEvent(
             new dom.window.CustomEvent('brasileirao:classificacao', {
@@ -207,10 +213,75 @@ describe('Interações preservadas', () => {
         expect(document.getElementById('cmp-time1').value).toBe('FLA');
         expect(document.getElementById('cmp-time2').value).toBe('PAL');
         expect(document.getElementById('cmp-result').textContent).toContain('Flamengo');
-        document.getElementById('cmp-btn').click();
+        const second = document.getElementById('cmp-time2');
+        second.dispatchEvent(new dom.window.Event('change'));
         expect(dom.window.location.search).toContain('rodada=2');
         expect(dom.window.location.search).toContain('time1=FLA');
         expect(dom.window.location.hash).toBe('#comparador');
         dom.window.close();
     });
+});
+
+test('volta à rodada atual e preserva a comparação na URL', () => {
+    const dom = criarDOM('http://localhost/?rodada=2&time1=FLA&time2=PAL');
+    const current = dom.window.document.getElementById('round-current');
+    expect(current.hidden).toBe(false);
+    current.click();
+    expect(dom.window.document.getElementById('round-heading').textContent).toContain('Rodada 1');
+    expect(current.hidden).toBe(true);
+    expect(dom.window.location.search).not.toContain('rodada=');
+    expect(dom.window.location.search).toContain('time1=FLA');
+    dom.window.close();
+});
+
+test('compara automaticamente ao selecionar dois clubes diferentes', () => {
+    const dom = criarDOM('http://localhost/?rodada=2');
+    const document = dom.window.document;
+    document.getElementById('cmp-time1').value = 'FLA';
+    const second = document.getElementById('cmp-time2');
+    second.value = 'PAL';
+    second.dispatchEvent(new dom.window.Event('change'));
+    expect(document.getElementById('cmp-result').textContent).toContain('Flamengo');
+    expect(dom.window.location.search).toContain('time2=PAL');
+    expect(dom.window.location.search).toContain('rodada=2');
+    dom.window.close();
+});
+
+test('abre o comparador com apenas o clube da página selecionado', () => {
+    const dom = criarDOM('http://localhost/?time1=PAL#comparador');
+    const document = dom.window.document;
+
+    expect(document.getElementById('cmp-time1').value).toBe('PAL');
+    expect(document.getElementById('cmp-time2').value).toBe('');
+    expect(document.querySelector('.compare-summary')).toBeNull();
+    dom.window.close();
+});
+
+test('Meus clubes filtra os jogos e acompanha as alterações de favoritos', () => {
+    const dom = criarDOM();
+    const document = dom.window.document;
+    const filter = document.getElementById('round-favorites');
+    const favorite = document.querySelector('[data-favorite="FLA"]');
+    const empty = document.getElementById('round-empty');
+    dom.window.dadosPartidas.push({
+        ...dom.window.dadosPartidas[0],
+        id: 3,
+        mandante: 'GRE',
+        visitante: 'COR'
+    });
+
+    expect(filter.hidden).toBe(false);
+    filter.click();
+    expect(filter.getAttribute('aria-pressed')).toBe('true');
+    expect(empty.textContent).toContain('Nenhum clube favorito');
+    expect(document.querySelectorAll('#round-track .match-card')).toHaveLength(0);
+
+    favorite.click();
+    expect(empty.hidden).toBe(true);
+    expect(document.querySelector('[data-match-id="2"]')).not.toBeNull();
+    expect(document.querySelector('[data-match-id="3"]')).toBeNull();
+
+    filter.click();
+    expect(document.querySelectorAll('#round-track .match-card')).toHaveLength(2);
+    dom.window.close();
 });

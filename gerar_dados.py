@@ -26,11 +26,14 @@ def montar_info(
     jogos_maximos = max(jogos)
     rodada_confirmada = jogos_minimos == jogos_maximos if rodada_confirmada is None else rodada_confirmada
     rodada_atual = jogos_maximos if rodada_atual is None else rodada_atual
-    campeonato_finalizado = rodada_confirmada and rodada_atual >= 38
+    rodadas_total = 38
+    campeonato_finalizado = jogos_minimos == jogos_maximos == rodadas_total
+    if campeonato_finalizado:
+        rodada_atual = rodadas_total
     return {
         "campeonato": "Brasileirao Serie A",
         "temporada": temporada,
-        "rodadas_total": 38,
+        "rodadas_total": rodadas_total,
         "rodada_atual": rodada_atual,
         "rodada_confirmada": rodada_confirmada,
         "jogos_minimos": jogos_minimos,
