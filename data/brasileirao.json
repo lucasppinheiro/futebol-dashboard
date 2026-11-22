@@ -41,15 +41,15 @@
       "estado": "MG",
       "cor": "#003DA5",
       "escudo": "static/img/escudos/normalizados/CRU.png",
-      "jogos": 35,
-      "vitorias": 19,
+      "jogos": 36,
+      "vitorias": 20,
       "empates": 6,
       "derrotas": 10,
-      "gols_pro": 57,
-      "gols_contra": 49,
-      "saldo": 8,
-      "pontos": 63,
-      "aproveitamento": 60.0
+      "gols_pro": 59,
+      "gols_contra": 50,
+      "saldo": 9,
+      "pontos": 66,
+      "aproveitamento": 61.1
     },
     {
       "posicao": 4,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "static/img/escudos/normalizados/CHA.png",
-      "jogos": 35,
+      "jogos": 36,
       "vitorias": 4,
       "empates": 9,
-      "derrotas": 22,
-      "gols_pro": 33,
-      "gols_contra": 72,
-      "saldo": -39,
+      "derrotas": 23,
+      "gols_pro": 34,
+      "gols_contra": 74,
+      "saldo": -40,
       "pontos": 21,
-      "aproveitamento": 20.0
+      "aproveitamento": 19.4
     }
   ],
   "classificacao_por_rodada": {
@@ -12354,15 +12354,15 @@
         "estado": "MG",
         "cor": "#003DA5",
         "escudo": "static/img/escudos/normalizados/CRU.png",
-        "jogos": 35,
-        "vitorias": 19,
+        "jogos": 36,
+        "vitorias": 20,
         "empates": 6,
         "derrotas": 10,
-        "gols_pro": 57,
-        "gols_contra": 49,
-        "saldo": 8,
-        "pontos": 63,
-        "aproveitamento": 60.0
+        "gols_pro": 59,
+        "gols_contra": 50,
+        "saldo": 9,
+        "pontos": 66,
+        "aproveitamento": 61.1
       },
       {
         "posicao": 4,
@@ -12643,15 +12643,15 @@
         "estado": "SC",
         "cor": "#008000",
         "escudo": "static/img/escudos/normalizados/CHA.png",
-        "jogos": 35,
+        "jogos": 36,
         "vitorias": 4,
         "empates": 9,
-        "derrotas": 22,
-        "gols_pro": 33,
-        "gols_contra": 72,
-        "saldo": -39,
+        "derrotas": 23,
+        "gols_pro": 34,
+        "gols_contra": 74,
+        "saldo": -40,
         "pontos": 21,
-        "aproveitamento": 20.0
+        "aproveitamento": 19.4
       }
     ]
   },
@@ -12690,6 +12690,13 @@
       "sigla": "FLA",
       "posicao": "Nao informado",
       "gols": 13
+    },
+    {
+      "jogador": "Matheus Pereira",
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "posicao": "Nao informado",
+      "gols": 11
     },
     {
       "jogador": "Luciano Juba",
@@ -12741,13 +12748,6 @@
       "gols": 10
     },
     {
-      "jogador": "Matheus Pereira",
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "posicao": "Nao informado",
-      "gols": 10
-    },
-    {
       "jogador": "John Kennedy",
       "time": "Fluminense",
       "sigla": "FLU",
@@ -12756,6 +12756,13 @@
     },
     {
       "jogador": "Pedro Rocha",
+      "time": "Coritiba SAF",
+      "sigla": "CFC",
+      "posicao": "Nao informado",
+      "gols": 9
+    },
+    {
+      "jogador": "Breno",
       "time": "Coritiba SAF",
       "sigla": "CFC",
       "posicao": "Nao informado",
@@ -12779,13 +12786,6 @@
       "jogador": "Neymar Jr",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Nao informado",
-      "gols": 8
-    },
-    {
-      "jogador": "Breno",
-      "time": "Coritiba SAF",
-      "sigla": "CFC",
       "posicao": "Nao informado",
       "gols": 8
     },
@@ -17026,12 +17026,12 @@
       "id": 555095,
       "rodada": 36,
       "inicio_em": "2026-11-22T00:00:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "CHA",
       "visitante": "CRU",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 2
       }
     },
     {
@@ -17359,14 +17359,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-21T23:19:15.500881+00:00",
-  "dados_verificados_em": "2026-11-21T23:19:15.501045+00:00",
+  "dados_atualizados_em": "2026-11-22T06:52:17.222499+00:00",
+  "dados_verificados_em": "2026-11-22T06:52:17.222628+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": false,
-  "fonte": "ge",
+  "fonte": "CBF",
   "fontes": {
-    "classificacao": "ge",
+    "classificacao": "CBF",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -17385,6 +17385,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-21T23:19:15.497354+00:00",
+  "agenda_atualizada_em": "2026-11-22T06:52:17.219847+00:00",
   "historico_atualizado_em": "2026-11-15T02:41:30.700192+00:00"
 }
