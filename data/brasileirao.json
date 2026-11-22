@@ -58,15 +58,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 35,
+      "jogos": 36,
       "vitorias": 17,
-      "empates": 9,
+      "empates": 10,
       "derrotas": 9,
       "gols_pro": 56,
       "gols_contra": 42,
       "saldo": 14,
-      "pontos": 60,
-      "aproveitamento": 57.1
+      "pontos": 61,
+      "aproveitamento": 56.5
     },
     {
       "posicao": 5,
@@ -75,15 +75,15 @@
       "estado": "PR",
       "cor": "#E11D1D",
       "escudo": "static/img/escudos/normalizados/CAP.png",
-      "jogos": 35,
-      "vitorias": 15,
+      "jogos": 36,
+      "vitorias": 16,
       "empates": 9,
       "derrotas": 11,
-      "gols_pro": 52,
-      "gols_contra": 45,
-      "saldo": 7,
-      "pontos": 54,
-      "aproveitamento": 51.4
+      "gols_pro": 56,
+      "gols_contra": 47,
+      "saldo": 9,
+      "pontos": 57,
+      "aproveitamento": 52.8
     },
     {
       "posicao": 6,
@@ -223,6 +223,23 @@
     },
     {
       "posicao": 14,
+      "time": "Mirassol",
+      "sigla": "MIR",
+      "estado": "SP",
+      "cor": "#FFD700",
+      "escudo": "static/img/escudos/normalizados/MIR.png",
+      "jogos": 36,
+      "vitorias": 10,
+      "empates": 12,
+      "derrotas": 14,
+      "gols_pro": 39,
+      "gols_contra": 48,
+      "saldo": -9,
+      "pontos": 42,
+      "aproveitamento": 38.9
+    },
+    {
+      "posicao": 15,
       "time": "Vitória",
       "sigla": "VIT",
       "estado": "BA",
@@ -235,23 +252,6 @@
       "gols_pro": 37,
       "gols_contra": 52,
       "saldo": -15,
-      "pontos": 41,
-      "aproveitamento": 39.0
-    },
-    {
-      "posicao": 15,
-      "time": "Mirassol",
-      "sigla": "MIR",
-      "estado": "SP",
-      "cor": "#FFD700",
-      "escudo": "static/img/escudos/normalizados/MIR.png",
-      "jogos": 35,
-      "vitorias": 10,
-      "empates": 11,
-      "derrotas": 14,
-      "gols_pro": 39,
-      "gols_contra": 48,
-      "saldo": -9,
       "pontos": 41,
       "aproveitamento": 39.0
     },
@@ -313,15 +313,15 @@
       "estado": "PA",
       "cor": "#00008B",
       "escudo": "static/img/escudos/normalizados/REM.png",
-      "jogos": 35,
+      "jogos": 36,
       "vitorias": 7,
       "empates": 11,
-      "derrotas": 17,
-      "gols_pro": 39,
-      "gols_contra": 57,
-      "saldo": -18,
+      "derrotas": 18,
+      "gols_pro": 41,
+      "gols_contra": 61,
+      "saldo": -20,
       "pontos": 32,
-      "aproveitamento": 30.5
+      "aproveitamento": 29.6
     },
     {
       "posicao": 20,
@@ -12371,15 +12371,15 @@
         "estado": "RJ",
         "cor": "#7B0023",
         "escudo": "static/img/escudos/normalizados/FLU.png",
-        "jogos": 35,
+        "jogos": 36,
         "vitorias": 17,
-        "empates": 9,
+        "empates": 10,
         "derrotas": 9,
         "gols_pro": 56,
         "gols_contra": 42,
         "saldo": 14,
-        "pontos": 60,
-        "aproveitamento": 57.1
+        "pontos": 61,
+        "aproveitamento": 56.5
       },
       {
         "posicao": 5,
@@ -12388,15 +12388,15 @@
         "estado": "PR",
         "cor": "#E11D1D",
         "escudo": "static/img/escudos/normalizados/CAP.png",
-        "jogos": 35,
-        "vitorias": 15,
+        "jogos": 36,
+        "vitorias": 16,
         "empates": 9,
         "derrotas": 11,
-        "gols_pro": 52,
-        "gols_contra": 45,
-        "saldo": 7,
-        "pontos": 54,
-        "aproveitamento": 51.4
+        "gols_pro": 56,
+        "gols_contra": 47,
+        "saldo": 9,
+        "pontos": 57,
+        "aproveitamento": 52.8
       },
       {
         "posicao": 6,
@@ -12536,6 +12536,23 @@
       },
       {
         "posicao": 14,
+        "time": "Mirassol",
+        "sigla": "MIR",
+        "estado": "SP",
+        "cor": "#FFD700",
+        "escudo": "static/img/escudos/normalizados/MIR.png",
+        "jogos": 36,
+        "vitorias": 10,
+        "empates": 12,
+        "derrotas": 14,
+        "gols_pro": 39,
+        "gols_contra": 48,
+        "saldo": -9,
+        "pontos": 42,
+        "aproveitamento": 38.9
+      },
+      {
+        "posicao": 15,
         "time": "Vitória",
         "sigla": "VIT",
         "estado": "BA",
@@ -12548,23 +12565,6 @@
         "gols_pro": 37,
         "gols_contra": 52,
         "saldo": -15,
-        "pontos": 41,
-        "aproveitamento": 39.0
-      },
-      {
-        "posicao": 15,
-        "time": "Mirassol",
-        "sigla": "MIR",
-        "estado": "SP",
-        "cor": "#FFD700",
-        "escudo": "static/img/escudos/normalizados/MIR.png",
-        "jogos": 35,
-        "vitorias": 10,
-        "empates": 11,
-        "derrotas": 14,
-        "gols_pro": 39,
-        "gols_contra": 48,
-        "saldo": -9,
         "pontos": 41,
         "aproveitamento": 39.0
       },
@@ -12626,15 +12626,15 @@
         "estado": "PA",
         "cor": "#00008B",
         "escudo": "static/img/escudos/normalizados/REM.png",
-        "jogos": 35,
+        "jogos": 36,
         "vitorias": 7,
         "empates": 11,
-        "derrotas": 17,
-        "gols_pro": 39,
-        "gols_contra": 57,
-        "saldo": -18,
+        "derrotas": 18,
+        "gols_pro": 41,
+        "gols_contra": 61,
+        "saldo": -20,
         "pontos": 32,
-        "aproveitamento": 30.5
+        "aproveitamento": 29.6
       },
       {
         "posicao": 20,
@@ -17038,24 +17038,24 @@
       "id": 555090,
       "rodada": 36,
       "inicio_em": "2026-11-22T19:00:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "CAP",
       "visitante": "REM",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 4,
+        "visitante": 2
       }
     },
     {
       "id": 555096,
       "rodada": 36,
       "inicio_em": "2026-11-22T21:30:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "FLU",
       "visitante": "MIR",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -17359,14 +17359,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-22T06:52:17.222499+00:00",
-  "dados_verificados_em": "2026-11-22T15:19:49.133610+00:00",
+  "dados_atualizados_em": "2026-11-22T21:47:23.095875+00:00",
+  "dados_verificados_em": "2026-11-22T21:47:23.096033+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": false,
-  "fonte": "CBF",
+  "fonte": "ge",
   "fontes": {
-    "classificacao": "CBF",
+    "classificacao": "ge",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -17385,6 +17385,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-22T15:19:49.131163+00:00",
+  "agenda_atualizada_em": "2026-11-22T21:47:23.092293+00:00",
   "historico_atualizado_em": "2026-11-15T02:41:30.700192+00:00"
 }
