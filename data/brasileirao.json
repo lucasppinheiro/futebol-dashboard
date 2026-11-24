@@ -148,8 +148,8 @@
       "empates": 11,
       "derrotas": 12,
       "gols_pro": 51,
-      "gols_contra": 50,
-      "saldo": 1,
+      "gols_contra": 51,
+      "saldo": 0,
       "pontos": 50,
       "aproveitamento": 46.3
     },
@@ -249,9 +249,9 @@
       "vitorias": 10,
       "empates": 11,
       "derrotas": 15,
-      "gols_pro": 39,
+      "gols_pro": 40,
       "gols_contra": 47,
-      "saldo": -8,
+      "saldo": -7,
       "pontos": 41,
       "aproveitamento": 38.0
     },
@@ -12461,8 +12461,8 @@
         "empates": 11,
         "derrotas": 12,
         "gols_pro": 51,
-        "gols_contra": 50,
-        "saldo": 1,
+        "gols_contra": 51,
+        "saldo": 0,
         "pontos": 50,
         "aproveitamento": 46.3
       },
@@ -12562,9 +12562,9 @@
         "vitorias": 10,
         "empates": 11,
         "derrotas": 15,
-        "gols_pro": 39,
+        "gols_pro": 40,
         "gols_contra": 47,
-        "saldo": -8,
+        "saldo": -7,
         "pontos": 41,
         "aproveitamento": 38.0
       },
@@ -12692,6 +12692,20 @@
       "gols": 13
     },
     {
+      "jogador": "Rene",
+      "time": "Vitória",
+      "sigla": "VIT",
+      "posicao": "Nao informado",
+      "gols": 12
+    },
+    {
+      "jogador": "Vinicius",
+      "time": "Grêmio",
+      "sigla": "GRE",
+      "posicao": "Nao informado",
+      "gols": 11
+    },
+    {
       "jogador": "Matheus Pereira",
       "time": "Cruzeiro",
       "sigla": "CRU",
@@ -12706,28 +12720,21 @@
       "gols": 11
     },
     {
-      "jogador": "Rene",
-      "time": "Vitória",
-      "sigla": "VIT",
+      "jogador": "Danilo Santos",
+      "time": "Botafogo",
+      "sigla": "BOT",
       "posicao": "Nao informado",
-      "gols": 11
+      "gols": 10
     },
     {
-      "jogador": "Vinicius",
-      "time": "Grêmio",
-      "sigla": "GRE",
-      "posicao": "Nao informado",
-      "gols": 11
-    },
-    {
-      "jogador": "Mauricio",
+      "jogador": "Lopez",
       "time": "Palmeiras",
       "sigla": "PAL",
       "posicao": "Nao informado",
       "gols": 10
     },
     {
-      "jogador": "Lopez",
+      "jogador": "Mauricio",
       "time": "Palmeiras",
       "sigla": "PAL",
       "posicao": "Nao informado",
@@ -12741,11 +12748,18 @@
       "gols": 10
     },
     {
-      "jogador": "Danilo Santos",
-      "time": "Botafogo",
-      "sigla": "BOT",
+      "jogador": "Luciano",
+      "time": "São Paulo",
+      "sigla": "SAO",
       "posicao": "Nao informado",
-      "gols": 10
+      "gols": 9
+    },
+    {
+      "jogador": "Jajá",
+      "time": "Remo",
+      "sigla": "REM",
+      "posicao": "Nao informado",
+      "gols": 9
     },
     {
       "jogador": "John Kennedy",
@@ -12769,30 +12783,16 @@
       "gols": 9
     },
     {
-      "jogador": "Luciano",
-      "time": "São Paulo",
-      "sigla": "SAO",
+      "jogador": "Carrascal",
+      "time": "Flamengo",
+      "sigla": "FLA",
       "posicao": "Nao informado",
-      "gols": 9
-    },
-    {
-      "jogador": "Jajá",
-      "time": "Remo",
-      "sigla": "REM",
-      "posicao": "Nao informado",
-      "gols": 9
+      "gols": 8
     },
     {
       "jogador": "Neymar Jr",
       "time": "Santos FC",
       "sigla": "SAN",
-      "posicao": "Nao informado",
-      "gols": 8
-    },
-    {
-      "jogador": "Carrascal",
-      "time": "Flamengo",
-      "sigla": "FLA",
       "posicao": "Nao informado",
       "gols": 8
     }
@@ -17086,7 +17086,7 @@
       "id": 555093,
       "rodada": 36,
       "inicio_em": "2026-11-23T23:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "BOT",
       "visitante": "SAO",
       "placar": {
@@ -17098,12 +17098,12 @@
       "id": 555099,
       "rodada": 36,
       "inicio_em": "2026-11-24T00:00:00Z",
-      "status": "em_andamento",
+      "status": "encerrada",
       "mandante": "SAN",
       "visitante": "GRE",
       "placar": {
         "mandante": 0,
-        "visitante": 1
+        "visitante": 2
       }
     },
     {
@@ -17359,14 +17359,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-24T00:53:20.217195+00:00",
-  "dados_verificados_em": "2026-11-24T00:53:20.217331+00:00",
+  "dados_atualizados_em": "2026-11-24T10:57:26.954395+00:00",
+  "dados_verificados_em": "2026-11-24T10:57:26.954554+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": false,
-  "fonte": "ge",
+  "fonte": "CBF",
   "fontes": {
-    "classificacao": "ge",
+    "classificacao": "CBF",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -17385,6 +17385,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-24T00:53:20.214385+00:00",
+  "agenda_atualizada_em": "2026-11-24T10:57:26.950786+00:00",
   "historico_atualizado_em": "2026-11-15T02:41:30.700192+00:00"
 }
