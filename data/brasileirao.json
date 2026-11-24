@@ -24,15 +24,15 @@
       "estado": "SP",
       "cor": "#006437",
       "escudo": "static/img/escudos/normalizados/PAL.png",
-      "jogos": 36,
+      "jogos": 37,
       "vitorias": 21,
       "empates": 11,
-      "derrotas": 4,
+      "derrotas": 5,
       "gols_pro": 64,
-      "gols_contra": 26,
-      "saldo": 38,
+      "gols_contra": 27,
+      "saldo": 37,
       "pontos": 74,
-      "aproveitamento": 68.5
+      "aproveitamento": 66.7
     },
     {
       "posicao": 3,
@@ -330,15 +330,15 @@
       "estado": "SC",
       "cor": "#008000",
       "escudo": "static/img/escudos/normalizados/CHA.png",
-      "jogos": 36,
-      "vitorias": 4,
+      "jogos": 37,
+      "vitorias": 5,
       "empates": 9,
       "derrotas": 23,
-      "gols_pro": 34,
+      "gols_pro": 35,
       "gols_contra": 74,
-      "saldo": -40,
-      "pontos": 21,
-      "aproveitamento": 19.4
+      "saldo": -39,
+      "pontos": 24,
+      "aproveitamento": 21.6
     }
   ],
   "classificacao_por_rodada": {
@@ -12337,15 +12337,15 @@
         "estado": "SP",
         "cor": "#006437",
         "escudo": "static/img/escudos/normalizados/PAL.png",
-        "jogos": 36,
+        "jogos": 37,
         "vitorias": 21,
         "empates": 11,
-        "derrotas": 4,
+        "derrotas": 5,
         "gols_pro": 64,
-        "gols_contra": 26,
-        "saldo": 38,
+        "gols_contra": 27,
+        "saldo": 37,
         "pontos": 74,
-        "aproveitamento": 68.5
+        "aproveitamento": 66.7
       },
       {
         "posicao": 3,
@@ -12643,15 +12643,15 @@
         "estado": "SC",
         "cor": "#008000",
         "escudo": "static/img/escudos/normalizados/CHA.png",
-        "jogos": 36,
-        "vitorias": 4,
+        "jogos": 37,
+        "vitorias": 5,
         "empates": 9,
         "derrotas": 23,
-        "gols_pro": 34,
+        "gols_pro": 35,
         "gols_contra": 74,
-        "saldo": -40,
-        "pontos": 21,
-        "aproveitamento": 19.4
+        "saldo": -39,
+        "pontos": 24,
+        "aproveitamento": 21.6
       }
     ]
   },
@@ -17122,12 +17122,12 @@
       "id": 555102,
       "rodada": 37,
       "inicio_em": "2026-11-24T21:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "CHA",
       "visitante": "PAL",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 1,
+        "visitante": 0
       }
     },
     {
@@ -17359,14 +17359,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-24T10:57:26.954395+00:00",
-  "dados_verificados_em": "2026-11-24T10:57:26.954554+00:00",
+  "dados_atualizados_em": "2026-11-24T21:13:22.182063+00:00",
+  "dados_verificados_em": "2026-11-24T21:13:22.182156+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": false,
-  "fonte": "CBF",
+  "fonte": "ge",
   "fontes": {
-    "classificacao": "CBF",
+    "classificacao": "ge",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -17377,7 +17377,7 @@
     "rodada_atual": 36,
     "rodada_confirmada": true,
     "jogos_minimos": 35,
-    "jogos_maximos": 36,
+    "jogos_maximos": 37,
     "times_total": 20,
     "campeonato_finalizado": false,
     "lider": "Flamengo",
@@ -17385,6 +17385,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-24T10:57:26.950786+00:00",
+  "agenda_atualizada_em": "2026-11-24T21:13:22.179870+00:00",
   "historico_atualizado_em": "2026-11-15T02:41:30.700192+00:00"
 }
