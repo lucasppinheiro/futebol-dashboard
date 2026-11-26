@@ -109,15 +109,15 @@
       "estado": "MG",
       "cor": "#000000",
       "escudo": "static/img/escudos/normalizados/CAM.png",
-      "jogos": 35,
+      "jogos": 36,
       "vitorias": 14,
-      "empates": 9,
+      "empates": 10,
       "derrotas": 12,
       "gols_pro": 44,
       "gols_contra": 40,
       "saldo": 4,
-      "pontos": 51,
-      "aproveitamento": 48.6
+      "pontos": 52,
+      "aproveitamento": 48.1
     },
     {
       "posicao": 8,
@@ -240,6 +240,23 @@
     },
     {
       "posicao": 15,
+      "time": "Corinthians",
+      "sigla": "COR",
+      "estado": "SP",
+      "cor": "#000000",
+      "escudo": "static/img/escudos/normalizados/COR.png",
+      "jogos": 36,
+      "vitorias": 10,
+      "empates": 11,
+      "derrotas": 15,
+      "gols_pro": 40,
+      "gols_contra": 42,
+      "saldo": -2,
+      "pontos": 41,
+      "aproveitamento": 38.0
+    },
+    {
+      "posicao": 16,
       "time": "Grêmio",
       "sigla": "GRE",
       "estado": "RS",
@@ -256,7 +273,7 @@
       "aproveitamento": 38.0
     },
     {
-      "posicao": 16,
+      "posicao": 17,
       "time": "Mirassol",
       "sigla": "MIR",
       "estado": "SP",
@@ -271,23 +288,6 @@
       "saldo": -10,
       "pontos": 41,
       "aproveitamento": 38.0
-    },
-    {
-      "posicao": 17,
-      "time": "Corinthians",
-      "sigla": "COR",
-      "estado": "SP",
-      "cor": "#000000",
-      "escudo": "static/img/escudos/normalizados/COR.png",
-      "jogos": 35,
-      "vitorias": 10,
-      "empates": 10,
-      "derrotas": 15,
-      "gols_pro": 40,
-      "gols_contra": 42,
-      "saldo": -2,
-      "pontos": 40,
-      "aproveitamento": 38.1
     },
     {
       "posicao": 18,
@@ -12764,15 +12764,15 @@
         "estado": "MG",
         "cor": "#000000",
         "escudo": "static/img/escudos/normalizados/CAM.png",
-        "jogos": 35,
+        "jogos": 36,
         "vitorias": 14,
-        "empates": 9,
+        "empates": 10,
         "derrotas": 12,
         "gols_pro": 44,
         "gols_contra": 40,
         "saldo": 4,
-        "pontos": 51,
-        "aproveitamento": 48.6
+        "pontos": 52,
+        "aproveitamento": 48.1
       },
       {
         "posicao": 8,
@@ -12895,6 +12895,23 @@
       },
       {
         "posicao": 15,
+        "time": "Corinthians",
+        "sigla": "COR",
+        "estado": "SP",
+        "cor": "#000000",
+        "escudo": "static/img/escudos/normalizados/COR.png",
+        "jogos": 36,
+        "vitorias": 10,
+        "empates": 11,
+        "derrotas": 15,
+        "gols_pro": 40,
+        "gols_contra": 42,
+        "saldo": -2,
+        "pontos": 41,
+        "aproveitamento": 38.0
+      },
+      {
+        "posicao": 16,
         "time": "Grêmio",
         "sigla": "GRE",
         "estado": "RS",
@@ -12911,7 +12928,7 @@
         "aproveitamento": 38.0
       },
       {
-        "posicao": 16,
+        "posicao": 17,
         "time": "Mirassol",
         "sigla": "MIR",
         "estado": "SP",
@@ -12926,23 +12943,6 @@
         "saldo": -10,
         "pontos": 41,
         "aproveitamento": 38.0
-      },
-      {
-        "posicao": 17,
-        "time": "Corinthians",
-        "sigla": "COR",
-        "estado": "SP",
-        "cor": "#000000",
-        "escudo": "static/img/escudos/normalizados/COR.png",
-        "jogos": 35,
-        "vitorias": 10,
-        "empates": 10,
-        "derrotas": 15,
-        "gols_pro": 40,
-        "gols_contra": 42,
-        "saldo": -2,
-        "pontos": 40,
-        "aproveitamento": 38.1
       },
       {
         "posicao": 18,
@@ -17452,12 +17452,12 @@
       "id": 555091,
       "rodada": 36,
       "inicio_em": "2026-11-25T23:00:00Z",
-      "status": "agendada",
+      "status": "em_andamento",
       "mandante": "CAM",
       "visitante": "COR",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 0
       }
     },
     {
@@ -17701,14 +17701,14 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-25T04:17:07.590560+00:00",
-  "dados_verificados_em": "2026-11-25T15:37:59.726303+00:00",
+  "dados_atualizados_em": "2026-11-26T00:22:39.856386+00:00",
+  "dados_verificados_em": "2026-11-26T00:22:39.856539+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": true,
-  "fonte": "CBF",
+  "fonte": "ge",
   "fontes": {
-    "classificacao": "CBF",
+    "classificacao": "ge",
     "artilharia": "CBF",
     "partidas": "football-data.org"
   },
@@ -17718,7 +17718,7 @@
     "rodadas_total": 38,
     "rodada_atual": 37,
     "rodada_confirmada": true,
-    "jogos_minimos": 35,
+    "jogos_minimos": 36,
     "jogos_maximos": 37,
     "times_total": 20,
     "campeonato_finalizado": false,
@@ -17727,6 +17727,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-25T15:37:59.316927+00:00",
-  "historico_atualizado_em": "2026-11-25T15:37:59.722302+00:00"
+  "agenda_atualizada_em": "2026-11-26T00:22:39.268784+00:00",
+  "historico_atualizado_em": "2026-11-26T00:22:39.853129+00:00"
 }
