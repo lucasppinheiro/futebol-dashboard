@@ -41,15 +41,15 @@
       "estado": "MG",
       "cor": "#003DA5",
       "escudo": "static/img/escudos/normalizados/CRU.png",
-      "jogos": 36,
-      "vitorias": 20,
+      "jogos": 37,
+      "vitorias": 21,
       "empates": 6,
       "derrotas": 10,
-      "gols_pro": 59,
+      "gols_pro": 60,
       "gols_contra": 50,
-      "saldo": 9,
-      "pontos": 66,
-      "aproveitamento": 61.1
+      "saldo": 10,
+      "pontos": 69,
+      "aproveitamento": 62.2
     },
     {
       "posicao": 4,
@@ -58,15 +58,15 @@
       "estado": "RJ",
       "cor": "#7B0023",
       "escudo": "static/img/escudos/normalizados/FLU.png",
-      "jogos": 36,
+      "jogos": 37,
       "vitorias": 18,
       "empates": 9,
-      "derrotas": 9,
+      "derrotas": 10,
       "gols_pro": 57,
-      "gols_contra": 42,
-      "saldo": 15,
+      "gols_contra": 43,
+      "saldo": 14,
       "pontos": 63,
-      "aproveitamento": 58.3
+      "aproveitamento": 56.8
     },
     {
       "posicao": 5,
@@ -12696,15 +12696,15 @@
         "estado": "MG",
         "cor": "#003DA5",
         "escudo": "static/img/escudos/normalizados/CRU.png",
-        "jogos": 36,
-        "vitorias": 20,
+        "jogos": 37,
+        "vitorias": 21,
         "empates": 6,
         "derrotas": 10,
-        "gols_pro": 59,
+        "gols_pro": 60,
         "gols_contra": 50,
-        "saldo": 9,
-        "pontos": 66,
-        "aproveitamento": 61.1
+        "saldo": 10,
+        "pontos": 69,
+        "aproveitamento": 62.2
       },
       {
         "posicao": 4,
@@ -12713,15 +12713,15 @@
         "estado": "RJ",
         "cor": "#7B0023",
         "escudo": "static/img/escudos/normalizados/FLU.png",
-        "jogos": 36,
+        "jogos": 37,
         "vitorias": 18,
         "empates": 9,
-        "derrotas": 9,
+        "derrotas": 10,
         "gols_pro": 57,
-        "gols_contra": 42,
-        "saldo": 15,
+        "gols_contra": 43,
+        "saldo": 14,
         "pontos": 63,
-        "aproveitamento": 58.3
+        "aproveitamento": 56.8
       },
       {
         "posicao": 5,
@@ -13013,18 +13013,18 @@
       "gols": 20
     },
     {
+      "jogador": "Kaio Jorge",
+      "time": "Cruzeiro",
+      "sigla": "CRU",
+      "posicao": "Nao informado",
+      "gols": 16
+    },
+    {
       "jogador": "Gabriel Barbosa",
       "time": "Santos FC",
       "sigla": "SAN",
       "posicao": "Nao informado",
       "gols": 16
-    },
-    {
-      "jogador": "Kaio Jorge",
-      "time": "Cruzeiro",
-      "sigla": "CRU",
-      "posicao": "Nao informado",
-      "gols": 15
     },
     {
       "jogador": "Samuel Lino",
@@ -17488,12 +17488,12 @@
       "id": 555105,
       "rodada": 37,
       "inicio_em": "2026-11-27T23:00:00Z",
-      "status": "agendada",
+      "status": "encerrada",
       "mandante": "FLU",
       "visitante": "CRU",
       "placar": {
-        "mandante": null,
-        "visitante": null
+        "mandante": 0,
+        "visitante": 1
       }
     },
     {
@@ -17701,8 +17701,8 @@
       }
     }
   ],
-  "dados_atualizados_em": "2026-11-27T02:51:54.353197+00:00",
-  "dados_verificados_em": "2026-11-27T21:58:44.075841+00:00",
+  "dados_atualizados_em": "2026-11-28T03:55:06.918392+00:00",
+  "dados_verificados_em": "2026-11-28T03:55:06.918545+00:00",
   "dados_desatualizados": false,
   "agenda_desatualizada": false,
   "historico_desatualizado": false,
@@ -17727,6 +17727,6 @@
     "artilheiro": "Kevin Viveros",
     "artilheiro_gols": 21
   },
-  "agenda_atualizada_em": "2026-11-27T21:58:44.073205+00:00",
+  "agenda_atualizada_em": "2026-11-28T03:55:06.915489+00:00",
   "historico_atualizado_em": "2026-11-26T09:32:31.378522+00:00"
 }
